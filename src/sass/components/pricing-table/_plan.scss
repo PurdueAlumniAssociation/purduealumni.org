@@ -1,0 +1,110 @@
+.plan {
+    overflow: hidden;
+    font-family: "Barlow";
+    position: relative;
+
+    &__best-value {
+        // position: absolute;
+        display: block;
+        text-align: center;
+        padding: .5em;
+        color: $brown;
+        background-color: gray;
+        width: 80%;
+        margin: auto;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        color: #fff;
+
+        &-spacer {
+            display: block;
+            margin-top: 34px;
+        }
+    }
+
+    &__title {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        margin: 0;
+        text-align: center;
+        color: #fff;
+        background: $gold;
+        padding: .5em;
+        font-weight: 400;
+
+        &--green {
+            background: $green;
+        }
+
+        &--orange {
+            background: $orange;
+        }
+
+        &--teal {
+            background: $teal;
+        }
+    }
+
+    &__description {
+        padding: 0 1em;
+        text-align: left;
+    }
+
+    &__details {
+        color: $brown;
+        text-align: center;
+
+        &-list {
+            list-style: none;
+            margin: 0;
+            margin-bottom: 1em;
+            padding: 0;
+            text-align: left;
+        }
+
+        &-list-item {
+            padding: .7em 2em .7em .4em;
+            border-bottom: 1px solid $gray;
+            position: relative;
+        }
+
+        &-included, &-excluded {
+            position: absolute;
+            top: 12px;
+            right: .4em;
+        }
+
+        &-included {
+            color: $green;
+        }
+
+        &-excluded {
+            color: $red;
+            font-size: 1.3em;
+        }
+    }
+
+    &__more-link {
+        display: inline-block;
+        position: relative;
+        z-index: 1;
+        padding: 1em;
+        margin: -1em;
+    }
+
+    &__cost {
+        margin: .75em 0;
+        font-size: 3em;
+        text-align: center;
+
+        &-year {
+            font-size: 1.5rem;
+        }
+    }
+
+    &__CTA {
+        display: block;
+        max-width: 30%;
+        margin: 1em auto;
+    }
+}

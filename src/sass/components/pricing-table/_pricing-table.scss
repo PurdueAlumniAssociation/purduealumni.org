@@ -1,0 +1,23 @@
+.pricing-table {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+    justify-items: center;
+    margin: 1em;
+
+    @include breakpoint(sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include breakpoint(md) {
+        margin: 2em;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(lg) {
+        margin: 3em;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@import "plan";

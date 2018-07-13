@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Pricing Table</title>
+    <link rel="stylesheet" type="text/css" href="../../css/style.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700" rel="stylesheet">
+</head>
+<body>
+    <section class="pricing-table">
+    @@include('../partials/plan.html', {
+        "name": "Basic",
+        "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quae? Quia nisi commodi.",
+        "cost": "25",
+        "colorClass": " plan__title--gold",
+        "link": "#",
+        "bestValue": false
+    })
+    @@include('../partials/plan.html', {
+        "name": "Plus",
+        "desc": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
+        "cost": "59",
+        "colorClass": " plan__title--teal",
+        "link": "#",
+        "bestValue": false
+    })
+    @@include('../partials/plan.html', {
+        "name": "Professional",
+        "desc": "Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.",
+        "cost": "99",
+        "colorClass": " plan__title--orange",
+        "link": "#",
+        "bestValue": true
+    })
+    @@include('../partials/plan.html', {
+        "name": "Career Max",
+        "desc": "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
+        "cost": "199",
+        "colorClass": " plan__title--green",
+        "link": "#",
+        "bestValue": false
+    })
+    </section>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<div class="pricing-table__plan plan">
+    @@if(context.bestValue === true) {
+        <span class="plan__best-value">Best Value!</span>
+    }
+    @@if(context.bestValue === false) {
+        <span class="plan__best-value-spacer"></span>
+    }
+    <h2 class="plan__title@@colorClass">@@name</h2>
+    <div class="plan__details">
+        <p class="plan__description">@@desc</p>
+        <!-- <ul class="plan__details-list">
+            <li class="plan__details-list-item"><span class="sr-only">Included:</span>Access to members-only events<i aria-hidden class="fas fa-check plan__details-included" title="Included"></i></li>
+            <li class="plan__details-list-item"><span class="sr-only">Included:</span>Discounted member pricing at Purdue Alumni events<i aria-hidden class="fas fa-check plan__details-included" title="Included"></i></li>
+            <li class="plan__details-list-item"><span class="sr-only">Included:</span>Discounts on Purdue gear and merchandise<i aria-hidden class="fas fa-check plan__details-included" title="Included"></i></li>
+            <li class="plan__details-list-item"><span class="sr-only">Included:</span>Online networking events<i aria-hidden class="fas fa-check plan__details-included" title="Included"></i></li>
+            <li class="plan__details-list-item"><span class="sr-only">Not Included:</span>Access to online Alumni directory<i aria-hidden class="fas fa-times plan__details-excluded" title="Not Included"></i></li>
+            <li class="plan__details-list-item"><span class="sr-only">Not Included:</span>Access to Purdue Alumni travel programs and experiences<i aria-hidden class="fas fa-times plan__details-excluded" title="Not Included"></i></li>
+        </ul> -->
+        <a class="plan__more-link" href="@@link">More Details</a>
+        <p class="plan__cost">$@@cost<span class="plan__cost-year"> / year</span></p>
+        <a class="button plan__CTA" href="#">Sign Up</a>
+    </div>
+</div>
