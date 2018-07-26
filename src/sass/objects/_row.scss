@@ -1,0 +1,15 @@
+.row {
+    padding: 1em 2em;
+
+    @include breakpoint(sm) {
+        padding: 2em 4em;
+    }
+
+    @include breakpoint(md) {
+        padding: 3em 6em;
+    }
+
+    @include breakpoint(lg) {
+        padding: 4em 8em;
+    }
+}

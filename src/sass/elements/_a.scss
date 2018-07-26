@@ -1,0 +1,16 @@
+a {
+    font-weight: 700;
+    text-decoration: underline;
+
+    &:visited {
+        color: inherit;
+    }
+
+    &:hover {
+        text-decoration: none;
+        color: #5e5e5e;
+    }
+
+    &:active {
+    }
+}
