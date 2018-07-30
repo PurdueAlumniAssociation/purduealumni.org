@@ -1,6 +1,6 @@
 // v2
 .plan {
-    overflow: hidden;
+    // overflow: hidden;
     font-family: $barlow;
     position: relative;
     margin: 2px;
@@ -49,14 +49,30 @@
         border-right: 3px solid $orange;
         border-bottom: 3px solid $orange;
         border-left: 3px solid $orange;
+
+        &:before {
+            content: "Recommended";
+            background-color: $orange;
+            color: $white;
+            font-size: 1.1em;
+            position: absolute;
+            top: -1.5em;
+            z-index: 10;
+            height: 1.5em;
+            padding-bottom: .5em;
+            line-height: 1.5;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% + 6px);
+        }
     }
 
-    &__best {
-        position: absolute;
-        right: 20px;
-        font-size: 3em;
-        color: $orange;
-    }
+    // &__best {
+    //     position: absolute;
+    //     right: 20px;
+    //     font-size: 3em;
+    //     color: $orange;
+    // }
 
     &__title {
         font-family: $barlow;
@@ -74,10 +90,10 @@
         margin: .5em 0;
         font-size: 3em;
         text-align: center;
+    }
 
-        &-year {
-            font-size: 1.5rem;
-        }
+    &__cost-year {
+        font-size: 1.5rem;
     }
 
     &__learn-more {
