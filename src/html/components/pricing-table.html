@@ -4,39 +4,43 @@
     "title": "Pricing Table"
 })
 <body>
-    <section class="pricing-table">
-    @@include('../partials/plan.html', {
-        "name": "Basic",
-        "desc": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maxime, quae? Quia nisi commodi.",
-        "cost": "25",
-        "colorClass": " plan__title--gold",
-        "link": "#",
-        "bestValue": false
-    })
-    @@include('../partials/plan.html', {
-        "name": "Plus",
-        "desc": "Ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.",
-        "cost": "59",
-        "colorClass": " plan__title--teal",
-        "link": "#",
-        "bestValue": false
-    })
-    @@include('../partials/plan.html', {
-        "name": "Professional",
-        "desc": "Laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate.",
-        "cost": "99",
-        "colorClass": " plan__title--orange",
-        "link": "#",
-        "bestValue": true
-    })
-    @@include('../partials/plan.html', {
-        "name": "Career Max",
-        "desc": "velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat.",
-        "cost": "199",
-        "colorClass": " plan__title--green",
-        "link": "#",
-        "bestValue": false
-    })
+    <section class="row">
+        <h1 style="text-align: center;">Membership Plans</h1>
+        <div class="pricing-table">
+            @@include('../partials/plan.html', {
+                "name": "Career Max",
+                "desc": "The ultimate way to take your career to the next level. 1-on-1 career counseling, unlimited LinkedIn Learning and so much more.",
+                "cost": "199",
+                "color": "green",
+                "link": "#",
+                "highlight": false
+            })
+            @@include('../partials/plan.html', {
+                "name": "Professional",
+                "desc": "The membership to jump-start your career. Purdue online courses, job search tools, research database access, webinars and more!",
+                "cost": "99",
+                "color": "orange",
+                "link": "#",
+                "highlight": true
+            })
+            @@include('../partials/plan.html', {
+                "name": "Plus",
+                "desc": "The perfect way to stay connected and save. Nationwide savings program, magazine and newsletters and more.",
+                "cost": "59",
+                "color": "teal",
+                "link": "#",
+                "highlight": false
+            })
+            @@include('../partials/plan.html', {
+                "name": "Basic",
+                "desc": "The no-frills gateway to Purdue Alumni. Access to discounts, some events, travel and more.",
+                "cost": "25",
+                "color": "gold",
+                "link": "#",
+                "highlight": false
+            })
+        </div>
+        <p style="text-align:center;"><a href="#">View the detailed comparison</a></p>
     </section>
 </body>
 </html>
