@@ -1,5 +1,12 @@
 // raw components
 @import "buttons/buttons";
+@import "card/card";
+@import "table/table";
 
 // components with custom implementations of raw components
 @import "pricing-table/pricing-table";
+
+// standalone components
+@import "detailed-comparison-table/detailed-comparison-table";
+@import "tooltip/tooltip";
+@import "plan-details/plan-details";

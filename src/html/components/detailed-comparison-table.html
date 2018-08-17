@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/head.html', {
+    "title": "Detailed Comparison Table"
+})
+<body>
+    <section class="row">
+        <h1 style="text-align: center; margin-bottom: 1em;">Membership Plan Comparison</h1>
+        <table class="detailed-comparison-table">
+            <caption class="detailed-comparison-table__caption">A detailed comparison between membership tiers.</caption>
+            <colgroup>
+                <col class="detailed-comparison-table__column detailed-comparison-table__column--benefits"></col>
+                <col class="detailed-comparison-table__column detailed-comparison-table__column--career-max"></col>
+                <col class="detailed-comparison-table__column detailed-comparison-table__column--professional"></col>
+                <col class="detailed-comparison-table__column detailed-comparison-table__column--plus"></col>
+                <col class="detailed-comparison-table__column detailed-comparison-table__column--basic"></col>
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="sr-only" scope="col">Benefit</th>
+                    <th scope="col">Career Max</th>
+                    <th class="detailed-comparison-table__recommended" scope="col">Professional</th>
+                    <th scope="col">Plus</th>
+                    <th scope="col">Basic</th>
+                </tr>
+            </thead>
+            <tfoot>
+                <tr>
+                    <th scope="col">Pricing</th>
+                    <th scope="col"><span class="detailed-comparison-table__cost">$199</span><span class="detailed-comparison-table__cost-year">/year</span></th>
+                    <th scope="col"><span class="detailed-comparison-table__cost">$99</span><span class="detailed-comparison-table__cost-year">/year</span></th>
+                    <th scope="col"><span class="detailed-comparison-table__cost">$59</span><span class="detailed-comparison-table__cost-year">/year</span></th>
+                    <th scope="col"><span class="detailed-comparison-table__cost">$25</span><span class="detailed-comparison-table__cost-year">/year</span></th>
+                </tr>
+            </tfoot>
+            <tbody>
+                <tr>
+                    <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">LinkedIn Learning
+                        <span class="tooltip detailed-comparison-table__tooltip" role="tooltip">
+                            <i class="far fa-question-circle detailed-comparison-table__tooltip-icon" title="Learn More"></i>
+                            <span class="tooltip__content">A bit about LinkedIn Learning. ($360 value)</span>
+                        </span>
+                    </th>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Career Max"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Professional"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Plus"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Basic"></i></td>
+                </tr>
+                <tr>
+                    <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">StengthsFinder
+                        <span class="tooltip detailed-comparison-table__tooltip" role="tooltip">
+                            <i class="far fa-question-circle detailed-comparison-table__tooltip-icon" title="Learn More"></i>
+                            <span class="tooltip__content">A bit about StrengthsFinder. Career Max: access to full version. ($89 value). Professional: access to the top 5 version. ($20 value)</span>
+                        </span>
+                    </th>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Career Max"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Professional"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Plus"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Basic"></i></td>
+                </tr>
+                <tr>
+                    <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">Subscription to <em>Purdue Alumnus</em>
+                        <span class="tooltip detailed-comparison-table__tooltip" role="tooltip">
+                            <i class="far fa-question-circle detailed-comparison-table__tooltip-icon" title="Learn More"></i>
+                            <span class="tooltip__content">A bit about Purdue Alumnus.</span>
+                        </span>
+                    </th>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Career Max"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Professional"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Plus"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--excluded"><i class="fas fa-times" title="Not Included in Basic"></i></td>
+                </tr>
+                <tr>
+                    <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">Discounts on Purdue gear and merchandise</th>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Career Max"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Professional"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Plus"></i></td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Basic"></i></td>
+                </tr>
+            </tbody>
+            <tfoot>
+
+            </tfoot>
+        </table>
+    </section>
+</body>
+</html>

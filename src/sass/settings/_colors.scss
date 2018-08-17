@@ -1,13 +1,20 @@
-//$gold: #c28e0e;
-$gold: #bf8c0d;
-$aa-gold: #bf8c0d;
+$aa-gold: #98700D;
+// $gold: #c28e0e;
+$gold: $aa-gold;
 $orange: #b46012;
 $green: #849e2a;
 $teal: #29a592;
 $brown: #584f43;
+$blue: #6e99b4;
 $gray: #bababa;
 $red: #e04826;
 $light-gray: #eee;
 $almost-black: #383838;
 $black: #000000;
 $white: #ffffff;
+
+// plans
+$basic: $blue;
+$plus: $green;
+$professional: $gold;
+$career-max: $orange;

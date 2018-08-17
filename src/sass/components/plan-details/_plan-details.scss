@@ -1,0 +1,253 @@
+.flex-item-1-2-3 {
+    flex-basis: 100%;
+
+    @include breakpoint(sm) {
+        flex-basis: 50%;
+    }
+    @include breakpoint(md) {
+        flex-basis: 33%;
+    }
+}
+
+.plan-details {
+
+    @include breakpoint(sm) {
+        display: flex;
+        //justify-content: center;
+        //align-items: flex-start;
+        // align-items: center;
+    }
+
+    &__summary {
+        @include breakpoint(sm) {
+            flex: 1 1 70%;
+            // padding: 50px;
+            // padding-left: 0;
+            padding-right: 25px;
+            position: relative;
+
+            &:after {
+                content: "";
+                border-left: 3px solid $gold;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                right: -3px;
+            }
+        }
+
+        h1 {
+            margin-top: 0;
+        }
+
+        &--basic {
+            &:after {
+                border-color: $basic !important;
+            }
+        }
+
+        &--plus {
+            &:after {
+                border-color: $plus !important;
+            }
+        }
+
+        &--professional {
+            &:after {
+                border-color: $professional !important;
+            }
+        }
+
+        &--career-max {
+            &:after {
+                border-color: $career-max !important;
+            }
+        }
+    }
+
+    &__benefits {
+        border-top: 3px solid $gold;
+        font-size: 1.2em;
+        margin-bottom: 2.5em;
+
+        @include breakpoint(sm) {
+            margin-bottom: 0;
+            border-top: 0;
+            flex: 1 0 30%;
+            text-align: left;
+            // padding: 50px;
+            padding-left: 25px;
+            position: relative;
+
+            &:before {
+                content: "";
+                border-left: 3px solid $gold;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        h2 {
+            @include breakpoint(sm) {
+                margin: 0;
+            }
+        }
+
+        &--basic {
+            border-top-color: $basic;
+
+            &:before {
+                border-color: $basic !important;
+            }
+        }
+
+        &--plus {
+            border-top-color: $plus;
+
+            &:before {
+                border-color: $plus !important;
+            }
+        }
+
+        &--professional {
+            border-top-color: $professional;
+
+            &:before {
+                border-color: $professional !important;
+            }
+        }
+
+        &--career-max {
+            border-top-color: $career-max;
+
+            &:before {
+                border-color: $career-max !important;
+            }
+        }
+
+        & ul {
+            text-align: center;
+            list-style-type: none;
+            line-height: 2.25;
+
+            @include breakpoint(sm) {
+                padding: 0;
+                margin: 0;
+                text-align: left;
+            }
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-family: $barlow;
+        color: $almost-black;
+        font-weight: 700;
+        margin-top: 0;
+    }
+
+    &__description {
+        text-align: center;
+
+        &--bold {
+            font-weight: 700;
+        }
+
+        &--slim {
+            margin-top: .25em;
+            margin-bottom: .25em;
+        }
+    }
+
+    // &__cost {
+    //     margin: .5em 0;
+    //     font-size: 3em;
+    //     text-align: center;
+    // }
+    //
+    // &__cost-year {
+    //     font-size: 1.5rem;
+    // }
+
+    &__button-row-title {
+        text-align: center;
+        font-family: $barlow;
+        margin-bottom: 0;
+        color: $almost-black;
+
+        &--small {
+            font-size: 1.25em;
+        }
+    }
+
+    &__button-row {
+        display: flex;
+        justify-content: center;
+
+        &--space-around {
+            display: block;
+            @include breakpoint(sm) {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+    }
+
+    &__button-row-container {
+        text-align: center;
+        padding: 0 .5em;
+        @include breakpoint(sm) {
+            padding: 0 1em;
+        }
+
+        p {
+            font-weight: 700;
+            margin-bottom: .5em;
+            white-space: nowrap;
+        }
+    }
+
+    &__CTA {
+        display: block;
+        text-align: center;
+        width: 90px;
+        margin: auto;
+        font-weight: 400;
+        font-size: 1.2em;
+    }
+
+    &__pricing {
+        font-size: 2em;
+        color: $gold;
+
+        &--basic {
+            color: $basic;
+        }
+
+        &--plus {
+            color: $plus;
+        }
+
+        &--professional {
+            color: $professional;
+        }
+
+        &--career-max {
+            color: $professional;
+        }
+
+        &--small {
+            font-size: 1.25em;
+        }
+    }
+}
+
+%divider {
+    content: "";
+    border-left: 3px solid $gold;
+    height: 100%;
+    position: absolute;
+    top: 0;
+}

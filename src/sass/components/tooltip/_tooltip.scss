@@ -1,0 +1,62 @@
+%visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+%showvisuallyhidden {
+    clip: auto;
+    overflow: visible;
+}
+
+.tooltip {
+    border: none;
+    background: none;
+    position: relative;
+}
+
+.tooltip__content {
+    @extend %visuallyhidden;
+    height: auto;
+    display: block;
+    position: absolute;
+    // styling specific to this example
+    bottom: 130%;
+    left: 50%;
+    z-index: 200;
+    width: 180px;
+    margin: 0 0 5px -90px;
+    padding: 0.75em 1em;
+    text-align: center;
+    color: #FFF;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #474747;
+    transition: all 0.4s cubic-bezier(0.3, 0, 0, 1);
+    transform: rotateX(20deg) scale(0.8);
+    transform-origin: center 120%;
+    -webkit-backface-visibility: hidden;
+    opacity: 0;
+}
+
+.tooltip {
+    display: inline-block;
+    text-align: center;
+    // nice big hit area
+    min-width: 40px;
+
+    &:focus,
+    &:hover {
+        .tooltip__content {
+            @extend %showvisuallyhidden;
+            // styling specific to this example
+            transform: rotateX(0deg) scale(1);
+            opacity: 1;
+        }
+    }
+}

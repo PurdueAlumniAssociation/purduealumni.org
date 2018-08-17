@@ -1,0 +1,56 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+.mobile-only {
+    @include breakpoint(sm) {
+        display: none;
+    }
+}
+
+.not-mobile {
+    @include breakpoint(xs) {
+        display: none;
+    }
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+.flex {
+    display: flex;
+
+    &--space-evenly {
+        justify-content: space-evenly;
+    }
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}

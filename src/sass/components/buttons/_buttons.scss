@@ -7,14 +7,17 @@
     cursor: pointer;
     font-family: $barlow;
     font-size: 1em;
-    line-height: 1.5em;
+    font-weight: 400;
+    line-height: 1.5;
     padding: .4em 1.5em;
     text-decoration: none;
 
     $button-colors: teal $teal,
                     orange $orange,
                     gold $gold,
-                    green $green;
+                    blue $blue,
+                    green $green,
+                    light-gray $light-gray;
 
     @each $color in $button-colors {
         &--#{nth($color, 1)} { // i.e.  &--teal
@@ -32,73 +35,48 @@
             }
         }
     }
-    // &--teal {
-    //     color: $teal;
-    //     border-color: $teal;
-    //
-    //     &:visited {
-    //         color: $teal;
-    //     }
-    //
-    //     &:hover {
-    //         background-color: $teal;
-    //         border-color: $teal;
-    //     }
-    // }
 
-    // &--orange {
-    //     color: $orange;
-    //     border-color: $orange;
-    // }
-    //
-    // &--green {
-    //     color: $green;
-    //     border-color: $green;
-    // }
+    @each $color in $button-colors {
+        &--invert-#{nth($color, 1)} { // i.e.  &--invert-teal
+            color: $white;
+            border-color: nth($color, 2);
+            background-color: nth($color, 2);
+
+            &:visited {
+                color: $white;
+            }
+
+            &:hover {
+                background-color: $white;
+                color: nth($color, 2);
+            }
+        }
+    }
+
+    &--dark-text {
+        color: $almost-black;
+
+        &:visited {
+            color: $almost-black;
+        }
+
+        &:hover {
+            color: $almost-black;
+        }
+    }
+
+    &--small {
+        font-size: 1em;
+        line-height: 1.5;
+        padding: .2em .75em;
+    }
+
+    &--bold {
+        font-weight: 700;
+    }
 
     &:focus {
         outline: none;
-        box-shadow: 0 0 0 2px $red;
+        box-shadow: 0 0 0 3px lightblue;
     }
-    //
-    // &:hover {
-    //     background-color: $gold;
-    //     color: #fff;
-    // }
-    //
-    // &--teal:hover {
-    // }
-    //
-    // &--orange:hover {
-    //     background-color: $orange;
-    //     border-color: $orange;
-    // }
-    //
-    // &--green:hover {
-    //     background-color: $green;
-    //     border-color: $green;
-    // }
 }
-
-// Old button style
-// .button {
-//     display: inline-block;
-//     margin: auto 1em;
-//     padding: .5em 1.5em;
-//     max-width: 100%;
-//     text-align: center;
-//     border: 2px solid $brown;
-//     text-decoration: none;
-//     color: $brown;
-//
-//     &:link,&:visited{
-//         text-decoration: none;
-//     }
-//
-//     &:hover,&:active,&:focus{
-//         text-decoration:none;
-//         cursor:pointer;
-//         background-color: $brown;
-//         color: #fff;
-//     }
-// }

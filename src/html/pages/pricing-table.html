@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/head.html', {
+    "title": "Pricing Table",
+    "pageCSS": "../../css/pages/pricing-table.css"
+})
+<body>
+    <div class="hero-container">
+        <div class="hero-text">
+            <h1 class="text-center">Membership Plans</h1>
+            <p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>
+        </div>
+    </div>
+    <section class="row row--slim row--flex row--space-between row--iframe">
+        <p>
+            <a class="button button--invert-light-gray button--dark-text button--bold" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9226" target="_top">Current Members - Click here for upgrade info</a>
+        </p>
+        <p>
+            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">FAQ</a>
+            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">Membership Options FAQ</a>
+        </p>
+    </section>
+    <!-- <section class="row row--slim row--flex row--flex-outside" style="justify-content:flex-end;">
+        <p>
+            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">FAQ</a>
+            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">Membership Options FAQ</a>
+        </p>
+    </section> -->
+    <section class="row">
+        <div class="pricing-table">
+            @@include('../partials/plan.html', {
+                "name": "Basic",
+                "desc": "The no-frills gateway to Purdue Alumni. Discounted member pricing at events, Purdue gear discounts, online directory and more.",
+                "cost": "25",
+                "color": "basic",
+                "link": "https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9058",
+                "highlight": false
+            })
+            @@include('../partials/plan.html', {
+                "name": "Plus",
+                "desc": "The ‘traditional’ membership &mdash; the perfect way to stay connected and save. Nationwide savings program, clubs and alumni networks, magazine, newsletters, and more.",
+                "cost": "59",
+                "color": "plus",
+                "link": "https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9057",
+                "highlight": true
+            })
+            @@include('../partials/plan.html', {
+                "name": "Professional",
+                "desc": "The membership to jump-start your career. Purdue online course discounts, job search tools, research database, career development webinars, and more.",
+                "cost": "99",
+                "color": "professional",
+                "link": "https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9056",
+                "highlight": false
+            })
+            @@include('../partials/plan.html', {
+                "name": "Career Max",
+                "desc": "The ultimate way to take your career to the next level. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.",
+                "cost": "199",
+                "color": "career-max",
+                "link": "https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9052",
+                "highlight": false
+            })
+        </div>
+        <p class="text-center">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.<br />
+        Discounts available for recent grads.<br />
+        <a href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9051" target="_top">View the detailed comparison</a></p>
+    </section>
+</body>
+</html>

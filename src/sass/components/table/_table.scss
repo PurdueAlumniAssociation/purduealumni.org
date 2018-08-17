@@ -1,0 +1,35 @@
+.table {
+    border-spacing: 0;
+
+    caption {
+        font-family: $barlow;
+        font-size: 1.5em;
+        margin-bottom: .8em;
+    }
+
+    &--text-center {
+        th, td {
+            text-align: center;
+        }
+    }
+
+    &--roomy {
+        th, td {
+            padding: .2em;
+        }
+
+        @include breakpoint(sm) {
+            th, td {
+                padding: 1em;
+            }
+        }
+    }
+
+    &--font-big {
+        font-size: 1em;
+
+        @include breakpoint(sm) {
+            font-size: 1.2em;
+        }
+    }
+}

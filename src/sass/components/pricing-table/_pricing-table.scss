@@ -1,6 +1,7 @@
 .pricing-table {
     // no flex at mobile
     margin: auto;
+    margin-top: 3em;
 
     @include breakpoint(sm) {
         display: flex;

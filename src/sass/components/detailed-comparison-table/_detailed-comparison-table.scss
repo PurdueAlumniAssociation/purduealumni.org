@@ -1,0 +1,184 @@
+.detailed-comparison-table {
+    border-collapse: separate;
+    border-spacing: 4px 0;
+    margin: auto;
+    width: 100%;
+
+    &__caption {
+        @extend .sr-only;
+    }
+
+    & thead th {
+        padding: 0 .25em;
+        position: relative;
+
+        @include breakpoint(xs) {
+            &.rotate {
+                // transform: rotate(-90deg);
+                height: 140px;
+                white-space: nowrap;
+
+                & > div {
+                    transform: rotate(-90deg) translate(-20px);
+                    width: 50px;
+                }
+            }
+        }
+
+        @include breakpoint(xs) {
+            width: 50px;
+            //font-size: .8em;
+        }
+
+        @include breakpoint(sm) {
+            width: 125px;
+            font-size: 1em;
+            padding: 0 1em;
+        }
+    }
+
+    & thead th:nth-child(1) {
+        width: auto;
+    }
+
+    // pricing row
+    & tfoot th:nth-child(1) {
+        text-align: right;
+    }
+
+    & tfoot th {
+        font-weight: 400;
+        padding: .5em;
+
+        @include breakpoint(xs) {
+            font-size: .8em;
+        }
+    }
+    // end pricing row
+
+    &__cost {
+        font-size: 1.5em;
+    }
+
+    &__cost-year {
+        @include breakpoint(xs) {
+            display: block;
+        }
+    }
+
+    & tr {
+        height: 40px;
+    }
+
+    & thead tr {
+        @include breakpoint(xs) {
+            height: 110px;
+        }
+    }
+
+    // highlighted column
+    $dct-hightlight-color: $plus;
+    $dct-highlighted-column: 3;
+    & thead th:nth-child(#{$dct-highlighted-column}), & tfoot th:nth-child(#{$dct-highlighted-column}), & tbody td:nth-child(#{$dct-highlighted-column}) {
+        border: 3px solid $dct-hightlight-color;
+        border-top-width: 0;
+        border-bottom-width: 0;
+    }
+
+    & thead th:nth-child(#{$dct-highlighted-column}) {
+        border-top-width: 10px;
+
+        &:before {
+            content: "Most Popular";
+            @include breakpoint(xs) {
+                content: "Popular";
+            }
+            background-color: $dct-hightlight-color;
+            color: $white;
+            font-size: .8em;
+            font-weight: 400;
+            position: absolute;
+            top: -1.5em;
+            z-index: 10;
+            height: 1.5em;
+            padding-bottom: .5em;
+            line-height: 1.5;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% + 6px);
+        }
+    }
+
+    & tfoot tr:last-child th:nth-child(#{$dct-highlighted-column}) {
+        border-bottom-width: 3px;
+    }
+    // end highlighted column
+
+    &__heading {
+        border-top: 10px solid $gold;
+        @extend %gray-background;
+
+        &--benefit {
+            background: none !important;
+        }
+
+        &--basic {
+            border-color: $basic;
+        }
+
+        &--plus {
+            border-color: $plus;
+        }
+
+        &--professional {
+            border-color: $professional;
+        }
+
+        &--career-max {
+            border-color: $career-max;
+        }
+
+        &--tfoot {
+            border-top: 0;
+        }
+    }
+
+    &__data {
+        text-align: center;
+        padding: .5em;
+        @extend %gray-background;
+
+        &--benefit {
+            @include breakpoint(xs) {
+                font-size: .8em;
+            }
+            font-weight: 400;
+            text-align: left;
+            line-height: 1.5;
+            max-width: 350px;
+            background: none !important;
+        }
+
+        &--included {
+            color: $green;
+        }
+
+        &--excluded {
+            color: $gray;
+        }
+    }
+
+    &__tooltip {
+        @include breakpoint(xs) {
+            display: none !important;
+        }
+    }
+
+    &__tooltip-icon {
+        color: $gray;
+    }
+}
+
+%gray-background {
+    background-color: $light-gray;
+}
