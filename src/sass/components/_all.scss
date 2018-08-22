@@ -2,6 +2,8 @@
 @import "buttons/buttons";
 @import "card/card";
 @import "table/table";
+@import "search-form/search-form";
+@import "social-media-box";
 
 // components with custom implementations of raw components
 @import "pricing-table/pricing-table";
@@ -10,3 +12,7 @@
 @import "detailed-comparison-table/detailed-comparison-table";
 @import "tooltip/tooltip";
 @import "plan-details/plan-details";
+@import "header/header";
+@import "navigation/navigation";
+@import "black-bar/black-bar";
+@import "footer/all";
