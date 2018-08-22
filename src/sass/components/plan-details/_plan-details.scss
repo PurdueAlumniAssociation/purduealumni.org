@@ -28,7 +28,7 @@
 
             &:after {
                 content: "";
-                border-left: 3px solid $gold;
+                border-left: 3px solid $almost-black;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -66,7 +66,7 @@
     }
 
     &__benefits {
-        border-top: 3px solid $gold;
+        border-top: 3px solid $almost-black;
         font-size: 1.2em;
         margin-bottom: 2.5em;
 
@@ -81,7 +81,7 @@
 
             &:before {
                 content: "";
-                border-left: 3px solid $gold;
+                border-left: 3px solid $almost-black;
                 height: 100%;
                 position: absolute;
                 top: 0;
@@ -220,7 +220,7 @@
 
     &__pricing {
         font-size: 2em;
-        color: $gold;
+        color: $almost-black;
 
         &--basic {
             color: $basic;
@@ -244,10 +244,10 @@
     }
 }
 
-%divider {
-    content: "";
-    border-left: 3px solid $gold;
-    height: 100%;
-    position: absolute;
-    top: 0;
-}
+// %divider {
+//     content: "";
+//     border-left: 3px solid $campus-gold;
+//     height: 100%;
+//     position: absolute;
+//     top: 0;
+// }
