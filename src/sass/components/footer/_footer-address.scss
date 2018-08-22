@@ -1,0 +1,39 @@
+.footer-address {
+    background-color: $black;
+    display: flex;
+    justify-content: space-between;
+    color: $white;
+    padding: 1em $header-padding-xs;
+    flex-direction: column;
+
+    @include breakpoint(sm) {
+        flex-direction: row;
+        padding: 2em $header-padding-sm;
+    }
+    @include breakpoint(md) {
+        padding: 2em $header-padding-md;
+    }
+
+    &__left-content {
+        text-align: center;
+        @include breakpoint(sm){
+            text-align: left;
+        }
+
+        &-title {
+            text-transform: uppercase;
+        }
+    }
+
+    &__right-content {
+        text-align: center;
+        @include breakpoint(sm){
+            text-align: right;
+        }
+    }
+
+    & a {
+        color: $white;
+        font-weight: 400;
+    }
+}
