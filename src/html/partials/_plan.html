@@ -1,0 +1,25 @@
+@@if(context.highlight === false) {
+<div class="pricing-table__plan plan plan--@@color">
+}
+@@if(context.highlight === true) {
+<div class="pricing-table__plan plan plan--@@color plan--highlight">
+}
+    <h2 class="plan__title">@@name</h2>
+    @@if(context.name === "Basic") {
+    <p class="plan__subtitle">&nbsp;</p>
+    }
+    @@if(context.name === "Plus") {
+    <p class="plan__subtitle">Includes the benefits of BASIC<br />No charge for existing life members</p>
+    }
+    @@if(context.name === "Professional") {
+    <p class="plan__subtitle">Includes the benefits of PLUS</p>
+    }
+    @@if(context.name === "Career Max") {
+    <p class="plan__subtitle">Includes the benefits of PROFESSIONAL</p>
+    }
+    <div class="plan__details">
+        <p class="plan__cost">$@@cost<span class="plan__cost-year"> / year</span></p>
+        <p class="plan__description">@@desc</p>
+        <a class="plan__learn-more" href="@@link" target="_top">Learn More</a>
+    </div>
+</div>
