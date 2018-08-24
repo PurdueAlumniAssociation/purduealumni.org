@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/_head.html', {
+    "title": "Page with Sidebar",
+    "pageCSS": ""
+})
+<body>
+    @@include('../partials/_black-bar.html')
+    @@include('../partials/_header.html')
+    @@include('../partials/_hero.html')
+    @@include('../partials/_breadcrumbs.html')
+    <section class="layout">
+        <div class="layout__sidebar">
+            @@include('../partials/_side-menu.html')
+        </div>
+        <div class="layout__content">
+            @@include('../partials/_main-content.html')
+        </div>
+    </section>
+    @@include('../partials/_primary-footer.html')
+    @@include('../partials/_secondary-footer.html')
+</body>
+</html>
