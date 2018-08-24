@@ -1,17 +1,17 @@
-.footer-address {
+.secondary-footer {
     background-color: $black;
     display: flex;
     justify-content: space-between;
     color: $white;
-    padding: 1em $header-padding-xs;
+    padding: 1em $section-padding-xs;
     flex-direction: column;
 
     @include breakpoint(sm) {
         flex-direction: row;
-        padding: 2em $header-padding-sm;
+        padding: 2em $section-padding-sm;
     }
     @include breakpoint(md) {
-        padding: 2em $header-padding-md;
+        padding: 2em $section-padding-md;
     }
 
     &__left-content {

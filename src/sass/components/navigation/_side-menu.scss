@@ -1,0 +1,42 @@
+.side-menu {
+    padding-bottom: 1.1em;
+    border: 8px solid $gray;
+    border-left-width: 0;
+    border-right-width: 0;
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        &--nested {
+            margin-left: 1em;
+        }
+    }
+
+    &__list-item {
+        margin-top: 1em;
+        line-height: 1.25em;
+    }
+
+    &__link {
+        text-decoration: none;
+
+        &--nested {
+            font-weight: 400;
+        }
+
+        &--current-page {
+            font-weight: 700;
+        }
+
+        &--current-parent {
+            color: $digital-gold;
+        }
+
+        &:hover {
+            text-decoration: underline;
+            color: $almost-black;
+        }
+    }
+}

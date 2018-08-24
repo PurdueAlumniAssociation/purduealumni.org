@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-@@include('../partials/head.html', {
+@@include('../partials/_head.html', {
     "title": "Header",
     "pageCSS": ""
 })
 <body>
     <header class="black-bar">
-        <nav>
-            <ul class="black-bar__list">
-                <li class="black-bar__list-item"><a class="black-bar__link" href="#"><i class="fa fa-users" aria-hidden="true"></i>Alumni Portal</a></li>
-                <li class="black-bar__list-item"><a class="black-bar__link" href="#"><i class="fa fa-key" aria-hidden="true"></i>Member Login</a></li>
-                <li class="black-bar__list-item"><a class="black-bar__link black-bar__link--search" href="javascript:void(0)" rel="js-search-toggle"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+        <nav class="black-bar-menu">
+            <ul class="black-bar-menu__list">
+                <li class="black-bar-menu__list-item"><a class="black-bar-menu__link" href="#"><i class="fa fa-users" aria-hidden="true"></i>Alumni Portal</a></li>
+                <li class="black-bar-menu__list-item"><a class="black-bar-menu__link" href="#"><i class="fa fa-key" aria-hidden="true"></i>Member Login</a></li>
+                <li class="black-bar-menu__list-item"><a class="black-bar-menu__link black-bar-menu__link--search" href="javascript:void(0)" rel="js-search-toggle"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
             </ul>
         </nav>
-        <form class="form search-form black-bar__search-form" role="search" method="get" class="search-form" action="/" rel="js-search-form">
+        <form class="form search-form black-bar-menu__search-form" role="search" method="get" class="search-form" action="/" rel="js-search-form">
             <label for="uniqueID">
                 <span class="sr-only">Search for:</span>
             </label>
@@ -26,29 +26,29 @@
             <img class="header__logo" src="../../images/svg/logo-optimized.svg" alt="Purdue Alumni Association" />
         </a>
         <div class="header__right-content">
-            <a class="button button--small button--almost-black navigation__mobile-menu-button" id="mobile-menu-toggle" href="javascript:void(0)"><i class="fas fa-bars navigation__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>
-            <nav class="navigation header__navigation">
-                <ul class="navigation__list">
-                    <li class="navigation__list-item"><a class="navigation__link navigation__link--current" href="#">Membership</a></li>
-                    <li class="navigation__list-item"><a class="navigation__link" href="#">Events</a></li>
-                    <li class="navigation__list-item"><a class="navigation__link" href="#">Clubs</a></li>
-                    <li class="navigation__list-item"><a class="navigation__link" href="#">Networks</a></li>
-                    <li class="navigation__list-item"><a class="navigation__link" href="#">About</a></li>
-                    <li class="navigation__list-item"><a class="navigation__link" href="#">Contact</a></li>
+            <a class="button button--small button--almost-black primary-menu__mobile-menu-button" id="mobile-menu-toggle" href="javascript:void(0)"><i class="fas fa-bars primary-menu__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>
+            <nav class="primary-menu header__navigation">
+                <ul class="primary-menu__list">
+                    <li class="primary-menu__list-item"><a class="primary-menu__link primary-menu__link--current" href="#">Membership</a></li>
+                    <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Events</a></li>
+                    <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Clubs</a></li>
+                    <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Networks</a></li>
+                    <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">About</a></li>
+                    <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Contact</a></li>
                 </ul>
             </nav>
         </div>
     </header>
-    <nav class="navigation navigation--mobile" id="mobile-menu">
+    <nav class="primary-menu primary-menu--mobile" id="mobile-menu">
         <input type="text" style="width: 100%;" rel="js-autofocus"/>
-        <ul class="navigation__list">
-            <li class="navigation__list-item"><a class="navigation__link" href="#">Login</a></li>
-            <li class="navigation__list-item"><a class="navigation__link navigation__link--current" href="#">Membership</a></li>
-            <li class="navigation__list-item"><a class="navigation__link" href="#">Events</a></li>
-            <li class="navigation__list-item"><a class="navigation__link" href="#">Clubs</a></li>
-            <li class="navigation__list-item"><a class="navigation__link" href="#">Networks</a></li>
-            <li class="navigation__list-item"><a class="navigation__link" href="#">About</a></li>
-            <li class="navigation__list-item"><a class="navigation__link" href="#">Contact</a></li>
+        <ul class="primary-menu__list">
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Login</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link primary-menu__link--current" href="#">Membership</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Events</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Clubs</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Networks</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">About</a></li>
+            <li class="primary-menu__list-item"><a class="primary-menu__link" href="#">Contact</a></li>
         </ul>
     </nav>
     <h1>Some title</h1>

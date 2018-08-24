@@ -1,6 +1,6 @@
 .header {
     margin: 0;
-    padding: 2em $header-padding-xs;
+    padding: 2em $section-padding-xs;
     border-bottom: 1px solid $almost-black;
     position: relative;
     display: flex;
@@ -8,24 +8,23 @@
     align-items: center;
 
     @include breakpoint(sm) {
-        padding: 2em $header-padding-sm;
+        padding: 2em $section-padding-sm;
 
     }
 
     @include breakpoint(md) {
-        padding: 2em $header-padding-md;
+        padding: 2em $section-padding-md;
     }
 
     &__logo-link {
         display: inherit;
         border: 0;
         flex: 0 1 auto;
+        width: 100%; // firefox fix
+        max-width: 300px; // firefox fix
     }
 
     &__logo {
-        // @include breakpoint(xs) {
-        //     width: 50%;
-        // }
         width: 100%;
     }
 

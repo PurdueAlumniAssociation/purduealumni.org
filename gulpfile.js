@@ -12,9 +12,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const fileinclude = require('gulp-file-include');
 const htmlPrettify = require('gulp-html-prettify');
 
-// js
-
-
 // enable live reload
 const connect = require('gulp-connect');
 
@@ -50,14 +47,6 @@ gulp.task('html', function () {
   .pipe(connect.reload());
 });
 
-// js
-gulp.task('js', function () {
-  gulp.src('src/js/**/*.js')
-  //.pipe(uglify())
-  .pipe(gulp.dest('dist/js/'))
-  .pipe(connect.reload());
-});
-
 // live reload
 gulp.task('connect', function() {
     connect.server({
@@ -69,7 +58,6 @@ gulp.task('connect', function() {
 gulp.task('watch', function () {
   gulp.watch('src/sass/**/*.scss', ['sass']);
   gulp.watch('src/html/**/*.html', ['html']);
-  gulp.watch('src/js/**/*.js', ['js']);
 });
 
-gulp.task('default', ['html', 'js', 'sass', 'connect', 'watch']);
+gulp.task('default', ['html', 'sass', 'connect', 'watch']);

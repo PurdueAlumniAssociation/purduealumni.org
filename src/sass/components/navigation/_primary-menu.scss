@@ -1,4 +1,4 @@
-.navigation {
+.primary-menu {
     @include breakpoint(xs) {
         background-color: $light-gray;
         border-bottom-left-radius: 20px;
@@ -49,6 +49,10 @@
         @include breakpoint(md) {
             margin: 0 $navigation-gap-md;
         }
+
+        &:last-child {
+            margin-right: 0;
+        }
     }
 
     &__link {
@@ -56,9 +60,6 @@
 
         &--current {
             text-decoration: underline;
-        }
-
-        &:visited {
         }
 
         &:hover {

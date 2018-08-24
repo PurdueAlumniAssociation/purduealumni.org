@@ -11,7 +11,7 @@ aside.primary {
 
 @mixin breakpoint($class) {
   @if $class == xs {
-    @media (max-width: calc(48em - 1px)) { @content; }
+    @media (max-width: 47.99999em) { @content; }
   }
 
   @else if $class == sm {
