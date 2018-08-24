@@ -1,31 +1,48 @@
 h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
-    line-height: 1.3;
-    margin-top: 1.25em;
-    margin-bottom: .5em;
+    line-height: 1;
+    margin: 2rem 0 1.5rem 0;
     color: $almost-black;
 }
 
 h1 {
-    font-size: 2.5em;
+    font-size: 1.5em;
     font-weight: 900;
-    line-height: 1;
+    margin-top: 0;
+
+    @include breakpoint(sm) {
+        font-size: 2em;
+    }
+
+    @include breakpoint(md) {
+        font-size: 2.5em;
+    }
 }
 
 h2 {
     font-family: $vollkorn;
-    font-size: 1.875em;
+    font-style: italic;
+    font-size: 1.375em;
     // alt color?
+
+    @include breakpoint(md) {
+        font-size: 1.875em;
+    }
 }
 
 h3 {
-    font-size: 1.5em;
+    font-size: 1.1em;
     font-weight: 700;
     text-transform: uppercase;
+
+    @include breakpoint(md) {
+        font-size: 1.5em;
+    }
 }
 
 h4 {
     font-family: $vollkorn;
+    font-style: italic;
     font-size: 1.25em;
     // alt color?
 }
