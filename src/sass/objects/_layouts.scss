@@ -1,0 +1,35 @@
+.layout {
+    display: flex;
+    flex-direction: column;
+    padding: 1em $section-padding-xs;
+
+    @include breakpoint(sm) {
+        flex-direction: row;
+        padding: 3em $section-padding-sm;
+    }
+
+    @include breakpoint(md) {
+    padding: 3em $section-padding-md;
+    }
+
+    &__sidebar {
+        flex: 1 1 25%;
+
+        @include breakpoint(xs) {
+            margin-top: 1em;
+            order: 2;
+        }
+
+        @include breakpoint(sm) {
+            margin-right: 4em;
+        }
+    }
+
+    &__content {
+        flex: 1 1 75%;
+
+        @include breakpoint(xs) {
+            order: 1;
+        }
+    }
+}
