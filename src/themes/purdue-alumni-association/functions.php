@@ -92,3 +92,10 @@ function paa_menu_classes($classes, $item, $args) {
     return $classes;
 }
 add_filter('nav_menu_css_class', 'paa_menu_classes', 1, 3);
+
+// read more text to the excerpt
+// function paa_excerpt_more( $more ) {
+//     global $post;
+//     return ' <a href="'.get_permalink($post->ID).'" rel="nofollow">Read More</a>';
+// }
+// add_filter( 'excerpt_more', 'paa_excerpt_more' );
