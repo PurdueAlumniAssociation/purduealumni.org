@@ -99,3 +99,58 @@ add_filter('nav_menu_css_class', 'paa_menu_classes', 1, 3);
 //     return ' <a href="'.get_permalink($post->ID).'" rel="nofollow">Read More</a>';
 // }
 // add_filter( 'excerpt_more', 'paa_excerpt_more' );
+
+function paa_login_logo() { ?>
+    <link href="https://fonts.googleapis.com/css?family=Barlow:400,700" rel="stylesheet">
+    <style type="text/css">
+        #login {
+            font-family: "Barlow", sans-serif;
+            font-size: 16px;
+        }
+
+        #login h1 a, .login h1 a {
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/svg/logo-optimized.svg);
+            width: 100%;
+            height: 68px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            padding-bottom: 0;
+        }
+
+        #login .message {
+            border-color: #c28e0e;
+        }
+
+        #login .button-primary {
+            background: #c28e0e;
+            border-color: #c28e0e;
+            box-shadow: 0 1px 0 #98700d;
+            color: #000;
+            text-decoration: none;
+            text-shadow: none;
+            font-size: initial;
+        }
+
+        #login label {
+            font-size: initial;
+        }
+
+        #login .privacy-policy-link, #login .privacy-policy-link:visited {
+            color: #383838;
+        }
+
+        #login .privacy-policy-link:hover {
+            color: #5e5e5e;
+        }
+
+        #login .privacy-policy-link:active {
+            color: #383838;
+        }
+
+        #login #nav, #login #backtoblog {
+            font-size: initial;
+        }
+    </style>
+<?php }
+add_action( 'login_enqueue_scripts', 'paa_login_logo' );
