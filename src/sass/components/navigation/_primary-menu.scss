@@ -55,11 +55,11 @@
         }
     }
 
-    &__link {
+    &__link, & a {
         text-decoration: none;
 
         &--current {
-            text-decoration: underline;
+            @extend .current-menu-item;
         }
 
         &:hover {
@@ -69,5 +69,14 @@
 
     &--mobile {
         display: none;
+
+        @include breakpoint(sm) {
+            display: none !important;
+        }
+    }
+
+    .current-menu-item {
+        text-decoration: underline;
     }
 }
+

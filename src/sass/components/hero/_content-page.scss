@@ -18,7 +18,7 @@
         @include breakpoint(sm) {
             flex-basis: 40%;
             display: flex;
-            justify-content: left;
+            //justify-content: left;
             align-items: center;
             margin-left: $section-padding-sm;
             padding-right: $section-padding-sm;

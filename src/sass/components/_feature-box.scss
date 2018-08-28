@@ -1,0 +1,52 @@
+.feature-box {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 1em;
+    background-color: $light-gray;
+
+    &:hover {
+        color: $almost-black;
+    }
+
+    &__image {
+        width: 100%;
+    }
+
+    &__content {
+        margin-top: 1em;
+    }
+
+    &__text {
+        margin: 0;
+        font-size: 1em;
+        display: inline-block;
+
+        &--quote {
+            position: relative;
+            padding-left: 4em;
+
+            &:before {
+                content: '';
+                position: absolute;
+                display: block;
+                left: 0;
+                top: 0;
+                width: 3em;
+                height: 3em;
+                background-image: url("data:image/svg+xml;charset=UTF-8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' x='0px' y='0px' viewBox='0 0 50 50' xml:space='preserve'><path style='fill:"+$campus-gold+";stroke:rgba(0,0,0,0);' d='M14.8604,26.5957h7.6001v20.5205h-19V28.3057l9.1201-25.27h9.8799L14.8604,26.5957z M38.9912,26.5957h7.6006v20.5205h-19.001V28.3057l9.1201-25.27h9.8809L38.9912,26.5957z'/></svg>");
+                background-size: cover;
+            }
+        }
+    }
+
+    &__source {
+        display: block;
+        margin-top: 1em;
+        color: $digital-gold;
+
+        &--black {
+            color: $almost-black;
+        }
+    }
+
+}

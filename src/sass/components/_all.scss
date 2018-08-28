@@ -1,11 +1,13 @@
 // raw components
-@import "typography/headings";
+@import "typography/all";
 @import "buttons/buttons";
 @import "card/card";
 @import "table/table";
 @import "search-form/search-form";
 @import "social-media-box";
+@import "feature-box";
 @import "hero/all";
+@import "skip-to";
 
 // components with custom implementations of raw components
 @import "pricing-table/pricing-table";
