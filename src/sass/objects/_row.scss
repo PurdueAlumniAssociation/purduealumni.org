@@ -1,37 +1,29 @@
 .row {
-    margin: .5em 1em;
+    padding: .5em $section-padding-xs;
 
     @include breakpoint(sm) {
-        margin: 2em 4em;
+        padding: 2em $section-padding-sm;
     }
 
     @include breakpoint(md) {
-        margin: 3em 6em;
-    }
-
-    @include breakpoint(lg) {
-        margin: 4em 8em;
+        padding: 3em $section-padding-md;
     }
 
     &--slim {
-        margin: .25em 1em;
+        padding: .25em $section-padding-xs;
 
         @include breakpoint(sm) {
-            margin: .5em 4em;
+            padding: .5em $section-padding-sm;
         }
 
         @include breakpoint(md) {
-            margin: .75em 6em;
-        }
-
-        @include breakpoint(lg) {
-            margin: 1em 8em;
+            padding: .75em $section-padding-md;
         }
     }
 
     &--full-width {
-        margin-left: 0;
-        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
     }
 
     &--flex {

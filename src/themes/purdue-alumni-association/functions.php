@@ -1,4 +1,11 @@
 <?php
+// Add common styles
+function paa_scripts_and_styles() {
+    wp_enqueue_style( 'common-styles', get_stylesheet_uri() ); // style.css
+    wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/common.js', array(), '1.0.0', true ); // true adds it to the footer
+}
+add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
+
 // Add menu locations
 function paa_register_menus() {
     register_nav_menus( array(
@@ -152,5 +159,7 @@ function paa_login_logo() { ?>
             font-size: initial;
         }
     </style>
-<?php }
+<?php
+}
 add_action( 'login_enqueue_scripts', 'paa_login_logo' );
+?>
