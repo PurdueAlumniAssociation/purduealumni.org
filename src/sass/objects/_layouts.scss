@@ -22,6 +22,7 @@
 
         @include breakpoint(sm) {
             margin-right: 4em;
+            padding-top: 15px; // so the contents of the sidebar align with the h1 on the page
         }
     }
 

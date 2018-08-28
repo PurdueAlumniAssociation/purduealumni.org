@@ -14,12 +14,12 @@
         }
     }
 
-    &__list-item {
+    &__list-item, & .page_item { 
         margin-top: 1em;
         line-height: 1.25em;
     }
 
-    &__link {
+    &__link, a {
         text-decoration: none;
 
         &--nested {
