@@ -26,6 +26,14 @@
         padding-right: 0;
     }
 
+    &--almost-black-bg {
+        background-color: $almost-black;
+    }
+
+    &--light-gray-bg {
+        background-color: $light-gray;
+    }
+
     &--flex {
         display: flex;
     }
