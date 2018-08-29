@@ -162,4 +162,50 @@ function paa_login_logo() { ?>
 <?php
 }
 add_action( 'login_enqueue_scripts', 'paa_login_logo' );
+
+/*
+    Show styles in the backend and add a custom format dropdown to the editor
+    to easily add style to content.
+*/
+// Callback function to insert 'styleselect' into the $buttons array
+function paa_mce_buttons_row_2( $buttons ) {
+	array_unshift( $buttons, 'styleselect' );
+	return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons_2', 'paa_mce_buttons_row_2' );
+
+// Callback function to filter the MCE settings
+function paa_mce_before_init_insert_formats( $init_array ) {
+	// Define the style_formats array
+	$style_formats = array(
+		// Each array child is a format with it's own settings
+		array(
+			'title' => 'Paragraph Callout',
+			'block' => 'p',
+			'classes' => 'callout',
+			'wrapper' => false
+		)
+	);
+	// Insert the array, JSON ENCODED, into 'style_formats'
+	$init_array['style_formats'] = json_encode( $style_formats );
+
+    // add a bit of padding to the visual editor
+    $styles = 'body#tinymce.mce-content-body { padding: 15px !important; }';
+    if ( isset( $init_array['content_style'] ) ) {
+        $init_array['content_style'] .= ' ' . $styles . ' ';
+    } else {
+        $init_array['content_style'] = $styles . ' ';
+    }
+
+	return $init_array;
+}
+// Attach callback to 'tiny_mce_before_init'
+add_filter( 'tiny_mce_before_init', 'paa_mce_before_init_insert_formats' );
+
+function paa_add_editor_styles() {
+    add_editor_style( 'https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i' );
+    add_editor_style( 'style.css' );
+}
+add_action( 'init', 'paa_add_editor_styles' );
 ?>
