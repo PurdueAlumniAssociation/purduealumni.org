@@ -64,6 +64,5 @@
                 'container' => false
              ) );
         ?>
-
         </nav>
     <?php endif; ?>

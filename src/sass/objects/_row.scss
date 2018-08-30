@@ -1,5 +1,5 @@
 .row {
-    padding: .5em $section-padding-xs;
+    padding: 1em $section-padding-xs;
 
     @include breakpoint(sm) {
         padding: 2em $section-padding-sm;
@@ -10,7 +10,7 @@
     }
 
     &--slim {
-        padding: .25em $section-padding-xs;
+        padding: .5em $section-padding-xs;
 
         @include breakpoint(sm) {
             padding: .5em $section-padding-sm;
@@ -26,8 +26,18 @@
         padding-right: 0;
     }
 
+    &--almost-black-bg {
+        background-color: $almost-black;
+    }
+
+    &--light-gray-bg {
+        background-color: $light-gray;
+    }
+
     &--flex {
-        display: flex;
+        @include breakpoint(sm) {
+            display: flex;
+        }
     }
 
     &--flex-outside {

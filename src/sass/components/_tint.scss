@@ -1,0 +1,18 @@
+.tint {
+    background-color: $almost-black;
+
+    &__sub-text {
+        text-align: center;
+        text-transform: uppercase;
+        color: $campus-gold;
+        font-size: 1.25em;
+
+        @include breakpoint(md) {
+            font-size: 2em;
+        }
+    }
+
+    &__social-media-handle {
+        color: white;
+    }
+}

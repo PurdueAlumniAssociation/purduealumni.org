@@ -5,8 +5,20 @@
     background-position: center;
     background-size: cover;
     padding: 1.5em;
-    max-width: 500px;
     min-height: 300px;
+    min-width: 200px;
+
+    &--green {
+        border-color: $ross-ade-green;
+    }
+
+    &--orange {
+        border-color: $bell-tower-brick;
+    }
+
+    &--dark-gray {
+        border-color: $dark-gray;
+    }
 
     // darken background image
     &:before {
@@ -45,6 +57,18 @@
         padding: 3px;
         display: inline-block;
         margin-bottom: 10px;
+
+        &--green {
+            background-color: $ross-ade-green;
+        }
+
+        &--orange {
+            background-color: $bell-tower-brick;
+        }
+
+        &--dark-gray {
+            background-color: $dark-gray;
+        }
     }
 
     &__title {
