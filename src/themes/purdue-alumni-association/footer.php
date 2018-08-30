@@ -5,11 +5,11 @@
     ?>
     <aside class="social-media-box primary-footer__social-media-box">
 	<ul class="social-media-box__list">
-		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-facebook-f social-media-box__icon"></i></a></li>
-		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-twitter social-media-box__icon"></i></a></li>
-		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-linkedin-in social-media-box__icon"></i></a></li>
-		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-instagram social-media-box__icon"></i></a></li>
-		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-pinterest social-media-box__icon"></i></a></li>
+		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-facebook-f social-media-box__icon"></i><span class="sr-only">Facebook</span></a></li>
+		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-twitter social-media-box__icon"></i><span class="sr-only">Twitter</span></a></li>
+		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-linkedin-in social-media-box__icon"></i><span class="sr-only">LinkedIn</span></a></li>
+		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-instagram social-media-box__icon"></i><span class="sr-only">Instagram</span></a></li>
+		<li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-pinterest social-media-box__icon"></i><span class="sr-only">Pinterest</span></a></li>
 	</ul>
     </aside>
     <div class="primary-footer__columns-container">
