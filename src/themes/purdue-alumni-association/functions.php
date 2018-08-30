@@ -208,4 +208,18 @@ function paa_add_editor_styles() {
     add_editor_style( 'style.css' );
 }
 add_action( 'init', 'paa_add_editor_styles' );
+
+
+/**
+ * Replace # with js
+ * @param string $menu_item item HTML
+ * @return string item HTML
+ */
+function paa_replace_hash($menu_item) {
+    if (strpos($menu_item, 'href="#"') !== false) {
+        $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
+    }
+    return $menu_item;
+}
+add_filter('walker_nav_menu_start_el', 'paa_replace_hash', 999);
 ?>
