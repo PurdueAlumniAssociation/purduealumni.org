@@ -1,0 +1,35 @@
+.news-event {
+    margin-bottom: 3rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    @include breakpoint(sm) {
+        display: flex;
+    }
+
+    &__image {
+        margin-right: 1em;
+    }
+
+    &__title {
+        margin-top: .5em;
+        margin-bottom: .25em;
+
+        @include breakpoint(sm) {
+            margin-top: 0;
+            margin-bottom: .5em;
+        }
+    }
+
+    &__description {
+        @include breakpoint(sm) {
+            font-size: 1.1em;
+        }
+    }
+
+    &__cta {
+
+    }
+}
