@@ -6,11 +6,11 @@
 <?php get_header(); ?>
 <main id="main" tabindex="-1">
     <section class="row row--slim row--flex row--space-between">
-        <p><a href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9049" target="_top" style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
+        <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>" style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
-            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">FAQ</a>
-            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9050" target="_top">Membership Options FAQ</a>
+            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>">FAQ</a>
+            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
@@ -59,13 +59,13 @@
                 </tr>
                 <tr>
                     <td class="detailed-comparison-table__heading detailed-comparison-table__heading--benefit detailed-comparison-table__heading--tfoot" scope="row"></td>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--invert-blue" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9176" target="_top">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--invert-blue" href="<?php echo esc_url( home_url( 'member/basic' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-green" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9177" target="_top">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-green" href="<?php echo esc_url( home_url( 'member/plus' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-gold" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9178" target="_top">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-gold" href="<?php echo esc_url( home_url( 'member/professional' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-orange" href="https://purdue.imodules.com/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=9180" target="_top">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-orange" href="<?php echo esc_url( home_url( 'member/career-max' ) ); ?>">View</a>
                     </th>
                 </tr>
             </tfoot>
