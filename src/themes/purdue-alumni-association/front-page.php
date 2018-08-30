@@ -5,6 +5,7 @@
 ?>
 <?php get_header(); ?>
     <main id="main" tabindex="-1">
+        <h1 class="sr-only">Purdue Alumni Association</h1>
         <section class="row big-info-block">
             <div class="big-info-block__row">
                 <div class="big-info-block__primary-box">
@@ -50,7 +51,7 @@
             <div class="flex__item flex__item--two-thirds">
                 <h2 class="no-top-margin">News & Events</h2>
                 <div class="news-event">
-                    <img class="news-event__image" src="http://via.placeholder.com/300x242" />
+                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="students at career fair" />
                     <div>
                         <h3 class="news-event__title">Mock Career Fair</h3>
                         <p class="news-event__description">Practice networking with real employers. Get guidance on your resume. Shop the Macy's Pop-Up Store. Wednesday September 5 at PMU.</p>
@@ -58,7 +59,7 @@
                     </div>
                 </div>
                 <div class="news-event">
-                    <img class="news-event__image" src="http://via.placeholder.com/300x242" />
+                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="students at career fair" />
                     <div>
                         <h3 class="news-event__title">Mock Career Fair</h3>
                         <p class="news-event__description">Practice networking with real employers. Get guidance on your resume. Shop the Macy's Pop-Up Store. Wednesday September 5 at PMU.</p>

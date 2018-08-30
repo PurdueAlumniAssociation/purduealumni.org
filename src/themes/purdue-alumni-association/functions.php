@@ -58,8 +58,12 @@ add_action( 'widgets_init', 'paa_widgets_init' );
 function add_search_box_to_menu( $items, $args ) {
     if( $args->theme_location == 'primary-menu-mobile' ) {
         return "<li class='primary-menu__list-item'>
-                    <form action='http://example.com/' id='searchform' method='get'>
-                        <input type='text' name='s' id='s' placeholder='Search'>
+                    <form class='form search-form mobile-menu__search-form' action='" . esc_url( home_url( '/' ) ) . "' id='searchform' method='get' role='search'>
+                        <label for='mobile-menu-search'>
+                            <span class='sr-only'>Search for:</span>
+                        </label>
+                        <input class='form__input form__input--text' type='search' value='" . get_search_query() . "' name='s' id='mobile-menu-search'>
+                        <button class='form__button form__button--submit search-form__button mobile-menu__search-form-button' type='submit'><i class='fas fa-search'></i><span class='sr-only'>submit button</span></button>
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>

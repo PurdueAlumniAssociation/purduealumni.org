@@ -80,12 +80,12 @@
 
     // special button cases
     &--invert-light-gray {
-        color: $almost-black;
+        color: $white;
         border-color: $light-gray;
         background-color: transparent;
 
         &:visited {
-            color: $almost-black;
+            color: $white;
         }
 
         &:hover {
@@ -96,12 +96,12 @@
     }
 
     &--invert-gold {
-        color: $almost-black;
+        color: $campus-gold;
         border-color: $campus-gold;
-        background-color: transparent;
+        background-color: $black;
 
         &:visited {
-            color: $almost-black;
+            color: $campus-gold;
         }
 
         &:hover {
