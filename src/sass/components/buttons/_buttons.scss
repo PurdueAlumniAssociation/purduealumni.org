@@ -30,7 +30,8 @@
                     blue         $slayter-sky-blue     $white            $slayter-sky-blue     transparent       $slayter-sky-blue   $slayter-sky-blue,
                     green        $ross-ade-green       $white            $ross-ade-green       transparent       $ross-ade-green     $ross-ade-green,
                     light-gray   $light-gray           $almost-black     $light-gray           transparent       $almost-black       $light-gray,
-                    almost-black $almost-black         $white            $almost-black         transparent       $almost-black       $almost-black;
+                    almost-black $almost-black         $white            $almost-black         transparent       $almost-black       $almost-black,
+                    white        $white                $almost-black     $white                transparent       $white              $white;
 
     // loop through combos
     @each $color in $button-colors {
