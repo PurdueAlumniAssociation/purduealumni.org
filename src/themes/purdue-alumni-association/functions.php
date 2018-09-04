@@ -1,4 +1,8 @@
 <?php
+// Add support for custom features
+add_theme_support( 'post-thumbnails' );
+add_theme_support( 'title-tag' );
+
 // Add common styles
 function paa_scripts_and_styles() {
     wp_enqueue_style( 'common-styles', get_stylesheet_uri() ); // style.css
