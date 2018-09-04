@@ -22,7 +22,7 @@
             </div>
             <div class="big-info-block__row">
                 <a class="big-info-block__third-box" href="#">
-                    <div class="graphic-box graphic-box--green" style="background-image: url('../../images/dev/tailgate.jpg')">
+                    <div class="graphic-box graphic-box--green" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/tailgate.jpg' ) ) ?>')">
                         <div class="graphic-box__content">
                             <span class="graphic-box__category graphic-box__category--green">Events</span>
                             <span class="graphic-box__title">Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here</span>
@@ -30,7 +30,7 @@
                     </div>
                 </a>
                 <a class="big-info-block__third-box" href="#">
-                    <div class="graphic-box graphic-box--orange" style="background-image: url('../../images/dev/tailgate.jpg')">
+                    <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/tailgate.jpg' ) ) ?>')">
                         <div class="graphic-box__content">
                             <span class="graphic-box__category graphic-box__category--orange">Events</span>
                             <span class="graphic-box__title">Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here</span>
@@ -38,7 +38,7 @@
                     </div>
                 </a>
                 <a class="big-info-block__third-box" href="#">
-                    <div class="graphic-box graphic-box--dark-gray" style="background-image: url('../../images/dev/tailgate.jpg')">
+                    <div class="graphic-box graphic-box--dark-gray" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/tailgate.jpg' ) ) ?>')">
                         <div class="graphic-box__content">
                             <span class="graphic-box__category graphic-box__category--dark-gray">Events</span>
                             <span class="graphic-box__title">Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here Headline for a Club Event or Story Can Go Here</span>
