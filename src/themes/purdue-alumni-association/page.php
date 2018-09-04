@@ -16,6 +16,16 @@
             <?php the_content(); ?>
         </main>
     </section>
+    <?php if ( has_nav_menu( 'side-menu' ) ) : ?>
+        <section class="row">
+            <?php wp_nav_menu( array(
+                'theme_location' => 'side-menu',
+                'menu_class'     => 'side-menu__list',
+                'container' => 'nav',
+                'container_class' => 'side-menu'
+            ) ); ?>
+        </section>
+    <?php endif; ?>
 <?php endwhile; else : ?>
     <section class="row">
         <main id="main" tabindex="-1">
