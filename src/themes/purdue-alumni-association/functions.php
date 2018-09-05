@@ -101,7 +101,7 @@ function paa_menu_classes($classes, $item, $args) {
     if( $args->theme_location === 'black-bar-menu' ) {
         $classes[] = 'black-bar-menu__list-item';
     } elseif ( $args->menu_class === 'side-menu__list' ) {
-        $classes[] = 'primary-footer__column-list-item';
+        $classes[] = 'side-menu__list-item';
     } elseif ( $args->menu_class === 'primary-footer__column-list' ) {
         $classes[] = 'primary-footer__column-list-item';
     } elseif ( $args->theme_location === 'primary-menu' || $args->theme_location === 'primary-menu-mobile' ) {

@@ -1,34 +1,31 @@
 .layout {
-    padding: 1em $section-padding-xs;
-
     @include breakpoint(sm) {
         display: flex;
-        padding: 3em $section-padding-sm;
-    }
-
-    @include breakpoint(md) {
-    padding: 3em $section-padding-md;
     }
 
     &__sidebar {
-        flex: 1 1 25%;
+        flex-basis: 25%;
 
         @include breakpoint(xs) {
-            margin-top: 1em;
-            order: 2;
+            margin-top: 3em;
         }
 
         @include breakpoint(sm) {
-            margin-right: 4em;
+            margin-right: 3em;
             padding-top: 15px; // so the contents of the sidebar align with the h1 on the page
+            order: 1;
+        }
+
+        @include breakpoint(md) {
+            margin-right: 4em;
         }
     }
 
-    &__content {
-        flex: 1 1 75%;
+    &__main {
+        flex-basis: 75%;
 
-        @include breakpoint(xs) {
-            order: 1;
+        @include breakpoint(sm) {
+            order: 2;
         }
     }
 }

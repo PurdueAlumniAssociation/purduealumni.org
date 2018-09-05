@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: One Column
+    Template Name: Standard
 */
 ?>
 <?php get_header(); ?>
@@ -10,20 +10,31 @@
                 <img class="banner" src="<?php the_post_thumbnail_url(); ?>" alt="" />
             </section>
 <?php } ?>
-    <section class="row">
-        <main id="main" tabindex="-1">
-            <h1><?php the_title(); ?></h1>
-            <?php the_content(); ?>
-        </main>
-    </section>
     <?php if ( has_nav_menu( 'side-menu' ) ) : ?>
         <section class="row">
-            <?php wp_nav_menu( array(
-                'theme_location' => 'side-menu',
-                'menu_class'     => 'side-menu__list',
-                'container' => 'nav',
-                'container_class' => 'side-menu'
-            ) ); ?>
+            <div class="layout">
+                <div class="layout__main">
+                    <main class="" id="main" tabindex="-1">
+                        <h1><?php the_title(); ?></h1>
+                        <?php the_content(); ?>
+                    </main>
+                </div>
+                <div class="layout__sidebar">
+                    <?php wp_nav_menu( array(
+                        'theme_location' => 'side-menu',
+                        'menu_class'     => 'side-menu__list',
+                        'container' => 'nav',
+                        'container_class' => 'side-menu'
+                    ) ); ?>
+                </div>
+            </div>
+        </section>
+    <?php else : ?>
+        <section class="row">
+            <main id="main" tabindex="-1">
+                <h1><?php the_title(); ?></h1>
+                <?php the_content(); ?>
+            </main>
         </section>
     <?php endif; ?>
 <?php endwhile; else : ?>
