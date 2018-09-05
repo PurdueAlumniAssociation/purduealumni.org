@@ -20,7 +20,8 @@ function paa_register_menus() {
         'primary-footer-2' => 'Primary Footer Column 2',
         'primary-footer-3' => 'Primary Footer Column 3',
         'primary-footer-4' => 'Primary Footer Column 4',
-        'primary-footer-5' => 'Primary Footer Column 5'
+        'primary-footer-5' => 'Primary Footer Column 5',
+        'side-menu' => 'Side Menu'
     ) );
 }
 add_action( 'init', "paa_register_menus" );
@@ -99,6 +100,8 @@ function paa_get_theme_menu_name( $theme_location ) {
 function paa_menu_classes($classes, $item, $args) {
     if( $args->theme_location === 'black-bar-menu' ) {
         $classes[] = 'black-bar-menu__list-item';
+    } elseif ( $args->menu_class === 'side-menu__list' ) {
+        $classes[] = 'side-menu__list-item';
     } elseif ( $args->menu_class === 'primary-footer__column-list' ) {
         $classes[] = 'primary-footer__column-list-item';
     } elseif ( $args->theme_location === 'primary-menu' || $args->theme_location === 'primary-menu-mobile' ) {
