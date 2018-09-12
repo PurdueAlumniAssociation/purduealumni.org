@@ -4,7 +4,7 @@
     */
 ?>
 <?php get_header(); ?>
-<section class="layout">
+<section class="row">
     <main id="main" tabindex="-1">
         <h1>Search Results</h1>
         <p class="callout"><?php printf( __( 'Searching for: %s' ), '<span>' . get_search_query() . '</span>'); ?></p>
