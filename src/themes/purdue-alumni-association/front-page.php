@@ -54,7 +54,7 @@
             <div class="flex__item flex__item--two-thirds">
                 <h2 class="front-page__section-title">News & Events</h2>
                 <div class="news-event">
-                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="students at career fair" />
+                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="" />
                     <div>
                         <h3 class="news-event__title">Women's Conference 2018</h3>
                         <p class="news-event__description">Network with a dynamic, diverse group of women. Foster your personal, professional and intellectual well-being. Participate in focused learning and growth opportunities.</p>
@@ -62,7 +62,7 @@
                     </div>
                 </div>
                 <div class="news-event">
-                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="students at career fair" />
+                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="" />
                     <div>
                         <h3 class="news-event__title">Online Career Networking</h3>
                         <p class="news-event__description">Looking to advance your career? Join us October 11 to share your experiences, exchange career tips, and build your professional network -- all online! Don't miss out on this chance to connect with people around the world who can help you in your career!</p>
