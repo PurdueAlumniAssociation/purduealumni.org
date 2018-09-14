@@ -27,15 +27,15 @@
                 <div class="plan-details__button-row">
                     <div class="plan-details__button-row-container">
                         <p>1-Year</p>
-                        <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$99</a>
+                        <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$99</a>
                     </div>
                     <div class="plan-details__button-row-container">
                         <p>3-Years</p>
-                        <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$249</a>
+                        <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$249</a>
                     </div>
                     <div class="plan-details__button-row-container">
                         <p>10-Years</p>
-                        <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR10YR" >$769</a>
+                        <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR10YR" >$769</a>
                     </div>
                 </div>
                 <p class="text-center"><a href="#pricing">See all pricing options below</a></p>
@@ -159,15 +159,15 @@
             <div class="plan-details__button-row">
                 <div class="plan-details__button-row-container">
                     <p>1-Year</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$99</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$99</a>
                 </div>
                 <div class="plan-details__button-row-container">
                     <p>3-Years</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$249</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$249</a>
                 </div>
                 <div class="plan-details__button-row-container">
                     <p>10-Years</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR10YR" >$769</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR10YR" >$769</a>
                 </div>
             </div>
         </div>
@@ -177,11 +177,11 @@
             <div class="plan-details__button-row">
                 <div class="plan-details__button-row-container">
                     <p>1-Year</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$79</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$79</a>
                 </div>
                 <div class="plan-details__button-row-container">
                     <p>3-Years</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$199</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$199</a>
                 </div>
             </div>
         </div>
@@ -191,11 +191,11 @@
             <div class="plan-details__button-row">
                 <div class="plan-details__button-row-container">
                     <p>1-Year</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$39</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR" >$39</a>
                 </div>
                 <div class="plan-details__button-row-container">
                     <p>3-Years</p>
-                    <a class="button button--invert-gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$99</a>
+                    <a class="button button--gold button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR3YR" >$99</a>
                 </div>
             </div>
         </div>
