@@ -1,0 +1,42 @@
+@import "../settings/all";
+
+.small-steps {
+
+    @include breakpoint(sm) {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__alumni-logo, &__150-logo {
+        width: 100%;
+        min-width: 260px;
+        
+        @include breakpoint(xs) {
+            width: 50%;
+            display: block;
+            margin: auto;
+        }
+    }
+
+    &__150-logo {
+
+        @include breakpoint(xs) {
+            margin-top: 2em;
+        }
+    }
+
+    &__divider {
+        flex: 0 0 2px;
+        margin: 0 2em;
+
+        &:after {
+            content: "";
+            display: block;
+            width: 2px;
+            height: 80%;
+            position: relative;
+            top: 10%;
+            background-color: $black;
+        }
+    }
+}
