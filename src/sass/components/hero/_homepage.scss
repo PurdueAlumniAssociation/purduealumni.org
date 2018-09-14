@@ -7,45 +7,70 @@
     }
 
     &__dark-layer {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        //background-color: rgba(0,0,0,.5);
-        background-image: linear-gradient(transparent, rgba(0,0,0,.7));
+        display: none;
+
+        @include breakpoint(sm) {
+            display: block;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            //background-color: rgba(0,0,0,.5);
+            background-image: linear-gradient(transparent, rgba(0,0,0,.7));
+        }
     }
 
     &__content-container {
-        position: absolute;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        height: 100%;
-        padding: 2em;
-        overflow: hidden;
+        padding: 0 $section-padding-xs;
+
+        @include breakpoint(sm) {
+            position: absolute;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 100%;
+            padding: 2em $section-padding-sm;
+            overflow: hidden;
+        }
+
+        @include breakpoint(md) {
+            padding: 2em $section-padding-md;
+        }
     }
 
     &__primary {
-        flex: 0 0 65%;
-        align-self: flex-end;
-        padding: 0 2em 0 0;
-        //padding: 1em;
-        font-size: 1.2em;
-        color: $white;
-        //text-shadow: 2px 2px 12px $black;
-        //background-color: rgba(0,0,0,.7);
+        color: $almost-black;
+        margin-top: 1rem;
+
+        @include breakpoint(sm) {
+            margin-top: 0;
+            flex: 0 0 65%;
+            align-self: flex-end;
+            padding: 0 2em 0 0;
+            //font-size: 1.2em;
+            color: $white;
+        }
+
+        @include breakpoint(md) {
+            font-size: 1.2em;
+            text-shadow: 2px 2px 8px $black;
+        }
 
         & h1 {
-            font-size: 2em;
             color: inherit;
             line-height: 1;
             margin: 0 0 1rem 0;
+
+            @include breakpoint(sm) {
+                font-size: 2em;
+                text-shadow: 2px 2px 8px $black;
+            }
         }
 
         & .button {
-            text-shadow: none;
             color: $black;
+            text-shadow: none;
 
             &:hover {
                 background-color: $black;
@@ -58,7 +83,7 @@
         }
     }
 
-    &__secondary {
+    /* &__secondary {
         flex: 0 1 25%;
         align-self: center;
         padding: 2em;
@@ -85,7 +110,7 @@
                 // color: $campus-gold;
             }
         }
-    }
+    }*/
 }
 // .homepage-hero {
 //     position: relative;
