@@ -1,0 +1,61 @@
+.hero {
+    height: 200px;
+
+    @include breakpoint(sm) {
+        height: 400px;
+    }
+    background-attachment: fixed;
+    background-position: center 0;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__content {
+        padding: 2em;
+        text-align: center;
+        max-width: 40%;
+        min-width: 300px;
+
+        &--shaded {
+            background-color: rgba(0,0,0,.3);
+        }
+
+        &--light {
+            color: $white !important;
+        }
+    }
+
+    &__title {
+        @extend h1;
+        color: inherit;
+    }
+
+    &__description {
+        color: $white;
+        margin-bottom: 0;
+        color: inherit;
+
+        &--divider {
+            margin-top: 2em;
+            &:before {
+                content: "";
+                display: block;
+                margin: auto;
+                background-color: $almost-black;
+                height: 2px;
+                width: 50%;
+                min-width: 200px;
+                position: relative;
+                top: -1em;
+            }
+        }
+
+        &--divider-light {
+            &:before {
+                background-color: $white;
+            }
+        }
+    }
+}

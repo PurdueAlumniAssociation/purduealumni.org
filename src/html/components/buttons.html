@@ -1,9 +1,62 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-@@include('../partials/head.html', {
-    "title": "Buttons"
+@@include('../partials/_head.html', {
+    "title": "Buttons",
+    "pageCSS": ""
 })
 <body>
-     <a href="#" class="button">Sign In</a>
+    <style>
+        .black {
+            background-color: black;
+        }
+        .gray {
+            background-color: gray;
+        }
+    </style>
+    <h2>Regular Buttons</h2>
+    <code><pre>&lt;a href="#" class="button button--teal"&gt;Sign In&lt;/a&gt;</pre></code>
+    <a href="#" class="button">Sign In</a>
+    <a href="#" class="button button--almost-black">Sign In</a>
+    <a href="#" class="button button--teal">Sign In</a>
+    <a href="#" class="button button--orange">Sign In</a>
+    <a href="#" class="button button--gold">Sign In</a>
+    <a href="#" class="button button--blue">Sign In</a>
+    <a href="#" class="button button--green">Sign In</a>
+    <a href="#" class="button button--light-gray">Sign In</a>
+    <a href="#" class="button button--white">Sign In</a>
+
+    <h2>Inverted Buttons</h2>
+    <code><pre>&lt;a href="#" class="button button--invert-teal"&gt;Sign In&lt;/a&gt;</pre></code>
+    <a href="#" class="button button--invert-teal">Sign In</a>
+    <a href="#" class="button button--invert-orange">Sign In</a>
+    <a href="#" class="button button--invert-gold">Sign In</a>
+    <a href="#" class="button button--invert-blue">Sign In</a>
+    <a href="#" class="button button--invert-green">Sign In</a>
+    <a href="#" class="button button--invert-light-gray">Sign In</a>
+    <a href="#" class="button button--invert-white">Sign In</a>
+
+    <h2>Background Colors</h2>
+    <button id="white-toggle">White</button>
+    <button id="black-toggle">Black</button>
+    <button id="gray-toggle">Gray</button>
+
+    <script>
+        function resetBackground () {
+            $('body').removeClass();
+        }
+        $( document ).ready( function() {
+            $('#white-toggle').click( function() {
+                resetBackground();
+            });
+            $('#black-toggle').click( function() {
+                resetBackground();
+                $('body').toggleClass("black");
+            });
+            $('#gray-toggle').click( function() {
+                resetBackground();
+                $('body').toggleClass("gray");
+            });
+        });
+    </script>
 </body>
 </html>

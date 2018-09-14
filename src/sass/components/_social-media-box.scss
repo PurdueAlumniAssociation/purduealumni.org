@@ -1,0 +1,39 @@
+.social-media-box {
+    margin: auto;
+    padding: 0;
+    text-align: center;
+
+    &__list {
+        list-style-type: none;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid $almost-black;
+        padding: 0;
+        margin: 0;
+        background-color: $white;
+    }
+
+    &__list-item {
+        padding: 5px;
+    }
+
+    &__link {
+        display: block;
+        padding: 10px;
+        color: $digital-gold;
+
+        &:hover {
+            color: $dark-gray;
+        }
+    }
+
+    &__icon {
+        color: inherit;
+        font-size: 1.5em;
+        width: 28px;
+        height: 28px;
+        text-align: center;
+
+    }
+}

@@ -1,0 +1,48 @@
+.header {
+    margin: 0;
+    padding: 2em $section-padding-xs;
+    border-bottom: 1px solid $almost-black;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include breakpoint(sm) {
+        padding: 2em $section-padding-sm;
+
+    }
+
+    @include breakpoint(md) {
+        padding: 2em $section-padding-md;
+    }
+
+    &__logo-link {
+        display: inherit;
+        border: 0;
+        flex: 0 1 auto;
+        width: 100%; // firefox fix
+        max-width: 300px; // firefox fix
+    }
+
+    &__logo {
+        width: 100%;
+    }
+
+    &__right-content {
+        text-align: right;
+        flex: 1 1 auto;
+    }
+
+    &__navigation {
+        float: right;
+        margin-left: 2em;
+
+        @include breakpoint(xs) {
+            display: none;
+        }
+
+        @include breakpoint(md) {
+            margin-left: 3em;
+        }
+    }
+}

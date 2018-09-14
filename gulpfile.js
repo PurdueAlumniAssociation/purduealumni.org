@@ -29,7 +29,7 @@ gulp.task('sass', function () {
     .pipe(cssnano())
     .pipe(sourcemaps.write('./'))
 
-  .pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('dist/css/'))
   .pipe(connect.reload());
 });
 
@@ -53,6 +53,20 @@ gulp.task('connect', function() {
         root: "dist",
         livereload: true
     });
+});
+
+// wordpress
+gulp.task('wordpress', function () {
+  gulp.src(['dist/css/style.css',
+            'src/themes/purdue-alumni-association/**/*.php'])
+    // include module files
+    .pipe(fileinclude({
+      prefix: '@@',
+      basepath: '@file'
+    }))
+    // clean up html
+    // .pipe(htmlPrettify({indent_char:' ',indent_size:4}))
+    .pipe(gulp.dest('dist/themes/purdue-alumni-association'))
 });
 
 gulp.task('watch', function () {

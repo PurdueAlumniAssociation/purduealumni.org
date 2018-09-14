@@ -1,0 +1,80 @@
+.graphic-box {
+    border-bottom: 15px solid $campus-gold;
+    position: relative;
+    background-color: $gray;
+    background-position: center;
+    background-size: cover;
+    padding: 1.5em;
+    min-height: 225px;
+    min-width: 200px;
+
+    &--green {
+        border-color: $ross-ade-green;
+    }
+
+    &--orange {
+        border-color: $bell-tower-brick;
+    }
+
+    &--dark-gray {
+        border-color: $dark-gray;
+    }
+
+    // darken background image
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-color: $black;
+        opacity: .7;
+        transition: opacity .3s;
+    }
+
+    &:hover {
+        &:before {
+            opacity: .5;
+        }
+    }
+
+    &__image {
+        display: block;
+    }
+
+    &__content {
+        position: absolute;
+        bottom: 1.5em;
+        padding-right: 1.5em;
+    }
+
+    &__category {
+        background-color: $campus-gold;
+        color: $white;
+        font-size: 1.2em;
+        text-transform: uppercase;
+        padding: 3px;
+        display: inline-block;
+        margin-bottom: 10px;
+
+        &--green {
+            background-color: $ross-ade-green;
+        }
+
+        &--orange {
+            background-color: $bell-tower-brick;
+        }
+
+        &--dark-gray {
+            background-color: $dark-gray;
+        }
+    }
+
+    &__title {
+        display: block;
+        color: $white;
+        line-height: 1.5;
+        font-weight: 400;
+    }
+}

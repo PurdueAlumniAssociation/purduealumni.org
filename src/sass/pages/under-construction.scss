@@ -1,0 +1,23 @@
+@import "../settings/all";
+
+.under-construction {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
+    &__content {
+        text-align: center;
+        position: relative;
+    }
+
+    &__logo {
+        width: 90%;
+        max-width: 400px;
+    }
+
+    &__title {
+
+    }
+}
