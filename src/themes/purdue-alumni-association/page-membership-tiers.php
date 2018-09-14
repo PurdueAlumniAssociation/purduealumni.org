@@ -15,14 +15,14 @@
                 that allows you to choose the membership that’s right for you.</p>
         </div>
     </div>
-    <section class="row row--slim row--flex row--space-between">
+    <section class="row row--slim flex flex--space-between">
         <p>
-            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members</a>
-            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members - Click here for upgrade info</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members - Click here for upgrade info</a>
         </p>
         <p>
-            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">FAQ</a>
-            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">

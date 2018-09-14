@@ -8,12 +8,12 @@
 .card{margin-bottom:2.5em}@media (min-width:62em){.card{margin-bottom:0}}
 </style>
 <main id="main" tabindex="-1">
-    <section class="row row--slim row--flex row--space-between">
+    <section class="row row--slim flex flex--space-between">
         <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
-            <a class="button button--invert-light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >FAQ</a>
-            <a class="button button--invert-light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
