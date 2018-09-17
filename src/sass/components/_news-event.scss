@@ -17,7 +17,7 @@
             width: 200px;
         }
 
-        @include breakpoint(sm) {
+        @include breakpoint(md) {
             width: auto;
         }
     }
