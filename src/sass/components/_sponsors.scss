@@ -1,0 +1,27 @@
+.sponsors {
+    @include breakpoint(sm) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    &__link {
+        display: block;
+        margin-bottom: 2em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        @include breakpoint(sm) {
+            flex: 0 1 auto;
+            margin-bottom: 0;
+        }
+    }
+
+    &__image {
+        display: block;
+        margin: auto;
+    }
+}

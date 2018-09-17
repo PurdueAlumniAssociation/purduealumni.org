@@ -427,4 +427,5 @@
             <br />Joint Member discounts available for PLUS memberships.</p>
     </section>
 </main>
+<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>
