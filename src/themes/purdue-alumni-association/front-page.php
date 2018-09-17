@@ -1,8 +1,3 @@
-<?php
-    /*
-        Template Name: One Column
-    */
-?>
 <?php get_header(); ?>
     <link rel="stylesheet" type="text/css" href="<?php echo esc_url( home_url( 'wp-content/themes/purdue-alumni-association/front-page.css' ) ); ?>" />
     <main class="front-page" id="main" tabindex="-1">
@@ -54,11 +49,11 @@
             <div class="flex__item flex__item--two-thirds">
                 <h2 class="front-page__section-title">News & Events</h2>
                 <div class="news-event">
-                    <img class="news-event__image" src="http://via.placeholder.com/300x242" alt="" />
+                    <img class="news-event__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/womens-conference-2018-event.jpg' ) ) ?>')" alt="Womens Conference, November 1-2, 2018 in Chicago" />
                     <div>
                         <h3 class="news-event__title">Women's Conference 2018</h3>
                         <p class="news-event__description">Network with a dynamic, diverse group of women. Foster your personal, professional and intellectual well-being. Participate in focused learning and growth opportunities.</p>
-                        <a class="button" class="news-event__cta" href="#">More Details Here</a>
+                        <a class="button" class="news-event__cta" href="https://purdue.imodules.com/s/1461/alumni/feature.aspx?sid=1461&gid=1001&pgid=9003">More Details Here</a>
                     </div>
                 </div>
                 <div class="news-event">
@@ -71,16 +66,14 @@
                 </div>
             </div>
             <div class="flex__item flex__item--one-third">
-                <h2 class="front-page__section-title">Featured Alumni</h2>
-                <a href="#">
-                    <aside class="feature-box">
-                        <img class="feature-box__image" src="https://purdue.imodules.com/s/1461/images/gid1001/editor/alumnus/2018_summer/keutzer.jpg" alt="Brian Chan" />
-                        <div class="feature-box__content">
-                            <p class="feature-box__text feature-box__text--quote">Never give up – regardless of the frustrations and difficulties, it will be work the effort!<span class="feature-box__source feature-box__source--black">- Becta Ketzer (HHS ’16)</span>
-                            </p>
-                        </div>
-                    </aside>
-                </a>
+                <h2 class="front-page__section-title">Giant Impact</h2>
+                <aside class="feature-box">
+                    <!-- <img class="feature-box__image" src="https://purdue.imodules.com/s/1461/images/gid1001/editor/alumnus/2018_summer/keutzer.jpg" alt="Brian Chan" /> -->
+                    <div class="feature-box__content">
+                        <p class="feature-box__text">We want to hear stories of how you or someone you know made a giant impact. It could be in one person's life or the life of an entire community.</p>
+                        <p style="margin-bottom: 0;"><a class="button button--almost-black" href="<?php echo esc_url( home_url( 'giant-impact' ) ) ?>">Tell The Story Here</a></p>
+                    </div>
+                </aside>
             </div>
         </section>
         <section class="row tint">
@@ -89,10 +82,6 @@
             <p class="tint__sub-text">Follow us on social media to stay connected <span class="tint__social-media-handle">@purduealumni</span>
             </p>
         </section>
-        <section class="row front-page__sponsors">
-            <a class="front-page__sponsors-link" href="#"><img class="front-page__sponsors-image" src="<?php echo esc_url( home_url( 'wp-content/uploads/balfour-logo.jpg' ) ); ?>" alt="Balfour" /></a>
-            <a class="front-page__sponsors-link" href="#"><img class="front-page__sponsors-image" src="<?php echo esc_url( home_url( 'wp-content/uploads/pefcu-card.jpg' ) ); ?>" alt="PEFCU" /></a>
-            <a class="front-page__sponsors-link" href="#"><img class="front-page__sponsors-image" src="<?php echo esc_url( home_url( 'wp-content/uploads/libertymutual-logo.jpg' ) ); ?>" alt="Liberty Mutual Insurance" /></a>
-        </section>
     </main>
+    <?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>

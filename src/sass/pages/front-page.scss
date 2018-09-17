@@ -7,28 +7,4 @@
         font-style: normal;
         text-transform: uppercase;
     }
-
-    &__sponsors {
-        @include breakpoint(sm) {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-        }
-    }
-
-    &__sponsors-link {
-        display: block;
-        margin-bottom: 2em;
-        flex: 0 1 auto;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    &__sponsors-image {
-        display: block;
-        margin: auto;
-    }
 }

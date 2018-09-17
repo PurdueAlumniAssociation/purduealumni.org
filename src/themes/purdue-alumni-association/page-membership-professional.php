@@ -202,4 +202,5 @@
         <p style="text-align:center;font-weight: bold; margin-top: 2em; width: 100%;">* Life membership upgrades for existing life members only. Life memberships will no longer be offered beginning August 15, 2018.</p>
     </section>
 </main>
+<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>
