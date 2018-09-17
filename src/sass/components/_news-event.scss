@@ -12,6 +12,14 @@
     &__image {
         margin-right: 1em;
         align-self: flex-start;
+
+        @include breakpoint(sm) {
+            width: 200px;
+        }
+
+        @include breakpoint(sm) {
+            width: auto;
+        }
     }
 
     &__title {
