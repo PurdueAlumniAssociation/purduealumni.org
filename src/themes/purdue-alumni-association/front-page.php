@@ -15,7 +15,7 @@
                 </div>
             </div>
         </section>
-        <section class="row row--no-padding" style="margin-top: 3px;">
+        <section class="row row--no-padding front-page__graphic-boxes">
             <div class="big-info-block">
                 <div class="big-info-block__row">
                     <a class="big-info-block__third-box" href="#">
@@ -26,11 +26,11 @@
                             </div>
                         </div>
                     </a>
-                    <a class="big-info-block__third-box" href="#">
+                    <a class="big-info-block__third-box" href="<?php echo esc_url( home_url( 'membership-plans' ) ) ?>">
                         <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/tailgate.jpg' ) ) ?>')">
                             <div class="graphic-box__content">
-                                <span class="graphic-box__category graphic-box__category--orange">HAPPY 150th!</span>
-                                <span class="graphic-box__title">We make 150 years look AMAZING! Join The Party Of The Year</span>
+                                <span class="graphic-box__category graphic-box__category--orange">Become a Member</span>
+                                <span class="graphic-box__title">The Purdue Alumni Association plugs you into the power of a global network and offers tools specific to your needs.</span>
                             </div>
                         </div>
                     </a>
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="flex__item flex__item--one-third">
-                <h2 class="front-page__section-title">Giant Impact</h2>
+                <h2 class="front-page__section-title front-page__section-title--mo-top-margin">Giant Impact</h2>
                 <aside class="feature-box">
                     <!-- <img class="feature-box__image" src="https://purdue.imodules.com/s/1461/images/gid1001/editor/alumnus/2018_summer/keutzer.jpg" alt="Brian Chan" /> -->
                     <div class="feature-box__content">

@@ -6,5 +6,15 @@
         font-family: $barlow;
         font-style: normal;
         text-transform: uppercase;
+
+        &--mo-top-margin {
+            @include breakpoint(xs) {
+                margin-top: 3em;
+            }
+        }
+    }
+
+    &__graphic-boxes {
+        margin-top: 3px;
     }
 }

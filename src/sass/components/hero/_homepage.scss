@@ -79,7 +79,9 @@
         }
 
         & p {
-            margin: 1rem 0 0 0;
+            @include breakpoint(sm) {
+                margin: 1rem 0 0 0;
+            }
         }
     }
 
