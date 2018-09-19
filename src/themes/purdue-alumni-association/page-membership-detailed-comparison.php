@@ -9,8 +9,8 @@
         <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>" style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>">FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
@@ -59,13 +59,13 @@
                 </tr>
                 <tr>
                     <td class="detailed-comparison-table__heading detailed-comparison-table__heading--benefit detailed-comparison-table__heading--tfoot" scope="row"></td>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--invert-blue" href="<?php echo esc_url( home_url( 'member/basic' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--blue" href="<?php echo esc_url( home_url( 'member/basic' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-green" href="<?php echo esc_url( home_url( 'member/plus' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--green" href="<?php echo esc_url( home_url( 'member/plus' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-gold" href="<?php echo esc_url( home_url( 'member/professional' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--gold" href="<?php echo esc_url( home_url( 'member/professional' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--invert-orange" href="<?php echo esc_url( home_url( 'member/career-max' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--orange" href="<?php echo esc_url( home_url( 'member/career-max' ) ); ?>">View</a>
                     </th>
                 </tr>
             </tfoot>
@@ -421,11 +421,11 @@
             </tbody>
         </table>
     </section>
-    <section calss="row">
+    <section class="row">
         <p style="text-align: center;">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.
             <br />Discounts available for recent grads.
             <br />Joint Member discounts available for PLUS memberships.</p>
     </section>
+
 </main>
-<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>

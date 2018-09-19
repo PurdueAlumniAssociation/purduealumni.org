@@ -12,8 +12,8 @@
         <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" >FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
@@ -89,5 +89,4 @@
         <p>Enjoy downloadable Purdue-themed printables and desktop calendars.</p>
     </section>
 </main>
-<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>

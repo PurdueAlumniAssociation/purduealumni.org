@@ -72,7 +72,10 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='#'><i class='fa fa-key' aria-hidden='true'></i> Login</a>
+                    <a class='primary-menu__link' href='https://tinyurl.com/ybr3yvcm'><i class='fa fa-key' aria-hidden='true'></i> Member Login</a>
+                </li>
+                <li class='primary-menu__list-item'>
+                    <a class='primary-menu__link' href='https://purdue.vineup.com'><i class='fa fa-users' aria-hidden='true'></i> Alumni Portal</a>
                 </li>" . $items;
     }
 
@@ -110,13 +113,6 @@ function paa_menu_classes($classes, $item, $args) {
     return $classes;
 }
 add_filter('nav_menu_css_class', 'paa_menu_classes', 1, 3);
-
-// read more text to the excerpt
-// function paa_excerpt_more( $more ) {
-//     global $post;
-//     return ' <a href="'.get_permalink($post->ID).'" rel="nofollow">Read More</a>';
-// }
-// add_filter( 'excerpt_more', 'paa_excerpt_more' );
 
 function paa_login_logo() { ?>
     <link href="https://fonts.googleapis.com/css?family=Barlow:400,700" rel="stylesheet">
@@ -214,6 +210,12 @@ function paa_mce_before_init_insert_formats( $init_array ) {
 // Attach callback to 'tiny_mce_before_init'
 add_filter( 'tiny_mce_before_init', 'paa_mce_before_init_insert_formats' );
 
+function paa_allow_button_onclick_mce($settings) {
+  $settings['extended_valid_elements'] =  "a[rel|rev|charset|hreflang|tabindex|accesskey|type|name|href|target|title|class|onfocus|onblur|onclick]";
+  return $settings;
+}
+add_filter('tiny_mce_before_init', 'paa_allow_button_onclick_mce');
+
 function paa_add_editor_styles() {
     add_editor_style( 'https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i' );
     add_editor_style( 'style.css' );
@@ -233,4 +235,12 @@ function paa_replace_hash($menu_item) {
     return $menu_item;
 }
 add_filter('walker_nav_menu_start_el', 'paa_replace_hash', 999);
+
+function paa_excerpt_more( $more ) {
+    return sprintf( '... <a class="read-more" href="%1$s">%2$s</a>',
+        get_permalink( get_the_ID() ),
+        __( 'Read More', 'textdomain' )
+    );
+}
+add_filter( 'excerpt_more', 'paa_excerpt_more' );
 ?>

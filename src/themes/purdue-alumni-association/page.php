@@ -47,5 +47,4 @@
         </main>
     </section>
 <?php endif; ?>
-<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>

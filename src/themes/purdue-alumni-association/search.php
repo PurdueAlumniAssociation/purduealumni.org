@@ -1,8 +1,3 @@
-<?php
-    /*
-        Template Name: One Column
-    */
-?>
 <?php get_header(); ?>
 <section class="row">
     <main id="main" tabindex="-1">

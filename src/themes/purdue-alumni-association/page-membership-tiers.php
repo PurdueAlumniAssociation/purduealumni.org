@@ -17,12 +17,12 @@
     </div>
     <section class="row row--slim flex flex--space-between">
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members - Click here for upgrade info</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section3' ) ); ?>" target="_top">Current Members - Click here for upgrade info</a>
         </p>
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'member/frequently-asked-questions' ) ); ?>" target="_top">Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" target="_top">FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" target="_top">Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
@@ -34,7 +34,7 @@
                     <p class="plan__cost">$25<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The no-frills gateway to Purdue Alumni. Discounted member pricing at events, Purdue gear discounts, online directory and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'member/basic' ) ); ?>" target="_top">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/basic' ) ); ?>" target="_top">Learn More</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--plus plan--highlight">
@@ -45,7 +45,7 @@
                     <p class="plan__cost">$59<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The ‘traditional’ membership &mdash; the perfect way to stay connected and save. Nationwide savings program, clubs and alumni networks, magazine, newsletters, and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'member/plus' ) ); ?>" target="_top">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/plus' ) ); ?>" target="_top">Learn More</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--professional">
@@ -55,7 +55,7 @@
                     <p class="plan__cost">$99<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The membership to jump-start your career. Purdue online course discounts, job search tools, research database, career development webinars, and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'member/professional' ) ); ?>" target="_top">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/professional' ) ); ?>" target="_top">Learn More</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--career-max">
@@ -65,16 +65,15 @@
                     <p class="plan__cost">$199<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The ultimate way to take your career to the next level. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'member/career-max' ) ); ?>" target="_top">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/career-max' ) ); ?>" target="_top">Learn More</a>
                 </div>
             </div>
         </div>
         <p class="text-center">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.
             <br />Discounts available for recent grads.
             <br />
-            <a href="<?php echo esc_url( home_url( 'member/detailed-plan-comparison' ) ); ?>" target="_top">View the detailed comparison</a>
+            <a href="<?php echo esc_url( home_url( 'membership/membership-plans/detailed-plan-comparison' ) ); ?>" target="_top">View the detailed comparison</a>
         </p>
     </section>
 </main>
-<?php get_template_part( 'template-parts/sponsors' ); ?>
 <?php get_footer(); ?>

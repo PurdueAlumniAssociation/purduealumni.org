@@ -14,11 +14,11 @@
         align-self: flex-start;
 
         @include breakpoint(sm) {
-            width: 200px;
+            height: 161px;
         }
 
         @include breakpoint(md) {
-            width: auto;
+            height: auto;
         }
     }
 
