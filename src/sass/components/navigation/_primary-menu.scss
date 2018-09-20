@@ -57,6 +57,7 @@
 
     &__link, & a {
         text-decoration: none;
+        white-space: nowrap;
 
         &--current {
             @extend .current-menu-item;
