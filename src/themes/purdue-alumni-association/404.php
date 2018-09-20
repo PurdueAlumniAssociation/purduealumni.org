@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<section class="layout">
+<section class="row">
     <main id="main" tabindex="-1">
         <h1>Not Found</h1>
         <p><?php esc_html_e( 'Whoops! The page you are looking for is no longer here. Try searching for the page you are looking for.' ); ?></p>

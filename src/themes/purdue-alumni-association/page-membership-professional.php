@@ -55,7 +55,7 @@
             </a>
         </div>
         <div class="flex-item-1-2-3">
-            <a href="<?php echo esc_url( home_url( 'membership/benefits/online-education-discounts' ) ); ?>" >
+            <a href="<?php echo esc_url( home_url( 'membership/benefits/online-education-discounts-for-professional' ) ); ?>" >
                 <div class="card card--flex-item-3">
                     <img class="card__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/300x200Small9.jpg' ) ); ?>" alt="">
                     <div class="card__content">

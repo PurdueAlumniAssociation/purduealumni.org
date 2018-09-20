@@ -10,7 +10,7 @@
         <section class="row row--no-padding front-page__graphic-boxes">
             <div class="big-info-block">
                 <div class="big-info-block__row">
-                    <a class="big-info-block__third-box" href="mailto:alumnidigital@purdue.edu">
+                    <a class="big-info-block__third-box" target="_blank" rel="noopener" href="https://krannert.purdue.edu/events/boilers-by-the-bay/" onclick="trackOutboundLink('https://krannert.purdue.edu/events/boilers-by-the-bay/'); return false;">
                         <div class="graphic-box graphic-box--green" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_help.jpg' ) ) ?>')">
                             <div class="graphic-box__content">
                                 <span class="graphic-box__category graphic-box__category--green">Boilers by the Bay</span>
@@ -58,12 +58,12 @@
                 </div>
             </div>
             <div class="flex__item flex__item--one-third">
-                <h2 class="front-page__section-title front-page__section-title--mo-top-margin">Giant Impact</h2>
+                <h2 class="front-page__section-title front-page__section-title--mo-top-margin">Small Steps, Giant Impact</h2>
                 <aside class="feature-box">
                     <img class="feature-box__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/feature-box_giant-impact.jpg' ) ) ?>" alt="bootprint in moondust" />
                     <div class="feature-box__content">
-                        <p class="feature-box__text">We want to hear stories of how you or someone you know made a giant impact. It could be in one person's life or the life of an entire community.</p>
-                        <p style="margin-bottom: 0;"><a class="button button--almost-black" href="<?php echo esc_url( home_url( 'giant-impact' ) ) ?>">Tell The Story Here</a></p>
+                        <p class="feature-box__text">We want to hear stories of how a Purdue alumnus you know made a giant impact. It could be in one person's life or the life of an entire community.</p>
+                        <p style="margin-bottom: 0;"><a class="button button--almost-black" href="<?php echo esc_url( home_url( 'giant-impact' ) ) ?>">Tell Their Story</a></p>
                     </div>
                 </aside>
             </div>
