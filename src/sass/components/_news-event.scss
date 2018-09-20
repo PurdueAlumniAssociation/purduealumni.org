@@ -12,13 +12,14 @@
     &__image {
         margin-right: 1em;
         align-self: flex-start;
+        max-width: 100%;
 
         @include breakpoint(sm) {
             height: 161px;
         }
 
         @include breakpoint(md) {
-            height: auto;
+            height: 242px;
         }
     }
 
