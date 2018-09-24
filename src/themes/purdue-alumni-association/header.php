@@ -58,7 +58,7 @@
             <img class="header__logo" src="<?= get_template_directory_uri() ?>/svg/logo-optimized.svg" alt="Purdue Alumni Association" />
         </a>
         <div class="header__right-content">
-            <a class="button button--small button--almost-black primary-menu__mobile-menu-button" id="mobile-menu-toggle" href="javascript:void(0)"><i class="fas fa-bars primary-menu__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>
+            <a class="button button--small button--almost-black primary-menu__mobile-menu-button" id="mobile-menu-toggle" href="#" onclick="return false;"><i class="fas fa-bars primary-menu__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>
             <?php if ( has_nav_menu( 'primary-menu' ) ) : ?>
                 <?php
                     wp_nav_menu( array(
