@@ -1,0 +1,47 @@
+.flex {
+    @include breakpoint(sm) {
+        display: flex;
+    }
+
+    &--space-evenly {
+        justify-content: space-evenly;
+    }
+
+    &--space-between {
+        justify-content: space-between;
+    }
+
+    &--align-items-center {
+        align-items: center;
+    }
+
+    &__item {
+        @include breakpoint(sm) {
+            margin-right: 2rem;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        &--one-third {
+            flex-basis: 33.33333%;
+        }
+
+        &--two-thirds {
+            flex-basis: 66.66667%;
+        }
+
+        &--one-fourth {
+            flex-basis: 25%;
+        }
+
+        &--one-half, &--two-fourths {
+            flex-basis: 50%;
+        }
+
+        &--three-fourths {
+            flex-basis: 75%;
+        }
+    }
+}

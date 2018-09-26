@@ -1,0 +1,31 @@
+.layout {
+    @include breakpoint(sm) {
+        display: flex;
+    }
+
+    &__sidebar {
+        flex-basis: 25%;
+
+        @include breakpoint(xs) {
+            margin-top: 3em;
+        }
+
+        @include breakpoint(sm) {
+            margin-right: 3em;
+            padding-top: 15px; // so the contents of the sidebar align with the h1 on the page
+            order: 1;
+        }
+
+        @include breakpoint(md) {
+            margin-right: 4em;
+        }
+    }
+
+    &__main {
+        flex-basis: 75%;
+
+        @include breakpoint(sm) {
+            order: 2;
+        }
+    }
+}

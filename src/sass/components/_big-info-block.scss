@@ -1,0 +1,62 @@
+.big-info-block {
+    &__row {
+        @include breakpoint(sm) {
+            display: flex;
+        }
+    }
+
+    &__primary-box {
+        flex: 1 1 66%;
+        margin-right: 2em;
+        padding-right: 1.5em;
+        padding-bottom: 1.5em;
+    }
+
+    $bib-spacer: 3px; // add space between the boxes
+
+    &__secondary-box {
+        flex: 1 1 34%;
+        padding: 1.5em;
+        background-color: $almost-black;
+        color: $white;
+        margin-bottom: $bib-spacer;
+
+        @include breakpoint(sm) {
+            //margin-left: $bib-spacer;
+        }
+    }
+
+    &__third-box {
+        flex: 1 1 33%;
+        display: block;
+
+        @include breakpoint(xs) {
+            margin-bottom: $bib-spacer;
+        }
+
+        @include breakpoint(sm) {
+            margin-right: $bib-spacer;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__primary-title {
+        @extend h1;
+        font-family: $barlow;
+        text-transform: uppercase;
+        font-style: normal;
+        line-height: 1;
+    }
+
+    &__secondary-title {
+        @extend h2;
+        margin-top: 0;
+        line-height: 1;
+        color: $white;
+    }
+
+    &__content {}
+}

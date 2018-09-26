@@ -1,0 +1,59 @@
+.breadcrumbs {
+    background-color: $gray;
+    padding: 1em $section-padding-xs;
+    font-size: .8em;
+
+    @include breakpoint(sm) {
+        padding: 1em $section-padding-sm;
+        font-size: 1em;
+    }
+
+    @include breakpoint(md) {
+        padding: 1em $section-padding-md;
+    }
+
+    &__list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    &__list-item {
+        text-transform: uppercase;
+        display: inline;
+        position: relative;
+        line-height: 1.5;
+
+        &:after {
+            content: '';
+            border: solid $dark-gray;
+            border-width: 0 1px 1px 0;
+            transform: rotate(-45deg);
+            display: inline-block;
+            width: .5em;
+            height: .5em;
+            margin: 0 .75em;
+            position: relative;
+            top: -1px;
+        }
+
+        &:last-child:after {
+            border: 0;
+            margin: 0;
+        }
+    }
+
+    &__link {
+        text-decoration: none;
+        font-weight: 400;
+
+        &:hover {
+            text-decoration: underline;
+            color: $almost-black;
+        }
+
+        &--current {
+            font-weight: 700;
+        }
+    }
+}

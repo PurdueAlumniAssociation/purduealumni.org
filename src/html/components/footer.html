@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/_head.html', {
+    "title": "Primary Footer",
+    "pageCSS": ""
+})
+<body>
+    <h1>Some title</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae earum officia omnis, inventore rerum placeat sit. Dignissimos dicta deleniti laborum facilis, ratione, doloremque itaque veritatis recusandae iusto repellat adipisci optio!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea molestias est, sed obcaecati minus dignissimos itaque. Sunt molestiae at, incidunt id ratione consectetur quo quos quaerat molestias, vero sequi est.</p>
+    <footer class="primary-footer">
+        <aside class="social-media-box primary-footer__social-media-box">
+            <ul class="social-media-box__list">
+                <li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-facebook-f social-media-box__icon"></i></a></li>
+                <li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-twitter social-media-box__icon"></i></a></li>
+                <li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-linkedin-in social-media-box__icon"></i></a></li>
+                <li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-instagram social-media-box__icon"></i></a></li>
+                <li class="social-media-box__list-item"><a class="social-media-box__link" href="#"><i class="fab fa-pinterest social-media-box__icon"></i></a></li>
+            </ul>
+        </aside>
+        <div class="primary-footer__columns-container">
+            <div class="primary-footer__column">
+                <span class="primary-footer__column-title" id="footer-column1">Current Alumni<!-- <i class="fas fa-plus primary-footer__column-title-icon"></i> --></span>
+                <ul class="primary-footer__column-list" aria-labelledby="footer-column1">
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Career Tools & Resources</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Ways to Give</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Transcript Request</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Update your Information</a></li>
+                </ul>
+            </div>
+            <div class="primary-footer__column">
+                <span class="primary-footer__column-title" id="footer-column2">Current Alumni<!-- <i class="fas fa-plus primary-footer__column-title-icon"></i> --></span>
+                <ul class="primary-footer__column-list" aria-labelledby="footer-column2">
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Career Tools & Resources</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Ways to Give</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Transcript Request</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Update your Information</a></li>
+                </ul>
+            </div>
+            <div class="primary-footer__column">
+                <span class="primary-footer__column-title" id="footer-column3">Current Alumni<!-- <i class="fas fa-plus primary-footer__column-title-icon"></i> --></span>
+                <ul class="primary-footer__column-list" aria-labelledby="footer-column3">
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Career Tools & Resources</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Ways to Give</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Transcript Request</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Update your Information</a></li>
+                </ul>
+            </div>
+            <div class="primary-footer__column">
+                <span class="primary-footer__column-title" id="footer-column4">Current Alumni<!-- <i class="fas fa-plus primary-footer__column-title-icon"></i> --></span>
+                <ul class="primary-footer__column-list" aria-labelledby="footer-column4">
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Career Tools & Resources</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Ways to Give</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Transcript Request</a></li>
+                    <li class="primary-footer__column-list-item"><a class="primary-footer__column-link" href="#">Update your Information</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <footer class="secondary-footer">
+        <div class="secondary-footer__left-content">
+            <p><span class="secondary-footer__left-content-title">Dauch Alumni Center</span><br />
+            403 W. Wood Street West Lafayette, IN 47906<br />
+            800-414-1541&nbsp;&nbsp;|&nbsp;&nbsp;<a href="mailto:purduealumni@purdue.edu">purduealumni@purdue.edu</a></p>
+        </div>
+        <div class="secondary-footer__right-content">
+            <p><a href="#">Terms of Use</a><br />
+            <a href="#">Privacy Statement</a><br />
+            Purdue Alumni Association. All Rights Reserved</p>
+        </div>
+    </footer>
+    <!-- <script>
+        $(document).ready(function($) {
+            // find all the column titles, add click event
+            $('.primary-footer__columns-container').find('.primary-footer__column-title').click(function() {
+                // only animate if screen size is xs
+                if ($(window).width() < 767) {
+                    // toggle visibility of the column links
+                    $(this).next().slideToggle('fast');
+
+                    // TO DO: change icon
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>
