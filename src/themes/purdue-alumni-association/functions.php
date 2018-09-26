@@ -230,7 +230,7 @@ add_action( 'init', 'paa_add_editor_styles' );
  */
 function paa_replace_hash($menu_item) {
     if (strpos($menu_item, 'href="#"') !== false) {
-        $menu_item = str_replace('href="#"', 'href="javascript:void(0);"', $menu_item);
+        $menu_item = str_replace('href="#"', 'href="#" onclick="return false;"', $menu_item);
     }
     return $menu_item;
 }
