@@ -4,13 +4,21 @@
         <h1 class="sr-only">Purdue Alumni Association</h1>
         <section class="row row--no-padding">
             <div class="homepage-hero">
-                <img class="homepage-hero__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/homepage-hero_150.jpg' ) ); ?>" />
+                <img class="homepage-hero__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/five-new-members.jpg' ) ); ?>" />
+                <div class="homepage-hero__dark-layer"></div>
+                <div class="homepage-hero__content-container">
+                    <div class="homepage-hero__primary">
+                        <h1>Become a Member</h1>
+                        <a class="button button--gold" href="<?php echo esc_url( home_url( 'membership/membership-plans' ) ); ?>">Join today! &nbsp;<i class="fas fa-arrow-right" aria-hidden></i></a>
+                        <p>You’re unique. But there's something you have in common with 600,000+ others. You're a Purdue graduate. The Purdue Alumni Association plugs you into the power of a global network and offers tools specific to your needs.</p>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="row row--no-padding front-page__graphic-boxes">
             <div class="big-info-block">
                 <div class="big-info-block__row">
-                    <a class="big-info-block__third-box" target="_blank" rel="noopener" href="https://krannert.purdue.edu/events/boilers-by-the-bay/" onclick="trackOutboundLink('https://krannert.purdue.edu/events/boilers-by-the-bay/'); return false;">
+                    <a class="big-info-block__third-box" target="_blank" rel="noopener" href="https://krannert.purdue.edu/events/boilers-by-the-bay/">
                         <div class="graphic-box graphic-box--green" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_help.jpg' ) ) ?>')">
                             <div class="graphic-box__content">
                                 <span class="graphic-box__category graphic-box__category--green">Boilers by the Bay</span>
@@ -18,11 +26,11 @@
                             </div>
                         </div>
                     </a>
-                    <a class="big-info-block__third-box" href="<?php echo esc_url( home_url( 'membership/membership-plans' ) ) ?>">
-                        <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_membership.jpg' ) ) ?>')">
+                    <a class="big-info-block__third-box" target="_blank" rel="noopener" href="https://takegiantleaps.com/">
+                        <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_150.jpg' ) ) ?>')">
                             <div class="graphic-box__content">
-                                <span class="graphic-box__category graphic-box__category--orange">Become a Member</span>
-                                <span class="graphic-box__title">A global network and tools to help you grow</span>
+                                <span class="graphic-box__category graphic-box__category--orange">Purdue 150</span>
+                                <span class="graphic-box__title">Celebrate our birthday all year long</span>
                             </div>
                         </div>
                     </a>
