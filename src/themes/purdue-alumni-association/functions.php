@@ -5,7 +5,34 @@ add_theme_support( 'title-tag' );
 
 // Add common styles
 function paa_scripts_and_styles() {
-    wp_enqueue_style( 'common-styles', get_stylesheet_uri() ); // style.css
+    // load custom template styles or default to basic common styles
+    switch ( basename( get_page_template() ) ) {
+        case "page-membership-basic.php":
+            wp_enqueue_style( 'page-membership-basic', get_template_directory_uri() . '/css/page-membership-basic.css' );
+            break;
+        case "page-membership-plus.php":
+            wp_enqueue_style( 'page-membership-plus', get_template_directory_uri() . '/css/page-membership-plus.css' );
+            break;
+        case "page-membership-professional.php":
+            wp_enqueue_style( 'page-membership-professional', get_template_directory_uri() . '/css/page-membership-professional.css' );
+            break;
+        case "page-membership-career-max.php":
+            wp_enqueue_style( 'page-membership-career-max', get_template_directory_uri() . '/css/page-membership-career-max.css' );
+            break;
+        case "page-membership-tiers.php":
+            wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
+            break;
+        case "page-small-steps.php":
+            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-membership-small-steps.css' );
+            break;
+        default:
+            if ( is_front_page() ) {
+                wp_enqueue_style( 'front-page', get_template_directory_uri() . '/front-page.css' );
+            } else {
+                wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
+            }
+    }
+
     wp_enqueue_script( 'script-name', get_template_directory_uri() . '/js/common.js', array(), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );

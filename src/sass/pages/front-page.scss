@@ -1,20 +1,2 @@
-@import "../settings/all";
-
-.front-page {
-    &__section-title {
-        margin-top: 0;
-        font-family: $barlow;
-        font-style: normal;
-        text-transform: uppercase;
-
-        &--mo-top-margin {
-            @include breakpoint(xs) {
-                margin-top: 3em;
-            }
-        }
-    }
-
-    &__graphic-boxes {
-        margin-top: 3px;
-    }
-}
+@import "../common";
+@import "../page-specific/front-page";
