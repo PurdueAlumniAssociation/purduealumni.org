@@ -27,7 +27,7 @@ function paa_scripts_and_styles() {
             break;
         default:
             if ( is_front_page() ) {
-                wp_enqueue_style( 'front-page', get_template_directory_uri() . '/front-page.css' );
+                wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
