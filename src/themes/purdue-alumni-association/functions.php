@@ -23,7 +23,7 @@ function paa_scripts_and_styles() {
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
             break;
         case "page-small-steps.php":
-            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-membership-small-steps.css' );
+            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
         default:
             if ( is_front_page() ) {
