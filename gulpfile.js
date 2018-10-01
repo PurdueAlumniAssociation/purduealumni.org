@@ -27,9 +27,9 @@ gulp.task('sass', function () {
       cascade: false
     }))
     .pipe(cssnano())
+    .pipe(gulp.dest('dist/prod/css/')) // build css without sourcemaps
     .pipe(sourcemaps.write('./'))
-
-    .pipe(gulp.dest('dist/css/'))
+    .pipe(gulp.dest('dist/css/')) // build css with sourcemaps
   .pipe(connect.reload());
 });
 
