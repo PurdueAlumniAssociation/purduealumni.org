@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-    <link rel="stylesheet" type="text/css" href="<?php echo esc_url( home_url( 'wp-content/themes/purdue-alumni-association/front-page.css' ) ); ?>" />
     <main class="front-page" id="main" tabindex="-1">
         <h1 class="sr-only">Purdue Alumni Association</h1>
         <section class="row row--no-padding">
