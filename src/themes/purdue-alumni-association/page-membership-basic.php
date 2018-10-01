@@ -4,9 +4,6 @@
     */
 ?>
 <?php get_header(); ?>
-<style>
-.card{margin-bottom:2.5em}@media (min-width:62em){.card{margin-bottom:0}}
-</style>
 <main id="main" tabindex="-1">
     <section class="row row--slim flex flex--space-between">
         <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>

@@ -50,8 +50,6 @@
 <section class="row">
     <?php get_template_part( 'template-parts/sponsors' ); ?>
 </section>
-<style>@media (min-width:48em){.small-steps{display:-ms-flexbox;display:flex;-ms-flex-pack:center;justify-content:center}}.small-steps__150-logo,.small-steps__alumni-logo{width:100%;min-width:260px}@media (max-width:47.99999em){.small-steps__150-logo,.small-steps__alumni-logo{width:50%;display:block;margin:auto}}@media (max-width:47.99999em){.small-steps__150-logo{margin-top:2em}}.small-steps__divider{-ms-flex:0 0 2px;flex:0 0 2px;margin:0 2em}.small-steps__divider:after{content:"";display:block;width:2px;height:80%;position:relative;top:10%;background-color:#000}
-</style>
 <footer class="primary-footer">
     <aside class="social-media-box primary-footer__social-media-box">
         <ul class="social-media-box__list">

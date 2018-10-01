@@ -4,9 +4,6 @@
     */
 ?>
 <?php get_header(); ?>
-<style>
-.hero-container{background-image:linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.5)),url(https://purduealumni.org/dev2/images/membership.jpg);background-position:50%;background-repeat:no-repeat;background-size:cover;position:relative;height:400px}.hero-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#fff;margin:0;width:65%}.hero-text h1{margin:0;color:#fff;}.hero-text p{margin-top:2.5em}@media (min-width:768px){.hero-text p{font-size:1.2em}}
-</style>
 <main id="main" tabindex="-1">
     <div class="hero-container">
         <div class="hero-text">
