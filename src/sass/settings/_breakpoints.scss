@@ -1,13 +1,13 @@
-/*  USAGE
-aside.primary {
-  float: right;
-  width: 350px;
-  @include breakpoint(sm) {
-    float: none;
-    width: 100%;
-  }
-}
-*/
+// USAGE
+// aside.primary {
+//   float: right;
+//   width: 350px;
+//   @include breakpoint(sm) {
+//     float: none;
+//     width: 100%;
+//   }
+// }
+
 
 @mixin breakpoint($class) {
   @if $class == xs {
