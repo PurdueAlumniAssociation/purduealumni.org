@@ -46,7 +46,7 @@
             margin: 0 $navigation-gap-sm;
         }
 
-        @include breakpoint(md) {
+        @include breakpoint(lg) {
             margin: 0 $navigation-gap-md;
         }
 

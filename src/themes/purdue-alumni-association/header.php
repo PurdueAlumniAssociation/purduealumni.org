@@ -55,7 +55,8 @@
     </header>
     <header class="row row--full-width header">
         <a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <img class="header__logo" src="<?= get_template_directory_uri() ?>/svg/logo-optimized.svg" alt="Purdue Alumni Association" />
+            <img class="header__logo not-mobile not-tablet" src="<?= get_template_directory_uri() ?>/svg/alumni-association-mark-with-150-desktop-optimized.svg" alt="Purdue Alumni Association" />
+            <img class="header__logo mobile-only tablet-only" src="<?= get_template_directory_uri() ?>/svg/alumni-association-mark-with-150-mobile-optimized.svg" alt="Purdue Alumni Association" />
         </a>
         <div class="header__right-content">
             <a class="button button--small button--almost-black primary-menu__mobile-menu-button" id="mobile-menu-toggle" href="#" onclick="return false;"><i class="fas fa-bars primary-menu__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>
