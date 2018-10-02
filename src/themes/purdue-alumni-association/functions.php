@@ -244,6 +244,7 @@ function paa_allow_button_onclick_mce($settings) {
 add_filter('tiny_mce_before_init', 'paa_allow_button_onclick_mce');
 
 function paa_add_editor_styles() {
+    add_editor_style( 'https://use.fontawesome.com/releases/v5.1.0/css/all.css' );
     add_editor_style( 'https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i' );
     add_editor_style( 'style.css' );
 }
