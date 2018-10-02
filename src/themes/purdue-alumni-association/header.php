@@ -26,7 +26,14 @@
       });
     }
     </script>
-    <?php wp_head(); ?>
+    <?php wp_head();
+
+        // add custom page css if present
+        $page_css = rwmb_meta( "page_css" );
+        if ( $page_css ) {
+            echo "<style type=\"text/css\">", str_replace(" ","",$page_css), "</style>\n";
+        }
+    ?>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
