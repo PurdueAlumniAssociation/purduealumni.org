@@ -15,9 +15,25 @@
     }
 }
 
+.tablet-only {
+    display: initial;
+    @include breakpoint(md) {
+        display: none;
+    }
+}
+
 .not-mobile {
     @include breakpoint(xs) {
         display: none;
+    }
+}
+
+.not-tablet {
+    @include breakpoint(sm) {
+        display: none;
+    }
+    @include breakpoint(md) {
+        display: initial;
     }
 }
 
