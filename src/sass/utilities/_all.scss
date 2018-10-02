@@ -16,7 +16,7 @@
 }
 
 .tablet-only {
-    display: initial;
+    display: block;
     @include breakpoint(md) {
         display: none;
     }
@@ -33,7 +33,7 @@
         display: none;
     }
     @include breakpoint(md) {
-        display: initial;
+        display: block;
     }
 }
 
