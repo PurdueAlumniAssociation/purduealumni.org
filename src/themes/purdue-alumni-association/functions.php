@@ -271,4 +271,22 @@ function paa_excerpt_more( $more ) {
     );
 }
 add_filter( 'excerpt_more', 'paa_excerpt_more' );
+
+/**
+ * Add custom tables for meta box
+ */
+function paa_create_tables() {
+    if ( ! class_exists( 'MB_Custom_Table_API' ) ) {
+        return;
+    }
+
+    global $wpdb;
+    $prefix = $wpdb->prefix . "metabox_";
+
+    MB_Custom_Table_API::create( "{$prefix}page_css", array(
+        'page_css' => 'TEXT NOT NULL'
+    ) );
+}
+add_action( 'init', 'paa_create_tables' );
+
 ?>

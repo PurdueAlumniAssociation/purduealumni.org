@@ -29,7 +29,8 @@
     <?php wp_head();
 
         // add custom page css if present
-        $page_css = rwmb_meta( "page_css" );
+        $args = array( 'storage_type' => 'custom_table', 'table' => 'mb_pageCss' );
+        $page_css = rwmb_meta( 'page_css', $args );
         if ( $page_css ) {
             echo "<style type=\"text/css\">", str_replace(" ","",$page_css), "</style>\n";
         }
