@@ -61,8 +61,10 @@ function paa_widgets_init() {
     register_sidebar( array(
         'name'          => 'Left Sidebar',
         'id'            => 'left-sidebar',
-        'before_widget' => '<aside class="social-media-box primary-footer__social-media-box">',
-        'after_widget'  => '</aside>'
+        'before_title'  => '<h2 class="sr-only">',
+        'after_title'   => '</h2>',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>'
     ) );
 
     register_sidebar( array(
