@@ -20,7 +20,7 @@
         text-align: center;
 
         @include breakpoint(sm) {
-            flex-basis: 40%;
+            flex-basis: 45%;
         }
 
         @include breakpoint(md) {
