@@ -19,7 +19,7 @@
     <header class="black-bar">
         <nav class="black-bar-menu">
             <ul id="menu-black-bar-links" class="black-bar-menu__list">
-                <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box" onclick="return false;"><i class="fa fa-key" aria-hidden="true"></i>Login</a></li>
+                <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box"><i class="fa fa-key" aria-hidden="true"></i>Login</a></li>
                 <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
             </ul>
         </nav>
@@ -30,9 +30,6 @@
             <input class="form__input form__input--text" type="search" id="black-bar-search" value="<?php echo get_search_query(); ?>" name="s" />
             <button class="form__button form__button--submit search-form__button black-bar-menu__search-form-button" type="submit"><i class="fas fa-search"></i><span class="sr-only">submit button</span></button>
         </form>
-        <div id="login-box">
-            This is the login box.
-        </div>
     </header>
     <header class="row row--full-width header">
         <a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
