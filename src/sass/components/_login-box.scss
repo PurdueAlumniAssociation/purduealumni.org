@@ -1,0 +1,84 @@
+.login-box {
+    display: none; // initially set the display to none, js will make it visible
+    max-width: 900px;
+
+    &__column-wrapper {
+        background-color: $light-gray;
+
+        @include breakpoint(sm) {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    }
+
+    &__column {
+        margin: 1em;
+        padding: 1em;
+        padding-bottom: 6em;
+        background-color: $white;
+        position: relative;
+        text-align: center;
+
+        @include breakpoint(sm) {
+            flex-basis: 45%;
+        }
+
+        @include breakpoint(md) {
+            flex-basis: 28%;
+        }
+
+        &--desc {
+            padding: 0;
+            background-color: $light-gray;
+            text-align: left;
+
+            @include breakpoint(sm) {
+                flex-basis: 100%;
+            }
+
+            @include breakpoint(md) {
+                flex-basis: 28%;
+            }
+        }
+    }
+
+    &__title {
+        font-family: $barlow;
+        font-size: 1.1em;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        margin-top: 0;
+        text-align: center;
+        margin-bottom: 22px;
+        color: $digital-gold;
+
+        &:after {
+            content: "";
+            display: block;
+            position: relative;
+            bottom: -11px;
+            height: 2px;
+            width: 40%;
+            margin: auto;
+            background-color: $almost-black;
+        }
+
+        &--desc {
+            text-align: left;
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &__button {
+        position: absolute;
+        bottom: 30px;
+        text-align: center;
+        display: block;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

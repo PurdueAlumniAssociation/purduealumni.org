@@ -9,7 +9,6 @@
     <?php // <title> is added dynamically ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <?php wp_head();
         // add custom page css if present
         $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
@@ -25,17 +24,12 @@
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main" class="skip-to">Skip to Main Content</a>
     <header class="black-bar">
-        <?php if ( has_nav_menu( 'black-bar-menu' ) ) : ?>
-            <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'black-bar-menu',
-                    'menu_class'     => 'black-bar-menu__list',
-                    'container' => 'nav',
-                    'container_class' => 'black-bar-menu'
-                 ) );
-            ?>
-            </div>
-        <?php endif; ?>
+        <nav class="black-bar-menu">
+            <ul id="menu-black-bar-links" class="black-bar-menu__list">
+                <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box"><i class="fa fa-key" aria-hidden="true"></i>Login</a></li>
+                <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+            </ul>
+        </nav>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <label for="black-bar-search">
                 <span class="sr-only">Search for:</span>
