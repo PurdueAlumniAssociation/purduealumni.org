@@ -52,7 +52,7 @@
                     <div>
                         <h3 class="news-event__title">Women's Conference 2018</h3>
                         <p class="news-event__description">Network with a dynamic, diverse group of women. Foster your personal, professional and intellectual well-being. Participate in focused learning and growth opportunities.</p>
-                        <a class="button" class="news-event__cta" href="https://purdue.imodules.com/s/1461/alumni/feature.aspx?sid=1461&gid=1001&pgid=9003">More Details Here<i class="fas fa-external-link-alt" style="margin-left: 5px;" title="External Link" aria-hidden=""></i><span class="sr-only">external link</span></a>
+                        <a class="button" class="news-event__cta" href="<?php echo esc_url( home_url( 'events/womens-conference-2018' ) ) ?>">More Details Here</a>
                     </div>
                 </div>
                 <div class="news-event">
