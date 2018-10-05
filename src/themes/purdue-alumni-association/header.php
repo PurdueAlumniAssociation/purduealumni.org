@@ -15,7 +15,7 @@
         $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
         $page_css = rwmb_meta( 'page_css', $args );
         if ( $page_css ) {
-            echo "<style type=\"text/css\">", str_replace(" ","",$page_css), "</style>\n";
+            echo "<style type=\"text/css\">", $page_css, "</style>\n";
         }
     ?>
 </head>
