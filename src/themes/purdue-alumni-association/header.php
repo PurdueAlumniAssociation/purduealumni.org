@@ -9,23 +9,6 @@
     <?php // <title> is added dynamically ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script>
-    /**
-    * Function that tracks a click on an outbound link in Analytics.
-    * This function takes a valid URL string as an argument, and uses that URL string
-    * as the event label. Setting the transport method to 'beacon' lets the hit be sent
-    * using 'navigator.sendBeacon' in browser that support it.
-    */
-    var trackOutboundLink = function(url) {
-      gtag('event', 'click', {
-        'event_category': 'outbound',
-        'event_label': url,
-        'transport_type': 'beacon',
-        'event_callback': function(){document.location = url;}
-      });
-    }
-    </script>
     <?php wp_head(); ?>
 </head>
 <body>
@@ -34,17 +17,12 @@
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main" class="skip-to">Skip to Main Content</a>
     <header class="black-bar">
-        <?php if ( has_nav_menu( 'black-bar-menu' ) ) : ?>
-            <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'black-bar-menu',
-                    'menu_class'     => 'black-bar-menu__list',
-                    'container' => 'nav',
-                    'container_class' => 'black-bar-menu'
-                 ) );
-            ?>
-            </div>
-        <?php endif; ?>
+        <nav class="black-bar-menu">
+            <ul id="menu-black-bar-links" class="black-bar-menu__list">
+                <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box" onclick="return false;"><i class="fa fa-key" aria-hidden="true"></i>Login</a></li>
+                <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+            </ul>
+        </nav>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <label for="black-bar-search">
                 <span class="sr-only">Search for:</span>
@@ -52,6 +30,9 @@
             <input class="form__input form__input--text" type="search" id="black-bar-search" value="<?php echo get_search_query(); ?>" name="s" />
             <button class="form__button form__button--submit search-form__button black-bar-menu__search-form-button" type="submit"><i class="fas fa-search"></i><span class="sr-only">submit button</span></button>
         </form>
+        <div id="login-box">
+            This is the login box.
+        </div>
     </header>
     <header class="row row--full-width header">
         <a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
