@@ -11,9 +11,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <?php wp_head();
-
         // add custom page css if present
-        $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_pageCss' );
+        $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
         $page_css = rwmb_meta( 'page_css', $args );
         if ( $page_css ) {
             echo "<style type=\"text/css\">", str_replace(" ","",$page_css), "</style>\n";
