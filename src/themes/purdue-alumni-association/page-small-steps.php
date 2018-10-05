@@ -79,6 +79,7 @@
         <?php endif; ?>
     </div>
 </footer>
+<?php get_template_part( 'template-parts/login-lightbox' ); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
