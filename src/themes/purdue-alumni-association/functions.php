@@ -288,5 +288,4 @@ function paa_create_tables() {
     ) );
 }
 add_action( 'init', 'paa_create_tables' );
-
 ?>
