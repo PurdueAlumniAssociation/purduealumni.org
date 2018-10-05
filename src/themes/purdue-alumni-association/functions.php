@@ -32,7 +32,7 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
     }
-    
+
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
@@ -104,10 +104,7 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://tinyurl.com/ybr3yvcm'><i class='fa fa-key' aria-hidden='true'></i> Member Login</a>
-                </li>
-                <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://purdue.vineup.com'><i class='fa fa-users' aria-hidden='true'></i> Alumni Portal</a>
+                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Login</a>
                 </li>" . $items;
     }
 
