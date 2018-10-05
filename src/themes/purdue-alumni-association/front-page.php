@@ -3,13 +3,13 @@
         <h1 class="sr-only">Purdue Alumni Association</h1>
         <section class="row row--no-padding">
             <div class="homepage-hero">
-                <img class="homepage-hero__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/five-new-members.jpg' ) ); ?>" />
-                <div class="homepage-hero__dark-layer"></div>
+                <img class="homepage-hero__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/tyler-trent.jpg' ) ); ?>" />
+                <!-- <div class="homepage-hero__dark-layer"></div> -->
                 <div class="homepage-hero__content-container">
                     <div class="homepage-hero__primary">
-                        <h1>Become a Member</h1>
-                        <a class="button button--gold" href="<?php echo esc_url( home_url( 'membership/membership-plans' ) ); ?>">Join today! &nbsp;<i class="fas fa-arrow-right" aria-hidden></i></a>
-                        <p>You’re unique. But there's something you have in common with 600,000+ others. You're a Purdue graduate. The Purdue Alumni Association plugs you into the power of a global network and offers tools specific to your needs.</p>
+                        <h1>Purdue Alumni Impact Award</h1>
+                        <a class="button button--gold" href="<?php echo esc_url( home_url( 'tyler-wins-giant-impact-award' ) ); ?>"><em>Alumnus</em> article on Tyler</a>
+                        <p>Tyler Trent awarded for his positive spirit, perseverance, and uplifting attitude.</p>
                     </div>
                 </div>
             </div>
@@ -25,11 +25,11 @@
                             </div>
                         </div>
                     </a>
-                    <a class="big-info-block__third-box" target="_blank" rel="noopener" href="https://takegiantleaps.com/">
-                        <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_150.jpg' ) ) ?>')">
+                    <a class="big-info-block__third-box" href="<?php echo esc_url( home_url( 'membership/membership-plans' ) ) ?>">
+                        <div class="graphic-box graphic-box--orange" style="background-image: url('<?php echo esc_url( home_url( 'wp-content/uploads/graphic-box_membership.jpg' ) ) ?>')">
                             <div class="graphic-box__content">
-                                <span class="graphic-box__category graphic-box__category--orange">Purdue 150</span>
-                                <span class="graphic-box__title">Celebrate our birthday all year long</span>
+                                <span class="graphic-box__category graphic-box__category--orange">Become a Member</span>
+                                <span class="graphic-box__title">A global network and tools to help you grow</span>
                             </div>
                         </div>
                     </a>
@@ -52,7 +52,7 @@
                     <div>
                         <h3 class="news-event__title">Women's Conference 2018</h3>
                         <p class="news-event__description">Network with a dynamic, diverse group of women. Foster your personal, professional and intellectual well-being. Participate in focused learning and growth opportunities.</p>
-                        <a class="button" class="news-event__cta" href="https://purdue.imodules.com/s/1461/alumni/feature.aspx?sid=1461&gid=1001&pgid=9003">More Details Here<i class="fas fa-external-link-alt" style="margin-left: 5px;" title="External Link" aria-hidden=""></i><span class="sr-only">external link</span></a>
+                        <a class="button" class="news-event__cta" href="<?php echo esc_url( home_url( 'events/womens-conference-2018' ) ) ?>">More Details Here</a>
                     </div>
                 </div>
                 <div class="news-event">

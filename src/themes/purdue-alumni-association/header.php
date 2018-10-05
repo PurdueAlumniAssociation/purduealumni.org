@@ -9,7 +9,14 @@
     <?php // <title> is added dynamically ?>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
-    <?php wp_head(); ?>
+    <?php wp_head();
+        // add custom page css if present
+        $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
+        $page_css = rwmb_meta( 'page_css', $args );
+        if ( $page_css ) {
+            echo "<style type=\"text/css\">", $page_css, "</style>\n";
+        }
+    ?>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
