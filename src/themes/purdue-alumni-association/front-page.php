@@ -46,6 +46,7 @@
                 <h2 class="front-page__section-title">News & Events</h2>
                 <?php
                 $news_events = rwmb_meta( 'news_event', $homepage_meta );
+                print_r( $news_events );
                 if ( $news_events ) {
                     foreach ( $news_events as $item ) {
                         $target = '';
@@ -62,7 +63,7 @@
                             <div>
                                 <h3 class=\"news-event__title\">{$item["news_event__title"]}</h3>
                                 <p class=\"news-event__description\">{$item["news_event__description"]}</p>
-                                <a class=\"button\" class=\"news-event__cta\"{$target} href=\"{$item["news_event__button_url"]}\">{$item["news_event__button_label"]}</a>
+                                <a class=\"button\" class=\"news-event__cta\"{$target} href=\"{$item["news_event__url"]}\">{$item["news_event__button_label"]}</a>
                             </div>
                         </div>";
                     }
