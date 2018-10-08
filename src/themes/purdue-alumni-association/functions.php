@@ -288,6 +288,13 @@ function paa_create_tables() {
     MB_Custom_Table_API::create( "{$prefix}page_css", array(
         'page_css' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}homepage", array(
+        'hero' => 'TEXT NOT NULL',
+        'graphic_box' => 'TEXT NOT NULL',
+        'feature_box' => 'TEXT NOT NULL',
+        'news_event' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 ?>
