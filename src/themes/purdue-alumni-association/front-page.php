@@ -46,7 +46,6 @@
                 <h2 class="front-page__section-title">News & Events</h2>
                 <?php
                 $news_events = rwmb_meta( 'news_event', $homepage_meta );
-                print_r( $news_events );
                 if ( $news_events ) {
                     foreach ( $news_events as $item ) {
                         $target = '';
