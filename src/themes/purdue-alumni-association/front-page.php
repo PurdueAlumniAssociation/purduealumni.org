@@ -5,7 +5,7 @@
         $homepage_meta = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_homepage' );
         $hero = rwmb_meta( 'hero', $homepage_meta );
         if ( $hero ) {
-            echo $hero['hero_html'];
+            echo $hero['hero__html'];
         }
         ?>
         <section class="row row--no-padding front-page__graphic-boxes">
