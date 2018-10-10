@@ -289,12 +289,32 @@ function paa_create_tables() {
         'page_css' => 'TEXT NOT NULL'
     ) );
 
-    MB_Custom_Table_API::create( "{$prefix}homepage", array(
-        'hero' => 'TEXT NOT NULL',
-        'graphic_box' => 'TEXT NOT NULL',
-        'feature_box' => 'TEXT NOT NULL',
-        'news_event' => 'TEXT NOT NULL'
+    MB_Custom_Table_API::create( "{$prefix}feature_box", array(
+        'feature_box__content' => 'TEXT NOT NULL',
+        'feature_box__url' => 'TEXT NOT NULL',
+        'feature_box__button_label' => 'TEXT NOT NULL',
+        'feature_box__new_tab' => 'TEXT NOT NULL',
+        'feature_box__image' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}news_events", array(
+        'news_event__title' => 'TEXT NOT NULL',
+        'news_event__description' => 'TEXT NOT NULL',
+        'news_event__url' => 'TEXT NOT NULL',
+        'news_event__button_label' => 'TEXT NOT NULL',
+        'news_event__new_tab' => 'TEXT NOT NULL',
+        'news_event__thumbnail_image' => 'TEXT NOT NULL'
+    ) );
+
 }
 add_action( 'init', 'paa_create_tables' );
+
+// remove yoast on certain post types
+function my_remove_wp_seo_meta_box() {
+	remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+	remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
+	remove_meta_box('wpseo_meta', 'news-event', 'normal');
+	remove_meta_box('wpseo_meta', 'feature-box', 'normal');
+}
+add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 ?>
