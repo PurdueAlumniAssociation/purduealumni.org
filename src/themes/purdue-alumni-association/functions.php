@@ -308,4 +308,18 @@ function paa_create_tables() {
     ) );
 }
 add_action( 'init', 'paa_create_tables' );
+
+// Exclude pages from WordPress Search
+if (!is_admin()) {
+    include 'function-includes/exclude-post-ids.php';
+    function paa_search_filter( $query ) {
+        if ( $query->is_search && $query->is_main_query() ) {
+            if ( isset( $exclude_post_ids ) ) {
+                $query->set( 'post__not_in', array( $exclude_post_ids ) ); // add ids (comma separated) of posts to exclude
+            }
+        }
+        return $query;
+    }
+    add_filter('pre_get_posts','paa_search_filter');
+}
 ?>
