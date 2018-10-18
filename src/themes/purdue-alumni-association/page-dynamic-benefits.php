@@ -46,7 +46,9 @@
                 ));
 
                 // get the benefit cpt ids
-                $post_ids = rwmb_meta( 'benefit_selection' );
+                $benefit_args = array( 'storage_type' => 'custom_table', 'table' => $table_name );
+
+                $post_ids = rwmb_meta( 'benefit_selection', $benefit_args );
                 foreach ( $post_ids as $post_id ) {
                     // $query->the_post();
                     // $post_id = get_the_ID();
