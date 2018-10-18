@@ -1,2 +1,3 @@
 <?php
-$exclude_post_ids = array( 1365 );
+$exclude_post_ids = array( 1365, 499 );
+?>
