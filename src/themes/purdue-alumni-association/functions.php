@@ -22,6 +22,10 @@ function paa_scripts_and_styles() {
         case "page-membership-tiers.php":
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
             break;
+        case "page-purchase-membership.php":
+            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
+            wp_enqueue_script( 'purchase-scripts', get_template_directory_uri() . '/js/purchase.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            break;
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
