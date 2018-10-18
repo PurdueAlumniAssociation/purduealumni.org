@@ -8,7 +8,7 @@
     <div class="hero-container">
         <div class="hero-text">
             <h1 class="text-center">Recent Grad Membership Plans</h1>
-            <p>You've been out of school a while, less than 5 years, and you're adulting (most of the time). Well, here's a great opportunity for you. Pick the plan that fits you best and you'll be saving money, getting info and invites to alumni events, staying connected - not just to people - but to university libraries and research databases. Want to do something you'll never regret? Join now, you'll save 40% off regular price!</p>
+            <p>You've been out of school a while, less than 5 years, and you're adulting (most of the time). Well, here's a great opportunity for you. Pick the plan that fits you best and you'll be saving money, getting info and invites to alumni events, staying connected - not just to people - but to university libraries and research databases. Want to do something you'll never regret? Join now, you'll save up to 40% off regular price!</p>
         </div>
     </div>
     <section class="row row--slim flex flex--space-between">
