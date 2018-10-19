@@ -2,11 +2,23 @@
     /*
         Template Name: Plus Membership Details
     */
+    $title = 'Membership';
+    $price1 = '59';
+    $price3 = '149';
+    $price10 = '469';
+    $back_link = 'membership/membership-plans';
+
+    if ( isset( $_GET['recent-grad'] ) ) {
+        $title = 'Recent Grad Membership';
+        $price1 = '35';
+        $price3 = '75';
+        $back_link = 'membership/membership-plans/recent-grads';
+    }
 ?>
 <?php get_header(); ?>
 <main id="main" tabindex="-1">
     <section class="row row--slim flex flex--space-between">
-        <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
+        <p><a href="<?php echo esc_url( home_url( $back_link ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
             <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" >FAQ</a>
@@ -20,20 +32,22 @@
                 <p style="font-size: 1.25em;">The ‘traditional’ membership — the perfect way to stay connected and save. Nationwide savings program, clubs and alumni networks, magazine, newsletters, and more.</p>
             </div>
             <div class="plan-details__benefits plan-details__benefits--plus">
-                <h2 class="plan-details__button-row-title">Membership</h2>
+                <h2 class="plan-details__button-row-title"><?= $title ?></h2>
                 <div class="plan-details__button-row">
                     <div class="plan-details__button-row-container">
                         <p>1-Year</p>
-                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P1YR" >$59</a>
+                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P1YR" >$<?= $price1 ?></a>
                     </div>
                     <div class="plan-details__button-row-container">
                         <p>3-Years</p>
-                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P3YR" >$149</a>
+                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P3YR" >$<?= $price3 ?></a>
                     </div>
+                    <?php if ( ! isset( $_GET['recent-grad'] ) ) : ?>
                     <div class="plan-details__button-row-container">
                         <p>10-Years</p>
-                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P10YR" >$469</a>
+                        <a class="button button--invert-green button--small plan-details__CTA" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P10YR" >$<?= $price10 ?></a>
                     </div>
+                <?php endif; ?>
                 </div>
                 <p class="text-center"><a href="#pricing">See all pricing options below</a></p>
             </div>
