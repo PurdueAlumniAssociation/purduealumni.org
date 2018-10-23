@@ -28,40 +28,73 @@
         </section>
     <?php else :
         // set level from url params, default to "basic"
-        $level = ( isset( $_GET['level'] ) ) ? $_GET['level'] : "basic" ;
-        if ( $level == "career-max" ) {
-            $level_title = "Career Max";
+        $plan = ( isset( $_GET['plan'] ) ) ? $_GET['plan'] : "basic" ;
+        if ( $plan == "career-max" ) {
+            $plan_title = "Career Max";
         } else {
-            $level_title = ucfirst( $level );
+            $plan_title = ucfirst( $plan );
         }
     ?>
         <section class="row">
             <main id="main" tabindex="-1">
-                <h1><?php echo $level_title, ' '; the_title(); ?></h1>
+                <h1><?php echo $plan_title, ' '; the_title(); ?></h1>
                 <?php the_content();
 
-                $query = new WP_Query(array(
-                    'post_type' => 'benefit',
-                    'post_status' => 'publish'
-                ));
+                // $the_query = new WP_Query(array(
+                //     'post_type' => 'benefit',
+                //     'post_status' => 'publish'
+                // ));
+                //
+                // if ( $the_query->have_posts() ) {
+                // 	while ( $the_query->have_posts() ) {
+                // 		$the_query->the_post();
+                // 		print_r($post);
+                // 	}
+                // 	/* Restore original Post Data */
+                // 	wp_reset_postdata();
+                // } else {
+                // 	// no posts found
+                // }
 
                 // get the benefit cpt ids
-                $benefit_args = array( 'storage_type' => 'custom_table', 'table' => $table_name );
+                $benefit_args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_benefits' );
 
-                $post_ids = rwmb_meta( 'benefit_selection', $benefit_args );
-                foreach ( $post_ids as $post_id ) {
-                    // $query->the_post();
-                    // $post_id = get_the_ID();
-                    $post_meta = get_post_meta( $post_id );
+                //$benefit_ids = rwmb_meta( 'benefit_selection', $benefit_args );
+                $benefit_ids = rwmb_meta( 'benefit_selection' );
 
-                    // only display benefits for a certain level
-                    if ( in_array( $level, $post_meta['benefit__level'] ) ) {
-                        echo "<h3>{$post_meta['benefit__name'][0]}</h3>\n";
-                        echo "<p>",$post_meta['benefit__public_description'][0],"</p>\n";
+                foreach ( $benefit_ids as $benefit_id ) {
+                    // reset vars for the next loop
+                    $benefit__plans = "";
+                    $benefit__name = "";
+                    $benefit__public_description = "";
+                    $benefit__member_description = "";
+                    $benefit__public_url = "";
+                    $benefit__member_url = "";
+
+                    $benefit__plans = rwmb_meta( 'benefit__plans', $benefit_args, $benefit_id );
+                    $benefit__name = rwmb_meta( 'benefit__name', $benefit_args, $benefit_id );
+                    $benefit__public_description = rwmb_meta( 'benefit__public_description', $benefit_args, $benefit_id );
+                    $benefit__member_description = rwmb_meta( 'benefit__member_description', $benefit_args, $benefit_id );
+                    $benefit__public_url = rwmb_meta( 'benefit__public_url', $benefit_args, $benefit_id );
+                    $benefit__member_url = rwmb_meta( 'benefit__member_url', $benefit_args, $benefit_id );
+
+                    $desc = $benefit__member_description;
+                    if ( $desc == '' ) {
+                        $desc = $benefit__public_description;
+                    }
+
+                    $anchor = '';
+                    if ( $benefit__member_url != '' ) {
+                        $anchor = " <a href=\"{$benefit__member_url}\" rel=\"noopener\">Access Benefit</a>";
+                    }
+
+                    if ( ! is_null( $benefit__plans ) ) { // bugfix - custom table has blank rows
+                        if ( in_array( $plan, $benefit__plans ) ) {
+                            echo "<h2>{$benefit__name}</h2>\n";
+                            echo "<p>", $desc, $anchor, "</p>\n";
+                        }
                     }
                 }
-
-                wp_reset_query();
                 ?>
             </main>
         </section>
