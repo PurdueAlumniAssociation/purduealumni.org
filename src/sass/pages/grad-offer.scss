@@ -28,6 +28,13 @@
     text-align: center;
     max-width: 300px;
     margin: 2em 2em;
+    background-color: $light-gray;
+    padding: 1em;
+    border-top: 10px solid $campus-gold;
+
+    &--orange {
+        border-color: $bell-tower-brick;
+    }
 
     &__plan {
         text-transform: uppercase;
@@ -59,5 +66,12 @@
     &__large-text {
         font-size: 2em;
         font-weight: 700;
+    }
+
+    &__image {
+        display: block;
+        margin: 1em auto;
+        width: 100%;
+        max-width: 300px;
     }
 }
