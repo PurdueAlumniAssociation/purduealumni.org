@@ -8,8 +8,8 @@
     <div class="hero-container">
         <div class="hero-text">
             <h1 class="text-center">Membership Plans</h1>
-            <p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering
-                that allows you to choose the membership that’s right for you.</p>
+            <?php //<p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>?>
+            <p>We're partnering with the Tyler Trent Cancer Research Endowment to raise money to Hammer Down cancer. For the entire month of November, we’re proud to donate 20 percent of all membership proceeds to help advance cancer research — including renewals, new memberships, and upgrades.</p>
         </div>
     </div>
     <section class="row row--slim flex flex--space-between">
