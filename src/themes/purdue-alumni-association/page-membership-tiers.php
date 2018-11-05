@@ -32,7 +32,7 @@
                     </p>
                     <p class="plan__description">The no-frills gateway to Purdue Alumni. Discounted member pricing at events, Purdue gear discounts, online directory and more.</p>
                     <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/basic' ) ); ?>">Learn More</a>
-                    <a class="plan__join button button--blue button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=B1YR">Join Now</a>
+                    <a class="plan__join button button--blue button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=B1YR">Join Now or Renew</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--plus plan--highlight">
@@ -44,7 +44,7 @@
                     </p>
                     <p class="plan__description">The ‘traditional’ membership &mdash; the perfect way to stay connected and save. Nationwide savings program, clubs and alumni networks, magazine, newsletters, and more.</p>
                     <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/plus' ) ); ?>">Learn More</a>
-                    <a class="plan__join button button--green button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P1YR">Join Now</a>
+                    <a class="plan__join button button--green button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P1YR">Join Now or Renew</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--professional">
@@ -55,7 +55,7 @@
                     </p>
                     <p class="plan__description">The membership to jump-start your career. Purdue online course discounts, job search tools, research database, career development webinars, and more.</p>
                     <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/professional' ) ); ?>">Learn More</a>
-                    <a class="plan__join button button--gold button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR">Join Now</a>
+                    <a class="plan__join button button--gold button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR">Join Now or Renew</a>
                 </div>
             </div>
             <div class="pricing-table__plan plan plan--career-max">
@@ -66,7 +66,7 @@
                     </p>
                     <p class="plan__description">The ultimate way to take your career to the next level. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
                     <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/career-max' ) ); ?>">Learn More</a>
-                    <a class="plan__join button button--orange button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=C1YR">Join Now</a>
+                    <a class="plan__join button button--orange button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=C1YR">Join Now or Renew</a>
                 </div>
             </div>
         </div>
