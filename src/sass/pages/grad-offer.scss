@@ -1,0 +1,63 @@
+@import '../settings/all';
+
+.grad-offer {
+        margin-bottom: 2em;
+
+        &__prices {
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+
+.parent-offer {
+    background-color: $light-gray;
+    padding: 1rem;
+
+    & h2:first-of-type {
+        margin-top: 0;
+        font-family: $barlow;
+        font-style: normal;
+        font-size: 1.5em;
+    }
+}
+
+
+.price-container {
+    text-align: center;
+    max-width: 300px;
+    margin: 2em 2em;
+
+    &__plan {
+        text-transform: uppercase;
+        font-size: 1.3em;
+        display: block;
+        margin-bottom: 1rem;
+    }
+    &__cost {
+        font-size: 3em;
+        display: block;
+        margin-bottom: 1rem;
+    }
+    &__cta {
+        display: inline-block;
+    }
+}
+
+.free-gifts {
+    flex: 0 0 400px;
+    text-align: center;
+    font-size: 1.25em;
+    line-height: 1.5;
+    padding: 2rem;
+
+    @include breakpoint(sm) {
+        padding-top: 1rem;
+    }
+
+    &__large-text {
+        font-size: 2em;
+        font-weight: 700;
+    }
+}
