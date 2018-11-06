@@ -6,13 +6,11 @@ $error_path = '/order-error';
 
 // check for required query params
 if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
-    // override default redirect url
-    $redirect_url = $host;
 
     // check for the required params
     if ( isset( $_GET['total'] ) && isset( $_GET['fid'] ) && isset( $_GET['eid'] ) ) {
         // add path to redirect url
-        $redirect_url .= "/order-confirmation";
+        $redirect_url = "/order-confirmation";
 
         // set required params
         $transaction_id = 'f'.$_GET['fid'].'e'.$_GET['eid'];
@@ -41,14 +39,14 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
         if ( isset( $product_name ) ) {
             $script .= ",
                 'transactionProducts': [{
-                    'name': 'TEST Upgrade'
+                    'name': 'TEST'
                 }]";
         }
         $script .= "});
         </script>";
     } else {
         // required query params not present
-        header("Location: ".$redirect_url.$error_path);
+        header("Location: ".$error_path);
         die();
     }
 } else {
@@ -75,9 +73,8 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
 </head>
 <body>
     <p>You are being redirected...</p>
-    <p>Redirect URL: <?= $redirect_url; ?></p>
     <script>
-        //window.location.replace("");
+        window.location.replace("<?= $redirect_url; ?>");
     </script>
 </body>
 </html>
