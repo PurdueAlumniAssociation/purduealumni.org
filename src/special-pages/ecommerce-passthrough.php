@@ -74,7 +74,7 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
 <body>
     <p>You are being redirected...</p>
     <script>
-        window.location.replace("<?= $redirect_url; ?>");
+        //window.location.replace("<?= ""; //$redirect_url; ?>");
     </script>
 </body>
 </html>
