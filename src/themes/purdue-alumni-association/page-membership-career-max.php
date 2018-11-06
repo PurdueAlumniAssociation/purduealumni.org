@@ -28,7 +28,7 @@
         <div class="plan-details">
             <div class="plan-details__summary plan-details__summary--career-max">
                 <h1>Career Max</h1>
-                <p style="font-size: 1.25em;">The ultimate way to take your career to the next level. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
+                <p style="font-size: 1.25em;">The ultimate way to take your career to new heights. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
             </div>
             <div class="plan-details__benefits plan-details__benefits--career-max">
                 <h2 class="plan-details__button-row-title"><?= $title ?></h2>
@@ -97,7 +97,7 @@
                     <img class="card__image" src="<?php echo esc_url( home_url( 'wp-content/uploads/300x200Small15.jpg' ) ); ?>" alt="">
                     <div class="card__content">
                         <h2 class="card__title">1:1 Career coaching</h2>
-                        <p>Receive personalized advice, support, and guidance to take your career to the next level.</p>
+                        <p>Receive personalized advice, support, and guidance to take your career to new heights.</p>
                     </div>
                 </div>
             </a>
