@@ -1,0 +1,83 @@
+<?php
+// set variables to be used later on
+$allowed_host = 'purduealumni.org';
+$host = parse_url( $_SERVER['HTTP_REFERER'], PHP_URL_HOST );
+$error_path = '/order-error';
+
+// check for required query params
+if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
+    // override default redirect url
+    $redirect_url = $host;
+
+    // check for the required params
+    if ( isset( $_GET['total'] ) && isset( $_GET['fid'] ) && isset( $_GET['eid'] ) ) {
+        // add path to redirect url
+        $redirect_url .= "/order-confirmation";
+
+        // set required params
+        $transaction_id = 'f'.$_GET['fid'].'e'.$_GET['eid'];
+        $total = str_replace( '$', '', $_GET['total'] );
+
+        // add purchaser query param if set
+        if ( isset( $_GET['purchaser'] ) ) {
+            if ( $_GET['purchaser'] !== 'self' ) {
+                $redirect_url .= "/?purchaser={$_GET['purchaser']}";
+            }
+        }
+
+        // check for product
+        if ( isset( $_GET['product'] ) ) {
+            $product_name = $_GET['product'];
+        }
+
+        // build basic ecommerce script to be output in head above GTM
+        $script = "<script>
+            window.dataLayer = window.dataLayer || [];
+
+            dataLayer.push({
+                'transactionId': '{$transaction_id}',
+                'transactionTotal': {$total}";
+        // add product name if passed
+        if ( isset( $product_name ) ) {
+            $script .= ",
+                'transactionProducts': [{
+                    'name': 'TEST Upgrade'
+                }]";
+        }
+        $script .= "});
+        </script>";
+    } else {
+        // required query params not present
+        header("Location: ".$redirect_url.$error_path);
+        die();
+    }
+} else {
+    // not a valid referrer
+    header("Location: https://www.purduealumni.org/");
+    die();
+}
+?>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <?php
+    if ( isset( $script) ) {
+        echo $script;
+    }
+    ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KTNT5LJ');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>You are being redirected...</title>
+</head>
+<body>
+    <p>You are being redirected...</p>
+    <p>Redirect URL: <?= $redirect_url; ?></p>
+    <script>
+        //window.location.replace("");
+    </script>
+</body>
+</html>
