@@ -28,11 +28,19 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
             $product_name = $_GET['product'];
         }
 
+        // check for quantity
+        if ( isset( $_GET['quantity'] ) ) {
+            $quantity = $_GET['quantity'];
+        } else {
+            $quantity = '1';
+        }
+
+
         // build basic ecommerce script to be output in head above GTM
         $script = "<script>window.dataLayer = window.dataLayer || [];dataLayer.push({'transactionId': '{$transaction_id}','transactionTotal': {$total}";
         // add product name if passed
         if ( isset( $product_name ) ) {
-            $script .= ",'transactionProducts': [{'name': 'TEST'}]";
+            $script .= ",'transactionProducts': [{'name': 'TEST', 'quantity': {$quantity}]";
         }
         $script .= "});</script>";
     } else {
