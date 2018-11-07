@@ -49,7 +49,7 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
 
             // add category to product details
             if ( isset( $category ) ) {
-                $script .= ", 'category': {$category}";
+                $script .= ", 'category': '{$category}'";
             }
 
             $script .= "}]";
