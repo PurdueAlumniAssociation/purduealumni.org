@@ -29,21 +29,12 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
         }
 
         // build basic ecommerce script to be output in head above GTM
-        $script = "<script>
-            window.dataLayer = window.dataLayer || [];
-
-            dataLayer.push({
-                'transactionId': '{$transaction_id}',
-                'transactionTotal': {$total}";
+        $script = "<script>window.dataLayer = window.dataLayer || [];dataLayer.push({'transactionId': '{$transaction_id}','transactionTotal': {$total}";
         // add product name if passed
         if ( isset( $product_name ) ) {
-            $script .= ",
-                'transactionProducts': [{
-                    'name': 'TEST'
-                }]";
+            $script .= ",'transactionProducts': [{'name': 'TEST'}]";
         }
-        $script .= "});
-        </script>";
+        $script .= "});</script>";
     } else {
         // required query params not present
         header("Location: ".$error_path);
