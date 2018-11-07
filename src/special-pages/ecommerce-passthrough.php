@@ -3,6 +3,7 @@
 $allowed_host = 'purduealumni.org';
 $host = parse_url( $_SERVER['HTTP_REFERER'], PHP_URL_HOST );
 $error_path = '/order-error';
+$success_path = '/order-confirmation';
 
 // check for required query params
 if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
@@ -10,7 +11,7 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
     // check for the required params
     if ( isset( $_GET['total'] ) && isset( $_GET['fid'] ) && isset( $_GET['eid'] ) ) {
         // add path to redirect url
-        $redirect_url = "/order-confirmation";
+        $redirect_url = $success_path;
 
         // set required params
         $transaction_id = 'f'.$_GET['fid'].'e'.$_GET['eid'];
