@@ -39,15 +39,20 @@ if ( substr( $host, 0 - strlen( $allowed_host ) == $allowed_host ) ) {
         // check for category
         if ( isset( $_GET['category'] ) ) {
             $category = $_GET['category'];
-        } else {
-            $category = 'uncategorized';
         }
 
         // build ecommerce script to be output in head above GTM
         $script = "<script>window.dataLayer = window.dataLayer || [];dataLayer.push({'transactionId': '{$transaction_id}','transactionTotal': {$total}";
         // add product details
         if ( isset( $product_name ) ) {
-            $script .= ",'transactionProducts': [{'name': 'TEST', 'quantity': {$quantity}, 'category': {$category}]";
+            $script .= ",'transactionProducts': [{'name': '{$product_name}', 'quantity': {$quantity}";
+
+            // add category to product details
+            if ( isset( $category ) ) {
+                $script .= ", 'category': {$category}";
+            }
+
+            $script .= "}]";
         }
         $script .= "});</script>";
     } else {
