@@ -52,4 +52,14 @@
             max-width: 400px;
         }
     }
+
+    .gf_progressbar_wrapper {
+        display: none;
+    }
+
+    &--show-progress {
+        & .gf_progressbar_wrapper {
+            display: block;
+        }
+    }
 }
