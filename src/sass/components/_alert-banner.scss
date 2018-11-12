@@ -1,0 +1,55 @@
+.alert-banner {
+    background-color: $red;
+    color: white;
+    align-items: center;
+
+    &__icon {
+        font-size: 3em;
+        margin-right: 1rem;
+        align-self: flex-start;
+        display: none !important;
+
+        @include breakpoint(sm) {
+            display: block !important;
+        }
+
+        &--mobile {
+            font-size: 1em;
+            margin-right: .5rem;
+            align-self: auto;
+            display: inline-block !important;
+
+            @include breakpoint(sm) {
+                display: none !important;
+            }
+        }
+    }
+
+    &__message {
+        position: relative;
+    }
+
+    &__title {
+        font-size: 1.5em;
+        font-family: $barlow;
+        color: white;
+        font-style: normal;
+        margin-top: 0;
+    }
+
+    & p {
+        margin-bottom: 0;
+    }
+
+    & a {
+        color: white;
+        font-weight: 400;
+    }
+
+    & #alert-close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 2rem;
+    }
+}
