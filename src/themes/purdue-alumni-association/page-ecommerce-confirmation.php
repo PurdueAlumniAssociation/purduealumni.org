@@ -19,24 +19,7 @@
                     <main class="" id="main" tabindex="-1">
                         <h1><?php the_title(); ?></h1>
                         <?php the_content(); ?>
-                        <?php
-                            // set audience, default to self
-                            if ( isset( $_GET['purchaser'] ) ) {
-                                $audience = $_GET['purchaser'];
-                            } else {
-                                $audience = "self";
-                            }
-
-                            // set message content, default to self
-                            if ( $audience !== "self" ) {
-                                $message = rwmb_meta( 'wysiwyg_other' );
-                            } else { // audience == "self"
-                                $message = rwmb_meta( 'wysiwyg_self' );
-                            }
-
-                            // output the message
-                            echo do_shortcode( wpautop( $message ) );
-                        ?>
+                        <?php get_template_part( 'template-parts/ecommerce-message' ); ?>
                     </main>
                 </div>
                 <aside class="layout__sidebar">
@@ -49,6 +32,7 @@
             <main id="main" tabindex="-1">
                 <h1><?php the_title(); ?></h1>
                 <?php the_content(); ?>
+                <?php get_template_part( 'template-parts/ecommerce-message' ); ?>
             </main>
         </section>
     <?php endif; ?>
