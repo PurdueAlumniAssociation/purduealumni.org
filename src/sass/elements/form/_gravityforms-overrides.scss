@@ -1,0 +1,65 @@
+#paa-form-wrapper {
+    display: inline;
+
+    & .gfield_description {
+        margin-top: 4px;
+        padding-bottom: 4px;
+    }
+
+    & .gfield_checkbox input, .gfield_radio input {
+        margin-top: 0;
+
+        & label {
+            margin-left: 10px;
+        }
+    }
+
+    & li.gfield > label {
+        //margin-top: 1.5em;
+    }
+
+    & li.gfield {
+        margin-top: 1.75em;
+    }
+
+    .gsection_title {
+        @extend h2;
+    }
+
+    select, input[type=file] {
+        height: 46px;
+
+        @include breakpoint(sm) {
+            height: 32px;
+        }
+    }
+
+    .ginput_card_security_code {
+        width: 100px;
+    }
+
+    .gfield_total .ginput_total {
+        font-size: 1.5em;
+    }
+
+    @include breakpoint(sm) {
+        .ginput_cardinfo_left {
+            width: 200px;
+            margin-right: 1em;
+        }
+
+        .ginput_container_creditcard {
+            max-width: 400px;
+        }
+    }
+
+    .gf_progressbar_wrapper {
+        display: none;
+    }
+
+    &--show-progress {
+        & .gf_progressbar_wrapper {
+            display: block;
+        }
+    }
+}
