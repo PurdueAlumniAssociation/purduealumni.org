@@ -1,0 +1,48 @@
+.email {
+    display: block;
+    max-width: 600px;
+    font-size: 16px;
+    font-family: sans-serif;
+
+    &__header {
+        display: block;
+        text-align: center;
+        padding: 10px 10px 0 10px;
+    }
+
+    &__logo {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    &__body {
+        padding: 10px 20px;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px 0;
+        display: block;
+    }
+
+    &__link {
+        font-weight: 400;
+    }
+
+    &__footer {
+        background-color: #eee;
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+
+        & p {
+            padding: 0;
+            margin: 0;
+        }
+
+        & a {
+            font-weight: 400;
+        }
+    }
+}
