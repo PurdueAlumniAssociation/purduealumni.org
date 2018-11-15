@@ -5,6 +5,19 @@
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KTNT5LJ');</script>
     <!-- End Google Tag Manager -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php // <title> is added dynamically ?>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
+    <?php wp_head();
+        // add custom page css if present
+        $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
+        $page_css = rwmb_meta( 'page_css', $args );
+        if ( $page_css ) {
+            echo "<style type=\"text/css\">", $page_css, "</style>\n";
+        }
+    ?>
     <script>
         (function paaCookies() {
             $.urlParam = function(name){
@@ -21,19 +34,6 @@
             }
         }());
     </script>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php // <title> is added dynamically ?>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Barlow:400,700,900|Vollkorn:400i">
-    <?php wp_head();
-        // add custom page css if present
-        $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_page_css' );
-        $page_css = rwmb_meta( 'page_css', $args );
-        if ( $page_css ) {
-            echo "<style type=\"text/css\">", $page_css, "</style>\n";
-        }
-    ?>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
