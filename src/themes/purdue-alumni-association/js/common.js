@@ -1,19 +1,3 @@
-(function paaCookies() {
-    $.urlParam = function(name){
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if ( results !== null ) {
-            return results[1];
-        } else {
-            return 0;
-        }
-    }
-
-    if ( $.urlParam('campaign') ) {
-        Cookies.set( 'campaign', encodeURIComponent( $.urlParam('campaign') ), { expires: 30 } );
-    }
-}());
-
-
 $(document).ready( function($) {
     //black bar search toggle
     $('.black-bar-menu__link--search').click( function() {
