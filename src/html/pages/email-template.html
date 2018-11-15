@@ -1,16 +1,40 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-@@include('../partials/_head.html', {
-"title": "Email Template",
-"pageCSS": "../../css/pages/email-template.css"
-})
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Email Template</title>
+    <link rel="stylesheet" type="text/css" href="../../css/pages/email-template.css" />
+</head>
 <body>
     <div class="email">
         <div class="email__header">
             <a href="https://www.purduealumni.org/"><img class="email__logo" src="https://www.purduealumni.org/wp-content/uploads/paa-logo.jpg" alt="Purdue Alumni Association"/></a>
         </div>
         <div class="email__body">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Blake,</p>
+
+            <p>Thank you for your membership upgrade! The Purdue Alumni Association harnesses the power of more than 630,000 alumni and a world-class institution to enrich the personal, professional, and intellectual lives of alumni and advance the University's mission.</p>
+
+            <p>Access our <a class="email__link" href="#">alumni portal</a> to view your benefits. In the alumni portal you can also connect with other members, find events in your area, and read Purdue Alumni news.</p>
+
+            <p>Follow the prompts to create a profile using your LinkedIn or Facebook account; you can also register with an email address. By linking a social media account, your profile will be populated with your name, photo, and personal information. Please allow 48 hours for full access to the community and member benefits.</p>
+
+            <p>If you selected a gift (growler or portfolio), you may pick up your item at Boilermaker Station (Purdue Memorial Union – Room 108) during the following times:</p>
+
+            <ul>
+                <li>Thursday, December 13 between 8 AM – 5 PM</li>
+                <li>Friday, December 14 between 8 AM – 5 PM</li>
+                <li>Sunday, December 16 between 9 AM – 2:30 PM</li>
+            </ul>
+            <p>If you are unable to pick up your gift during this period, your gift will be mailed directly to you.</p>
+
+            <p>Thank you and welcome to the Purdue Alumni family!</p>
+
+            <span class="email__title">PURCHASE DETAILS</span>
+            <p><strong>Confirmation number:</strong> f{form_id}e{entry_id}<br />
+            <strong>Total:</strong> {Total:7}<br />
+            <strong>Upgrade to:</strong> {Upgrade:6:value}</p>
         </div>
         <div class="email__footer">
             <p>Dauch Alumni Center<br />

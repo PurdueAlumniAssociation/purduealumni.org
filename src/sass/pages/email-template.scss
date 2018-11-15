@@ -1,6 +1,8 @@
 .email {
     display: block;
-    width: 600px;
+    max-width: 600px;
+    font-size: 16px;
+    font-family: sans-serif;
 
     &__header {
         display: block;
@@ -9,11 +11,23 @@
     }
 
     &__logo {
-        width: 300px;
+        width: 100%;
+        max-width: 300px;
     }
 
     &__body {
         padding: 10px 20px;
+    }
+
+    &__title {
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px 0;
+        display: block;
+    }
+
+    &__link {
+        font-weight: 400;
     }
 
     &__footer {
