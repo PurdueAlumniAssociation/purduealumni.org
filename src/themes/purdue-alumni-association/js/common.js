@@ -8,8 +8,8 @@
         }
     }
 
-    if ( $.urlParam('utm_campaign') ) {
-        Cookies.set( 'utm_campaign', $.urlParam('utm_campaign'), { expires: 30 } );
+    if ( $.urlParam('campaign') ) {
+        Cookies.set( 'campaign', encodeURIComponent( $.urlParam('campaign') ), { expires: 30 } );
     }
 }());
 
