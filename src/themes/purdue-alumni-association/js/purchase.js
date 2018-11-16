@@ -46,89 +46,123 @@ $(document).ready( function($) {
 
     hideAll( allOptions );
 
-    // filters
+    // iife
     var filters = (function () {
-        if ( lifeMemberUpgrade === 'yes' ) {
-            showAll( [professionalRadioContainer, careerMaxRadioContainer, year1RadioContainer] );
-            return 'lifeMemberUpgrade';
-        }
+        var plan,
+            year;
 
-        if ( recentGrad === 'yes' && membershipType === 'joint' ) {
-            showAll( [basicRadioContainer, plusRadioContainer, year1RadioContainer] );
-            return 'recentGradJoint';
+        if ( lifeMemberUpgrade === 'yes' ) {
+            // Life Member Upgrade
+            showAll( [professionalRadioContainer, careerMaxRadioContainer, year1RadioContainer, year3RadioContainer] );
+
+            professionalRadio.prop("checked", true);
+            year1Radio.prop("checked", true);
+
+            return;
         }
 
         if ( recentGrad === 'yes' && membershipType === 'individual' ) {
+            // Recent Grad Individual
             showAll( [basicRadioContainer, plusRadioContainer, professionalRadioContainer, careerMaxRadioContainer, year1RadioContainer, year3RadioContainer] );
-            return 'recentGradIndividual';
+
+            plusRadio.prop("checked", true);
+            year1Radio.prop("checked", true);
+
+            basicRadio.click( function () {
+                year3RadioContainer.hide();
+                year1Radio.trigger( "click" );
+                eval( basicRadio.attr("onclick") );
+            });
+
+            plusRadio.click( function () {
+                year3RadioContainer.show();
+            });
+
+            professionalRadio.click( function () {
+                year3RadioContainer.show();
+            });
+
+            careerMaxRadio.click( function () {
+                year3RadioContainer.show();
+            });
+
+            return;
+        }
+
+        if ( recentGrad === 'yes' && membershipType === 'joint' ) {
+            // Recent Grad Joint
+            showAll( [basicRadioContainer, plusRadioContainer, year1RadioContainer, year3RadioContainer] );
+
+            basicRadio.click( function () {
+                year3RadioContainer.hide();
+                year1Radio.trigger( "click" );
+                eval( basicRadio.attr("onclick") );
+            });
+
+            plusRadio.click( function () {
+                year3RadioContainer.show();
+            });
+
+            return;
         }
 
         if ( recentGrad == 'no' && lifeMemberUpgrade == 'no' ) {
+            plusRadio.prop("checked", true);
+            year1Radio.prop("checked", true);
+
             if ( membershipType == 'individual' ) {
+                // Individual
                 showAll( [basicRadioContainer, plusRadioContainer, professionalRadioContainer, careerMaxRadioContainer, year1RadioContainer, year3RadioContainer, year10RadioContainer] );
-                return 'individual';
-            } else { // membershipType == 'joint'
+
+                basicRadio.click( function () {
+                    year3RadioContainer.hide();
+                    year10RadioContainer.hide();
+                    year1Radio.trigger( "click" );
+                    eval( basicRadio.attr("onclick") );
+                });
+
+                plusRadio.click( function () {
+                    year3RadioContainer.show();
+                    year10RadioContainer.show();
+                });
+
+                professionalRadio.click( function () {
+                    year3RadioContainer.show();
+                    year10RadioContainer.show();
+                });
+
+                careerMaxRadio.click( function () {
+                    year3RadioContainer.show();
+                    year10RadioContainer.hide();
+
+                    // get current states
+                    yearSelectedRadio = $('input:checked', '#input_5_57');
+
+                    if ( yearSelectedRadio[0].id == year10Name ) {
+                        year1Radio.trigger( "click" );
+                        eval( careerMaxRadio.attr("onclick") );
+                    }
+
+                });
+            } else {
+                // Joint
                 showAll( [basicRadioContainer, plusRadioContainer, year1RadioContainer, year3RadioContainer, year10RadioContainer] );
-                return 'joint';
+
+                basicRadio.click( function () {
+                    year3RadioContainer.hide();
+                    year10RadioContainer.hide();
+                    year1Radio.trigger( "click" );
+                    eval( basicRadio.attr("onclick") );
+                });
+
+                plusRadio.click( function () {
+                    year3RadioContainer.show();
+                    year10RadioContainer.show();
+                });
             }
+
+            return;
         }
     })();
-
-    // onclick
-    if ( filters == 'recentGradJoint' ) {
-        basicRadio.click( function () {
-            year3RadioContainer.hide();
-        });
-
-        plusRadio.click( function () {
-            year3RadioContainer.show();
-        });
-    } else if ( filters == 'joint' ) {
-        basicRadio.click( function () {
-            year3RadioContainer.hide();
-            year10RadioContainer.hide();
-        });
-
-        plusRadio.click( function () {
-            year3RadioContainer.show();
-            year10RadioContainer.show();
-        });
-    } else if ( filters == 'recentGradIndividual' ) {
-        basicRadio.click( function () {
-            year3RadioContainer.hide();
-        });
-
-        plusRadio.click( function () {
-            year3RadioContainer.show();
-        });
-
-        professionalRadio.click( function () {
-            year3RadioContainer.show();
-        });
-
-        careerMaxRadio.click( function () {
-            year3RadioContainer.show();
-        });
-    } else if ( filters == 'individual' ) {
-        basicRadio.click( function () {
-            year3RadioContainer.hide();
-            year10RadioContainer.hide();
-        });
-
-        plusRadio.click( function () {
-            year3RadioContainer.show();
-            year10RadioContainer.show();
-        });
-
-        professionalRadio.click( function () {
-            year3RadioContainer.show();
-            year10RadioContainer.show();
-        });
-
-        careerMaxRadio.click( function () {
-            year3RadioContainer.show();
-            year10RadioContainer.hide();
-        });
-    }
-
 });
+
