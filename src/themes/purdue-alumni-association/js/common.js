@@ -30,7 +30,7 @@ $(document).ready( function($) {
     });
 
     // check for a campaign cookie
-    if ( Cookies.get('campaign') !== undefined ) {
+    if ( Cookies.get('paa_campaign') !== undefined ) {
         // change links to ecommerce forms
         $('[rel~=ecommerce]').each(function() {
             var href = $( this ).attr("href");

@@ -30,7 +30,7 @@
             }
 
             if ( $.urlParam('campaign') ) {
-                Cookies.set( 'campaign', encodeURIComponent( $.urlParam('campaign') ), { expires: 30 } );
+                Cookies.set( 'paa_campaign', encodeURIComponent( $.urlParam('campaign') ), { expires: 30 } );
             }
         }());
     </script>
