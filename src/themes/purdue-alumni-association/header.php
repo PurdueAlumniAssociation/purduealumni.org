@@ -18,6 +18,22 @@
             echo "<style type=\"text/css\">", $page_css, "</style>\n";
         }
     ?>
+    <script>
+        (function paaCookies() {
+            $.urlParam = function(name){
+                var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+                if ( results !== null ) {
+                    return results[1];
+                } else {
+                    return 0;
+                }
+            }
+
+            if ( $.urlParam('campaign') ) {
+                Cookies.set( 'campaign', encodeURIComponent( $.urlParam('campaign') ), { expires: 30 } );
+            }
+        }());
+    </script>
 </head>
 <body>
     <!-- Google Tag Manager (noscript) -->
