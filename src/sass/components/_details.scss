@@ -5,6 +5,7 @@
         padding: .5rem;
         background-color: $light-gray;
         font-weight: 700;
+        list-style-type: none; // IE fix
 
         &:hover {
             cursor: pointer;
