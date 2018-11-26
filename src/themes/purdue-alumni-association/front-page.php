@@ -11,87 +11,10 @@
             </div>
         </section>
         <?php
-        //$homepage_meta = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_homepage' );
-        // $hero = rwmb_meta( 'hero', $homepage_meta );
-        // if ( $hero ) {
-        //     echo $hero['hero__html'];
-        // }
-        $homepage_hero_id = rwmb_meta( 'homepage__hero_banner' );
-        if ( $homepage_hero_id ) {
-            $hero_heading = rwmb_meta( 'hero_banner__heading', '', $homepage_hero_id );
-            $hero_content = rwmb_meta( 'hero_banner__content', '', $homepage_hero_id );
-            $hero_url = rwmb_meta( 'hero_banner__url', '', $homepage_hero_id );
-            $hero_button_label = rwmb_meta( 'hero_banner__button_label', '', $homepage_hero_id );
-            $hero_new_tab = rwmb_meta( 'hero_banner__new_tab', '', $homepage_hero_id );
-            $hero_background_image = rwmb_meta( 'hero_banner__background_image', array( 'limit' => 1 ), $homepage_hero_id );
-            $hero_dark_overlay = rwmb_meta( 'hero_banner__dark_overlay', '', $homepage_hero_id );
 
-            $dark_overlay = '';
-            if ( $hero_dark_overlay ) {
-                $dark_overlay = "<div class=\"homepage-hero__dark-layer\"></div>\n";
-            }
+        get_template_part( 'template-parts/homepage-hero' );
 
-            $target = '';
-            if ( $hero_new_tab ) {
-                $target = ' target="_blank" rel="noopener"';
-            }
-
-            // get image
-            $image = $hero_background_image[0];
-            $img_src = $image['full_url'];
-
-            echo "<section class=\"row row--no-padding\">
-                    <div class=\"homepage-hero\">
-                        <img class=\"homepage-hero__image\"{$target} src=\"{$img_src}\" />
-                        {$dark_overlay}
-                        <div class=\"homepage-hero__content-container\">
-                            <div class=\"homepage-hero__primary\">
-                                <h1>{$hero_heading}</h1>
-                                <a class=\"button button--gold\" href=\"{$hero_url}\">{$hero_button_label}</a>
-                                <p>{$hero_content}</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>";
-        }
-        $graphic_box_ids = rwmb_meta( 'homepage__graphic_boxes' );
-        if ( $graphic_box_ids ) {
-            $graphic_box_colors = array( "green", "orange", "dark-gray" );
-            $color_index = 0;
-            echo "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
-                    <div class=\"big-info-block\">\n
-                        <div class=\"big-info-block__row\">\n";
-            foreach( $graphic_box_ids as $box_id ) {
-                $box_title = rwmb_meta( 'graphic_box__title', '', $box_id );
-                $box_cut_line = rwmb_meta( 'graphic_box__cut_line', '', $box_id );
-                $box_url = rwmb_meta( 'graphic_box__url', '', $box_id );
-                $box_new_tab = rwmb_meta( 'graphic_box__new_tab', '', $box_id );
-                $box_background_image = rwmb_meta( 'graphic_box__background_image', array( 'limit' => 1 ), $box_id );
-                $color = $graphic_box_colors[$color_index];
-
-                $target = '';
-                if ( $hero_new_tab ) {
-                    $target = ' target="_blank" rel="noopener"';
-                }
-
-                // get image
-                $image = $box_background_image[0];
-                $img_src = $image['full_url'];
-
-                echo "<a class=\"big-info-block__third-box\"{$target} href=\"{$box_url}\">
-                    <div class=\"graphic-box graphic-box--{$color}\" style=\"background-image: url('{$img_src}')\">
-                        <div class=\"graphic-box__content\">
-                            <span class=\"graphic-box__category graphic-box__category--{$color}\">{$box_title}</span>
-                            <span class=\"graphic-box__title\">{$box_cut_line}</span>
-                        </div>
-                    </div>
-                </a>";
-                $color_index++;
-            }
-            echo "</div>\n
-                </div>\n
-            </section>\n";
-        }
+        get_template_part( 'template-parts/graphic-boxes' );
         ?>
         <section class="row flex">
             <div class="flex__item flex__item--two-thirds">

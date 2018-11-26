@@ -294,6 +294,24 @@ function paa_create_tables() {
         'page_css' => 'TEXT NOT NULL'
     ) );
 
+    MB_Custom_Table_API::create( "{$prefix}hero_banner", array(
+        'hero_banner__heading' => 'TEXT NOT NULL',
+        'hero_banner__content' => 'TEXT NOT NULL',
+        'hero_banner__url' => 'TEXT NOT NULL',
+        'hero_banner__button_label' => 'TEXT NOT NULL',
+        'hero_banner__new_tab' => 'TEXT NOT NULL',
+        'hero_banner__background_image' => 'TEXT NOT NULL',
+        'hero_banner__dark_overlay' => 'TEXT NOT NULL'
+    ) );
+
+    MB_Custom_Table_API::create( "{$prefix}graphic_box", array(
+        'graphic_box__title' => 'TEXT NOT NULL',
+        'graphic_box__cut_line' => 'TEXT NOT NULL',
+        'graphic_box__url' => 'TEXT NOT NULL',
+        'graphic_box__new_tab' => 'TEXT NOT NULL',
+        'graphic_box__background_image' => 'TEXT NOT NULL'
+    ) );
+
     MB_Custom_Table_API::create( "{$prefix}feature_box", array(
         'feature_box__content' => 'TEXT NOT NULL',
         'feature_box__url' => 'TEXT NOT NULL',
