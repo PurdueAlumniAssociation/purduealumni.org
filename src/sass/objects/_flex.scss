@@ -15,7 +15,13 @@
         align-items: center;
     }
 
+    &--wrap {
+        flex-wrap: wrap;
+    }
+
     &__item {
+        text-align: center;
+        
         @include breakpoint(sm) {
             margin-right: 2rem;
 

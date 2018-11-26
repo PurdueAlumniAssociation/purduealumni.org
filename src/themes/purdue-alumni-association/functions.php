@@ -22,6 +22,10 @@ function paa_scripts_and_styles() {
         case "page-membership-tiers.php":
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
             break;
+        case "page-purchase-membership.php":
+            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
+            wp_enqueue_script( 'purchase-scripts', get_template_directory_uri() . '/js/purchase.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            break;
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
@@ -36,6 +40,7 @@ function paa_scripts_and_styles() {
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
+    wp_enqueue_script( 'js-cookie', 'https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js', array(), '2.2.0', false );
     wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
@@ -306,15 +311,42 @@ function paa_create_tables() {
         'news_event__thumbnail_image' => 'TEXT NOT NULL'
     ) );
 
+    MB_Custom_Table_API::create( "{$prefix}benefits", array(
+        'benefit__name' => 'TEXT NOT NULL',
+        'benefit__plans' => 'TEXT NOT NULL',
+        'benefit__public_url' => 'TEXT NOT NULL',
+        'benefit__member_url' => 'TEXT NOT NULL',
+        'benefit__public_description' => 'TEXT NOT NULL',
+        'benefit__member_description' => 'TEXT NOT NULL',
+        'benefit__cut_line' => 'TEXT NOT NULL',
+        'benefit__image' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 
 // remove yoast on certain post types
 function my_remove_wp_seo_meta_box() {
-	remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
-	remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
-	remove_meta_box('wpseo_meta', 'news-event', 'normal');
-	remove_meta_box('wpseo_meta', 'feature-box', 'normal');
+remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
+remove_meta_box('wpseo_meta', 'news-event', 'normal');
+remove_meta_box('wpseo_meta', 'feature-box', 'normal');
 }
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
+
+// Exclude pages from WordPress Search
+if (!is_admin()) {
+
+    function paa_search_filter( $query ) {
+        if ( $query->is_search && $query->is_main_query() ) {
+            include 'function-includes/exclude-post-ids.php';
+            if ( isset( $exclude_post_ids ) ) {
+                $query->set( 'post__not_in', $exclude_post_ids ); // add ids (comma separated) of posts to exclude
+            }
+        }
+        return $query;
+    }
+    add_filter('pre_get_posts','paa_search_filter');
+}
+
+
 ?>

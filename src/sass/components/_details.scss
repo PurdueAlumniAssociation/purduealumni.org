@@ -1,0 +1,31 @@
+.details {
+    margin: .25rem;
+
+    &__summary {
+        padding: .5rem;
+        background-color: $light-gray;
+        font-weight: 700;
+        list-style-type: none; // IE fix
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::-webkit-details-marker {
+            color: $campus-gold;
+        }
+    }
+
+    &__content {
+        background-color: $white;
+        padding: 1rem;
+
+        & p:first-child {
+            margin-top: 0;
+        }
+
+        & p:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

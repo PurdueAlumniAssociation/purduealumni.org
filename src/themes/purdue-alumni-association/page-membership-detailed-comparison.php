@@ -2,11 +2,23 @@
     /*
         Template Name: Detailed Membership Comparison
     */
+    $basic_price = '25';
+    $plus_price = '59';
+    $professional_price = '99';
+    $career_max_price = '199';
+    $back_link = 'membership/membership-plans';
+
+    if ( isset( $_GET['recent-grad'] ) ) {
+        $plus_price = '35';
+        $professional_price = '79';
+        $career_max_price = '169';
+        $back_link = 'membership/membership-plans/recent-grads';
+    }
 ?>
 <?php get_header(); ?>
 <main id="main" tabindex="-1">
     <section class="row row--slim flex flex--space-between">
-        <p><a href="<?php echo esc_url( home_url( 'member' ) ); ?>" style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
+        <p><a href="<?php echo esc_url( home_url( $back_link ) ); ?>" style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
             <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">FAQ</a>
@@ -48,13 +60,13 @@
             <tfoot>
                 <tr>
                     <th class="detailed-comparison-table__heading detailed-comparison-table__heading--benefit detailed-comparison-table__heading--tfoot sr-only" scope="row">Pricing</th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$25</span><span class="detailed-comparison-table__cost-year">/year</span>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$<?= $basic_price ?></span><span class="detailed-comparison-table__cost-year">/year</span>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$59</span><span class="detailed-comparison-table__cost-year">/year</span>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$<?= $plus_price ?></span><span class="detailed-comparison-table__cost-year">/year</span>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$99</span><span class="detailed-comparison-table__cost-year">/year</span>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$<?= $professional_price ?></span><span class="detailed-comparison-table__cost-year">/year</span>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$199</span><span class="detailed-comparison-table__cost-year">/year</span>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><span class="detailed-comparison-table__cost">$<?= $career_max_price ?></span><span class="detailed-comparison-table__cost-year">/year</span>
                     </th>
                 </tr>
                 <tr>
@@ -422,9 +434,9 @@
         </table>
     </section>
     <section class="row">
-        <p style="text-align: center;">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.
-            <br />Discounts available for recent grads.
-            <br />Joint Member discounts available for PLUS memberships.</p>
+        <p style="text-align: center;">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.<br />
+            <?php if ( ! isset( $_GET['recent-grad'] ) ) : ?>Discounts available for recent grads.<br /><? endif; ?>
+            Joint Member discounts available for PLUS memberships.</p>
     </section>
 
 </main>
