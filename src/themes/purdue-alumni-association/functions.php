@@ -2,6 +2,10 @@
 // Add support for custom features
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
+function mytheme_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'mytheme_add_woocommerce_support' );
 
 // Add common styles
 function paa_scripts_and_styles() {
