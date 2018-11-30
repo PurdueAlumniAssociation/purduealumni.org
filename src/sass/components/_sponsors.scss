@@ -9,6 +9,8 @@
     &__link {
         display: block;
         margin-bottom: 2em;
+        margin-right: 2em;
+        margin-left: 2em;
 
         &:last-child {
             margin-bottom: 0;
@@ -23,5 +25,7 @@
     &__image {
         display: block;
         margin: auto;
+        min-width: 100px;
+        width: 80%;
     }
 }
