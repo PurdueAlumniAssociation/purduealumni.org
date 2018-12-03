@@ -1,3 +1,5 @@
+@import "../settings/all";
+
 body {
     max-width: none !important;
 }
@@ -25,9 +27,9 @@ body {
         color: inherit;
     }
 
-    p {
-        margin-top: 2.5em;
-        @media (min-width: 768px) {
+    @include breakpoint(sm) {
+        p {
+            margin-top: 2.5em;
             font-size: 1.2em;
         }
     }
