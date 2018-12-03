@@ -9,7 +9,9 @@
         <div class="hero-text">
             <h1 class="text-center">Membership Plans</h1>
             <?php //<p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>?>
-            <p>We're partnering with the Tyler Trent Cancer Research Endowment to raise money to Hammer Down cancer. For the entire month of November, we’re proud to donate 20 percent of all membership proceeds to help advance cancer research — including renewals, new memberships, and upgrades.</p>
+            <p>Purdue obviously means a lot to you – you grew up, fell in love or maybe found yourself here. Whatever your experience or involvement, we want to maintain a relationship with you. We want to celebrate your victories and milestones and help you with resources when you need them.</p>
+<p>Take a look through the choices below. You can stay connected and get great discounts on Purdue gear. You can receive unlimited access to LinkedIn Learning and other career tools at a fraction of their normal cost.</p>
+<p>You have a lot of choices, a lot of opportunities. It is our privilege to serve you and to help you along life’s way.</p>
         </div>
     </div>
     <section class="row row--slim flex flex--space-between">
