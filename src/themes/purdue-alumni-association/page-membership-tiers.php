@@ -9,8 +9,8 @@
         <div class="hero-text">
             <h1 class="text-center">Membership Plans</h1>
             <?php //<p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>?>
-            <p>Purdue obviously means a lot to you – it’s the place you grew up, fell in love or learned your craft. Your roots are here. We want to help you maintain those traditions and memories. We want to help you along life's journey.</p>
-<p>So whether it's discounts on Purdue gear and online courses, or whether it's exclusive events and skills training, you belong here. Just like always.</p>
+            <p>Purdue obviously means a lot to you &mdash; it’s the place you grew up, fell in love, or learned your craft. Your roots are here. We want to help you maintain those traditions and memories. We want to help you along life's journey.</p>
+<p>So whether it's discounts on Purdue gear and online courses or whether it's exclusive events and skills training, you belong here. Just like always.</p>
         </div>
     </div>
     <section class="row row--slim flex flex--space-between">
