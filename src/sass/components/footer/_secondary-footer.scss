@@ -14,21 +14,32 @@
         padding: 2em $section-padding-md;
     }
 
-    &__left-content {
-        text-align: center;
-        @include breakpoint(sm){
-            text-align: left;
-        }
+    // &__left-content {
+    //     text-align: center;
+    //     @include breakpoint(sm){
+    //         text-align: left;
+    //     }
+    // }
+    //
+    // &__right-content {
+    //     text-align: center;
+    //     @include breakpoint(sm){
+    //         text-align: right;
+    //     }
+    // }
 
-        &-title {
-            text-transform: uppercase;
-        }
-    }
-
-    &__right-content {
+    &__list {
+        list-style-type: none;
         text-align: center;
+
         @include breakpoint(sm){
-            text-align: right;
+            &--right {
+                text-align: right;
+            }
+
+            &--left {
+                text-align: left;
+            }
         }
     }
 
