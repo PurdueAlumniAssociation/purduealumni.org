@@ -17,6 +17,7 @@
     &__list {
         list-style-type: none;
         text-align: center;
+        padding: 0;
 
         @include breakpoint(sm){
             &--right {
