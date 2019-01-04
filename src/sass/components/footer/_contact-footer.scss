@@ -20,7 +20,7 @@
         & li {
             display: block;
 
-            @include breakpoint(md) {
+            @include breakpoint(sm) {
                 display: inline;
                 padding-right: 8px;
 
