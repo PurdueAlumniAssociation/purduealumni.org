@@ -7,7 +7,6 @@
 
     @include breakpoint(sm) {
         padding: .5em $section-padding-sm;
-        font-size: 1em;
     }
     @include breakpoint(md) {
         padding: .5em $section-padding-md;
