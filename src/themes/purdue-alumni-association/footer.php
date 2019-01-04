@@ -22,6 +22,13 @@
         <?php endif; ?>
     </div>
 </footer>
+<footer class="contact-footer">
+        <ul class="contact-footer__list">
+            <li><a href="https://www.purduealumni.org/terms-of-use">Terms of Use</a></li>
+            <li><a href="https://www.purduealumni.org/privacy-policy">Privacy Statement</a></li>
+            <li>Purdue Alumni Association. All Rights Reserved</li>
+        </ul>
+</footer>
 <?php get_template_part( 'template-parts/login-lightbox' ); ?>
 <?php wp_footer(); ?>
 </body>
