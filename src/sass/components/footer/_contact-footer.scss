@@ -1,0 +1,39 @@
+.contact-footer {
+    font-size: 1em;
+    text-align: center;
+    background-color: #eee;
+    padding: .5em $section-padding-xs;
+    font-size: .8em;
+
+    @include breakpoint(sm) {
+        padding: .5em $section-padding-sm;
+    }
+    @include breakpoint(md) {
+        padding: .5em $section-padding-md;
+    }
+
+    &__list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+
+        & li {
+            display: block;
+
+            @include breakpoint(sm) {
+                display: inline;
+                padding-right: 8px;
+
+                &:after {
+                    padding-left: 12px;
+                    content: "|";
+                }
+
+                &:last-of-type:after {
+                    padding-left: 0;
+                    content: "";
+                }
+            }
+        }
+    }
+}
