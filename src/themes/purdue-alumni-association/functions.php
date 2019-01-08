@@ -328,4 +328,6 @@ if (!is_admin()) {
     }
     add_filter('pre_get_posts','paa_search_filter');
 }
+
+include 'function-includes/custom-query-vars.php';
 ?>
