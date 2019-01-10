@@ -320,15 +320,15 @@ function paa_create_tables() {
         'image' => 'TEXT NOT NULL'
     ) );
 
-    // MB_Custom_Table_API::create( "{$prefix}news_events", array(
-    //     'news_event__title' => 'TEXT NOT NULL',
-    //     'news_event__description' => 'TEXT NOT NULL',
-    //     'news_event__url' => 'TEXT NOT NULL',
-    //     'news_event__button_label' => 'TEXT NOT NULL',
-    //     'news_event__new_tab' => 'TEXT NOT NULL',
-    //     'news_event__thumbnail_image' => 'TEXT NOT NULL'
-    // ) );
-    //
+    MB_Custom_Table_API::create( "{$prefix}news_events", array(
+        'title' => 'TEXT NOT NULL',
+        'description' => 'TEXT NOT NULL',
+        'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
+        'button_target' => 'TEXT NOT NULL',
+        'thumbnail_image' => 'TEXT NOT NULL'
+    ) );
+
     // MB_Custom_Table_API::create( "{$prefix}benefits", array(
     //     'benefit__name' => 'TEXT NOT NULL',
     //     'benefit__plans' => 'TEXT NOT NULL',
@@ -346,7 +346,7 @@ add_action( 'init', 'paa_create_tables' );
 function my_remove_wp_seo_meta_box() {
 remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
 remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
-//remove_meta_box('wpseo_meta', 'news-event', 'normal');
+remove_meta_box('wpseo_meta', 'news-event', 'normal');
 remove_meta_box('wpseo_meta', 'feature-box', 'normal');
 }
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
