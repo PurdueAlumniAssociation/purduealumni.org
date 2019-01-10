@@ -3,7 +3,7 @@ function output_graphic_boxes( $ids ) {
     $colors = array( "green", "orange", "dark-gray" );
     $color_index = 0;
     $output = '';
-    
+
     if ( $ids ) {
         $output = "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
                 <div class=\"big-info-block\">\n
@@ -19,7 +19,7 @@ function output_graphic_boxes( $ids ) {
 
             $target = '';
             if ( isset( $target ) && $target == true ) {
-                $target = " target=\"_blank\" rel=\"noopener\"";
+                $target = " target=\"_blank\" rel=\"nofollow\"";
             }
 
             // get image
