@@ -48,33 +48,7 @@
                 $column_title = rwmb_meta( 'homepage__column_2_title', '' );
                 echo "<h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\">$column_title</h2>";
 
-                $feature_box_id = rwmb_meta( 'homepage__feature_box' );
-                if ( $feature_box_id ) {
-                    $feature_box_title = rwmb_meta( 'feature_box__title', '', $feature_box_id );
-                    $feature_box_content = rwmb_meta( 'feature_box__content', '', $feature_box_id );
-                    $feature_box_button_label = rwmb_meta( 'feature_box__button_label', '', $feature_box_id );
-                    $feature_box_url = rwmb_meta( 'feature_box__url', '', $feature_box_id );
-                    $feature_box_new_tab = rwmb_meta( 'feature_box__new_tab', '', $feature_box_id );
-                    $feature_box_image = rwmb_meta( 'feature_box__image', array( 'limit' => 1 ), $feature_box_id );
-
-                    $target = '';
-                    if ( $hero_new_tab ) {
-                        $target = ' target="_blank" rel="noopener"';
-                    }
-
-                    // get image
-                    $image = $feature_box_image[0];
-                    $img_src = $image['full_url'];
-                    $img_alt = $image['alt'];
-
-                    echo "<aside class=\"feature-box\">
-                            <img class=\"feature-box__image\" src=\"https://www.purduealumni.org/wp-content/uploads/feature-box_tyler-trent.jpg\" alt=\"Tyler Trent\">
-                            <div class=\"feature-box__content\">
-                                <p class=\"feature-box__text\">We want to hear how a Purdue alumnus made a giant impact. It could be in one person's life or the life of an entire community. Tyler Trent, pictured, received the inaugural Purdue Alumni Impact Award.</p>
-                                <p style=\"margin-bottom: 0;\"><a class=\"button button--almost-black\" href=\"https://www.purduealumni.org/giant-impact\">Tell Their Story</a></p>
-                            </div>
-                        </aside>";
-                }
+                get_template_part( 'template-parts/feature-box' );
                 ?>
             </div>
         </section>
