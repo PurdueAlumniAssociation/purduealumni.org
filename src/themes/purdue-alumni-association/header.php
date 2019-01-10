@@ -45,6 +45,7 @@
             <ul id="menu-black-bar-links" class="black-bar-menu__list">
                 <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box"><i class="fa fa-key" aria-hidden="true"></i>Login</a></li>
                 <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
+                <li class="black-bar-menu__list-item"><a class="button button--gold button--bold" href="<?php echo esc_url( home_url( '/membership/membership-plans' ) ); ?>"</li>
             </ul>
         </nav>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">

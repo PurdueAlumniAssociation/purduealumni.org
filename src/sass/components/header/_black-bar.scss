@@ -1,6 +1,7 @@
 .black-bar {
     background-color: $black;
-    height: 1em;
+    //height: 1em;
+    padding: .3em;
 
     @include breakpoint(sm) {
         color: $white;
