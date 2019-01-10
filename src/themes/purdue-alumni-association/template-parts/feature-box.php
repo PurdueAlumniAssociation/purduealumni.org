@@ -4,8 +4,8 @@ function output_feature_box( $id ) {
         $title = rwmb_meta( 'title', '', $id );
         $content = rwmb_meta( 'content', '', $id );
         $button_label = rwmb_meta( 'button_label', '', $id );
-        $button_url = rwmb_meta( 'url', '', $id );
-        $button_target = rwmb_meta( 'new_tab', '', $id );
+        $button_url = rwmb_meta( 'button_url', '', $id );
+        $button_target = rwmb_meta( 'button_target', '', $id );
         $image = rwmb_meta( 'image', '', $id );
 
         $target = '';
@@ -18,7 +18,7 @@ function output_feature_box( $id ) {
         $img_alt = $image['alt'];
 
         $output = "<aside class=\"feature-box\">
-                <img class=\"feature-box__image\" src=\"${imge_src}\" alt=\"${img_alt}\">
+                <img class=\"feature-box__image\" src=\"${img_src}\" alt=\"${img_alt}\">
                 <div class=\"feature-box__content\">
                     <p class=\"feature-box__text\">${content}</p>";
 
