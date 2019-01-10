@@ -13,7 +13,7 @@
                 <?php get_template_part( 'template-parts/news-events' ); ?>
             </div>
             <div class="flex__item flex__item--one-third">
-                <h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\"><?php= rwmb_meta( 'homepage__column_2_title' ); ?></h2>";
+                <h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\"><?= rwmb_meta( 'homepage__column_2_title' ); ?></h2>
 
                 <?php get_template_part( 'template-parts/feature-box' ); ?>
             </div>
