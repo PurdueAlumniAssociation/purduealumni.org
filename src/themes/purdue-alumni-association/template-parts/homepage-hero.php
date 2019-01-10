@@ -1,5 +1,5 @@
 <?php
-function get_hero_banner( $id ) {
+function output_hero_banner( $id ) {
     if ( isset( $id ) ) {
         $heading = rwmb_meta( 'heading', '', $id );
         $content = rwmb_meta( 'content', '', $id );
@@ -10,7 +10,7 @@ function get_hero_banner( $id ) {
         $background_options = rwmb_meta( 'background_options', '', $id );
 
         $dark_overlay = '';
-        if ( isset( $background_options ) && in_array( 'dark', $background_options ) {
+        if ( isset( $background_options ) && in_array( 'dark', $background_options ) ) {
             $dark_overlay = "<div class=\"homepage-hero__dark-layer\"></div>\n";
         }
 
