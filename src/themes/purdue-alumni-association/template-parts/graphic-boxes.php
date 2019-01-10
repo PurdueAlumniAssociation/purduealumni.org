@@ -1,42 +1,49 @@
 <?php
-$graphic_box_ids = rwmb_meta( 'homepage__graphic_boxes' );
-
-if ( $graphic_box_ids ) {
-    $graphic_box_colors = array( "green", "orange", "dark-gray" );
+function output_graphic_boxes( $ids ) {
+    $colors = array( "green", "orange", "dark-gray" );
     $color_index = 0;
+    $output = '';
+    
+    if ( $ids ) {
+        $output = "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
+                <div class=\"big-info-block\">\n
+                    <div class=\"big-info-block__row\">\n";
 
-    echo "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
-            <div class=\"big-info-block\">\n
-                <div class=\"big-info-block__row\">\n";
+        foreach( $ids as $id ) {
+            $title = rwmb_meta( 'title', '', $id );
+            $cut_line = rwmb_meta( 'cut_line', '', $id );
+            $url = rwmb_meta( 'url', '', $id );
+            $new_tab = rwmb_meta( 'new_tab', '', $id );
+            $background_image = rwmb_meta( 'background_image', '', $id );
+            $color = $colors[$color_index];
 
-    foreach( $graphic_box_ids as $box_id ) {
-        $box_title = rwmb_meta( 'graphic_box__title', '', $box_id );
-        $box_cut_line = rwmb_meta( 'graphic_box__cut_line', '', $box_id );
-        $box_url = rwmb_meta( 'graphic_box__url', '', $box_id );
-        $box_new_tab = rwmb_meta( 'graphic_box__new_tab', '', $box_id );
-        $box_background_image = rwmb_meta( 'graphic_box__background_image', array( 'limit' => 1 ), $box_id );
-        $color = $graphic_box_colors[$color_index];
+            $target = '';
+            if ( isset( $target ) && $target == true ) {
+                $target = " target=\"_blank\" rel=\"noopener\"";
+            }
 
-        $target = '';
-        if ( $hero_new_tab ) {
-            $target = ' target="_blank" rel="noopener"';
-        }
+            // get image
+            $img_src = $background_image['full_url'];
 
-        // get image
-        $image = $box_background_image[0];
-        $img_src = $image['full_url'];
-
-        echo "<a class=\"big-info-block__third-box\"{$target} href=\"{$box_url}\">
-            <div class=\"graphic-box graphic-box--{$color}\" style=\"background-image: url('{$img_src}')\">
-                <div class=\"graphic-box__content\">
-                    <span class=\"graphic-box__category graphic-box__category--{$color}\">{$box_title}</span>
-                    <span class=\"graphic-box__title\">{$box_cut_line}</span>
+            $output .= "<a class=\"big-info-block__third-box\"${target} href=\"${url}\">
+                <div class=\"graphic-box graphic-box--${color}\" style=\"background-image: url('${img_src}')\">
+                    <div class=\"graphic-box__content\">
+                        <span class=\"graphic-box__category graphic-box__category--${color}\">${title}</span>
+                        <span class=\"graphic-box__title\">${cut_line}</span>
+                    </div>
                 </div>
-            </div>
-        </a>";
-        $color_index++;
+            </a>";
+
+            $color_index++;
+        }
+        $output .= "</div>\n
+            </div>\n
+        </section>\n";
+    } else {
+        // fallback
+        $output = '';
     }
-    echo "</div>\n
-        </div>\n
-    </section>\n";
+
+    echo $output;
 }
+output_graphic_boxes( rwmb_meta( 'homepage__graphic_boxes' ) );
