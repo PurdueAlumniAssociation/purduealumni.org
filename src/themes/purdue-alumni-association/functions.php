@@ -297,8 +297,8 @@ function paa_create_tables() {
     MB_Custom_Table_API::create( "{$prefix}hero_banners", array(
         'heading' => 'TEXT NOT NULL',
         'content' => 'TEXT NOT NULL',
-        'button_url' => 'TEXT NOT NULL',
         'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
         'button_target' => 'TEXT NOT NULL',
         'background_image' => 'TEXT NOT NULL',
         'background_options' => 'TEXT NOT NULL'
