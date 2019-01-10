@@ -326,7 +326,7 @@ function paa_create_tables() {
         'button_label' => 'TEXT NOT NULL',
         'button_url' => 'TEXT NOT NULL',
         'button_target' => 'TEXT NOT NULL',
-        'thumbnail_image' => 'TEXT NOT NULL'
+        'image' => 'TEXT NOT NULL'
     ) );
 
     // MB_Custom_Table_API::create( "{$prefix}benefits", array(
