@@ -304,14 +304,14 @@ function paa_create_tables() {
         'background_options' => 'TEXT NOT NULL'
     ) );
 
-    // MB_Custom_Table_API::create( "{$prefix}graphic_box", array(
-    //     'graphic_box__title' => 'TEXT NOT NULL',
-    //     'graphic_box__cut_line' => 'TEXT NOT NULL',
-    //     'graphic_box__url' => 'TEXT NOT NULL',
-    //     'graphic_box__new_tab' => 'TEXT NOT NULL',
-    //     'graphic_box__background_image' => 'TEXT NOT NULL'
-    // ) );
-    //
+    MB_Custom_Table_API::create( "{$prefix}graphic_boxes", array(
+        'title' => 'TEXT NOT NULL',
+        'cut_line' => 'TEXT NOT NULL',
+        'url' => 'TEXT NOT NULL',
+        'target' => 'TEXT NOT NULL',
+        'background_image' => 'TEXT NOT NULL'
+    ) );
+
     // MB_Custom_Table_API::create( "{$prefix}feature_box", array(
     //     'feature_box__content' => 'TEXT NOT NULL',
     //     'feature_box__url' => 'TEXT NOT NULL',
@@ -344,7 +344,7 @@ add_action( 'init', 'paa_create_tables' );
 
 // remove yoast on certain post types
 function my_remove_wp_seo_meta_box() {
-//remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
 remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
 //remove_meta_box('wpseo_meta', 'news-event', 'normal');
 //remove_meta_box('wpseo_meta', 'feature-box', 'normal');
