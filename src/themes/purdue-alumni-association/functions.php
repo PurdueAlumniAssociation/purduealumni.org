@@ -329,16 +329,16 @@ function paa_create_tables() {
         'image' => 'TEXT NOT NULL'
     ) );
 
-    // MB_Custom_Table_API::create( "{$prefix}benefits", array(
-    //     'benefit__name' => 'TEXT NOT NULL',
-    //     'benefit__plans' => 'TEXT NOT NULL',
-    //     'benefit__public_url' => 'TEXT NOT NULL',
-    //     'benefit__member_url' => 'TEXT NOT NULL',
-    //     'benefit__public_description' => 'TEXT NOT NULL',
-    //     'benefit__member_description' => 'TEXT NOT NULL',
-    //     'benefit__cut_line' => 'TEXT NOT NULL',
-    //     'benefit__image' => 'TEXT NOT NULL'
-    // ) );
+    MB_Custom_Table_API::create( "{$prefix}benefits", array(
+        'benefit__name' => 'TEXT NOT NULL',
+        'benefit__plans' => 'TEXT NOT NULL',
+        'benefit__public_url' => 'TEXT NOT NULL',
+        'benefit__member_url' => 'TEXT NOT NULL',
+        'benefit__public_description' => 'TEXT NOT NULL',
+        'benefit__member_description' => 'TEXT NOT NULL',
+        'benefit__cut_line' => 'TEXT NOT NULL',
+        'benefit__image' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 
