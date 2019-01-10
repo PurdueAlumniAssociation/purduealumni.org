@@ -1,7 +1,7 @@
 <?php
 $hero_banner_id = rwmb_meta( 'homepage__hero_banner' );
 
-if ( $hero_banner_id ) {
+if ( isset( $hero_banner_id ) ) {
     $hero_heading = rwmb_meta( 'heading', '', $hero_banner_id );
     $hero_content = rwmb_meta( 'content', '', $hero_banner_id );
     $hero_button_url = rwmb_meta( 'button_url', '', $hero_banner_id );

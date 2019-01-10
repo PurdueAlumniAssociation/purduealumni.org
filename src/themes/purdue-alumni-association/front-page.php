@@ -14,7 +14,7 @@
 
         get_template_part( 'template-parts/homepage-hero' );
 
-        get_template_part( 'template-parts/graphic-boxes' );
+        //get_template_part( 'template-parts/graphic-boxes' );
         ?>
         <section class="row flex">
             <div class="flex__item flex__item--two-thirds">
