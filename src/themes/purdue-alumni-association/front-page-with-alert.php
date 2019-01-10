@@ -1,6 +1,15 @@
 <?php get_header(); ?>
     <main class="front-page" id="main" tabindex="-1">
         <h1 class="sr-only">Purdue Alumni Association</h1>
+        <section class="row row--slim alert-banner flex" id="alert">
+            <i class="fas fa-exclamation-circle alert-banner__icon" aria-hidden="true"></i>
+            <div class="alert-banner__message">
+                <h2 class="alert-banner__title"><i class="fas fa-exclamation-circle alert-banner__icon--mobile" aria-hidden="true"></i>California Wildfires</h2>
+                <p>The recent fires in California have forced tens of thousands of people from their homes. We're thinking of all those affected, including our Purdue alumni family.</p>
+                <p>Please consider donating to one of the many charities aiding the families: <a href="https://www.redcross.org/about-us/news-and-events/news/2018/california-wildfires-red-cross-helps-as-thousands-evacuate.html" target="_blank" rel="nofollow">American Red Cross</a>, <a href="https://disaster.salvationarmyusa.org/" target="_blank" rel="nofollow">The Salvation Army USA</a>, <a href="https://www.unitedwayla.org/en/give/disaster-relief-fund/" target="_blank" rel="nofollow">United Way of Greater Los Angeles</a>, and <a href="https://app.mobilecause.com/f/23ef/n?vid=4v4l" target="_blank" rel="nofollow">United Way of Ventura County</a>.</p>
+                <i class="fas fa-times" id="alert-close"><span class="sr-only">Close</span></i>
+            </div>
+        </section>
         <?php
         $homepage_meta = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_homepage' );
         $hero = rwmb_meta( 'hero', $homepage_meta );
@@ -85,4 +94,12 @@
             </p>
         </section>
     </main>
+    <script>
+        $("#alert-close").click( function() {
+            $("#alert").slideToggle( {
+                duration: 'fast',
+                easing: 'linear'
+            });
+        });
+    </script>
 <?php get_footer(); ?>

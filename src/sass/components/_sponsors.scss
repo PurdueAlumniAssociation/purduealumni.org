@@ -1,9 +1,7 @@
 .sponsors {
     @include breakpoint(sm) {
-        display: flex;
         justify-content: center;
         align-items: center;
-        flex-wrap: nowrap;
     }
 
     &__link {
@@ -15,7 +13,6 @@
         }
 
         @include breakpoint(sm) {
-            flex: 0 1 auto;
             margin-bottom: 0;
         }
     }
@@ -23,5 +20,8 @@
     &__image {
         display: block;
         margin: auto;
+        min-width: 100px;
+        width: 80%;
+        max-width: 275px;
     }
 }

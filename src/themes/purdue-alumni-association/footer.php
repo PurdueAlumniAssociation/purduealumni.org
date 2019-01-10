@@ -11,16 +11,19 @@
     <?php get_template_part( 'template-parts/sponsors' ); ?>
 </footer>
 <footer class="secondary-footer">
-    <div class="secondary-footer__left-content">
-        <?php if ( is_active_sidebar( 'secondary-footer-left' ) ) : ?>
-            <?php dynamic_sidebar( 'secondary-footer-left' ); ?>
-        <?php endif; ?>
-    </div>
-    <div class="secondary-footer__right-content">
-        <?php if ( is_active_sidebar( 'secondary-footer-right' ) ) : ?>
-            <?php dynamic_sidebar( 'secondary-footer-right' ); ?>
-        <?php endif; ?>
-    </div>
+    <?php if ( is_active_sidebar( 'secondary-footer-left' ) ) : ?>
+        <?php dynamic_sidebar( 'secondary-footer-left' ); ?>
+    <?php endif; ?>
+    <?php if ( is_active_sidebar( 'secondary-footer-right' ) ) : ?>
+        <?php dynamic_sidebar( 'secondary-footer-right' ); ?>
+    <?php endif; ?>
+</footer>
+<footer class="contact-footer">
+        <ul class="contact-footer__list">
+            <li><a href="https://www.purduealumni.org/terms-of-use">Terms of Use</a></li>
+            <li><a href="https://www.purduealumni.org/privacy-policy">Privacy Statement</a></li>
+            <li>Purdue Alumni Association. All Rights Reserved</li>
+        </ul>
 </footer>
 <?php get_template_part( 'template-parts/login-lightbox' ); ?>
 <?php wp_footer(); ?>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/_head.html', {
+    "title": "Primary Footer",
+    "pageCSS": ""
+})
+<body>
+    <footer class="secondary-footer">
+        <ul class="secondary-footer__list secondary-footer__list--left">
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Club Leaders Portal</a></li>
+        </ul>
+        <ul class="secondary-footer__list secondary-footer__list--right">
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Statement</a></li>
+            <li>Purdue Alumni Association. All Rights Reserved</li>
+        </ul>
+    </footer>
+    <footer class="contact-footer">
+            <ul class="contact-footer__list">
+                <li>Dauch Alumni Center</li>
+                <li>403 W. Wood Street, West Lafayette, IN 47906</li>
+                <li>800-414-1541</li>
+                <li><a href="mailto:purduealumni@purdue.edu">purduealumni@purdue.edu</a></li>
+            </ul>
+    </footer>
+    <br />
+    <br />
+    <br />
+    <footer class="secondary-footer">
+        <ul class="secondary-footer__list secondary-footer__list--left">
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Club Leaders Portal</a></li>
+        </ul>
+        <ul class="secondary-footer__list secondary-footer__list--right">
+            <li>Dauch Alumni Center</li>
+            <li>403 W. Wood Street<br />West Lafayette, IN 47906</li>
+            <li>800-414-1541</li>
+            <li><a href="mailto:purduealumni@purdue.edu">purduealumni@purdue.edu</a></li>
+        </ul>
+    </footer>
+    <footer class="contact-footer">
+            <ul class="contact-footer__list">
+                <li><a href="#">Terms of Use</a></li>
+                <li><a href="#">Privacy Statement</a></li>
+                <li>Purdue Alumni Association. All Rights Reserved</li>
+            </ul>
+    </footer>
+    <!-- <script>
+        $(document).ready(function($) {
+            // find all the column titles, add click event
+            $('.primary-footer__columns-container').find('.primary-footer__column-title').click(function() {
+                // only animate if screen size is xs
+                if ($(window).width() < 767) {
+                    // toggle visibility of the column links
+                    $(this).next().slideToggle('fast');
+
+                    // TO DO: change icon
+                }
+            });
+        });
+    </script> -->
+</body>
+</html>
