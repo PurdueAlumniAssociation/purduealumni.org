@@ -312,14 +312,14 @@ function paa_create_tables() {
         'background_image' => 'TEXT NOT NULL'
     ) );
 
-    // MB_Custom_Table_API::create( "{$prefix}feature_box", array(
-    //     'feature_box__content' => 'TEXT NOT NULL',
-    //     'feature_box__url' => 'TEXT NOT NULL',
-    //     'feature_box__button_label' => 'TEXT NOT NULL',
-    //     'feature_box__new_tab' => 'TEXT NOT NULL',
-    //     'feature_box__image' => 'TEXT NOT NULL'
-    // ) );
-    //
+    MB_Custom_Table_API::create( "{$prefix}feature_boxes", array(
+        'content' => 'TEXT NOT NULL',
+        'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
+        'button_target' => 'TEXT NOT NULL',
+        'image' => 'TEXT NOT NULL'
+    ) );
+
     // MB_Custom_Table_API::create( "{$prefix}news_events", array(
     //     'news_event__title' => 'TEXT NOT NULL',
     //     'news_event__description' => 'TEXT NOT NULL',
