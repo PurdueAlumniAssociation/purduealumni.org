@@ -14,8 +14,27 @@
         }
     }
 
-    &__graphic-boxes {
+    &__graphic-box-row {
         margin-top: 3px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &__graphic-box-wrapper {
+        display: block;
+        padding: 0;
+
+        @include breakpoint(xs) {
+            margin-bottom: 3px;
+        }
+
+        @include breakpoint(sm) {
+            padding-right: 3px;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
     }
 }
 

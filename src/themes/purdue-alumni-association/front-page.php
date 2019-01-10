@@ -7,13 +7,13 @@
 
         get_template_part( 'template-parts/graphic-boxes' );
         ?>
-        <section class="row flex">
-            <div class="flex__item flex__item--two-thirds">
+        <section class="row bootstrap-row">
+            <div class="col-xs-12 col-sm-6 col-md-8">
                 <h2 class="front-page__section-title">News & Events</h2>
                 <?php get_template_part( 'template-parts/news-events' ); ?>
             </div>
-            <div class="flex__item flex__item--one-third">
-                <h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\"><?= rwmb_meta( 'homepage__column_2_title' ); ?></h2>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+                <h2 class="front-page__section-title front-page__section-title--mo-top-margin"><?= rwmb_meta( 'homepage__column_2_title' ); ?></h2>
 
                 <?php get_template_part( 'template-parts/feature-box' ); ?>
             </div>
