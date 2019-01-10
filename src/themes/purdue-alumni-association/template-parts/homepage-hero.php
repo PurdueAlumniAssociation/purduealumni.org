@@ -1,6 +1,4 @@
 <?php
-$id = rwmb_meta( 'homepage__hero_banner' );
-
 function get_hero_banner( $id ) {
     if ( isset( $id ) ) {
         $heading = rwmb_meta( 'heading', '', $id );
@@ -56,3 +54,4 @@ function get_hero_banner( $id ) {
 
     return $output;
 }
+output_hero_banner( rwmb_meta( 'homepage__hero_banner' ) );
