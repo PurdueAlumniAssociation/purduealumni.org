@@ -15,12 +15,8 @@ function get_hero_banner( $id ) {
         }
 
         $target = '';
-        if ( isset( $button_target ) ) {
-            $target = " target=\"${hero_button_target}\"";
-
-            if ( $button_target == "_blank" ) {
-                $target .= " rel=\"noopener\"";
-            }
+        if ( isset( $button_target ) && $button_target == "1" ) {
+            $target = " target=\"${hero_button_target}\" rel=\"noopener\"";
         }
 
         // get image
