@@ -10,46 +10,12 @@
         <section class="row flex">
             <div class="flex__item flex__item--two-thirds">
                 <h2 class="front-page__section-title">News & Events</h2>
-                <?php
-                    $news_event_ids = rwmb_meta( 'homepage__news_events' );
-                    if ( $news_event_ids ) {
-                        foreach ( $news_event_ids as $news_event_id ) {
-                            $news_event_title = rwmb_meta( 'news_event__title', '', $news_event_id );
-                            $news_event_description = rwmb_meta( 'news_event__description', '', $news_event_id );
-                            $news_event_url = rwmb_meta( 'news_event__url', '', $news_event_id );
-                            $news_event_button_label = rwmb_meta( 'news_event__button_label', '', $news_event_id );
-                            $news_event_new_tab = rwmb_meta( 'news_event__new_tab', '', $news_event_id );
-                            $news_event_thumbnail_image = rwmb_meta( 'news_event__thumbnail_image', array( 'limit' => 1 ), $news_event_id );
-
-                            $target = '';
-                            if ( $hero_new_tab ) {
-                                $target = ' target="_blank" rel="noopener"';
-                            }
-
-                            // get image
-                            $image = $news_event_thumbnail_image[0];
-                            $img_src = $image['full_url'];
-                            $img_alt = $image['alt'];
-
-                            echo "<div class=\"news-event\">
-                                <img class=\"news-event__image\" src=\"{$img_src}\" alt=\"{$img_alt}\" />
-                                <div>
-                                    <h3 class=\"news-event__title\">{$news_event_title}</h3>
-                                    <p class=\"news-event__description\">{$news_event_description}</p>
-                                    <a class=\"button\" class=\"news-event__cta\"{$target} href=\"{$news_event_url}\">{$news_event_button_label}</a>
-                                </div>
-                            </div>";
-                        }
-                    }
-                ?>
+                <?php get_template_part( 'template-parts/news-events' ); ?>
             </div>
             <div class="flex__item flex__item--one-third">
-                <?php
-                $column_title = rwmb_meta( 'homepage__column_2_title', '' );
-                echo "<h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\">$column_title</h2>";
+                <h2 class=\"front-page__section-title front-page__section-title--mo-top-margin\"><?php= rwmb_meta( 'homepage__column_2_title' ); ?></h2>";
 
-                get_template_part( 'template-parts/feature-box' );
-                ?>
+                <?php get_template_part( 'template-parts/feature-box' ); ?>
             </div>
         </section>
         <section class="row tint">
