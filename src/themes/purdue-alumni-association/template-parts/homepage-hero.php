@@ -16,7 +16,7 @@ function output_hero_banner( $id ) {
 
         $target = '';
         if ( isset( $button_target ) && $button_target == true ) {
-            $target = " target=\"_blank\" rel=\"noopener\"";
+            $target = " target=\"_blank\" rel=\"nofollow\"";
         }
 
         // get image

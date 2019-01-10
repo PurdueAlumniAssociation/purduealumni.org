@@ -10,7 +10,7 @@ function output_feature_box( $id ) {
 
         $target = '';
         if ( isset( $button_target ) && $button_target == true ) {
-            $target = ' target="_blank" rel="noopener"';
+            $target = ' target="_blank" rel="nofollow"';
         }
 
         // get image
