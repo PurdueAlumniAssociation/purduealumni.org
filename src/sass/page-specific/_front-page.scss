@@ -7,9 +7,9 @@
         font-style: normal;
         text-transform: uppercase;
 
-        &--mo-top-margin {
-            @include breakpoint(xs) {
-                margin-top: 3em;
+        &--col-2 {
+            @media (max-width: 575px) {
+                margin-top: 2em;
             }
         }
     }
