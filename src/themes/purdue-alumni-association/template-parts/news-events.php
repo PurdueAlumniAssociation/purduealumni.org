@@ -22,7 +22,7 @@ function output_news_events( $ids ) {
 
             $output .= "<div class=\"news-event\">
                 <img class=\"news-event__image\" src=\"${img_src}\" alt=\"${img_alt}\" />
-                <div>
+                <div class=\"\">
                     <h3 class=\"news-event__title\">${title}</h3>
                     <p class=\"news-event__description\">${description}</p>";
 

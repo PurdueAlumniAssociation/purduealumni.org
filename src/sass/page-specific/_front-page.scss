@@ -7,15 +7,34 @@
         font-style: normal;
         text-transform: uppercase;
 
-        &--mo-top-margin {
-            @include breakpoint(xs) {
-                margin-top: 3em;
+        &--col-2 {
+            @media (max-width: 575px) {
+                margin-top: 2em;
             }
         }
     }
 
-    &__graphic-boxes {
+    &__graphic-box-row {
         margin-top: 3px;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    &__graphic-box-wrapper {
+        display: block;
+        padding: 0;
+
+        @include breakpoint(xs) {
+            margin-bottom: 3px;
+        }
+
+        @include breakpoint(sm) {
+            padding-right: 3px;
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
     }
 }
 

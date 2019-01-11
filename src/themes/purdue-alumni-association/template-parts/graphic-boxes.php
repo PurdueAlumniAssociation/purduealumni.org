@@ -5,9 +5,10 @@ function output_graphic_boxes( $ids ) {
     $output = '';
 
     if ( $ids ) {
-        $output = "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
-                <div class=\"big-info-block\">\n
-                    <div class=\"big-info-block__row\">\n";
+        // $output = "<section class=\"row row--no-padding front-page__graphic-boxes\">\n
+        //         <div class=\"big-info-block\">\n
+        //             <div class=\"big-info-block__row bootstrap-row\" style=\"margin-left: 0; margin-right: 0;\">\n";
+        $output = "<section class=\"row bootstrap-row row--no-padding front-page__graphic-box-row\">\n";
 
         foreach( $ids as $id ) {
             $title = rwmb_meta( 'title', '', $id );
@@ -25,7 +26,7 @@ function output_graphic_boxes( $ids ) {
             // get image
             $img_src = $background_image['full_url'];
 
-            $output .= "<a class=\"big-info-block__third-box\"${target} href=\"${url}\">
+            $output .= "<a class=\"col-xs-12 col-md-4 front-page__graphic-box-wrapper\"${target} href=\"${url}\">
                 <div class=\"graphic-box graphic-box--${color}\" style=\"background-image: url('${img_src}')\">
                     <div class=\"graphic-box__content\">
                         <span class=\"graphic-box__category graphic-box__category--${color}\">${title}</span>
@@ -36,9 +37,7 @@ function output_graphic_boxes( $ids ) {
 
             $color_index++;
         }
-        $output .= "</div>\n
-            </div>\n
-        </section>\n";
+        $output .= "</section>\n";
     } else {
         // fallback
         $output = '';
