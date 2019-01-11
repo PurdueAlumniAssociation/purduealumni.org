@@ -374,5 +374,14 @@ if (!is_admin()) {
     add_filter('pre_get_posts','paa_search_filter');
 }
 
-
+// hide editor on homepage
+function paa_hide_editor() {
+    $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+    if( !isset( $post_id ) ) return;
+    $pagetitle = get_the_title($post_id);
+    if($pagetitle == 'Home'){
+        remove_post_type_support('page', 'editor');
+    }
+}
+add_action( 'admin_init', 'paa_hide_editor' );
 ?>
