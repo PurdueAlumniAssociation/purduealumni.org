@@ -51,4 +51,4 @@ function output_hero_banner( $id ) {
 
     echo $output;
 }
-output_hero_banner( rwmb_meta( 'homepage__hero_banner' ) );
+output_hero_banner( rwmb_meta( 'hero_banner' ) );

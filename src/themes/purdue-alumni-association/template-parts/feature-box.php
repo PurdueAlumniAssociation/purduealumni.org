@@ -35,4 +35,4 @@ function output_feature_box( $id ) {
 
     echo $output;
 }
-output_feature_box( rwmb_meta( 'homepage__feature_box' ) );
+output_feature_box( rwmb_meta( 'feature_box' ) );

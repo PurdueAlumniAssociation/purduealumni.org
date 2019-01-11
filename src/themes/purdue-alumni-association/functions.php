@@ -339,6 +339,14 @@ function paa_create_tables() {
         'benefit__cut_line' => 'TEXT NOT NULL',
         'benefit__image' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}homepage", array(
+        'hero_banner' => 'TEXT NOT NULL',
+        'graphic_boxes' => 'TEXT NOT NULL',
+        'news_events' => 'TEXT NOT NULL',
+        'column_2_title' => 'TEXT NOT NULL',
+        'feature_box' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 

@@ -40,4 +40,4 @@ function output_news_events( $ids ) {
 
     echo $output;
 }
-output_news_events( rwmb_meta( 'homepage__news_events' ) );
+output_news_events( rwmb_meta( 'news_events' ) );

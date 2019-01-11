@@ -45,4 +45,4 @@ function output_graphic_boxes( $ids ) {
 
     echo $output;
 }
-output_graphic_boxes( rwmb_meta( 'homepage__graphic_boxes' ) );
+output_graphic_boxes( rwmb_meta( 'graphic_boxes' ) );
