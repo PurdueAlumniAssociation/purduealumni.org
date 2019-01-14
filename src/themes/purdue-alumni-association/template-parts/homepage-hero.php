@@ -33,7 +33,7 @@ function output_hero_banner( $id ) {
                             <h1>${heading}</h1>";
 
         if ( isset( $button_label ) && !empty( $button_label ) && isset( $button_url ) && !empty( $button_url ) ) {
-            $output .= "<a class=\"button button--gold\" href=\"${url}\"${target}>${button_label}</a>";
+            $output .= "<a class=\"button button--gold\" href=\"${button_url}\"${target}>${button_label}</a>";
         }
 
         if ( isset( $content ) ) {
