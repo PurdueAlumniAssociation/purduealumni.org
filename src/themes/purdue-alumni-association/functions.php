@@ -294,11 +294,39 @@ function paa_create_tables() {
         'page_css' => 'TEXT NOT NULL'
     ) );
 
-    MB_Custom_Table_API::create( "{$prefix}homepage", array(
-        'hero' => 'TEXT NOT NULL',
-        'graphic_box' => 'TEXT NOT NULL',
-        'feature_box' => 'TEXT NOT NULL',
-        'news_event' => 'TEXT NOT NULL'
+    MB_Custom_Table_API::create( "{$prefix}hero_banners", array(
+        'heading' => 'TEXT NOT NULL',
+        'content' => 'TEXT NOT NULL',
+        'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
+        'button_target' => 'TEXT NOT NULL',
+        'background_image' => 'TEXT NOT NULL',
+        'background_options' => 'TEXT NOT NULL'
+    ) );
+
+    MB_Custom_Table_API::create( "{$prefix}graphic_boxes", array(
+        'title' => 'TEXT NOT NULL',
+        'cut_line' => 'TEXT NOT NULL',
+        'url' => 'TEXT NOT NULL',
+        'target' => 'TEXT NOT NULL',
+        'background_image' => 'TEXT NOT NULL'
+    ) );
+
+    MB_Custom_Table_API::create( "{$prefix}feature_boxes", array(
+        'content' => 'TEXT NOT NULL',
+        'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
+        'button_target' => 'TEXT NOT NULL',
+        'image' => 'TEXT NOT NULL'
+    ) );
+
+    MB_Custom_Table_API::create( "{$prefix}news_events", array(
+        'title' => 'TEXT NOT NULL',
+        'description' => 'TEXT NOT NULL',
+        'button_label' => 'TEXT NOT NULL',
+        'button_url' => 'TEXT NOT NULL',
+        'button_target' => 'TEXT NOT NULL',
+        'image' => 'TEXT NOT NULL'
     ) );
 
     MB_Custom_Table_API::create( "{$prefix}benefits", array(
@@ -311,8 +339,25 @@ function paa_create_tables() {
         'benefit__cut_line' => 'TEXT NOT NULL',
         'benefit__image' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}homepage", array(
+        'hero_banner' => 'TEXT NOT NULL',
+        'graphic_boxes' => 'TEXT NOT NULL',
+        'news_events' => 'TEXT NOT NULL',
+        'column_2_title' => 'TEXT NOT NULL',
+        'feature_box' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
+
+// remove yoast on certain post types
+function my_remove_wp_seo_meta_box() {
+remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
+remove_meta_box('wpseo_meta', 'news-event', 'normal');
+remove_meta_box('wpseo_meta', 'feature-box', 'normal');
+}
+add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 
 // Exclude pages from WordPress Search
 if (!is_admin()) {
@@ -328,4 +373,15 @@ if (!is_admin()) {
     }
     add_filter('pre_get_posts','paa_search_filter');
 }
+
+// hide editor on homepage
+function paa_hide_editor() {
+    $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+    if( !isset( $post_id ) ) return;
+    $pagetitle = get_the_title($post_id);
+    if($pagetitle == 'Home'){
+        remove_post_type_support('page', 'editor');
+    }
+}
+add_action( 'admin_init', 'paa_hide_editor' );
 ?>
