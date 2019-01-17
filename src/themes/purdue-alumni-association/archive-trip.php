@@ -46,7 +46,7 @@
                         $first = true;
                     }
                     echo "<h2>${current_month}</h2>";
-                    echo "<div class=\"flex-wrapper\" style=\"margin-left:-1em;\">";
+                    echo "<div class=\"trip-wrapper\">";
                     $first = false;
                 }
 

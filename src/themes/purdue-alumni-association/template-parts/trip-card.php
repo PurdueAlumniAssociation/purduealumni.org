@@ -38,10 +38,12 @@ $display_date = $display_date_start . $display_date_divider . $display_date_end;
 $img_src = $image['full_url'];
 $img_alt = $image['alt'];
 ?>
-<a href="<?= $url ?>" class="card" style="margin:1em;">
-    <img class="card__image" src="<?= $img_src; ?>" alt="<?= $img_alt; ?>">
-    <div class="card__content">
-        <h3 class="card__title"><?= $title; ?></h3>
-        <p><?= $display_date; ?></p>
+<a href="<?= $url ?>" style="display: inline-block; margin: 1em;">
+    <div class="card">
+        <img class="card__image" src="<?= $img_src; ?>" alt="<?= $img_alt; ?>">
+        <div class="card__content">
+            <h3 class="card__title"><?= $title; ?></h3>
+            <p><?= $display_date; ?></p>
+        </div>
     </div>
 </a>
