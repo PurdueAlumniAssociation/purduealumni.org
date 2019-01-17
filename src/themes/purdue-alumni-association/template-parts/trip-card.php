@@ -1,7 +1,10 @@
 <?php
-
-$start_date = rwmb_meta( 'start_date' );
-$end_date = rwmb_meta( 'end_date' );
+$id = get_the_ID();
+$title = get_the_title();
+$url = get_permalink( $id );
+$start_date = rwmb_meta( 'start_date', '', $id );
+$end_date = rwmb_meta( 'end_date', '', $id );
+$image = rwmb_meta( 'thumbnail', '', $id );
 $months_same = true;
 $years_same = true;
 
@@ -31,12 +34,14 @@ if ( ! $months_same )  {
 }
 
 $display_date = $display_date_start . $display_date_divider . $display_date_end;
- ?>
 
-<div class="card">
-    <img class="card__image" src="http://www.legalproductivity.com/wp-content/uploads/2011/08/hamburger-300x225.jpg" alt="screenshot">
+$img_src = $image['full_url'];
+$img_alt = $image['alt'];
+?>
+<a href="<?= $url ?>" class="card" style="margin:1em;">
+    <img class="card__image" src="<?= $img_src; ?>" alt="<?= $img_alt; ?>">
     <div class="card__content">
-        <h3 class="card__title"><?php the_title(); ?></h3>
-        <p><?php echo $display_date; ?></p>
+        <h3 class="card__title"><?= $title; ?></h3>
+        <p><?= $display_date; ?></p>
     </div>
-</div>
+</a>

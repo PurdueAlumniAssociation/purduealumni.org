@@ -3,16 +3,16 @@
  * The template for displaying archive of trips
  */
 ?>
-<?php
-$filter_year = get_query_var( 'trip-year', 'all' );
-$page_title = "All Trips";
-
-if ( $filter_year != 'all' ) {
-    $page_title = $filter_year . " Trips";
-}
-?>
  <?php get_header(); ?>
  <?php
+     // get GET param called trip-year or default to 'all' if none present
+     $filter_year = get_query_var( 'trip-year', 'all' );
+     $page_title = "All Trips";
+
+     if ( $filter_year != 'all' ) {
+         $page_title = $filter_year . " Trips";
+     }
+
     // query
     $the_query = new WP_Query(array(
         'post_type'         => 'trip',
@@ -43,9 +43,10 @@ if ( $filter_year != 'all' ) {
                     if ( ! $first ) {
                         // close flex-wrapper on all but first section
                         echo "</div>";
+                        $first = true;
                     }
                     echo "<h2>${current_month}</h2>";
-                    echo "<div class=\"flex-wrapper\">";
+                    echo "<div class=\"flex-wrapper\" style=\"margin-left:-1em;\">";
                     $first = false;
                 }
 
