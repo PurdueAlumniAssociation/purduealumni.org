@@ -172,41 +172,46 @@ shuffle($random_trips);
         </div>
     </section>
     <section class="row">
-        <h1><?php echo $page_title; ?></h1>
-        <?php
-        $current_month = "";
-        $first = true;
+        <div class="layout">
+            <div class="layout__main">
+                <main class="" id="main" tabindex="-1">
+                    <h1><?php echo $page_title; ?></h1>
+                    <?php
+                    $current_month = "";
+                    $first = true;
 
-        foreach ( $filtered_trips as $trip ) {
-        //     // show all or filter by year passed in URL
-        //     if ( $filter_year == all || date( 'Y', $trip->start_date ) == $filter_year ) {
-
-                // output the month section title (and close trip wrapper)
-                if ( date( 'F', $trip->start_date ) != $current_month ) {
-                    if ( ! $first ) {
-                        // close wrapper on all but first section
-                        echo "</div>";
-                        $first = true;
+                    foreach ( $filtered_trips as $trip ) {
+                        // output the month section title (and close trip wrapper)
+                        if ( date( 'F', $trip->start_date ) != $current_month ) {
+                            if ( ! $first ) {
+                                // close wrapper on all but first section
+                                echo "</div>";
+                                $first = true;
+                            }
+                            $current_month = date( 'F', $trip->start_date );
+                            echo "<h2>{$current_month}</h2>";
+                            echo "<div class=\"trip-wrapper\" style=\"margin-left:-1em;\">";
+                            $first = false;
+                        }
+                        ?>
+                        <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
+                            <div class="card">
+                                <img class="card__image" src="<?php echo $trip->image['full_url']; ?>" alt="<?php echo $trip->image['alt']; ?>">
+                                <div class="card__content">
+                                    <h3 class="card__title"><?php echo $trip->title; ?></h3>
+                                    <p><?php $trip->output_display_date(); ?></p>
+                                </div>
+                            </div>
+                        </a>
+                    <?
                     }
-                    $current_month = date( 'F', $trip->start_date );
-                    echo "<h2>{$current_month}</h2>";
-                    echo "<div class=\"trip-wrapper\" style=\"margin-left:-1em;\">";
-                    $first = false;
-                }
-                ?>
-                <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
-                    <div class="card">
-                        <img class="card__image" src="<?php echo $trip->image['full_url']; ?>" alt="<?php echo $trip->image['alt']; ?>">
-                        <div class="card__content">
-                            <h3 class="card__title"><?php echo $trip->title; ?></h3>
-                            <p><?php $trip->output_display_date(); ?></p>
-                        </div>
-                    </div>
-                </a>
-                <?
-        //     }
-        }
-        ?>
+                    ?>
+                </main>
+            </div>
+            <aside class="layout__sidebar">
+                <?php dynamic_sidebar( 'travel-sidebar' ); ?>
+            </aside>
+        </div>
     </section>
     <script>
         var slideIndex = 0;

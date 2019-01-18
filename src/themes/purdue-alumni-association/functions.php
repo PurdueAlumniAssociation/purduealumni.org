@@ -94,6 +94,15 @@ function paa_widgets_init() {
         'before_widget' => '<div class="secondary-footer__right-content">',
         'after_widget'  => '</div>'
     ) );
+    register_sidebar( array(
+        'name'          => 'Travel Sidebar',
+        'id'            => 'travel-sidebar',
+        'before_title'  => '<h2 class="sr-only">',
+        'after_title'   => '</h2>',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>'
+    ) );
+
 }
 add_action( 'widgets_init', 'paa_widgets_init' );
 
