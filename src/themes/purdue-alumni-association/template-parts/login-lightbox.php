@@ -12,7 +12,7 @@
         </div>
         <div class="login-box__column login-box__column--desc">
             <h2 class="login-box__title login-box__title--desc">Why two logins?</h2>
-            <p>Purdue Alumni is transitioning technology platforms to enhance the online experience. Soon, you will have one login for everything. Until then, don't hesitstate to call or email for assistance.</p>
+            <p>Purdue Alumni is transitioning technology platforms to enhance the online experience. Soon, you will have one login for everything. Until then, don't hesitate to call or email for assistance.</p>
             <p>800-414-1541<br />
             <a href="mailto:purduealumni@purdue.edu">purduealumni@purdue.edu</a></p>
         </div>
