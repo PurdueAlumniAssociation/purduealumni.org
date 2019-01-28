@@ -29,9 +29,17 @@ function paa_scripts_and_styles() {
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
+        case "single-trip.php":
+            wp_enqueue_style( 'trips-styles', get_template_directory_uri() . '/css/trips.css' );
+            break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
+            } elseif ( is_post_type_archive( 'trip' ) ) {
+                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+                wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
+            } elseif ( is_singular( 'trip' ) ) {
+                wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
