@@ -1,7 +1,8 @@
 <?php
 /**
- * The Template for displaying all single posts
+ * The Template for displaying all single trips
  */
+$args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_trips' );
 
 get_header();
 if ( have_posts() ) : while ( have_posts() ) : the_post();
@@ -31,14 +32,44 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             <main id="main" tabindex="-1">
                 <h1><?php the_title(); ?></h1>
                 <?php
-                    $start_date = rwmb_meta( 'start_date' );
-                    $end_date = rwmb_meta( 'end_date' );
+                    $start_date = rwmb_meta( 'start_date', $args );
+                    $end_date = rwmb_meta( 'end_date', $args );
                 ?>
-                <p><?= date( 'F j', $start_date ), "&ndash;", date( 'j, Y', $end_date); ?></p>
+                <p class="trip__date"><?= date( 'F j', $start_date ), "&ndash;", date( 'j, Y', $end_date); ?></p>
                 <?php the_content(); ?>
                 <?php
-                $image = rwmb_meta( 'thumbnail', array( 'size' => 'thumbnail' ) );
-                echo '<img src="', $image['full_url'], '" alt="', $image['alt'] , '"/></a>';
+                $operator = rwmb_meta( 'operator', $args );
+                if ( ! empty( $operator ) ) {
+                    echo "<p class=\"trip__operator\">Tour Operator: {$operator}</p>";
+                }
+
+                $pricing = rwmb_meta( 'pricing', $args );
+                if ( ! empty( $pricing ) ) {
+                    echo "<p class=\"trip__pricing\">Pricing: {$pricing}</p>";
+                }
+
+                $download_array = array();
+                $download_group = rwmb_meta( 'download_group', $args );
+
+                foreach ( $download_group as $download ) {
+                    if ( ! empty( $download['download_label'] ) && count( $download['download_upload'] ) > 0 ) {
+                        $download_url = wp_get_attachment_url( $download['download_upload'][0] );
+                        $download_label = $download['download_label'];
+
+                        $download_array[] = "<li><a href=\"{$download_url}\" download>{$download_label}</a></li>";
+                    }
+                }
+
+                if ( count( $download_array ) > 0 ) {
+                    echo "<h2>Downloads</h2>";
+                    echo "<ul>";
+                    foreach ( $download_array as $list_item ) {
+                        echo $list_item;
+                    }
+                    echo "</ul>";
+                }
+
+
                 ?>
 
             </main>
