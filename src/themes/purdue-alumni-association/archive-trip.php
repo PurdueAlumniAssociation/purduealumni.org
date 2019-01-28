@@ -121,21 +121,39 @@ shuffle($random_trips);
     }
 
     /* Hide the images by default */
-    .mySlides {
+    .trip-slide {
       display: none;
+      overflow: hidden;
     }
 
     /* Caption text */
-    .text {
-      color: #f2f2f2;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
+    .trip-slide__text-box--active {
+      bottom: -4em;
     }
 
+    .trip-slide__text-box {
+      color: white;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+      text-align: right;
+      font-size: 1.5em;
+      line-height: 1.5;
+      background-color: rgba(0,0,0,0.5);
+      text-shadow: 0 0 3px rgba(0,0,0,0.15);
+      transition: all 650ms ease;
+    }
+
+    .trip-slide__title {
+        display: block;
+    }
+
+    .trip-slide__date {
+        display: block;
+        font-size: 1.2rem;
+        font-family: Vollkorn, sans-serif;
+    }
 
     .active {
       background-color: #717171;
@@ -147,6 +165,10 @@ shuffle($random_trips);
       -webkit-animation-duration: 1.5s;
       animation-name: fade;
       animation-duration: 1.5s;
+    }
+
+    .card__title {
+        margin-top: 1em;
     }
 
     @-webkit-keyframes fade {
@@ -164,9 +186,13 @@ shuffle($random_trips);
         <div class="slideshow-container">
             <?php foreach ( $random_trips as $trip ) { ?>
                 <!-- Full-width images with number and caption text -->
-                <div class="tripSlides fade">
-                    <img src="https://via.placeholder.com/1440x300" style="width:100%">
-                    <div class="text"><?php echo $trip->title, "<br />", $trip->output_display_date(); ?></div>
+                <div class="trip-slide fade">
+                    <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
+                    <img src="https://via.placeholder.com/1440x300">
+                    <div class="trip-slide__text-box">
+                        <span class="trip-slide__title"><?php echo $trip->title ?></span>
+                        <span class="trip-slide__date"><?php $trip->output_display_date(); ?></span>
+                    </div>
                 </div>
         <?php } ?>
         </div>
@@ -196,7 +222,11 @@ shuffle($random_trips);
                         ?>
                         <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
                             <div class="card">
-                                <img class="card__image" src="<?php echo $trip->image['full_url']; ?>" alt="<?php echo $trip->image['alt']; ?>">
+                                <img class="card__image" src="<?php if ( $trip->image['full_url'] ) {
+                                    echo $trip->image['full_url'];
+                                } else {
+                                    echo "https://via.placeholder.com/300x200";
+                                } ?>" alt="<?php echo $trip->image['alt']; ?>">
                                 <div class="card__content">
                                     <h3 class="card__title"><?php echo $trip->title; ?></h3>
                                     <p><?php $trip->output_display_date(); ?></p>
@@ -219,7 +249,7 @@ shuffle($random_trips);
 
         function showSlides() {
             var i,
-                slides = document.getElementsByClassName("tripSlides");
+                slides = document.getElementsByClassName("trip-slide");
 
             for (i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
@@ -232,6 +262,7 @@ shuffle($random_trips);
             }
 
             slides[slideIndex - 1].style.display = "block";
+
             setTimeout(showSlides, 6000); // Change image every 2 seconds
         }
     </script>
