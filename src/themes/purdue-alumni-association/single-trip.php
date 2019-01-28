@@ -28,13 +28,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
         </section>
     <?php else : ?>
+        <!-- <section class="row row--slim"> -->
+            <?php
+                $start_date = rwmb_meta( 'start_date', $args );
+                $end_date = rwmb_meta( 'end_date', $args );
+                // $year = date( 'Y', $start_date );
+                //
+                // echo "<a href=\"https://dev.purduealumni.org/trip/?trip-year={$year}\"><i class=\"fas fa-arrow-left\" aria-hidden style=\"margin-right: .2em;\"></i>Back to {$year} trips</a>";
+            ?>
+        <!-- </section> -->
         <section class="row">
             <main id="main" tabindex="-1">
                 <h1><?php the_title(); ?></h1>
-                <?php
-                    $start_date = rwmb_meta( 'start_date', $args );
-                    $end_date = rwmb_meta( 'end_date', $args );
-                ?>
                 <p class="trip__date"><?= date( 'F j', $start_date ), "&ndash;", date( 'j, Y', $end_date); ?></p>
                 <?php the_content(); ?>
                 <?php
