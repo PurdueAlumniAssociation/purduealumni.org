@@ -18,8 +18,8 @@ class Trip {
         $this->id = $id;
         $this->title = $title;
         $this->url = $url;
-        $this->start_date = $start_date;
-        $this->end_date = $end_date;
+        $this->start_date = $start_date + 0;
+        $this->end_date = $end_date + 0;
         $this->image = $image;
     }
 
@@ -69,12 +69,13 @@ if ( $filter_year != 'all' ) {
 // query
 $the_query = new WP_Query(array(
    'post_type'         => 'trip',
-   'posts_per_page'    => -1,
-   'meta_key'          => 'start_date',
-   'orderby'           => 'meta_value',
-   'order'             => 'ASC'
+   'posts_per_page'    => -1//,
+   // 'meta_key'          => 'start_date',
+   // 'orderby'           => 'meta_value',
+   // 'order'             => 'ASC'
 ));
 
+$args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_trips' );
 $trips = array();
 
 if ( $the_query->have_posts() ) {
@@ -85,15 +86,22 @@ if ( $the_query->have_posts() ) {
             get_the_ID(),
             get_the_title(),
             get_permalink(),
-            rwmb_meta( 'start_date' ),
-            rwmb_meta( 'end_date' ),
-            rwmb_meta( 'thumbnail' )
+            rwmb_meta( 'start_date', $args ),
+            rwmb_meta( 'end_date', $args ),
+            rwmb_meta( 'thumbnail', $args )
         );
     }
 } else {
     echo "No trips found!";
 }
 
+function cmp($a, $b) {
+    if ($a->start_date == $b->start_date) {
+        return 0;
+    }
+    return ($a->start_date < $b->start_date) ? -1 : 1;
+}
+usort( $trips, "cmp" );
 
 // create filtered array
 $filtered_trips = array();
@@ -113,80 +121,12 @@ if ( $filter_year == all ) {
 $random_trips = $filtered_trips;
 shuffle($random_trips);
 ?>
-<style>
-    /* Slideshow container */
-    .slideshow-container {
-      position: relative;
-      margin: auto;
-    }
-
-    /* Hide the images by default */
-    .trip-slide {
-      display: none;
-      overflow: hidden;
-    }
-
-    /* Caption text */
-    .trip-slide__text-box--active {
-      bottom: -4em;
-    }
-
-    .trip-slide__text-box {
-      color: white;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 1em;
-      right: 1em;
-      text-align: right;
-      font-size: 1.5em;
-      line-height: 1.5;
-      background-color: rgba(0,0,0,0.5);
-      text-shadow: 0 0 3px rgba(0,0,0,0.15);
-      transition: all 650ms ease;
-    }
-
-    .trip-slide__title {
-        display: block;
-    }
-
-    .trip-slide__date {
-        display: block;
-        font-size: 1.2rem;
-        font-family: Vollkorn, sans-serif;
-    }
-
-    .active {
-      background-color: #717171;
-    }
-
-    /* Fading animation */
-    .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-
-    .card__title {
-        margin-top: 1em;
-    }
-
-    @-webkit-keyframes fade {
-      from {opacity: .4}
-      to {opacity: 1}
-    }
-
-    @keyframes fade {
-      from {opacity: .4}
-      to {opacity: 1}
-    }
-</style>
     <section class="row row--no-padding">
         <!-- Slideshow container -->
-        <div class="slideshow-container">
+        <div class="trip-slideshow-container">
             <?php foreach ( $random_trips as $trip ) { ?>
                 <!-- Full-width images with number and caption text -->
-                <div class="trip-slide fade">
+                <div class="trip-slide trip-fade">
                     <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
                     <img src="https://via.placeholder.com/1440x300">
                     <div class="trip-slide__text-box">
@@ -228,7 +168,7 @@ shuffle($random_trips);
                                     echo "https://via.placeholder.com/300x200";
                                 } ?>" alt="<?php echo $trip->image['alt']; ?>">
                                 <div class="card__content">
-                                    <h3 class="card__title"><?php echo $trip->title; ?></h3>
+                                    <h3 class="trip-card__title"><?php echo $trip->title; ?></h3>
                                     <p><?php $trip->output_display_date(); ?></p>
                                 </div>
                             </div>
@@ -243,27 +183,4 @@ shuffle($random_trips);
             </aside>
         </div>
     </section>
-    <script>
-        var slideIndex = 0;
-        showSlides();
-
-        function showSlides() {
-            var i,
-                slides = document.getElementsByClassName("trip-slide");
-
-            for (i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-
-            slideIndex++;
-
-            if (slideIndex > slides.length) {
-                slideIndex = 1
-            }
-
-            slides[slideIndex - 1].style.display = "block";
-
-            setTimeout(showSlides, 6000); // Change image every 2 seconds
-        }
-    </script>
 <?php get_footer(); ?>
