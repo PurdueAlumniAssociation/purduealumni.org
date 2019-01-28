@@ -356,6 +356,15 @@ function paa_create_tables() {
         'column_2_title' => 'TEXT NOT NULL',
         'feature_box' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}trips", array(
+        'start_date' => 'TEXT NOT NULL',
+        'end_date' => 'TEXT NOT NULL',
+        'thumbnail' => 'TEXT NOT NULL',
+        'operator' => 'TEXT NOT NULL',
+        'pricing' => 'TEXT NOT NULL',
+        'download_group' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 
