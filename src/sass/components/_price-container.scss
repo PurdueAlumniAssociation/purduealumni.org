@@ -1,0 +1,37 @@
+.price-container {
+    text-align: center;
+    margin: 2em;
+    padding: 1em;
+    background-color: $light-gray;
+    border-top: 10px solid $gray;
+    min-width: 196px;
+
+    &--career-max {
+        border-color: $career-max;
+    }
+
+    &--professional {
+        border-color: $professional;
+    }
+
+    &--plus {
+        border-color: $plus;
+    }
+
+    &--basic {
+        border-color: $basic;
+    }
+
+    &__plan {
+        text-transform: uppercase;
+        font-size: 1.3em;
+        display: block;
+        margin-bottom: 1rem
+    }
+
+    &__cost {
+        font-size: 3em;
+        display: block;
+        margin-bottom: 1rem
+    }
+}
