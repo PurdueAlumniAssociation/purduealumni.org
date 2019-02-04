@@ -1,0 +1,61 @@
+@import "../settings/all";
+
+/* Slideshow container */
+.trip-slideshow-container {
+  position: relative;
+  margin: auto;
+}
+
+/* Hide the images by default */
+.trip-slide {
+  display: none;
+  overflow: hidden;
+
+    &__text-box {
+      color: white;
+      padding: 8px 12px;
+      position: absolute;
+      bottom: 1em;
+      right: 1em;
+      text-align: right;
+      font-size: 1.5em;
+      line-height: 1.5;
+      background-color: rgba(0,0,0,0.5);
+      text-shadow: 0 0 3px rgba(0,0,0,0.15);
+      transition: all 650ms ease;
+    }
+
+    &__title {
+        display: block;
+    }
+
+    &__date {
+        display: block;
+        font-size: 1.2rem;
+        font-family: Vollkorn, sans-serif;
+    }
+}
+
+/* Fading animation */
+.trip-fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.trip-card__title {
+    margin-top: 1em;
+}
+
+@-webkit-keyframes trip-fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes trip-fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+

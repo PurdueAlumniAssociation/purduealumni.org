@@ -32,6 +32,13 @@ function paa_scripts_and_styles() {
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
+
+            // add some checks for custom post types
+            } elseif ( is_post_type_archive( 'trip' ) ) {
+                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+                wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
+            } elseif ( is_singular( 'trip' ) ) {
+                wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
@@ -94,6 +101,15 @@ function paa_widgets_init() {
         'before_widget' => '<div class="secondary-footer__right-content">',
         'after_widget'  => '</div>'
     ) );
+    register_sidebar( array(
+        'name'          => 'Travel Sidebar',
+        'id'            => 'travel-sidebar',
+        'before_title'  => '<h2 class="sr-only">',
+        'after_title'   => '</h2>',
+        'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>'
+    ) );
+
 }
 add_action( 'widgets_init', 'paa_widgets_init' );
 
@@ -347,6 +363,15 @@ function paa_create_tables() {
         'column_2_title' => 'TEXT NOT NULL',
         'feature_box' => 'TEXT NOT NULL'
     ) );
+
+    MB_Custom_Table_API::create( "{$prefix}trips", array(
+        'start_date' => 'TEXT NOT NULL',
+        'end_date' => 'TEXT NOT NULL',
+        'thumbnail' => 'TEXT NOT NULL',
+        'operator' => 'TEXT NOT NULL',
+        'pricing' => 'TEXT NOT NULL',
+        'download_group' => 'TEXT NOT NULL'
+    ) );
 }
 add_action( 'init', 'paa_create_tables' );
 
@@ -374,14 +399,5 @@ if (!is_admin()) {
     add_filter('pre_get_posts','paa_search_filter');
 }
 
-// hide editor on homepage
-function paa_hide_editor() {
-    $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
-    if( !isset( $post_id ) ) return;
-    $pagetitle = get_the_title($post_id);
-    if($pagetitle == 'Home'){
-        remove_post_type_support('page', 'editor');
-    }
-}
-add_action( 'admin_init', 'paa_hide_editor' );
+include 'function-includes/custom-query-vars.php';
 ?>
