@@ -1,7 +1,5 @@
 <?php
 
-require_once '../classes/GWEmailDomainControl.class.php';
-
 // exclude purdue.edu from email
 // PASE Senior Send Off Form
 new GWEmailDomainControl(array(
