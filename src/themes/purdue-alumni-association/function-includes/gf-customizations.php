@@ -1,5 +1,7 @@
 <?php
 
+require_once '../classes/GWEmailDomainControl.class.php';
+
 // exclude purdue.edu from email
 new GWEmailDomainControl(array(
     'form_id' => 30,
