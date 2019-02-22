@@ -400,4 +400,8 @@ if (!is_admin()) {
 }
 
 include 'function-includes/custom-query-vars.php';
+
+require_once 'classes/GWEmailDomainControl.class.php';
+include 'function-includes/gf-customizations.php';
+
 ?>
