@@ -47,12 +47,14 @@
         $listing_phone = str_replace( array('(',') '), array('','-'), rwmb_meta( 'listing_phone' ) );
 
         $listing_website = rwmb_meta( 'listing_website' );
-        $listing_logo = rwmb_meta( 'listing_logo' );
+        //$listing_logo = rwmb_meta( 'listing_logo' );
+        $listing_logo_url = rwmb_meta( 'listing_logo' );
 
         $listing_categories = get_the_terms( get_the_ID(), 'biz-dir-category' ); // array of categories
     ?>
         <ul>
-            <li><img src="<?= $listing_logo['full_url'] ?>" alt="<?= $title . " Logo" ?>" /></li>
+            <!-- <li><img src=" $listing_logo['full_url'] ?>" alt=" $title . " Logo" ?>" /></li> -->
+            <li><img src="<?= $listing_logo_url ?>" alt="<?= $title . " Logo" ?>" /></li>
             <li><?= $title ?></li>
             <li><?= $contact_name ?></li>
             <li><?= $contact_email ?></li>
@@ -64,7 +66,7 @@
             <li><?= $listing_email ?></li>
             <li><?= $listing_phone ?></li>
             <li><?= $listing_website ?></li>
-            <li><?= $listing_logo ?></li>
+            <li><?= $listing_logo_url ?></li>
             <li><?= $listing_categories ?></li>
         </ul>
     <?php
