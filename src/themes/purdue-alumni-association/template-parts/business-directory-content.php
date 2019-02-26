@@ -44,19 +44,29 @@
         $listing_zip = rwmb_meta( 'listing_zip' );
 
         $listing_email = rwmb_meta( 'listing_email' );
-        $listing_phone = rwmb_meta( 'listing_phone' );
+        $listing_phone = str_replace( array('(',') '), array('','-'), rwmb_meta( 'listing_phone' ) );
 
         $listing_website = rwmb_meta( 'listing_website' );
         $listing_logo = rwmb_meta( 'listing_logo' );
 
         $listing_categories = get_the_terms( get_the_ID(), 'biz-dir-category' ); // array of categories
     ?>
-        <div class="business-directory-listing">
-            <img src="<?= $listing_logo['full_url'] ?>" alt="<?= $listing_logo['alt'] ?>" class="directory-listing__logo" />
-            <h3 class="directory-listing__title"><?= $title ?></h3>
-            <p><span class="directory-listing__name"><?= $contact_name ?></span> - <span class="directory-listing__email"><a href="mailto:<?= $contact_email ?>"><?= $contact_email ?></a></span></p>
-            <p class="directory-listing__website"><a href="<?= $website ?>"><?= $website ?></a></p>
-        </div>
+        <ul>
+            <li><img src="<?= $listing_logo['full_url'] ?>" alt="<?= $title . " Logo" ?>" /></li>
+            <li><?= $title ?></li>
+            <li><?= $contact_name ?></li>
+            <li><?= $contact_email ?></li>
+            <li><?= $contact_phone ?></li>
+            <li><?= $listing_street ?></li>
+            <li><?= $listing_city ?></li>
+            <li><?= $listing_state ?></li>
+            <li><?= $listing_zip ?></li>
+            <li><?= $listing_email ?></li>
+            <li><?= $listing_phone ?></li>
+            <li><?= $listing_website ?></li>
+            <li><?= $listing_logo ?></li>
+            <li><?= $listing_categories ?></li>
+        </ul>
     <?php
     }
     wp_reset_postdata();
