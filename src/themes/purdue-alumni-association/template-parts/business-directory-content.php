@@ -11,11 +11,13 @@
         'posts_per_page'    => -1,
         'meta_key'          => 'listing_heading',
         'orderby'           => 'meta_value',
-        'order'             => 'ASC'
+        'order'             => 'ASC',
+        'post_status'       => 'publish'
     ));
 
     if ( $the_query->have_posts() ) {
         while ( $the_query->have_posts() ) {
+            echo "count<br />";
             $the_query->the_post();
 
             $listing_type = rwmb_meta( 'listing_type' );
@@ -29,6 +31,9 @@
     } else {
         echo "<p>No businesses found!</p>";
     }
+
+    // echo "standard: ", count( $standard_listing_post_ids ), "<br />";
+    // echo "premium: ", count( $premium_listing_post_ids ), "<br />";
 
     // output any Premium listings here
     $premium_listings = get_posts( $premium_listings_post_ids );
