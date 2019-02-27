@@ -12,15 +12,17 @@ class Trip {
     public $url;
     public $start_date;
     public $end_date;
-    public $image;
+    public $thumbnail;
+    public $banner_url;
 
-    function __construct( $id, $title, $url, $start_date, $end_date, $image ) {
+    function __construct( $id, $title, $url, $start_date, $end_date, $thumbnail, $banner_url ) {
         $this->id = $id;
         $this->title = $title;
         $this->url = $url;
         $this->start_date = $start_date + 0;
         $this->end_date = $end_date + 0;
-        $this->image = $image;
+        $this->thumbnail = $thumbnail;
+        $this->banner_url = $banner_url;
     }
 
     function output_display_date() {
@@ -88,7 +90,8 @@ if ( $the_query->have_posts() ) {
             get_permalink(),
             rwmb_meta( 'start_date', $args ),
             rwmb_meta( 'end_date', $args ),
-            rwmb_meta( 'thumbnail', $args )
+            rwmb_meta( 'thumbnail', $args ),
+            get_the_post_thumbnail_url()
         );
     }
 } else {
@@ -128,7 +131,8 @@ shuffle($random_trips);
                 <!-- Full-width images with number and caption text -->
                 <div class="trip-slide trip-fade">
                     <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
-                    <img src="https://via.placeholder.com/1440x300">
+                    <!-- <img src="https://via.placeholder.com/1440x300"> -->
+                    <img src="<?= $trip->banner_url ?>" />
                     <div class="trip-slide__text-box">
                         <span class="trip-slide__title"><?php echo $trip->title ?></span>
                         <span class="trip-slide__date"><?php $trip->output_display_date(); ?></span>
@@ -162,11 +166,11 @@ shuffle($random_trips);
                         ?>
                         <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
                             <div class="card">
-                                <img class="card__image" src="<?php if ( $trip->image['full_url'] ) {
-                                    echo $trip->image['full_url'];
+                                <img class="card__image" src="<?php if ( $trip->thumbnail['full_url'] ) {
+                                    echo $trip->thumbnail['full_url'];
                                 } else {
                                     echo "https://via.placeholder.com/300x200";
-                                } ?>" alt="<?php echo $trip->image['alt']; ?>">
+                                } ?>" alt="<?php echo $trip->thumbnail['alt']; ?>">
                                 <div class="card__content">
                                     <h3 class="trip-card__title"><?php echo $trip->title; ?></h3>
                                     <p><?php $trip->output_display_date(); ?></p>
