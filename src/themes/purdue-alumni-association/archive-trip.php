@@ -109,7 +109,7 @@ usort( $trips, "cmp" );
 
 // remove events older than 30 days
 foreach ( $trips as $index => $trip ) {
-    if ( $trip->start_date < ( time() - strtotime('30 days') ) ) {
+    if ( $trip->start_date < ( strtotime('March 1, 2020') - ( 30 * 24 * 60 * 60 ) ) ) {
         unset( $trips[$index] );
     }
 }
