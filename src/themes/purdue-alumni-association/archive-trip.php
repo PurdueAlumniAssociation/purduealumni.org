@@ -98,6 +98,7 @@ if ( $the_query->have_posts() ) {
     echo "No trips found!";
 }
 
+// sort trips by start date
 function cmp($a, $b) {
     if ($a->start_date == $b->start_date) {
         return 0;
@@ -105,6 +106,13 @@ function cmp($a, $b) {
     return ($a->start_date < $b->start_date) ? -1 : 1;
 }
 usort( $trips, "cmp" );
+
+// remove events older than 30 days
+foreach ( $trips as $index => $trip ) {
+    if ( $trip->start_date < ( time() - strtotime('30 days') ) ) {
+        unset( $trips[$index] );
+    }
+}
 
 // create filtered array
 $filtered_trips = array();
@@ -125,13 +133,9 @@ $random_trips = $filtered_trips;
 shuffle($random_trips);
 ?>
     <section class="row row--no-padding">
-        <!-- Slideshow container -->
         <div class="trip-slideshow-container">
             <?php foreach ( $random_trips as $trip ) { ?>
-                <!-- Full-width images with number and caption text -->
                 <div class="trip-slide trip-fade">
-                    <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
-                    <!-- <img src="https://via.placeholder.com/1440x300"> -->
                     <img src="<?= $trip->banner_url ?>" />
                     <div class="trip-slide__text-box">
                         <span class="trip-slide__title"><?php echo $trip->title ?></span>
