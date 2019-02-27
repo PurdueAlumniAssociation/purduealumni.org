@@ -47,11 +47,11 @@
                     <img class="business-directory-listing__logo" src="<?= $listing_logo_url ?>" />
                 </div>
                 <div class="business-directory-listing__text-container">
-                    <p class="business-directory-listing__heading"><?= $title ?></p>
+                    <h3 class="business-directory-listing__heading"><?= $title ?></h3>
                     <p class="business-directory-listing__address"><?= "{$listing_street} {$listing_city}, {$listing_state} $listing_zip" ?></p>
                     <p class="business-directory-listing__email"><a href="mailto:<?= $listing_email ?>"><?= $listing_email ?></a></p>
                     <p class="business-directory-listing__phone-number"><?= $listing_phone ?></p>
-                    <p class="button business-directory-listing__button"><a href="<?= $listing_website ?>" class="button">Website</p>
+                    <p class="business-directory-listing__button"><a href="<?= $listing_website ?>" class="button">Website</a></p>
                 </div>
             </div>
         <?php
@@ -71,7 +71,7 @@
         'meta_query'        => array(
             array(
                 'key'   => 'listing_type',
-                'value' => 'Premium'
+                'value' => 'Standard'
             )
         )
     );
@@ -99,7 +99,7 @@
             // $listing_categories = get_the_terms( $listing->ID, 'biz-dir-category', '', $listing->ID ); // array of categories
         ?>
             <div class="business-directory-listing">
-                <p class="business-directory-listing__heading"><?= $title ?></p>
+                <h3 class="business-directory-listing__heading"><?= $title ?></h3>
                 <p class="business-directory-listing__address"><?= "{$listing_street} {$listing_city}, {$listing_state} $listing_zip" ?></p>
                 <p class="business-directory-listing__email"><a href="mailto:<?= $listing_email ?>"><?= $listing_email ?></a></p>
                 <p class="business-directory-listing__phone-number"><?= $listing_phone ?></p>
@@ -107,6 +107,11 @@
         <?php
         }
         wp_reset_postdata();
+
+        // add empty div to align last row items better
+        if ( count( $standard_listings ) % 3 == 2 ) {
+            echo '<div class="business-directory-listing business-directory-listing--empty"></div>';
+        }
 
         echo "</div>";
     }
