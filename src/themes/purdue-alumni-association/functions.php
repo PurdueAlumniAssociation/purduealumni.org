@@ -29,6 +29,9 @@ function paa_scripts_and_styles() {
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
+        case "page-business-directory.php":
+            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-business-directory.css' );
+            break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
