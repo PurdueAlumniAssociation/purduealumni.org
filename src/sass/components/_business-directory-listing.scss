@@ -44,6 +44,7 @@
     &__logo {
         display: block;
         margin: auto;
+        max-width: 200px;
     }
 
     &__text-container {
@@ -51,7 +52,6 @@
     }
 
     &__heading {
-        font-weight: bold;
         margin-top: 0;
         margin-bottom: 0;
     }
