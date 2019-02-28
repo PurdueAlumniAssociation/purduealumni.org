@@ -46,8 +46,20 @@
   animation-duration: 1.5s;
 }
 
-.trip-card__title {
-    margin-top: 1em;
+.trip-card {
+    display: inline-block;
+    margin: 1em;
+
+    &__title {
+        margin-top: 1em;
+    }
+}
+
+.trip-wrapper {
+    margin-left: -1em;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 @-webkit-keyframes trip-fade {
