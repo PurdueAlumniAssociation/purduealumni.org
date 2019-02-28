@@ -109,7 +109,7 @@ usort( $trips, "cmp" );
 
 // remove events older than 30 days
 foreach ( $trips as $index => $trip ) {
-    if ( $trip->start_date < ( strtotime('March 1, 2020') - ( 30 * 24 * 60 * 60 ) ) ) {
+    if ( $trip->start_date < ( strtotime( "now" ) - ( 30 * 24 * 60 * 60 ) ) ) {
         unset( $trips[$index] );
     }
 }
@@ -164,11 +164,11 @@ shuffle($random_trips);
                             }
                             $current_month = date( 'F', $trip->start_date );
                             echo "<h2>{$current_month}</h2>";
-                            echo "<div class=\"trip-wrapper\" style=\"margin-left:-1em;\">";
+                            echo "<div class=\"trip-wrapper\">";
                             $first = false;
                         }
                         ?>
-                        <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
+                        <a href="<?php echo $trip->url; ?>" class="trip-card">
                             <div class="card">
                                 <img class="card__image" src="<?php if ( $trip->thumbnail['full_url'] ) {
                                     echo $trip->thumbnail['full_url'];
