@@ -125,7 +125,7 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Login</a>
+                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Log In</a>
                 </li>" . $items;
     }
 
