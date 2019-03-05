@@ -12,15 +12,17 @@ class Trip {
     public $url;
     public $start_date;
     public $end_date;
-    public $image;
+    public $thumbnail;
+    public $banner_url;
 
-    function __construct( $id, $title, $url, $start_date, $end_date, $image ) {
+    function __construct( $id, $title, $url, $start_date, $end_date, $thumbnail, $banner_url ) {
         $this->id = $id;
         $this->title = $title;
         $this->url = $url;
         $this->start_date = $start_date + 0;
         $this->end_date = $end_date + 0;
-        $this->image = $image;
+        $this->thumbnail = $thumbnail;
+        $this->banner_url = $banner_url;
     }
 
     function output_display_date() {
@@ -88,13 +90,15 @@ if ( $the_query->have_posts() ) {
             get_permalink(),
             rwmb_meta( 'start_date', $args ),
             rwmb_meta( 'end_date', $args ),
-            rwmb_meta( 'thumbnail', $args )
+            rwmb_meta( 'thumbnail', $args ),
+            get_the_post_thumbnail_url()
         );
     }
 } else {
     echo "No trips found!";
 }
 
+// sort trips by start date
 function cmp($a, $b) {
     if ($a->start_date == $b->start_date) {
         return 0;
@@ -102,6 +106,13 @@ function cmp($a, $b) {
     return ($a->start_date < $b->start_date) ? -1 : 1;
 }
 usort( $trips, "cmp" );
+
+// remove events older than 30 days
+foreach ( $trips as $index => $trip ) {
+    if ( $trip->start_date < ( strtotime( "now" ) - ( 30 * 24 * 60 * 60 ) ) ) {
+        unset( $trips[$index] );
+    }
+}
 
 // create filtered array
 $filtered_trips = array();
@@ -122,13 +133,10 @@ $random_trips = $filtered_trips;
 shuffle($random_trips);
 ?>
     <section class="row row--no-padding">
-        <!-- Slideshow container -->
         <div class="trip-slideshow-container">
             <?php foreach ( $random_trips as $trip ) { ?>
-                <!-- Full-width images with number and caption text -->
                 <div class="trip-slide trip-fade">
-                    <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
-                    <img src="https://via.placeholder.com/1440x300">
+                    <img src="<?= $trip->banner_url ?>" />
                     <div class="trip-slide__text-box">
                         <span class="trip-slide__title"><?php echo $trip->title ?></span>
                         <span class="trip-slide__date"><?php $trip->output_display_date(); ?></span>
@@ -156,17 +164,17 @@ shuffle($random_trips);
                             }
                             $current_month = date( 'F', $trip->start_date );
                             echo "<h2>{$current_month}</h2>";
-                            echo "<div class=\"trip-wrapper\" style=\"margin-left:-1em;\">";
+                            echo "<div class=\"trip-wrapper\">";
                             $first = false;
                         }
                         ?>
-                        <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
+                        <a href="<?php echo $trip->url; ?>" class="trip-card">
                             <div class="card">
-                                <img class="card__image" src="<?php if ( $trip->image['full_url'] ) {
-                                    echo $trip->image['full_url'];
+                                <img class="card__image" src="<?php if ( $trip->thumbnail['full_url'] ) {
+                                    echo $trip->thumbnail['full_url'];
                                 } else {
                                     echo "https://via.placeholder.com/300x200";
-                                } ?>" alt="<?php echo $trip->image['alt']; ?>">
+                                } ?>" alt="<?php echo $trip->thumbnail['alt']; ?>">
                                 <div class="card__content">
                                     <h3 class="trip-card__title"><?php echo $trip->title; ?></h3>
                                     <p><?php $trip->output_display_date(); ?></p>
