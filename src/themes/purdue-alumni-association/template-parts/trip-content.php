@@ -1,3 +1,4 @@
+<div class="trip">
 <h1><?php the_title(); ?></h1>
 <?php
     $start_date = rwmb_meta( 'start_date', $args );
@@ -38,3 +39,4 @@ if ( count( $download_array ) > 0 ) {
 }
 
 ?>
+</div>
