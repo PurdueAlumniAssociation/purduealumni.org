@@ -18,11 +18,9 @@ $testimonial-breakpoint: 490px;
         }
     }
 
-    &__quote-container {
-
-    }
-
     &__quote {
+        font-size: 1.1em;
+        
         &:first-of-type {
             margin-top: 0;
         }
