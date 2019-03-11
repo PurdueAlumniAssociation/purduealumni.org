@@ -46,6 +46,19 @@
             </div>
         </div>
     </section>
+    <section class="row">
+        <div class="testimonial">
+            <div class="testimonial__image-container">
+                <img class="testimonial__image" src="https://www.purduealumni.org/wp-content/uploads/testimonial_joyce-lok.jpg" alt="Joyce Lok" width="100" height="100" />
+            </div>
+            <div class="testimonial__quote-container">
+                <p class="testimonial__quote">“Maureen has helped me with actionable and clear-cut steps to approach my job search.”</p>
+                <p class="testimonial__source">
+                    <span class="testimonial__name">Joyce Lok</span><span class="testimonial__title">Data Analyst</span>
+                </p>
+            </div>
+        </div>
+    </section>
     <section class="row row--cards-3">
         <div class="flex-item-1-2-3">
             <a href="<?php echo esc_url( home_url( 'membership/benefits/linkedin-learning' ) ); ?>" >
