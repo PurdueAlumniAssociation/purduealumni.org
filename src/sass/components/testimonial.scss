@@ -1,0 +1,53 @@
+$testimonial-breakpoint: 490px;
+
+.testimonial {
+    background-color: $light-gray;
+    padding: 2em;
+
+    @media (min-width: $testimonial-breakpoint) {
+        display: flex;
+    }
+
+    &__image-container {
+        text-align: center;
+        margin-bottom: 1em;
+
+        @media (min-width: $testimonial-breakpoint) {
+            margin-right: 2em;
+            margin-bottom: 0;
+        }
+    }
+
+    &__quote-container {
+
+    }
+
+    &__quote {
+        &:first-of-type {
+            margin-top: 0;
+        }
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+
+    &__source {
+        margin: 1em 0 0 0;
+    }
+
+    &__image {
+        border-radius: 50%;
+        border: 5px solid $white;
+    }
+
+    &__name {
+        font-weight: 700;
+    }
+
+    &__title {
+        &:before {
+            content: "\002F\002F";
+            margin: 0 5px;
+        }
+    }
+}
