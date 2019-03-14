@@ -40,6 +40,11 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
+            } elseif ( is_post_type_archive( '150-item' ) ) {
+                //wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+                wp_enqueue_style( 'archive-150-item-styles', get_template_directory_uri() . '/css/archive-150-item.css' );
+            } elseif ( is_singular( '150-item' ) ) {
+                wp_enqueue_style( 'single-150-item-styles', get_template_directory_uri() . '/css/single-150-item.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
