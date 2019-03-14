@@ -2,6 +2,7 @@
 // Add support for custom features
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
+add_image_size( 'Medium-Large size', 500, 500 );
 
 // Add common styles
 function paa_scripts_and_styles() {
