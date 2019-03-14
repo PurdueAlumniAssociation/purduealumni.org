@@ -1,5 +1,5 @@
-$p150-oject-detail-breakpoint: 500px;
-.p150-object-detail {
+$p150-item-detail-breakpoint: 500px;
+.p150-item-detail {
     max-width: 800px;
 
     &__image {
@@ -50,7 +50,7 @@ $p150-oject-detail-breakpoint: 500px;
         margin-left: 10px;
     }
 
-    @media (min-width: $p150-oject-detail-breakpoint) {
+    @media (min-width: $p150-item-detail-breakpoint) {
         &__flex {
             display: flex;
             flex-direction: row-reverse;
