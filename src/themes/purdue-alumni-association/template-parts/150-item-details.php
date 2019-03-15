@@ -2,8 +2,15 @@
     <div class="p150-item-detail">
         <div class="p150-item-detail__flex">
             <div class="p150-item-detail__image-container">
-                <?php echo get_the_post_thumbnail( $post_id, 'Medium-Large', array( 'class' => 'p150-item-detail__image' )); ?>
-                <!-- <img class="p150-item-detail__image" src="http://via.placeholder.com/500x500" alt="" width="500" height="500" /> -->
+                <?php echo get_the_post_thumbnail(
+                    $post_id,
+                    'Medium-Large',
+                    array(
+                        'class' => 'p150-item-detail__image',
+                        'width' => '500',
+                        'height' => '500'
+                    )
+                ); ?>
                 <p class="p150-item-detail__image-credit"><i class="fas fa-camera"></i> <?=  rwmb_meta( 'photo_credit' ); ?></p>
             </div>
             <div class="p150-item-detail__content-container">
