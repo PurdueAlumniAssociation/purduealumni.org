@@ -30,6 +30,10 @@ function paa_scripts_and_styles() {
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
+        case "page-150-objects.php":
+            wp_enqueue_script( '150-item-scripts', get_template_directory_uri() . '/js/150-items.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            wp_enqueue_style( '150-item-styles', get_template_directory_uri() . '/css/150-items.css' );
+            break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
@@ -40,11 +44,6 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
-            } elseif ( is_post_type_archive( '150-item' ) ) {
-                wp_enqueue_script( 'archive-150-item-scripts', get_template_directory_uri() . '/js/150-items.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
-                wp_enqueue_style( 'archive-150-item-styles', get_template_directory_uri() . '/css/archive-150-item.css' );
-            } elseif ( is_singular( '150-item' ) ) {
-                wp_enqueue_style( 'single-150-item-styles', get_template_directory_uri() . '/css/single-150-item.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
