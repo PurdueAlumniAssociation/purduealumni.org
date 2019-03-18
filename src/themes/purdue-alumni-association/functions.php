@@ -32,6 +32,8 @@ function paa_scripts_and_styles() {
             break;
         case "page-150-objects.php":
             wp_enqueue_script( '150-item-scripts', get_template_directory_uri() . '/js/150-items.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            //the_ajax_script will use to print admin-ajaxurl in custom ajax.js
+            wp_localize_script( 'my-ajax-handle', 'the_ajax_script', array('ajaxurl' =>admin_url('admin-ajax.php')));
             wp_enqueue_style( '150-item-styles', get_template_directory_uri() . '/css/150-items.css' );
             break;
         default:
@@ -408,5 +410,6 @@ include 'function-includes/custom-query-vars.php';
 
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
+include 'function-includes/150-items-ajax.php';
 
 ?>
