@@ -23,34 +23,100 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-var ppp = 1; // Post per page
-var pageNumber = 2;
-var total = jQuery('#totalpages').val();
-jQuery("#more_posts").on("click", function ($) { // When btn is pressed.
-    jQuery("#more_posts").attr("disabled", true); // Disable the button, temp.
-    pageNumber++;
-    var str = '&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_items_ajax';
-    jQuery.ajax({
-        type: "POST",
-        dataType: "html",
-        url: the_ajax_script.ajaxurl,
-        data: str,
-        success: function (data) {
-            var $data = jQuery(data);
-            if ($data.length) {
-                jQuery("#ajax-posts").append($data);
-                jQuery("#more_posts").attr("disabled", false);
-            } else {
-                jQuery("#more_posts").attr("disabled", true);
-            }
-            if (total < pageNumber) {
-                jQuery("#more_posts").hide();
-            }
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            $loader.html(jqXHR + " :: " + textStatus + " :: " + errorThrown);
-        }
+// jQuery(function($){
+//     var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
+//         bottomOffset = 1600; // the distance (in px) from the page bottom when you want to load more posts
+//
+//     $(window).scroll(function(){
+//         var data = {
+//             'action': 'loadmore',
+//             'query': paa_loadmore_params.posts,
+//             'page' : paa_loadmore_params.current_page
+//         };
+//             // console.log( "st: "+$(document).scrollTop() );
+//             // console.log( "dh-bo:"+($(document).height() - bottomOffset) );
+//             // console.log( "cbl: "+canBeLoaded );
+//             // console.log( paa_loadmore_params.current_page );
+//         if( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ){
+//             //console.log("here2" );
+//             console.log( "data.action: " + data.action );
+//             console.log( "data.query: " + data.query );
+//             console.log( "data.page: " + data.page );
+//             console.log( "paa_loadmore_params.ajaxurl: " + paa_loadmore_params.ajaxurl );
+//             $.ajax({
+//                 url: paa_loadmore_params.ajaxurl,
+//                 data: data,
+//                 type: 'POST',
+//                 beforeSend: function( xhr ){
+//                     // you can also add your own preloader here
+//                     // you see, the AJAX call is in process, we shouldn't run it again until complete
+//                     canBeLoaded = false;
+//                 },
+//                 success: function( data ){
+//                     //console.log("here3" );
+//                     console.log( "Success: " + data )
+//                     if( data ) {
+//                         // $('#main').find('article:last-of-type').after( data ); // where to insert posts
+//                         canBeLoaded = true; // the ajax is completed, now we can run it again
+//                         $("#ajax-posts").find('h3:last-of-type').after( data);
+//                         paa_loadmore_params.current_page++;
+//                     }
+//                 },
+//                 error: function() {
+//                     console.warning( "Error!" );
+//                 }
+//             });
+//         }
+//     });
+// });
 
-    });
-    return false;
+jQuery( function ($) {
+    var ppp = 10; // Post per page
+    var pageNumber = 1;
+    var total = $('#totalpages').val();
+    var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
+        bottomOffset = 1600; // the distance (in px) from the page bottom when you want
+    var loader = '<div class="loader"><span class="sr-only">Loading more</span></div>';
+
+    $(window).scroll( function () {
+        if ( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ) {
+            pageNumber++;
+            var str = '&pageNumber=' + pageNumber + '&ppp=' + ppp + '&action=more_post_ajax';
+            jQuery.ajax({
+                type: "POST",
+                dataType: "html",
+                url: the_ajax_script.ajaxurl,
+                data: str,
+                beforeSend: function () {
+                    // the AJAX call is in process, we shouldn't run it again until complete
+                    canBeLoaded = false;
+
+                    $("#ajax-posts").append(loader);
+                },
+                success: function ( data ) {
+                    // the ajax is completed, now we can run it again
+                    canBeLoaded = true;
+
+                    var $data = jQuery( data );
+
+                    // we have some posts, append them to the list
+                    if ( $data.length ) {
+                        $("#ajax-posts").append( $data );
+                    }
+
+                    // we've displayed all the posts, stop future ajax calls
+                    if ( total == pageNumber ) {
+                        canBeLoaded = false;
+                    }
+                },
+                error: function () {
+                    console.log( "Error!" );
+                },
+                complete: function () {
+                    $(".loader").remove();
+                }
+            }); // end ajax
+        }
+        return false;
+    }); // end scroll event
 });

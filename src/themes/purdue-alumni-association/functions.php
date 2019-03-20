@@ -31,10 +31,11 @@ function paa_scripts_and_styles() {
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
         case "page-150-objects.php":
-            wp_enqueue_script( '150-item-scripts', get_template_directory_uri() . '/js/150-items.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
-            //the_ajax_script will use to print admin-ajaxurl in custom ajax.js
-            wp_localize_script( 'my-ajax-handle', 'the_ajax_script', array('ajaxurl' =>admin_url('admin-ajax.php')));
+            // wp_enqueue_script( '150-item-scripts', get_template_directory_uri() . '/js/150-items.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            // //the_ajax_script will use to print admin-ajaxurl in custom ajax.js
+            // wp_localize_script( '150-item-scripts', 'the_ajax_script', array('ajaxurl' =>admin_url('admin-ajax.php')));
             wp_enqueue_style( '150-item-styles', get_template_directory_uri() . '/css/150-items.css' );
+            include 'function-includes/enqueue-and-localize-150-ajax.php';
             break;
         default:
             if ( is_front_page() ) {
