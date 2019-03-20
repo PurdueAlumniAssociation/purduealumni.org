@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
           lazyImage.src = lazyImage.dataset.src;
           lazyImage.srcset = lazyImage.dataset.srcset;
           lazyImage.classList.remove("lazy");
-          // TO DO: add/remove class for animation
+          lazyImage.parentElement.classList.remove("card--fadeinup");
           lazyImageObserver.unobserve(lazyImage);
         }
       });
@@ -23,53 +23,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// jQuery(function($){
-//     var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
-//         bottomOffset = 1600; // the distance (in px) from the page bottom when you want to load more posts
-//
-//     $(window).scroll(function(){
-//         var data = {
-//             'action': 'loadmore',
-//             'query': paa_loadmore_params.posts,
-//             'page' : paa_loadmore_params.current_page
-//         };
-//             // console.log( "st: "+$(document).scrollTop() );
-//             // console.log( "dh-bo:"+($(document).height() - bottomOffset) );
-//             // console.log( "cbl: "+canBeLoaded );
-//             // console.log( paa_loadmore_params.current_page );
-//         if( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ){
-//             //console.log("here2" );
-//             console.log( "data.action: " + data.action );
-//             console.log( "data.query: " + data.query );
-//             console.log( "data.page: " + data.page );
-//             console.log( "paa_loadmore_params.ajaxurl: " + paa_loadmore_params.ajaxurl );
-//             $.ajax({
-//                 url: paa_loadmore_params.ajaxurl,
-//                 data: data,
-//                 type: 'POST',
-//                 beforeSend: function( xhr ){
-//                     // you can also add your own preloader here
-//                     // you see, the AJAX call is in process, we shouldn't run it again until complete
-//                     canBeLoaded = false;
-//                 },
-//                 success: function( data ){
-//                     //console.log("here3" );
-//                     console.log( "Success: " + data )
-//                     if( data ) {
-//                         // $('#main').find('article:last-of-type').after( data ); // where to insert posts
-//                         canBeLoaded = true; // the ajax is completed, now we can run it again
-//                         $("#ajax-posts").find('h3:last-of-type').after( data);
-//                         paa_loadmore_params.current_page++;
-//                     }
-//                 },
-//                 error: function() {
-//                     console.warning( "Error!" );
-//                 }
-//             });
-//         }
-//     });
-// });
-
+/*
 jQuery( function ($) {
     var ppp = 10; // Post per page
     var pageNumber = 1;
@@ -77,6 +31,10 @@ jQuery( function ($) {
     var canBeLoaded = true, // this param allows to initiate the AJAX call only if necessary
         bottomOffset = 1600; // the distance (in px) from the page bottom when you want
     var loader = '<div class="loader"><span class="sr-only">Loading more</span></div>';
+
+    if ( total == pageNumber ) {
+        canBeLoaded = false;
+    }
 
     $(window).scroll( function () {
         if ( $(document).scrollTop() > ( $(document).height() - bottomOffset ) && canBeLoaded == true ) {
@@ -103,11 +61,6 @@ jQuery( function ($) {
                     if ( $data.length ) {
                         $("#ajax-posts").append( $data );
                     }
-
-                    // we've displayed all the posts, stop future ajax calls
-                    if ( total == pageNumber ) {
-                        canBeLoaded = false;
-                    }
                 },
                 error: function () {
                     console.log( "Error!" );
@@ -120,3 +73,4 @@ jQuery( function ($) {
         return false;
     }); // end scroll event
 });
+*/
