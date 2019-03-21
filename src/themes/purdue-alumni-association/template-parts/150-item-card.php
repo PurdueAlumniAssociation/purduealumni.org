@@ -1,4 +1,4 @@
-<div class="col-xs-12 col-sm-6 col-md-4">
+<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
     <a href="<?= get_the_permalink(); ?>" data-featherlight="ajax" class="card card--150-item card--fadeinup">
         <?php
         $image = rwmb_meta( '150_item_thumbnail' );
