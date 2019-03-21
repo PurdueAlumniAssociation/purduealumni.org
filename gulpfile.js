@@ -7,6 +7,7 @@ const sass = require('gulp-sass');
 const cssnano = require('gulp-cssnano');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
+const merge = require('merge-stream');
 
 // html
 const fileinclude = require('gulp-file-include');
@@ -29,7 +30,6 @@ gulp.task('sass', function () {
     .pipe(cssnano())
     .pipe(gulp.dest('dist/prod/css/')) // build css without sourcemaps
     .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/css/'))
     .pipe(gulp.dest('dist/css/')) // build css with sourcemaps
   .pipe(connect.reload());
 });
@@ -62,10 +62,36 @@ gulp.task('wordpress', function () {
     .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/'))
 });
 
+// sass
+gulp.task('wordpressStyles', function () {
+    // main style
+    var mainStyle = gulp.src('src/sass/style.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+          browsers: ['last 2 versions'],
+          cascade: false
+        }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/'))
+        // page specific styles
+    var pageStyles = gulp.src('src/sass/pages/*.scss')
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(autoprefixer({
+          browsers: ['last 2 versions'],
+          cascade: false
+        }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/css/'))
+    .pipe(connect.reload());
+    return merge(mainStyle, pageStyles);
+});
+
 gulp.task('watch', function () {
-  gulp.watch('src/sass/**/*.scss', ['sass']);
+  gulp.watch('src/sass/**/*.scss', ['sass', 'wordpressStyles']);
   gulp.watch('src/html/**/*.html', ['html']);
   gulp.watch(['src/themes/purdue-alumni-association/**/*.php', 'src/themes/purdue-alumni-association/**/*.js'], ['wordpress']);
 });
 
-gulp.task('default', ['html', 'sass', 'wordpress', 'connect', 'watch']);
+gulp.task('default', ['html', 'sass', 'wordpress', 'wordpressStyles', 'connect', 'watch']);
