@@ -1,6 +1,82 @@
 .search-form {
     font-family: $barlow;
-    position: relative;
+    position: absolute;
+
+
+    &--404 {
+      position: absolute;
+      z-index: 1;
+      top:343px;
+      left: 37.5%;
+      width: 20em;
+
+      @media only screen and (max-width: 1076px) {
+        top:253px;
+        left: 36.5%;
+      }
+
+      @media only screen and (max-width: 979px) {
+        top:220px;
+        width: 17em;
+        left:38.5%;
+      }
+
+      @media only screen and (max-width: 876px) {
+        top:250px;
+        width: 16em;
+        left:37.5%;
+      }
+
+      @media only screen and (max-width: 797px) {
+        top:242px;
+        width: 16em;
+        left:37.5%;
+      }
+
+      @media only screen and (max-width: 712px) {
+        top:215px;
+        width: 16em;
+        left:36%;
+      }
+
+      @media only screen and (max-width: 603px) {
+        top:166px;
+        width: 16em;
+        left:30%;
+      }
+
+      @media only screen and (max-width: 489px) {
+        top:166px;
+        width: 16em;
+        left:28%;
+      }
+
+      @media only screen and (max-width: 468px) {
+        top:120px;
+        width: 16em;
+        left:25%;
+      }
+//iphone x screens
+      @media only screen and (max-width: 375px) {
+        top:100px;
+        width: 16em;
+        height: 1em;
+        left:30%;
+      }
+//galaxy s5 screens
+      @media only screen and (max-width: 360px) {
+          top:150px;
+          width: 16em;
+          left:40%;
+      }
+
+      @media only screen and (max-width: 400px) {
+        top:120px;
+        width: 16em;
+        left:20%;
+      }
+    }
+
 
     input {
         height: 30px;
@@ -10,14 +86,39 @@
         width: 100%;
     }
 
+    &__input {
+
+      &--404 {
+        height: 20px;
+        padding-left: 12px;
+        padding-right: 30px;
+        color: $almost-black;
+        width: 100%;
+        border-radius: 25px;
+        padding: 10px;
+      }
+    }
+
+    &__404-button {
+      border: 0;
+      background-color: initial;
+      min-width: 40px;
+      min-height: 40px;
+      cursor: pointer;
+      position: absolute;
+      right: 3px;
+      top: -4px;
+
+}
     &__button {
         border: 0;
         background-color: initial;
-        cursor: pointer;
         min-width: 40px;
         min-height: 40px;
+        cursor: pointer;
         position: absolute;
         right: -4px;
         top: -5px;
+
     }
 }

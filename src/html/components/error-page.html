@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+@@include('../partials/_head.html', {
+"title": "404 Error Page",
+"pageCSS": ""
+})
+<div style="position:relative; margin-bottom:-30px;">
+<h1 class="content--404-title">Whoops! The page you are looking for is no longer here. Try searching for the page you are looking for. </h1>
+<img src="../../images/404-Page-bg-13.svg" class="content--background">
+<img src="../../images/404-Page-astro.svg" class="content--astro">
+<img src="../../images/404-Page-astro-03.svg" class="content--hands">
+<form class="form search-form search-form--404" role="search" method="get" action="https://www.purduealumni.org"/>
+  <div class="">
+    <input class="search-form__input search-form__input--404" type="search" id="search-page-input-404" value name="s"/>
+  </div>
+  <button class="form__404-button form__404-button--submit search-form__404-button" type="submit">
+    <i class= "fas fa-search">
+    </i>
+    <span class="sr-only">submit button</span>
+    </button>
+</form>
+</div>
+</html>

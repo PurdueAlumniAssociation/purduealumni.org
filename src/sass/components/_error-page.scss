@@ -1,0 +1,205 @@
+
+.content{
+  position: absolute;
+
+  &--background{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    margin-top:0;
+
+    // @media only screen and (max-width: 360px) {
+    //   width: 640px;
+    // }
+  }
+
+  &--astro{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    top:255px;
+    left:40%;
+    width: 15em;
+
+    @media only screen and (max-width: 1076px) {
+      top:150px
+    }
+
+    @media only screen and (max-width: 979px) {
+      top:125px
+    }
+
+    @media only screen and (max-width: 876px) {
+      width: 13em;
+    }
+
+    @media only screen and (max-width: 797px) {
+      top:180px;
+      width: 10em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 712px) {
+      top:165px;
+      width: 8em;
+      left:45%;
+    }
+
+    @media only screen and (max-width: 603px) {
+      top:130px;
+      width: 6em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 466px) {
+      top:80px;
+      width: 6em;
+      left:44%;
+    }
+
+    @media only screen and (max-width: 468px) {
+      top:80px;
+      width: 6em;
+      left:44%;
+    }
+
+    @media only screen and (max-width: 400px) {
+      top:80px;
+      width: 6em;
+      left:39%;
+    }
+//iphone x screens
+    @media only screen and (max-width: 375px) {
+      top:60px;
+      width: 6em;
+      left:39%;
+    }
+//galaxy s5 screens
+    @media only screen and (max-width: 360px){
+      top: 110px;
+      left: 48%;
+    }
+  }
+
+  &--hands{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    top:340px;
+    left:40%;
+    width: 15em;
+
+    @media only screen and (max-width: 1076px) {
+      top:250px
+    }
+
+    @media only screen and (max-width: 979px) {
+      top:215px
+    }
+
+    @media only screen and (max-width: 876px) {
+      top:247px;
+      width: 13em;
+      left:40%;
+    }
+
+    @media only screen and (max-width: 797px) {
+      top:240px;
+      width: 10em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 712px) {
+      top:212px;
+      width: 8em;
+      left:45%;
+    }
+
+    @media only screen and (max-width: 603px) {
+      top:165px;
+      width: 6em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 466px) {
+      top:118px;
+      width: 6em;
+      left:44%;
+    }
+//iphone x screens
+    @media only screen and (max-width: 375px) {
+      top:98px;
+      width: 6em;
+      left:39%;
+    }
+//galaxy s5 screens
+    @media only screen and (max-width: 360px){
+      top: 149px;
+      left: 48%;
+    }
+    @media only screen and (max-width: 468px) {
+      top:118px;
+      width: 6em;
+      left:44%;
+    }
+    @media only screen and (max-width: 400px) {
+      top:118px;
+      width: 6em;
+      left:39%;
+    }
+
+  }
+
+  &--404-title {
+    z-index: 2;
+    position: absolute;
+    color: white;
+    left: 2%;
+    top: 40px;
+    font-size: 2em;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+
+      @media only screen and (max-width: 360px) {
+        font-size: .9em;
+      }
+
+      @media only screen and (max-width: 797px) {
+        font-size: 2em;
+      }
+
+      @media only screen and (max-width: 712px) {
+        font-size: 1.5em;
+      }
+
+      @media only screen and (max-width: 603px) {
+        top: 35px;
+        font-size: 1.5em;
+        left: .5%;
+      }
+//iphone x screens
+      @media only screen and (max-width: 375px) {
+        top: -20px;
+        font-size: 1em;
+        left: .5%;
+      }
+//galaxy s5 screens
+      @media only screen and (max-width: 360px){
+        top: -20px;
+        font-size: 1em;
+        left: 20%;
+      }
+
+      @media only screen and (max-width: 468px) {
+        top:30px;
+        font-size: 1em;
+      }
+
+      @media only screen and (max-width: 400px) {
+        top:10px;
+        font-size: 1em;
+      }
+  }
+}
