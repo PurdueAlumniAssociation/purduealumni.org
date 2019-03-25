@@ -72,7 +72,7 @@ function updateHref (element, array) {
         nextId = array[0]; // loop back to the beginning
     }
 
-    card.attr( 'href', card.attr('href').split('?')[0] + "?prev=" + prevId + "&next=" + nextId );
+    card.attr( 'href', card.attr('href').split('?')[0] + "?prev-item-id=" + prevId + "&next-item-id=" + nextId );
 }
 
 $( document ).ready( function () {

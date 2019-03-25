@@ -1,6 +1,14 @@
 <?php
 setup_postdata( $post );
-// print_r($item);
+
+$next_item = get_query_var( "next-item-id" );
+$prev_item = get_query_var( "prev-item-id" );
+
+// if ( isset($next_item) && isset($prev_item) ) {
+//     if ( $next_item != $prev_item ) {
+//         $next_item, $prev_item );
+//     }
+// }
 ?>
 <div class="p150-item-detail">
     <div class="p150-item-detail__flex">
@@ -17,8 +25,8 @@ setup_postdata( $post );
             <p class="p150-item-detail__image-credit"><i class="fas fa-camera"></i><?=  rwmb_meta( '150_item_photo_credit' ); ?></p>
         </div>
         <div class="p150-item-detail__content-container">
-            <h3 class="p150-item-detail__title"><?= the_title() ?></h3>
-            <div class"p150-item-detail__description">
+            <h3 class="p150-item-detail__title"><?= the_title(), " next:", $next_item ?></h3>
+            <div class="p150-item-detail__description">
                 <?= the_content(); ?>
             </div>
         </div>
