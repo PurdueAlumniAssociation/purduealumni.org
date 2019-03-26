@@ -18,21 +18,30 @@
     position: absolute;
     z-index: -1;
     width: 100%;
-    top:255px;
-    left:40%;
+    top:210px;
+    left:43%;
     width: 15em;
 
+    @media only screen and (max-width: 1150px) {
+      top:145px
+    }
+
     @media only screen and (max-width: 1076px) {
-      top:150px
+      top:135px
     }
 
     @media only screen and (max-width: 979px) {
       top:125px
     }
 
-    @media only screen and (max-width: 876px) {
+    @media only screen and (max-width: 954px) {
       width: 13em;
     }
+
+    @media only screen and (max-width: 840px) {
+      width: 13em;
+    }
+    //840
 
     @media only screen and (max-width: 797px) {
       top:180px;
@@ -86,22 +95,26 @@
     position: absolute;
     z-index: 2;
     width: 100%;
-    top:340px;
-    left:40%;
+    top:297px;
+    left:43%;
     width: 15em;
 
+    @media only screen and (max-width: 1150px) {
+      top:227px
+    }
+
     @media only screen and (max-width: 1076px) {
-      top:250px
+      top:222px
     }
 
     @media only screen and (max-width: 979px) {
       top:215px
     }
 
-    @media only screen and (max-width: 876px) {
-      top:247px;
+    @media only screen and (max-width: 954px) {
+      top:197px;
       width: 13em;
-      left:40%;
+      left:43%;
     }
 
     @media only screen and (max-width: 797px) {

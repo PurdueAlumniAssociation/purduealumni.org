@@ -6,25 +6,30 @@
     &--404 {
       position: absolute;
       z-index: 1;
-      top:343px;
-      left: 37.5%;
+      top:300px;
+      left: 39.5%;
       width: 20em;
 
+      @media only screen and (max-width: 1150px) {
+        top:230px;
+        left: 39.5%;
+      }
+
       @media only screen and (max-width: 1076px) {
-        top:253px;
-        left: 36.5%;
+        top:225px;
+        left: 39.5%;
       }
 
       @media only screen and (max-width: 979px) {
         top:220px;
-        width: 17em;
-        left:38.5%;
+        width: 18em;
+        left:41%;
       }
 
-      @media only screen and (max-width: 876px) {
-        top:250px;
+      @media only screen and (max-width: 954px) {
+        top:200px;
         width: 16em;
-        left:37.5%;
+        left:40.5%;
       }
 
       @media only screen and (max-width: 797px) {
