@@ -34,7 +34,7 @@ $("#category-select").change( function( itemIdArray ) {
     }
 
     var itemIdArray = buildItemIdArray();
-    //console.log( itemIdArray );
+
     $(".card-container:visible").each( function () {
         updateHref( $(this), itemIdArray );
     });
@@ -54,25 +54,8 @@ function buildItemIdArray () {
 }
 
 function updateHref (element, array) {
-    var thisId = element.attr('data-item-id'),
-        thisIndex = $.inArray( thisId, array ),
-        card = element.children(".card--150-item");
-
-    // set previous id
-    if ( thisIndex - 1 >= 0 ) {
-        prevId = array[ thisIndex - 1 ];
-    } else {
-        prevId = array[ array.length - 1 ]; // loop back to the end
-    }
-
-    // set next id
-    if ( thisIndex + 1 <= array.length - 1 ) {
-        nextId = array[ thisIndex + 1 ];
-    } else {
-        nextId = array[0]; // loop back to the beginning
-    }
-
-    card.attr( 'href', card.attr('href').split('?')[0] + "?prev-item-id=" + prevId + "&next-item-id=" + nextId );
+    var card = element.children(".card--150-item");
+    card.attr( 'href', card.attr('href').split('?')[0] + "?item-ids=" + array.toString() );
 }
 
 $( document ).ready( function () {
