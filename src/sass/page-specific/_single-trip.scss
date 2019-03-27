@@ -1,6 +1,11 @@
 @import "../settings/all";
 
 .trip {
+
+    & img {
+        max-width: 100%;
+        height: auto;
+    }
     &__date {
         font-weight: bold;
     }

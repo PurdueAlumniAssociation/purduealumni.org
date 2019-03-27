@@ -98,6 +98,7 @@ if ( $the_query->have_posts() ) {
     echo "No trips found!";
 }
 
+// sort trips by start date
 function cmp($a, $b) {
     if ($a->start_date == $b->start_date) {
         return 0;
@@ -105,6 +106,13 @@ function cmp($a, $b) {
     return ($a->start_date < $b->start_date) ? -1 : 1;
 }
 usort( $trips, "cmp" );
+
+// remove events older than 30 days
+foreach ( $trips as $index => $trip ) {
+    if ( $trip->start_date < ( strtotime( "now" ) - ( 30 * 24 * 60 * 60 ) ) ) {
+        unset( $trips[$index] );
+    }
+}
 
 // create filtered array
 $filtered_trips = array();
@@ -125,13 +133,9 @@ $random_trips = $filtered_trips;
 shuffle($random_trips);
 ?>
     <section class="row row--no-padding">
-        <!-- Slideshow container -->
         <div class="trip-slideshow-container">
             <?php foreach ( $random_trips as $trip ) { ?>
-                <!-- Full-width images with number and caption text -->
                 <div class="trip-slide trip-fade">
-                    <!-- <img class="banner" src="<?php //echo get_the_post_thumbnail_url( $trip->id ) ?>" alt="<?php //echo $image_alt ?>" /> -->
-                    <!-- <img src="https://via.placeholder.com/1440x300"> -->
                     <img src="<?= $trip->banner_url ?>" />
                     <div class="trip-slide__text-box">
                         <span class="trip-slide__title"><?php echo $trip->title ?></span>
@@ -160,11 +164,11 @@ shuffle($random_trips);
                             }
                             $current_month = date( 'F', $trip->start_date );
                             echo "<h2>{$current_month}</h2>";
-                            echo "<div class=\"trip-wrapper\" style=\"margin-left:-1em;\">";
+                            echo "<div class=\"trip-wrapper\">";
                             $first = false;
                         }
                         ?>
-                        <a href="<?php echo $trip->url; ?>" style="display: inline-block; margin: 1em;">
+                        <a href="<?php echo $trip->url; ?>" class="trip-card">
                             <div class="card">
                                 <img class="card__image" src="<?php if ( $trip->thumbnail['full_url'] ) {
                                     echo $trip->thumbnail['full_url'];

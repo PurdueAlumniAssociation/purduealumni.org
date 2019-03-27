@@ -1,3 +1,4 @@
+<div class="trip">
 <h1><?php the_title(); ?></h1>
 <?php
     $start_date = rwmb_meta( 'start_date', $args );
@@ -38,3 +39,6 @@ if ( count( $download_array ) > 0 ) {
 }
 
 ?>
+<h2>Next Steps</h2>
+<p>We will happily send you brochures listing included features, itineraries, and pricing. Questions or ready to make a reservation? We’re just a phone call away!  Call Mary MacDonald at 800-414-1541 or 765-494-5175, or email <a href = "mailto:alumnitravel@purdue.edu">alumnitravel@purdue.edu</a>.</p>
+</div>

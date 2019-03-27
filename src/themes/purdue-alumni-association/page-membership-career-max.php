@@ -115,6 +115,20 @@
         </div>
     </section>
     <section class="row">
+        <div class="testimonial">
+            <div class="testimonial__image-container">
+                <img class="testimonial__image" src="https://www.purduealumni.org/wp-content/uploads/testimonial_joyce-lok.jpg" alt="Joyce Lok" width="100" height="100" />
+            </div>
+            <div class="testimonial__quote-container">
+                <p class="testimonial__quote">“Maureen has helped me with actionable and clear-cut steps to approach my job search.”</p>
+                <p class="testimonial__source">
+                    <span class="testimonial__name">Joyce Lok</span><span class="testimonial__title">Data Analyst</span>
+                </p>
+            </div>
+        </div>
+        <p style="text-align: center;"><a href="https://www.purduealumni.org/changing-careers-10-years-after-graduation/">Read more of Joyce's story</a></p>
+    </section>
+    <section class="row">
         <h2>Other included benefits</h2>
 
         <h3>Career Development Webinars</h3>
