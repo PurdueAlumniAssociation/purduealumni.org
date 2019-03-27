@@ -49,8 +49,12 @@
                 <div class="business-directory-listing__text-container">
                     <h3 class="business-directory-listing__heading"><?= $title ?></h3>
                     <p class="business-directory-listing__address"><?= "{$listing_street} {$listing_city}, {$listing_state} $listing_zip" ?></p>
-                    <p class="business-directory-listing__email"><a href="mailto:<?= $listing_email ?>"><?= $listing_email ?></a></p>
-                    <p class="business-directory-listing__phone-number"><?= $listing_phone ?></p>
+                    <?php if ( ! empty($listing_email) ) { ?>
+                         <p class="business-directory-listing__email"><a href="mailto:<?= $listing_email ?>"><?= $listing_email ?></a></p>
+                    <?php } ?>
+                    <?php if ( ! empty($listing_phone) ) { ?>
+                        <p class="business-directory-listing__phone-number"><?= $listing_phone ?></p>
+                    <?php } ?>
                     <p class="business-directory-listing__button"><a href="<?= $listing_website ?>" class="button">Website</a></p>
                 </div>
             </div>
