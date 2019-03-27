@@ -55,7 +55,9 @@
                     <?php if ( ! empty($listing_phone) ) { ?>
                         <p class="business-directory-listing__phone-number"><?= $listing_phone ?></p>
                     <?php } ?>
-                    <p class="business-directory-listing__button"><a href="<?= $listing_website ?>" class="button">Website</a></p>
+                    <?php if ( ! empty($listing_website) ) { ?>
+                        <p class="business-directory-listing__button"><a href="<?= $listing_website ?>" target="_blank" class="button">Website</a></p>
+                    <?php } ?>
                 </div>
             </div>
         <?php
