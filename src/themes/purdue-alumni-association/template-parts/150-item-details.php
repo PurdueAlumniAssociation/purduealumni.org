@@ -38,12 +38,27 @@ if ( $next_id != $prev_id ) {
                 )
             ); ?>
             <p class="p150-item-detail__image-credit"><i class="fas fa-camera"></i><?=  rwmb_meta( '150_item_photo_credit' ); ?></p>
+            <?php if ( rwmb_meta( '150_item_courtesy_checkbox' ) ) { ?>
+                <p class="p150-item-detail__courtesy">
+                    <?= rwmb_meta( '150_item_courtesy' ); ?>
+                </p>
+            <?php } ?>
         </div>
         <div class="p150-item-detail__content-container">
             <h3 class="p150-item-detail__title"><?= the_title() ?></h3>
             <div class="p150-item-detail__description">
                 <?= the_content(); ?>
             </div>
+            <?php
+                $terms = wp_get_post_terms( get_the_ID(), "150-category", array( 'fields' => 'names' ) );
+
+                if ( count( $terms ) > 0 ) {
+                    echo "CATEGORIES: ";
+                    foreach ( $terms as $term ) {
+                        echo "<span class=\"p150-item-detail__category\">{$term}</span>";
+                    }
+                }
+            ?>
         </div>
     </div>
     <?php if ( $showNav ) { ?>
@@ -54,4 +69,4 @@ if ( $next_id != $prev_id ) {
     <?php } ?>
 </div>
 <!-- <script src="//code.jquery.com/jquery-3.3.1.min.js"></script> -->
-<script src="/paa/wp-content/themes/purdue-alumni-association/js/150-item-detail.js"></script>
+<script src="https://dev.purduealumni.org/wp-content/themes/purdue-alumni-association/js/150-item-detail.js"></script>
