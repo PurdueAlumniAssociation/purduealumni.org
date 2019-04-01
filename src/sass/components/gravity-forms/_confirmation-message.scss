@@ -1,0 +1,10 @@
+.gform_confirmation_message {
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    color: $almost-black;
+    background-color: tint($ross-ade-green, 80%);
+    border-color: $ross-ade-green;
+}
