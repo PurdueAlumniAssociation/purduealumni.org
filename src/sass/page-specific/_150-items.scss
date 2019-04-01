@@ -9,4 +9,9 @@
 .featherlight .featherlight-content {
     padding: 2em;
     background-color: $white !important;
+    border-bottom-width: 0;
+}
+
+.featherlight-loading .featherlight-content {
+    border-bottom-width: 8px;
 }
