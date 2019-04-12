@@ -2,6 +2,7 @@
 // Add support for custom features
 add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
+add_image_size( 'Medium-Large size', 500, 500 );
 
 // Add common styles
 function paa_scripts_and_styles() {
@@ -28,6 +29,9 @@ function paa_scripts_and_styles() {
             break;
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
+            break;
+        case "page-business-directory.php":
+            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
         default:
             if ( is_front_page() ) {
@@ -125,7 +129,7 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Login</a>
+                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Log In</a>
                 </li>" . $items;
     }
 
