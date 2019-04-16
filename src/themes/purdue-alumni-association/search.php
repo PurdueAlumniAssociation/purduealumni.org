@@ -4,7 +4,7 @@
         <h1>Search Results</h1>
         <p class="callout"><?php printf( __( 'Searching for: %s' ), '<span>' . get_search_query() . '</span>'); ?></p>
         <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-            <?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' );
+            <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' );
                   the_excerpt() ?>
         <?php endwhile;
             the_posts_pagination(
