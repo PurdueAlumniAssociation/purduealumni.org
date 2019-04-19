@@ -1,0 +1,48 @@
+@import "../settings/all";
+
+// styles that apply to the 150 items page
+.banner {
+    height: auto;
+}
+
+.items-intro {
+    text-align: center;
+
+    &__tagline {
+        font-size: 1.5em;
+        font-family: $vollkorn;
+
+        @include breakpoint(sm) {
+            font-size: 2em;
+        }
+    }
+
+    &__divider {
+        margin-top: 2em;
+        width: 97%;
+
+        @include breakpoint(sm) {
+            margin-top: 3em;
+            width: 50%;
+        }
+    }
+
+    &__credit {
+        text-transform: uppercase;
+    }
+}
+
+.p150-card-list {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.featherlight .featherlight-content {
+    padding: 2em;
+    background-color: $white !important;
+    border-bottom-width: 0;
+}
+
+.featherlight-loading .featherlight-content {
+    border-bottom-width: 8px;
+}
