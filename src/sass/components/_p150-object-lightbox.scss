@@ -1,8 +1,69 @@
-$p150-item-detail-breakpoint: 600px;
-.p150-item-detail {
-    max-width: 800px;
+.p150-lightbox-background {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
 
-    &__image {
+    @include breakpoint(xs) {
+        padding-top: 0;
+        background-color: $white;
+    }
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.p150-lightbox {
+    max-width: 1000px;
+    position: relative;
+    background-color: $white;
+    margin: auto;
+    padding: 3em;
+    width: 90%;
+
+    @include breakpoint(xs) {
+        width: 100%;
+        padding: 2em;
+    }
+
+    &__close-button {
+        text-align: center;
+        color: white;
+        position: absolute;
+        top: .3em;
+        right: .3em;
+        font-size: 2em;
+        min-width: 44px;
+        min-height: 44px;
+        font-weight: bold;
+        z-index: 10;
+
+        @include breakpoint(xs) {
+            top: 0;
+            right: 0;
+        }
+    }
+
+    &__close-button:hover,
+    &__close-button:focus {
+        cursor: pointer;
+    }
+
+    &__content-container {
+        overflow-y: scroll;
+    }
+}
+
+.p150-item-detail {
+
+    &__image-container img {
         width: 100%;
         height: auto;
     }
@@ -76,7 +137,7 @@ $p150-item-detail-breakpoint: 600px;
         margin-left: 10px;
     }
 
-    @media (min-width: $p150-item-detail-breakpoint) {
+    @include breakpoint(sm) {
         &__flex {
             display: flex;
             flex-direction: row-reverse;
@@ -89,6 +150,11 @@ $p150-item-detail-breakpoint: 600px;
 
         &__image-container {
             flex: 0 2 auto;
+
+            & img {
+                width: 100%;
+                height: auto;
+            }
         }
 
         &__title {
