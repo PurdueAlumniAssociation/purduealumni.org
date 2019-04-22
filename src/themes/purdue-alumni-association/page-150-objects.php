@@ -29,6 +29,8 @@ $terms = get_terms( '150-category' );
     </select>
 </section>
 <?php
+add_filter('posts_fields', 'paa_create_temp_column'); // Add the temporary column filter
+add_filter('posts_orderby', 'paa_sort_by_temp_column'); // Add the custom order filter
 
 // query
 $the_query = new WP_Query(array(
@@ -37,6 +39,9 @@ $the_query = new WP_Query(array(
    'orderby'           => 'title',
    'order'             => 'ASC'
 ));
+
+remove_filter('posts_fields','paa_create_temp_column'); // Remove the temporary column filter
+remove_filter('posts_orderby', 'paa_sort_by_temp_column'); // Remove the temporary order filter
 
 echo '<section class="row row--slim bootstrap-row">';
 if ( $the_query->have_posts() ) {

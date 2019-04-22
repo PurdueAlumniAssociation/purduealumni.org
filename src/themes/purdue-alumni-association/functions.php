@@ -32,7 +32,8 @@ function paa_scripts_and_styles() {
             break;
         case "page-150-objects.php":
             wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
-            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the
+            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            wp_enqueue_script( '150-objects-sharing', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cab956bbac2fc69', true ); // true adds it to the footer
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
@@ -410,6 +411,27 @@ include 'function-includes/custom-query-vars.php';
 
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
-include 'function-includes/150-items-ajax.php';
+
+// 150 Objects Filters
+function paa_create_temp_column($fields) {
+  global $wpdb;
+  $has_the = " CASE
+      WHEN $wpdb->posts.post_title regexp '^(The)[[:space:]]'
+        THEN trim(substr($wpdb->posts.post_title from 4))
+      ELSE $wpdb->posts.post_title
+        END AS title2";
+  if ($has_the) {
+    $fields .= ( preg_match( '/^(\s+)?,/', $has_the ) ) ? $has_the : ", $has_the";
+  }
+  return $fields;
+}
+
+function paa_sort_by_temp_column ($orderby) {
+  $custom_orderby = " TRIM( LEADING '\‘' FROM TRIM( LEADING '''' FROM UPPER(title2) ) )";
+  if ($custom_orderby) {
+    $orderby = $custom_orderby;
+  }
+  return $orderby;
+}
 
 ?>
