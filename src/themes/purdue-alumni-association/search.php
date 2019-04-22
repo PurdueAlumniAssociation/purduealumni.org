@@ -7,10 +7,10 @@
             <?php the_title( sprintf( '<h3 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h3>' );
                   the_excerpt() ?>
         <?php endwhile;
-        
+
             the_posts_pagination(
                 array(
-                    'screen_reader_text' => ' ',
+                    'screen_reader_text' => 'Page Navigation',
                     'prev_text'          => '<i class="fas fa-arrow-left"></i><span class="sr-only">' . __( 'Previous Page', 'paa' ) . '</span>',
                     'next_text'          => '<span class="sr-only">' . __( 'Next Page', 'paa' ) . '</span><i class="fas fa-arrow-right"></i>',
                     'before_page_number' => '<span class="meta-nav sr-only">' . __( 'Page', 'paa' ) . ' </span>',

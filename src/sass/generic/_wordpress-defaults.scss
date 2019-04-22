@@ -3,4 +3,25 @@ img.alignleft { float: left; margin: 0 1em 1em 0; }
 img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
 .alignright { float: right; }
 .alignleft { float: left; }
-.aligncenter { display: block; margin-left: auto; margin-right: auto; } 
+.aligncenter { display: block; margin-left: auto; margin-right: auto; }
+
+.screen-reader-text {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      border: 0;
+}
+
+.pagination {
+
+  letter-spacing: .35em;
+  text-align: center;
+
+  & .page-numbers {
+    text-decoration: none;
+  }
+}
