@@ -95,7 +95,7 @@ html.with-featherlight {
 
 	/* dimensions: 25px x 25px */
 	line-height: 25px;
-	width: 37px;
+	width: 44px;
 
 	/* styling */
 	cursor: pointer;
@@ -157,4 +157,42 @@ html.with-featherlight {
 	html.with-featherlight > * > :not(.featherlight) {
 		display: none;
 	}
+}
+
+/**
+ * Featherlight Loader
+ *
+ * Copyright 2015, WP Site Care http://www.wpsitecare.com
+ * MIT Licensed.
+ */
+@keyframes featherlightLoader {
+	0% {
+		-webkit-transform: rotate(0);
+		transform: rotate(0);
+	}
+
+	100% {
+		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
+	}
+}
+
+.featherlight-loading .featherlight-content {
+  animation: featherlightLoader 1s infinite linear;
+  background: transparent !important;
+  border: 8px solid $light-gray;
+  border-bottom-color: $gray;
+  border-radius: 80px;
+  width: 80px;
+  height: 80px;
+  min-width: 0;
+}
+
+.featherlight-loading .featherlight-content > * {
+  display: none !important;
+}
+
+.featherlight-loading .featherlight-close,
+.featherlight-loading .featherlight-inner {
+  display: none;
 }

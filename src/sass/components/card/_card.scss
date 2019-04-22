@@ -8,13 +8,38 @@
         box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
 
+    &--150-item {
+        display: block;
+        margin: auto;
+        margin-bottom: 4em;
+        transition: transform .7s, opacity .7s;
+        transition-delay: .3s;
+        box-shadow: none;
+        text-decoration: none;
+
+        &:hover {
+            box-shadow: none;
+            text-decoration: underline;
+        }
+    }
+
+    &--fadeinup {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+
     &__image {
         width: 100%;
+        height: auto;
     }
 
     &__content {
         padding: 2px 16px;
         font-weight: 400;
+
+        &--150-item {
+            text-align: center;
+        }
     }
 
     &__title {
@@ -23,5 +48,13 @@
         font-family: $barlow;
         font-weight: 700;
         font-style: normal;
+
+        &--150-item {
+            font-size: 1.5em;
+            font-weight: 400;
+            text-transform: uppercase;
+            margin-top: .7em;
+            text-decoration: none !important;
+        }
     }
 }

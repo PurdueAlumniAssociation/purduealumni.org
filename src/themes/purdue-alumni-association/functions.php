@@ -30,6 +30,9 @@ function paa_scripts_and_styles() {
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
+        case "page-150-objects.php":
+            wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
+            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
@@ -47,7 +50,7 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
     }
-
+    wp_enqueue_script( 'intersection-observer', '//cdn.jsdelivr.net/npm/intersection-observer@0.5.1/intersection-observer.js', array(), '0.5.1' );
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
@@ -407,5 +410,6 @@ include 'function-includes/custom-query-vars.php';
 
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
+include 'function-includes/150-items-ajax.php';
 
 ?>
