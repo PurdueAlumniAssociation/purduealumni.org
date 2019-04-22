@@ -1,4 +1,4 @@
-<div class="p150-lightbox-background" data-lightbox-id="<?= get_the_ID(); ?>" aria-labelledby="<?= get_the_ID(); ?>-title">
+<div class="p150-lightbox-background" data-lightbox-id="<?= get_the_ID(); ?>" aria-labelledby="<?= get_the_ID(); ?>-lightbox-title">
     <div class="p150-lightbox">
         <a href="#" class="p150-lightbox__close-button" role="button"><i class="fas fa-times" aria-hidden></i><span class="sr-only">close</span></a>
         <div class="p150-item-detail">
@@ -14,7 +14,7 @@
                     <?php } ?>
                 </div>
                 <div class="p150-item-detail__content-container">
-                    <h3 class="p150-item-detail__title" id="<?= get_the_ID(); ?>-title"><?= the_title() ?></h3>
+                    <h3 class="p150-item-detail__title" id="<?= get_the_ID(); ?>-lightbox-title"><?= the_title() ?></h3>
                     <div class="p150-item-detail__description">
                         <?= the_content(); ?>
                     </div>
