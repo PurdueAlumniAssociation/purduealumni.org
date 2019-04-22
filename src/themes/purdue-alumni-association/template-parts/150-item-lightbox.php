@@ -4,6 +4,7 @@
         <div class="p150-item-detail">
             <div class="p150-item-detail__flex">
                 <div class="p150-item-detail__image-container">
+                    <div class="p150-item-detail__share-container addthis_inline_share_toolbox"></div>
                     <?php the_post_thumbnail(); ?>
                     <p class="p150-item-detail__image-credit"><i class="fas fa-camera"></i><?=  rwmb_meta( '150_item_photo_credit' ); ?></p>
                     <?php if ( rwmb_meta( '150_item_courtesy_checkbox' ) ) { ?>
