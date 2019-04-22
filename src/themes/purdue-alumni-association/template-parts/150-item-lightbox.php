@@ -1,6 +1,6 @@
 <div class="p150-lightbox-background" data-lightbox-id="<?= get_the_ID(); ?>">
     <div class="p150-lightbox">
-        <a href="#" class="p150-lightbox__close-button"><i class="fas fa-times" aria-hidden></i><span class="sr-only">close</span></a>
+        <a href="#" class="p150-lightbox__close-button" role="button"><i class="fas fa-times" aria-hidden></i><span class="sr-only">close</span></a>
         <div class="p150-item-detail">
             <div class="p150-item-detail__flex">
                 <div class="p150-item-detail__image-container">
@@ -30,9 +30,9 @@
                     ?>
                 </div>
             </div>
-            <div class="p150-item-detail__mobile-nav">
-                <a class="p150-item-detail__previous" href="#"><i class="fas fa-chevron-left p150-item-detail__previous-icon"></i>Previous</a>
-                <a class="p150-item-detail__next" href="#">Next<i class="fas fa-chevron-right p150-item-detail__next-icon"></i></a>
+            <div class="p150-item-detail__nav">
+                <a class="p150-item-detail__previous" href="#" role="button"><i class="fas fa-chevron-left p150-item-detail__previous-icon"></i>Previous</a>
+                <a class="p150-item-detail__next" href="#" role="button">Next<i class="fas fa-chevron-right p150-item-detail__next-icon"></i></a>
             </div>
         </div>
     </div>
