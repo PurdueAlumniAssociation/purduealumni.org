@@ -47,8 +47,11 @@ $( document ).ready( function () {
     $(".card-container").click( function(event) {
         event.preventDefault();
         viewCount = 0;
-        $("[data-lightbox-id='" + $(this).attr("data-object-id") + "']").show().addClass("visible");
+        var lightbox = $("[data-lightbox-id='" + $(this).attr("data-object-id") + "']")
+        lightbox.show().addClass("visible");
+        lightbox.find(".p150-lightbox__close-button").focus();
         $("body").toggleClass("no-scroll");
+
     })
 
     $(".p150-lightbox__close-button").click( function(event) {
