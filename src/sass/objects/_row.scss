@@ -1,6 +1,12 @@
 .row {
     padding: 1em $section-padding-xs;
 
+    &:after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    
     @include breakpoint(sm) {
         padding: 2em $section-padding-sm;
     }
