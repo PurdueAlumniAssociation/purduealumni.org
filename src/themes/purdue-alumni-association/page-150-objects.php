@@ -72,10 +72,11 @@ if ( $the_query->have_posts() ) {
                     <img src="http://via.placeholder.com/500x500" />
                 </div>
                 <div class="p150-item-detail__content-container">
-                    <h3 class="p150-item-detail__title">Become a Member</h3>
+                    <h3 class="p150-item-detail__title">Want more Purdue history?</h3>
                     <div class="p150-item-detail__description">
-                        <p>Become a member. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                        <a href="https://www.purduealumni.org/membership/membership-plans" class="button button--gold button--bold">Join Today</a>
+                        <p>Join the Purdue Alumni Association today and get the next issue delivered straight to your door.</p>
+                        <p>We have two more special sesquicentennial issues coming up.</p>
+                        <p>Don’t miss out. <a href="https://www.purduealumni.org/membership/membership-plans">Join today</a>.</p>
                     </div>
                 </div>
             </div>
