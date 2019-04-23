@@ -24,4 +24,20 @@ img.aligncenter { display: block; margin-left: auto; margin-right: auto; }
   & .page-numbers {
     text-decoration: none;
   }
+
+.wp-caption {
+  margin: 1em;
+}
+
+.wp-caption-text {
+  margin-top: 0;
+  padding-left: .3em;
+  padding-right: 1em;
+  font-size: .9em;
+  font-style: italic;
+}
+
+.wp-caption img {
+
+}
 }
