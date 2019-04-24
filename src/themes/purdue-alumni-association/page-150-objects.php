@@ -8,8 +8,10 @@
 $terms = get_terms( '150-category' );
 
 ?>
-<section class="row row--no-padding">
-    <img class="alignnone size-full wp-image-2395 banner" src="https://dev.purduealumni.org/wp-content/uploads/web-banner_150-objects.jpg" srcset="<?= wp_get_attachment_image_srcset(2395) ?>" alt="Object Permanence" width="1440" height="355" />
+<section class="row row--no-padding" class="banner">
+    <video width="1440" height="378" loop="loop" muted="true" autoplay="autoplay" playsinline="playsinline" poster="https://www.purduealumni.org/wp-content/uploads/150-objects_web-banner.jpg" class="banner__video">
+        <source src="https://www.purduealumni.org/wp-content/uploads/150-objects_video-banner.mp4" type="video/mp4">
+    </video>
 </section>
 <section class="row row--slim">
     <div class="items-intro">
@@ -69,7 +71,7 @@ if ( $the_query->have_posts() ) {
         <div class="p150-item-detail">
             <div class="p150-item-detail__flex">
                 <div class="p150-item-detail__image-container">
-                    <img src="http://via.placeholder.com/500x500" />
+                    <img src="https://www.purduealumni.org/wp-content/uploads/150-objects_alumnus.jpg" alt="Purdue Alumnus magazine cover" />
                 </div>
                 <div class="p150-item-detail__content-container">
                     <h3 class="p150-item-detail__title">Want more Purdue history?</h3>
@@ -80,7 +82,7 @@ if ( $the_query->have_posts() ) {
                     </div>
                 </div>
             </div>
-            <div class="p150-item-detail__mobile-nav">
+            <div class="p150-item-detail__nav">
                 <a class="p150-item-detail__previous" href="#"><i class="fas fa-chevron-left p150-item-detail__previous-icon"></i>Previous</a>
                 <a class="p150-item-detail__next" href="#">Next<i class="fas fa-chevron-right p150-item-detail__next-icon"></i></a>
             </div>

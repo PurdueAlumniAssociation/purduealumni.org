@@ -2,7 +2,11 @@
 
 // styles that apply to the 150 items page
 .banner {
-    height: auto;
+
+    &__video {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .items-intro {
