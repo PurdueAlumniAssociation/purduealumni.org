@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-
-
 $( document ).ready( function () {
     var viewCount = 0;
     var threshold = 5;
@@ -99,33 +97,6 @@ $( document ).ready( function () {
             }
         }
     })
-
-    // $(".p150-item-detail__next").click( function(event) {
-    //     event.preventDefault();
-    //
-    //     viewCount += 1;
-    //
-    //     var currentLightbox = $(".p150-lightbox-background:visible");
-    //
-    //     currentLightbox.hide().removeClass("visible");
-    //
-    //     var currentId = currentLightbox.attr("data-lightbox-id");
-    //
-    //     if ( currentId != 99999 ) {
-    //         nextId = $(".card-container[data-object-id='"+currentId+"']").next(".card-container:visible").attr("data-object-id");
-    //     }
-    //
-    //     // first object will return undefined
-    //     if ( nextId == undefined ) {
-    //         nextId = $(".card-container:visible").first().attr("data-object-id");
-    //     }
-    //
-    //     if ( viewCount % threshold == 0 ) {
-    //         $(".p150-lightbox-background--membership").show().addClass("visible");
-    //     } else {
-    //         $(".p150-lightbox-background[data-lightbox-id='"+nextId+"']").show().addClass("visible");
-    //     }
-    // })
 
     function hideAllLightboxes() {
         $(".p150-lightbox-background").hide().removeClass("visible");
