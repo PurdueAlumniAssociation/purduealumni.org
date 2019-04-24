@@ -98,7 +98,8 @@
     }
 
     &__description {
-        & .fas {
+        & .fas, & .fab {
+            min-width: 18px;
             margin-right: .25em;
             color: $campus-gold;
         }
