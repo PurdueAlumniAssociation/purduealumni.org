@@ -33,10 +33,8 @@ $( document ).ready( function () {
     $("#category-select").change( function() {
 
         if (this.value === 'all') {
-            //alert( "show all" );
             $("[data-150-categories]").fadeIn('normal').addClass("visible");
         } else {
-            //alert( "show " + this.value );
             $("[data-150-categories]").hide(0).removeClass("visible");
             $("[data-150-categories~='" + this.value + "']").fadeIn('normal').addClass("visible");
         }
@@ -95,6 +93,12 @@ $( document ).ready( function () {
             } else {
                 $(".p150-lightbox-background[data-lightbox-id='"+prevId+"']").show().addClass("visible");
             }
+        }
+        console.log('viewCount: '+viewCount);
+        console.log('threshold: '+threshold);
+        if (viewCount == 5 && threshold == 5) {
+            viewCount = 0;
+            threshold = 10;
         }
     })
 
