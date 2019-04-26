@@ -36,6 +36,14 @@
     }
 }
 
+.foreward {
+    column-count: 2;
+
+    & p:first-of-type {
+        margin-top: 0; 
+    }
+}
+
 .p150-card-list {
     margin-left: 0;
     margin-right: 0;

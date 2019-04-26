@@ -20,6 +20,22 @@ $terms = get_terms( '150-category' );
         <hr class="items-intro__divider" />
     </div>
 </section>
+<section class="row row--slim">
+    <h2>How did we get here?</h2>
+    <div class="foreward">
+        <p>More than once over the past few months, I’ve exclaimed to any colleagues within earshot at the alumni association office: “This may be the worst idea I have ever had!” The problem is, 150 somehow manages to be a vastly numerous yet hopelessly inadequate number at the same time. Distilling a sesquicentennial into a collection of 150 miscellaneous objects is a formidable and time-consuming task — to say nothing of the intriguing rabbit holes that can hijack entire afternoons and led me to basements and attics and closets and boxes that held all sorts of wondrous things.</p>
+
+        <p>The winnowed compilation presented on these pages is by no means exhaustive. Nor is it meant to be a comprehensive account of the University’s history. Rather, it’s an assemblage of artifacts that struck me as interesting, whether they commemorate a significant occurrence or influential personage in Purdue’s history or merely invoked my curiosity. The list leans toward my proclivities as editor, which encompass both the nostalgic and the obscure.</p>
+
+        <p>It’s been fascinating to sift through collections public and private in search of meaningful and compelling items to feature. Thank you to everyone who made suggestions, sent along images, or started me off on wild goose chases (one of which led to a peacock!). There are a few individuals to whom I am especially indebted.</p>
+
+        <p>I am grateful to my stalwart copywriter, Joel Meredith, who spent his first few months on the job painstakingly researching and culling an enormous catalog of possibilities. Thanks also to author John Norberg, the quintessential Purdue storyteller, and to collector Pete Bill (A’75, DVM’80, PhD V’90), whose knowledge of enthralling university tidbits is matched only by his enthusiasm for sharing them.</p>
+
+        <p>Lastly, my earnest appreciation for Adriana Harmeyer, archivist for university history at Purdue’s Karnes Archives and Special Collections Research Center and possibly the most amiable person in the world. She answered heaps of questions, imparted expert insight, and facilitated access to some of the University’s most treasured artifacts. Adriana exudes joy in preserving history and educating others about the past. I would not have completed this gargantuan endeavor without her assistance. Any errors are my own.</p>
+
+        <p>This process has been both engrossing and educational. It is my sincere hope that <em>Purdue Alumnus</em> readers find the end result as rewarding as I do. <span style="color:#bababa;">—KAT BRAZ (LA’01)</span></p>
+    </div>
+</section>
 <section class="row" style="padding-bottom: .3em; text-align: right;">
     <h1 class="sr-only">150 Objects</h1>
     <label for="category-select">Filter: </label>
