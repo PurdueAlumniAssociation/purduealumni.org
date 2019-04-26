@@ -37,10 +37,12 @@
 }
 
 .foreward {
-    column-count: 2;
+    @include breakpoint(sm) {
+        column-count: 2;
+    }
 
     & p:first-of-type {
-        margin-top: 0; 
+        margin-top: 0;
     }
 }
 
