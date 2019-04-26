@@ -61,7 +61,8 @@ $the_query = new WP_Query(array(
 remove_filter('posts_fields','paa_create_temp_column'); // Remove the temporary column filter
 remove_filter('posts_orderby', 'paa_sort_by_temp_column'); // Remove the temporary order filter
 
-echo '<section class="row row--slim bootstrap-row">';
+echo '<section class="row row--slim">
+    <div class="bootstrap-row">';
 if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
@@ -70,7 +71,8 @@ if ( $the_query->have_posts() ) {
 } else {
     get_template_part( 'template-parts/no-posts' );
 }
-echo "</section>";
+echo "</div>
+</section>";
 
 if ( $the_query->have_posts() ) {
     while ( $the_query->have_posts() ) {
