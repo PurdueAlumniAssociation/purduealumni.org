@@ -34,6 +34,7 @@ function paa_scripts_and_styles() {
             wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
             wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
             wp_enqueue_script( '150-objects-sharing', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cab956bbac2fc69', true ); // true adds it to the footer
+            break;
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
