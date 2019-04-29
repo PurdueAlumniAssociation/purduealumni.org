@@ -4,7 +4,7 @@
     $start_date = rwmb_meta( 'start_date', $args );
     $end_date = rwmb_meta( 'end_date', $args );
 ?>
-<p class="trip__date"><?= date( 'F j', $start_date ), "&ndash;", date( 'j, Y', $end_date); ?></p>
+<p class="trip__date"><?= date( 'F j', $start_date ), "&ndash;", date( 'F j, Y', $end_date); ?></p>
 <?php the_content(); ?>
 <?php
 $operator = rwmb_meta( 'operator', $args );
