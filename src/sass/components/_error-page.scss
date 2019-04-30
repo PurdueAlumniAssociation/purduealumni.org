@@ -44,13 +44,13 @@
     //840
 
     @media only screen and (max-width: 797px) {
-      top:180px;
+      top:125px;
       width: 10em;
       left:43%;
     }
 
-    @media only screen and (max-width: 712px) {
-      top:165px;
+    @media only screen and (max-width: 709px) {
+      top:110px;
       width: 8em;
       left:45%;
     }
@@ -59,6 +59,18 @@
       top:130px;
       width: 6em;
       left:43%;
+    }
+
+    @media only screen and (max-width: 602px) {
+      top:100px;
+      width: 7em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 505px) {
+      top:75px;
+      width: 6em;
+      left:44%;
     }
 
     @media only screen and (max-width: 466px) {
@@ -73,10 +85,16 @@
       left:44%;
     }
 
+    @media only screen and (max-width: 418px) {
+      top:90px;
+      width: 5em;
+      left:45.5%;
+    }
+
     @media only screen and (max-width: 400px) {
-      top:80px;
-      width: 6em;
-      left:39%;
+      top:83px;
+      width: 5.5em;
+      left:39.5%;
     }
 //iphone x screens
     @media only screen and (max-width: 375px) {
@@ -118,13 +136,13 @@
     }
 
     @media only screen and (max-width: 797px) {
-      top:240px;
+      top:188px;
       width: 10em;
       left:43%;
     }
 
-    @media only screen and (max-width: 712px) {
-      top:212px;
+    @media only screen and (max-width: 709px) {
+      top:159px;
       width: 8em;
       left:45%;
     }
@@ -134,8 +152,25 @@
       width: 6em;
       left:43%;
     }
+    @media only screen and (max-width: 602px) {
+      top:140px;
+      width: 7em;
+      left:43%;
+    }
+
+    @media only screen and (max-width: 505px) {
+      top:120px;
+      width: 6em;
+      left:44%;
+    }
 
     @media only screen and (max-width: 466px) {
+      top:118px;
+      width: 6em;
+      left:44%;
+    }
+
+    @media only screen and (max-width: 418px) {
       top:118px;
       width: 6em;
       left:44%;
@@ -180,18 +215,25 @@
       }
 
       @media only screen and (max-width: 797px) {
-        font-size: 2em;
+        font-size: 1.5em;
       }
 
       @media only screen and (max-width: 712px) {
         font-size: 1.5em;
       }
 
-      @media only screen and (max-width: 603px) {
+      @media only screen and (max-width: 604px) {
         top: 35px;
-        font-size: 1.5em;
+        font-size: 1.35em;
         left: .5%;
       }
+
+      @media only screen and (max-width: 537px) {
+        top: 35px;
+        font-size: 1em;
+        left: .5%;
+      }
+
 //iphone x screens
       @media only screen and (max-width: 375px) {
         top: -20px;
