@@ -21,11 +21,11 @@ $terms = get_terms( '150-category' );
     </div>
 </section>
 <section class="row row--slim">
-    <h2>How did we get here?</h2>
     <div class="foreward">
-        <p>More than once over the past few months, I’ve exclaimed to any colleagues within earshot at the alumni association office: “This may be the worst idea I have ever had!” The problem is, 150 somehow manages to be a vastly numerous yet hopelessly inadequate number at the same time. Distilling a sesquicentennial into a collection of 150 miscellaneous objects is a formidable and time-consuming task — to say nothing of the intriguing rabbit holes that can hijack entire afternoons and led me to basements and attics and closets and boxes that held all sorts of wondrous things.</p>
+        <h2>How did we get here?</h2>
+        <p>More than once over the past few months, I’ve exclaimed to any colleagues within earshot at the alumni association office: “This may be the worst idea I have ever had!” The problem is, 150 somehow manages to be a vastly numerous yet hopelessly inadequate number at the same time.<span class="forewardHidden"> Distilling a sesquicentennial into a collection of 150 miscellaneous objects is a formidable and time-consuming task — to say nothing of the intriguing rabbit holes that can hijack entire afternoons and led me to basements and attics and closets and boxes that held all sorts of wondrous things.</span></p>
 
-        <p>The winnowed compilation presented on these pages is by no means exhaustive. Nor is it meant to be a comprehensive account of the University’s history. Rather, it’s an assemblage of artifacts that struck me as interesting, whether they commemorate a significant occurrence or influential personage in Purdue’s history or merely invoked my curiosity. The list leans toward my proclivities as editor, which encompass both the nostalgic and the obscure.</p>
+        <span class="forewardHidden"><p>The winnowed compilation presented on these pages is by no means exhaustive. Nor is it meant to be a comprehensive account of the University’s history. Rather, it’s an assemblage of artifacts that struck me as interesting, whether they commemorate a significant occurrence or influential personage in Purdue’s history or merely invoked my curiosity. The list leans toward my proclivities as editor, which encompass both the nostalgic and the obscure.</p>
 
         <p>It’s been fascinating to sift through collections public and private in search of meaningful and compelling items to feature. Thank you to everyone who made suggestions, sent along images, or started me off on wild goose chases (one of which led to a peacock!). There are a few individuals to whom I am especially indebted.</p>
 
@@ -33,7 +33,8 @@ $terms = get_terms( '150-category' );
 
         <p>Lastly, my earnest appreciation for Adriana Harmeyer, archivist for university history at Purdue’s Karnes Archives and Special Collections Research Center and possibly the most amiable person in the world. She answered heaps of questions, imparted expert insight, and facilitated access to some of the University’s most treasured artifacts. Adriana exudes joy in preserving history and educating others about the past. I would not have completed this gargantuan endeavor without her assistance. Any errors are my own.</p>
 
-        <p>This process has been both engrossing and educational. It is my sincere hope that <em>Purdue Alumnus</em> readers find the end result as rewarding as I do. <span style="color:#bababa;">—KAT BRAZ (LA’01)</span></p>
+        <p>This process has been both engrossing and educational. It is my sincere hope that <em>Purdue Alumnus</em> readers find the end result as rewarding as I do. <span style="color:#bababa;">—KAT BRAZ (LA’01)</span></p></span>
+        <a href="#" id="readmore">Read More</a>
     </div>
 </section>
 <section class="row" style="padding-bottom: .3em; text-align: right;">
@@ -96,7 +97,7 @@ if ( $the_query->have_posts() ) {
                     <div class="p150-item-detail__description">
                         <p>Join the Purdue Alumni Association today and get the next issue delivered straight to your door.</p>
                         <p>We have two more special sesquicentennial issues coming up.</p>
-                        <p>Don’t miss out. <a href="https://www.purduealumni.org/membership/membership-plans">Join today</a>.</p>
+                        <p>Don’t miss out. <a href="https://www.purduealumni.org/membership/membership-plans" id="alumnus-150-join">Join today</a>.</p>
                     </div>
                 </div>
             </div>
