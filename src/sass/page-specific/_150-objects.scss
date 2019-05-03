@@ -37,13 +37,12 @@
 }
 
 .foreward {
-    @include breakpoint(sm) {
-        column-count: 2;
-    }
+    max-width: 620px;
+    margin: auto;
+}
 
-    & p:first-of-type {
-        margin-top: 0;
-    }
+.forewardHidden {
+    display: none;
 }
 
 .p150-card-list {
