@@ -27,6 +27,7 @@ $( document ).ready( function () {
     var viewCount = 0;
     var threshold = 5;
     var prevId, nextId;
+    var justShowedAd = false;
 
     $("[data-150-categories]").addClass("visible");
 
@@ -70,32 +71,36 @@ $( document ).ready( function () {
 
         currentLightbox.hide().removeClass("visible");
 
-        var currentId = currentLightbox.attr("data-lightbox-id");
+        if ( ! justShowedAd ) {
+            var currentId = currentLightbox.attr("data-lightbox-id");
+            var currentCard = $(".card-container[data-object-id='" + currentId + "']");
+            var prevCard = currentCard.prevAll(".card-container:visible").first();
+            var nextCard = currentCard.nextAll(".card-container:visible").first();
 
-        if ( currentId != 99999 ) {
-            prevId = $(".card-container[data-object-id='"+currentId+"']").prev(".card-container:visible").attr("data-object-id");
-            nextId = $(".card-container[data-object-id='"+currentId+"']").next(".card-container:visible").attr("data-object-id");
-        }
+            prevId = prevCard.attr("data-object-id");
+            nextId = nextCard.attr("data-object-id");
 
-        // handle looping
-        if ( prevId == undefined ) {
-            prevId = $(".card-container:visible").last().attr("data-object-id");
-        }
-        if ( nextId == undefined ) {
-            nextId = $(".card-container:visible").first().attr("data-object-id");
+            // handle looping
+            if ( prevId == undefined ) {
+                prevId = $(".card-container:visible").last().attr("data-object-id");
+            }
+            if ( nextId == undefined ) {
+                nextId = $(".card-container:visible").first().attr("data-object-id");
+            }
         }
 
         if ( viewCount % threshold == 0 ) {
+            justShowedAd = true;
             $(".p150-lightbox-background--membership").show().addClass("visible");
         } else {
+            justShowedAd = false;
             if ( $(this).attr("class").indexOf("next") != -1 ) {
                 $(".p150-lightbox-background[data-lightbox-id='"+nextId+"']").show().addClass("visible");
             } else {
                 $(".p150-lightbox-background[data-lightbox-id='"+prevId+"']").show().addClass("visible");
             }
         }
-        console.log('viewCount: '+viewCount);
-        console.log('threshold: '+threshold);
+
         if (viewCount == 5 && threshold == 5) {
             viewCount = 0;
             threshold = 10;
@@ -106,4 +111,10 @@ $( document ).ready( function () {
         $(".p150-lightbox-background").hide().removeClass("visible");
         $("body").toggleClass("no-scroll");
     }
+
+    $("#readmore").click( function(event) {
+        event.preventDefault();
+        $(".forewardHidden").show();
+        $("#readmore").remove();
+    })
 });
