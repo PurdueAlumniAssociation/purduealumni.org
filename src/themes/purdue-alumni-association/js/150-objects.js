@@ -23,22 +23,19 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-
-
 $( document ).ready( function () {
     var viewCount = 0;
     var threshold = 5;
     var prevId, nextId;
+    var justShowedAd = false;
 
     $("[data-150-categories]").addClass("visible");
 
     $("#category-select").change( function() {
 
         if (this.value === 'all') {
-            //alert( "show all" );
             $("[data-150-categories]").fadeIn('normal').addClass("visible");
         } else {
-            //alert( "show " + this.value );
             $("[data-150-categories]").hide(0).removeClass("visible");
             $("[data-150-categories~='" + this.value + "']").fadeIn('normal').addClass("visible");
         }
@@ -47,8 +44,11 @@ $( document ).ready( function () {
     $(".card-container").click( function(event) {
         event.preventDefault();
         viewCount = 0;
-        $("[data-lightbox-id='" + $(this).attr("data-object-id") + "']").show().addClass("visible");
+        var lightbox = $("[data-lightbox-id='" + $(this).attr("data-object-id") + "']")
+        lightbox.show().addClass("visible");
+        lightbox.find(".p150-lightbox__close-button").focus();
         $("body").toggleClass("no-scroll");
+
     })
 
     $(".p150-lightbox__close-button").click( function(event) {
@@ -71,61 +71,50 @@ $( document ).ready( function () {
 
         currentLightbox.hide().removeClass("visible");
 
-        var currentId = currentLightbox.attr("data-lightbox-id");
+        if ( ! justShowedAd ) {
+            var currentId = currentLightbox.attr("data-lightbox-id");
+            var currentCard = $(".card-container[data-object-id='" + currentId + "']");
+            var prevCard = currentCard.prevAll(".card-container:visible").first();
+            var nextCard = currentCard.nextAll(".card-container:visible").first();
 
-        if ( currentId != 99999 ) {
-            prevId = $(".card-container[data-object-id='"+currentId+"']").prev(".card-container:visible").attr("data-object-id");
-            nextId = $(".card-container[data-object-id='"+currentId+"']").next(".card-container:visible").attr("data-object-id");
-        }
+            prevId = prevCard.attr("data-object-id");
+            nextId = nextCard.attr("data-object-id");
 
-        // handle looping
-        if ( prevId == undefined ) {
-            prevId = $(".card-container:visible").last().attr("data-object-id");
-        }
-        if ( nextId == undefined ) {
-            nextId = $(".card-container:visible").first().attr("data-object-id");
+            // handle looping
+            if ( prevId == undefined ) {
+                prevId = $(".card-container:visible").last().attr("data-object-id");
+            }
+            if ( nextId == undefined ) {
+                nextId = $(".card-container:visible").first().attr("data-object-id");
+            }
         }
 
         if ( viewCount % threshold == 0 ) {
+            justShowedAd = true;
             $(".p150-lightbox-background--membership").show().addClass("visible");
         } else {
+            justShowedAd = false;
             if ( $(this).attr("class").indexOf("next") != -1 ) {
                 $(".p150-lightbox-background[data-lightbox-id='"+nextId+"']").show().addClass("visible");
             } else {
                 $(".p150-lightbox-background[data-lightbox-id='"+prevId+"']").show().addClass("visible");
             }
         }
-    })
 
-    // $(".p150-item-detail__next").click( function(event) {
-    //     event.preventDefault();
-    //
-    //     viewCount += 1;
-    //
-    //     var currentLightbox = $(".p150-lightbox-background:visible");
-    //
-    //     currentLightbox.hide().removeClass("visible");
-    //
-    //     var currentId = currentLightbox.attr("data-lightbox-id");
-    //
-    //     if ( currentId != 99999 ) {
-    //         nextId = $(".card-container[data-object-id='"+currentId+"']").next(".card-container:visible").attr("data-object-id");
-    //     }
-    //
-    //     // first object will return undefined
-    //     if ( nextId == undefined ) {
-    //         nextId = $(".card-container:visible").first().attr("data-object-id");
-    //     }
-    //
-    //     if ( viewCount % threshold == 0 ) {
-    //         $(".p150-lightbox-background--membership").show().addClass("visible");
-    //     } else {
-    //         $(".p150-lightbox-background[data-lightbox-id='"+nextId+"']").show().addClass("visible");
-    //     }
-    // })
+        if (viewCount == 5 && threshold == 5) {
+            viewCount = 0;
+            threshold = 10;
+        }
+    })
 
     function hideAllLightboxes() {
         $(".p150-lightbox-background").hide().removeClass("visible");
         $("body").toggleClass("no-scroll");
     }
+
+    $("#readmore").click( function(event) {
+        event.preventDefault();
+        $(".forewardHidden").show();
+        $("#readmore").remove();
+    })
 });

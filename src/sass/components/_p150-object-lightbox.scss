@@ -35,7 +35,7 @@
 
     &__close-button {
         text-align: center;
-        color: white;
+        color: $almost-black;
         position: absolute;
         top: .3em;
         right: .3em;
@@ -68,6 +68,11 @@
         height: auto;
     }
 
+    &__share-container {
+        text-align: right;
+        margin-bottom: 1em;
+    }
+
     & .fas {
         width: 16px;
         text-align: right;
@@ -92,6 +97,14 @@
         margin-top: 1em;
     }
 
+    &__description {
+        & .fas, & .fab {
+            min-width: 18px;
+            margin-right: .25em;
+            color: $campus-gold;
+        }
+    }
+
     &__courtesy {
         font-style: italic;
         font-size: .85em;
@@ -106,7 +119,7 @@
         display: inline-block;
     }
 
-    &__mobile-nav {
+    &__nav {
         display: flex;
         margin-top: 2em;
         height: 50px;
@@ -135,6 +148,7 @@
 
     &__next-icon {
         margin-left: 10px;
+        text-align: left !important;
     }
 
     @include breakpoint(sm) {

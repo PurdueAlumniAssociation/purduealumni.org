@@ -2,7 +2,11 @@
 
 // styles that apply to the 150 items page
 .banner {
-    height: auto;
+
+    &__video {
+        max-width: 100%;
+        height: auto;
+    }
 }
 
 .items-intro {
@@ -32,17 +36,16 @@
     }
 }
 
+.foreward {
+    max-width: 620px;
+    margin: auto;
+}
+
+.forewardHidden {
+    display: none;
+}
+
 .p150-card-list {
     margin-left: 0;
     margin-right: 0;
-}
-
-.featherlight .featherlight-content {
-    padding: 2em;
-    background-color: $white !important;
-    border-bottom-width: 0;
-}
-
-.featherlight-loading .featherlight-content {
-    border-bottom-width: 8px;
 }
