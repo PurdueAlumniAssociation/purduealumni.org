@@ -148,6 +148,7 @@
 
     &__next-icon {
         margin-left: 10px;
+        text-align: left !important;
     }
 
     @include breakpoint(sm) {
