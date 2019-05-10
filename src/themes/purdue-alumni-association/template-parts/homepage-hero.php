@@ -22,11 +22,22 @@ function output_hero_banner( $id ) {
         // get image
         $img_src = $background_image['full_url'];
         $img_alt = $background_image['alt'];
+        $img_srcset = $background_image['srcset'];
 
         // build output
         $output = "<section class=\"row row--no-padding\">
                 <div class=\"homepage-hero\">
-                    <img class=\"homepage-hero__image\" src=\"${img_src}\" alt=\"${img_alt}\" />
+                    <img class=\"homepage-hero__image\" srcset=\"https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 320w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 360w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 375w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 411w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 414w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 768w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 800w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1024w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1600w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1920w,
+                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 2400w\" src=\"${img_src}\" alt=\"${img_alt}\" />
                     ${dark_overlay}
                     <div class=\"homepage-hero__content-container\">
                         <div class=\"homepage-hero__primary\">
