@@ -27,17 +27,17 @@ function output_hero_banner( $id ) {
         // build output
         $output = "<section class=\"row row--no-padding\">
                 <div class=\"homepage-hero\">
-                    <img class=\"homepage-hero__image\" srcset=\"https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 320w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 360w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 375w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 411w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 414w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 768w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 800w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1024w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1600w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 1920w,
-                    https://www.purduealumni.org/wp-content/uploads/homepage-hero_clifton-strengths.gif 2400w\" src=\"${img_src}\" alt=\"${img_alt}\" />
+                    <img class=\"homepage-hero__image\" srcset=\"${img_srcset} 320w,
+                    ${img_srcset} 360w,
+                    ${img_srcset} 375w,
+                    ${img_srcset} 411w,
+                    ${img_srcset} 414w,
+                    ${img_srcset} 768w,
+                    ${img_srcset} 800w,
+                    ${img_srcset} 1024w,
+                    ${img_srcset} 1600w,
+                    ${img_srcset} 1920w,
+                    ${img_srcset} 2400w\" src=\"${img_src}\" alt=\"${img_alt}\" />
                     ${dark_overlay}
                     <div class=\"homepage-hero__content-container\">
                         <div class=\"homepage-hero__primary\">
