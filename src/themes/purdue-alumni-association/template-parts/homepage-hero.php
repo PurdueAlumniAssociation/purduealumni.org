@@ -24,6 +24,8 @@ function output_hero_banner( $id ) {
         $img_alt = $background_image['alt'];
         $img_srcset = $background_image['srcset'];
 
+        echo "<pre>" . print_r($background_image) . "</pre>";
+
         // build output
         $output = "<section class=\"row row--no-padding\">
                 <div class=\"homepage-hero\">
