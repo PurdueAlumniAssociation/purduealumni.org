@@ -19,3 +19,17 @@ new GWEmailDomainControl(array(
     'validation_message' => __('Whoops! At some point Purdue will delete your <strong>%s</strong> email account, and we want to be able to stay in touch afterwards. Please provide an alternate email address.'),
     'mode' => 'ban'
 ));
+
+
+function paa_include_paypal_comment1( $args, $form_id ) {
+    $form = GFAPI::get_form( $form_id );
+
+    if ( strlen($form['title']) > 0 ) {
+        $form_title = substr( $form['title'], 0, 127 );
+
+        $args['COMMENT1'] = $form_title;
+    }
+
+    return $args;
+}
+add_filter( 'gform_paypalpaymentspro_args_before_payment', 'paa_include_paypal_comment1', 10, 2 );
