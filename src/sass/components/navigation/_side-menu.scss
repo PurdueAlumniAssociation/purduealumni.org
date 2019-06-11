@@ -12,6 +12,7 @@
         & li {
             margin-top: 1em;
             line-height: 1.25em;
+            list-style-type: none;
 
             & a {
                 text-decoration: none;
@@ -22,5 +23,9 @@
                 }
             }
         }
+    }
+
+    & .current-menu-item {
+      color: $digital-gold;
     }
 }
