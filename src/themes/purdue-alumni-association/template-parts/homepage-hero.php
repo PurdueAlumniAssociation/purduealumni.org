@@ -33,24 +33,6 @@ function output_hero_banner( $id ) {
                     ${dark_overlay}
                     <div class=\"homepage-hero__content-container\">
                         <div class=\"homepage-hero__primary\">
-                            <h2 class=\"homepage-hero__title\">${heading}</h2>";
-
-        if ( isset( $button_label ) && !empty( $button_label ) && isset( $button_url ) && !empty( $button_url ) ) {
-            $output .= "<a class=\"button button--gold\" href=\"${button_url}\"${target}>${button_label}</a>";
-        }
-
-        if ( isset( $content ) ) {
-            $output .= "<p>${content}</p>";
-        }
-
-        $output .=     "</div>
-                    </div>
-                </div>
-            </section>";
-    } else {
-        // fallback
-        $output = '';
-    }
 
     echo $output;
 }
