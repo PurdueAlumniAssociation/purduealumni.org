@@ -38,6 +38,12 @@ function paa_scripts_and_styles() {
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
+        case "page-150-innovations.php":
+            wp_enqueue_style( '150-innovations-intro', get_template_directory_uri() . '/css/150-innovations-intro.css' );
+            break;
+        case "page-150-innovations-section.php":
+            wp_enqueue_style( '150-innovations', get_template_directory_uri() . '/css/150-innovations.css' );
+            break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
