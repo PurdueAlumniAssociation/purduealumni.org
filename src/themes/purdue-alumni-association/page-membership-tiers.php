@@ -5,21 +5,10 @@
 ?>
 <?php get_header(); ?>
 <main id="main" tabindex="-1">
-            <h1 class="text-center">Membership Plans</h1>
             <?php //<p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>?>
-            <h2>Purdue obviously means a lot to you &mdash; it’s the place you grew up, fell in love, or learned your craft. Your roots are here. We want to help you maintain those traditions and memories. We want to help you along life's journey.</h2>
-<h2>So whether it's discounts on Purdue gear and online courses or whether it's exclusive events and skills training, you belong here. Just like always.</h2>
-    <section class="row row--slim flex flex--space-between">
-        <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section2' ) ); ?>">Current Members</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section2' ) ); ?>">Current Members - Click here for upgrade info</a>
-        </p>
-        <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
-        </p>
-    </section>
     <section class="row">
+      <h1 class="text-center">Membership Plans</h1>
+      <h3 class="text-center">Find out which plan is right for you</h3>
         <div class="pricing-table">
             <div class="pricing-table__plan plan plan--basic">
                 <h2 class="plan__title">Basic</h2>
@@ -74,16 +63,12 @@
         </p>
     </section>
     <section class="row">
-      <h1 class="text-center">Frequently Asked Questions</h2>
+      <h2 class="text-left">Frequently Asked Questions</h2>
         <div class="container">
           <div class="bootstrap-row">
           <div class="col-xs-12 col-sm-4">
             <h3>Do I have to be an alumnus of Purdue University?</h3>
             <p>No! Our membership plans and benefits are geared towards Purdue grads, but membership is not limited to graduates of the university.</p>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <h3>How do I know which plan is right for me?</h3>
-            <p>Take a look at our <a href="https://www.purduealumni.org/membership/membership-plans/detailed-plan-comparison/">detailed comparison table</a> to find out exactly what each plan offers and which is the best choice for you.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
             <h3>Why are you discontinuing life membership?</h3>
@@ -100,10 +85,6 @@
           <div class="col-xs-12 col-sm-4">
             <h3>Is it possible to switch to another plan after signing up?</h3>
             <p>Yes! Our plans are designed to fit your needs and goals. If your situation changes, please call us at 800-414-1541 and ask to speak with our membership team.</p>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <h3>How can I redeem a coupon code?</h3>
-            <p>You’ll be able to add your coupon code during the checkout process. The corresponding discount will be applied to your order.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
             <h3>How can I redeem a coupon code?</h3>
