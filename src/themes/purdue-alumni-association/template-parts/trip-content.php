@@ -38,7 +38,7 @@ function output_display_date($start_date, $end_date) {
     echo $display_date;
 }
 ?>
-<p class="trip__date"><?php output_display_date($start_date, $end_date); ?></p>
+<p class="trip__date"><?php output_display_date($start_date, $end_date); ?></p>  
 
 <?php the_content(); ?>
 <?php
