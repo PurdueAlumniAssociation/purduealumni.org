@@ -6,42 +6,39 @@
 <?php get_header(); ?>
   <?php if ( is_active_sidebar( 'left-sidebar' ) ) : ?>
       <section class="row">
-          <div class="layout">
-              <div class="layout__main">
-                  <main class="" id="main" tabindex="-1">
-                      <div class="innovations-150">
-                        <div class="innovations-150__item">
-                          <p class="innovations-150__gold-header">&mdash; Agriculture &mdash;</p>
-                          <p class="innovations-150__black-header">Breeding Apples</p>
-                          <p>Purdue University has the largest apple-breeding program in the world. Jules Janick, apple geneticist,
-                            has created more than 20 varieties of apples and pears. The partnership with Rutgers,
-                            the State University of New Jersey and the University of Illinois dates back to 1945,
-                            as researchers looked to breed apples resistant to scab caused by a fungal pathogen. Up to the present,
-                            1,500 selections have been made, of which 44 have been released for advanced testing.
-                            A number of the advanced selections have been patented.</p>
-                          <div style="text-align:center;">
-                            <div class="innovations-150__img-cont">
-                              <img class="innovations-150__img" src="http://via.placeholder.com/400x300" alt="" />
-                              <div class="innovations-150__credit-box"><i class="fas fa-camera"></i>
-                                <p class="innovations-150__credit">Purdue Research Foundation</p>
-                              </div>
-                            </div>
+            <div class="layout">
+                <div class="layout__main">
+                    <main class="" id="main" tabindex="-1">
+                  <div class="innovations-150-item">
+                    <h1 style="text-align:center; margin-bottom: 2rem;><?php the_title(); ?></h1>
+                      <p class="innovations-150-item__gold-header">&mdash; Agriculture &mdash;</p>
+                      <p class="innovations-150-item__black-header">Breeding Apples</p>
+                      <p>Purdue University has the largest apple-breeding program in the world. Jules Janick, apple geneticist,
+                          has created more than 20 varieties of apples and pears. The partnership with Rutgers,
+                          the State University of New Jersey and the University of Illinois dates back to 1945,
+                          as researchers looked to breed apples resistant to scab caused by a fungal pathogen. Up to the present,
+                          1,500 selections have been made, of which 44 have been released for advanced testing.
+                          A number of the advanced selections have been patented.</p>
+                      <div class="innovations-150-item__image-container">
+                          <img class="innovations-150-item__image" src="http://via.placeholder.com/700x400" alt="" />
+                          <div class="innovations-150-item__credit-container">
+                              <i class="fas fa-camera innovations-150-item__credit-icon"></i><p class="innovations-150-item__credit">Purdue Research Foundation</p>
                           </div>
-                          <hr>
-                        </div>
-                        <div class="innovations-150__item">
-                          <p class="innovations-150__gold-header">&mdash; Agriculture &mdash;</p>
-                          <p class="innovations-150__black-header">Corn and Sorghum</p>
-                          <p class="innovations-150__content">Both high-lysine corn and high-lysine sorghum were developed by Purdue University researchers.
-                            The high-lysine mutant gene improves the quality of protein, increasing the nutritional value.</p>
-                          <hr>
-                        </div>
                       </div>
-                  </main>
+                  </div>
+                  <!-- <div class="innovations-150__item">
+                      <p class="innovations-150__gold-header">&mdash; Agriculture &mdash;</p>
+                      <p class="innovations-150__black-header">Corn and Sorghum</p>
+                      <p class="innovations-150__content">Both high-lysine corn and high-lysine sorghum were developed by Purdue University researchers.
+                          The high-lysine mutant gene improves the quality of protein, increasing the nutritional value.</p>
+                      <hr>
+                  </div> -->
+              <!-- </section> -->
               </div>
               <aside class="layout__sidebar">
                   <?php dynamic_sidebar( 'left-sidebar' ); ?>
               </aside>
+            </main>
           </div>
       </section>
   <?php else : ?>
