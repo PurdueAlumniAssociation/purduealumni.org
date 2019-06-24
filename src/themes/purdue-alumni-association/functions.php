@@ -38,10 +38,8 @@ function paa_scripts_and_styles() {
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
-        case "page-150-innovations.php":
-            wp_enqueue_style( '150-innovations-intro', get_template_directory_uri() . '/css/150-innovations-intro.css' );
-            break;
         case "page-150-innovations-section.php":
+        case "page-150-innovations.php":
             wp_enqueue_style( '150-innovations', get_template_directory_uri() . '/css/150-innovations.css' );
             break;
         default:
