@@ -10,7 +10,7 @@
                 <div class="layout__main">
                     <main class="" id="main" tabindex="-1">
                   <div class="innovations-150-item">
-                    <h1 style="text-align:center; margin-bottom: 2rem;""><?php the_title(); ?></h1>
+                    <h1 style="text-align:center; margin-bottom: 2rem;"><?php the_title(); ?></h1>
                       <p class="innovations-150-item__gold-header">&mdash; Agriculture &mdash;</p>
                       <p class="innovations-150-item__black-header">Breeding Apples</p>
                       <p>Purdue University has the largest apple-breeding program in the world. Jules Janick, apple geneticist,
