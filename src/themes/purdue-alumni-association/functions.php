@@ -42,6 +42,10 @@ function paa_scripts_and_styles() {
         case "page-150-innovations.php":
             wp_enqueue_style( '150-innovations', get_template_directory_uri() . '/css/150-innovations.css' );
             break;
+        case "page-pase-scholarship.php":
+            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship.js', array('jquery'), '1.0.0', true );
+            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
+            break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
