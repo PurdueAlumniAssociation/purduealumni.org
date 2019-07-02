@@ -2,7 +2,6 @@
 
 // styles that apply to the 150 innovations page
 .innovations-150-item {
-    max-width: 700px;
 
     &__gold-header {
         color: $campus-gold;
@@ -29,7 +28,6 @@
     }
 
     &__image-container {
-        display: inline-block;
         text-align: left;
     }
 

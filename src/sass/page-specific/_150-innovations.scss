@@ -33,13 +33,11 @@
     &__subtitle {
         font-size: 1.3em;
         line-height: 1.2;
-        font-weight: 100;
         display: block;
         margin: 0;
         font-family: $barlow;
         color: #000000;
         text-align: center;
-        display: absolute;
         margin-top: 1rem;
     }
 
@@ -85,4 +83,8 @@
     background-color: $light-gray;
     padding: 1em 3em;
     margin-bottom: 3.5rem;
+}
+
+.innovations-150-content-wrapper {
+  max-width: 700px;
 }
