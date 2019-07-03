@@ -15,75 +15,75 @@
         <div class="container">
             <div class="bootstrap-row" style="text-align:center;">
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/agriculture/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Agriculture.jpg" alt="wheat" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/agriculture/">Agriculture</a></h2>
+                        <h2 class="innovations-150-tile__title">Agriculture</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/athletics/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Athletics.jpg" alt="swimmer" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/athletics/">Athletics</a></h2>
+                        <h2 class="innovations-150-tile__title">Athletics</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/engineering/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Engineering.jpg" alt="sketch" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/engineering/">Engineering</a></h2>
+                        <h2 class="innovations-150-tile__title">Engineering</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/global-impact/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Global.jpg" alt="Kids" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/global-impact/">Global Impact</a></h2>
+                        <h2 class="innovations-150-tile__title">Global Impact</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/health/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Health.jpg" alt="Nurse" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/health/">Health</a></h2>
+                        <h2 class="innovations-150-tile__title">Health</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/humanities/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Humanities.jpg" alt="Radio Host" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/humanities/">Humanities</a></h2>
+                        <h2 class="innovations-150-tile__title">Humanities</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/research/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Research.jpg" alt="Microscope" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/research/">Research</a></h2>
+                        <h2 class="innovations-150-tile__title">Research</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/science/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Science.jpg" alt="Chemical in graduated cylinder" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/science/">Science</a></h2>
+                        <h2 class="innovations-150-tile__title">Science</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/space/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Space.jpg" alt="Astronaut" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/space/">Space</a></h2>
+                        <h2 class="innovations-150-tile__title">Space</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
-                    <a href="#" class="innovations-150-tile">
+                    <a href="https://www.purduealumni.org/150-innovations/technology/" class="innovations-150-tile">
                         <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Technology.jpg" alt="Airplane" />
-                        <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/technology/">Technology</a></h2>
+                        <h2 class="innovations-150-tile__title">Technology</h2>
                     </a>
                 </div>
                   <div class="col-xs-12 col-sm-6 col-md-4">
-                      <a href="#" class="innovations-150-tile">
+                      <a href="https://www.purduealumni.org/150-innovations/firsts/" class="innovations-150-tile">
                           <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Firsts.jpg" alt="Marching Band" />
-                          <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/firsts/">Purdue Firsts</a></h2>
+                          <h2 class="innovations-150-tile__title">Purdue Firsts</h2>
                       </a>
                   </div>
                     <div class="col-xs-12 col-sm-6 col-md-4">
-                        <a href="#" class="innovations-150-tile">
+                        <a href="https://www.purduealumni.org/150-innovations/trailblazers/" class="innovations-150-tile">
                             <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Trailblazers.jpg" alt="Mackey Arena Building" />
-                            <h2 class="innovations-150-tile__title"><a href="https://www.purduealumni.org/150-innovations/trailblazers/">Trailblazers</a></h2>
+                            <h2 class="innovations-150-tile__title">Trailblazers</h2>
                         </a>
                     </div>
             </div>
