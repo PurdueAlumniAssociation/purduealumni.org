@@ -22,11 +22,12 @@ function output_hero_banner( $id ) {
         // get image
         $img_src = $background_image['full_url'];
         $img_alt = $background_image['alt'];
+        $img_srcset = $background_image['srcset'];
 
         // build output
         $output = "<section class=\"row row--no-padding\">
                 <div class=\"homepage-hero\">
-                    <img class=\"homepage-hero__image\" src=\"${img_src}\" alt=\"${img_alt}\" />
+                    <img class=\"homepage-hero__image\" srcset=\"${img_srcset}\" src=\"${img_src}\" alt=\"${img_alt}\" />
                     ${dark_overlay}
                     <div class=\"homepage-hero__content-container\">
                         <div class=\"homepage-hero__primary\">
