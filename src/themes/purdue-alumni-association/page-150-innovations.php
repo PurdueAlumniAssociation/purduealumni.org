@@ -22,13 +22,13 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.purduealumni.org/150-innovations/athletics/" class="innovations-150-tile">
-                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Athletics.jpg" alt="swimmer" />
+                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Athletics-1.jpg" alt="swimmer" />
                         <h2 class="innovations-150-tile__title">Athletics</h2>
                     </a>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.purduealumni.org/150-innovations/engineering/" class="innovations-150-tile">
-                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Engineering.jpg" alt="sketch" />
+                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Engineering-1.jpg" alt="sketch" />
                         <h2 class="innovations-150-tile__title">Engineering</h2>
                     </a>
                 </div>
@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.purduealumni.org/150-innovations/health/" class="innovations-150-tile">
-                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Health.jpg" alt="Nurse" />
+                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Health-1.jpg" alt="Nurse" />
                         <h2 class="innovations-150-tile__title">Health</h2>
                     </a>
                 </div>
@@ -64,7 +64,7 @@
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-4">
                     <a href="https://www.purduealumni.org/150-innovations/space/" class="innovations-150-tile">
-                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Space.jpg" alt="Astronaut" />
+                        <img class="innovations-150-tile__image" src="https://www.purduealumni.org/wp-content/uploads/intro_Space-1.jpg" alt="Astronaut" />
                         <h2 class="innovations-150-tile__title">Space</h2>
                     </a>
                 </div>
