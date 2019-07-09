@@ -57,7 +57,7 @@ function paa_scripts_and_styles() {
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
             } elseif ( wp_get_post_parent_id( $post->ID ) == 1060 ) {
-                wp_enqueue_script( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
+                wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
