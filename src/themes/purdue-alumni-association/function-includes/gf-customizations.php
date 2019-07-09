@@ -20,6 +20,16 @@ new GWEmailDomainControl(array(
     'mode' => 'ban'
 ));
 
+// exclude purdue.edu from email
+// Graduating Senior Information form
+new GWEmailDomainControl(array(
+    'form_id' => 87,
+    'field_id' => 2,
+    'domains' => array('purdue.edu'),
+    'validation_message' => __('Whoops! At some point Purdue will delete your <strong>%s</strong> email account, and we want to be able to stay in touch afterwards. Please provide an alternate email address.'),
+    'mode' => 'ban'
+));
+
 
 function paa_include_paypal_comment1( $args, $form_id ) {
     $form = GFAPI::get_form( $form_id );
