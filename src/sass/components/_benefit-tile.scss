@@ -1,5 +1,12 @@
 .benefit-tile {
-    background-color: red;
+    //background-color: red;
+
+    &:before {
+        content: "\00a0";
+        line-height: 1rem;
+        display: block;
+        border-top: 1px dashed $almost-black;
+    }
 
     &__image {
         max-width: 100%;
@@ -8,17 +15,18 @@
     }
 
     &__title {
-        margin-top: .5rem;
+        margin-top: 1rem;
         margin-bottom: 0;
+        line-height: 1.4;
     }
 
     &__description {
-        margin-top: .5rem;
+        margin-top: .7rem;
         margin-bottom: 0;
     }
 
     &__button {
-        margin-top: .7rem;
+        margin-top: .9rem;
         margin-bottom: 0;
     }
 }
