@@ -17,6 +17,14 @@
   }
 }
 
+.flag {
+  display:block;
+  max-width:300px;
+  height:10em;
+  border: 1px solid #000000;
+  float: right;
+}
+
 @mixin flag-icon($country) {
   .flag-icon-#{$country} {
     background-image: url(#{$flag-icon-css-path}#{$flag-icon-rect-path}/#{$country}.svg);
