@@ -1,0 +1,24 @@
+.benefit-tile {
+    background-color: red;
+
+    &__image {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    &__title {
+        margin-top: .5rem;
+        margin-bottom: 0;
+    }
+
+    &__description {
+        margin-top: .5rem;
+        margin-bottom: 0;
+    }
+
+    &__button {
+        margin-top: .7rem;
+        margin-bottom: 0;
+    }
+}
