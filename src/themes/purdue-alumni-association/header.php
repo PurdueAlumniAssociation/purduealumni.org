@@ -49,6 +49,7 @@
         <nav class="black-bar-menu">
             <ul id="menu-black-bar-links" class="black-bar-menu__list">
                 <li class="black-bar-menu__list-item"><a href="https://www.purduealumni.org/login"><i class="fa fa-key" aria-hidden="true"></i>Log In</a></li>
+                <li class="black-bar-menu__list-item"><a href="https://www.purduealumni.org/alumni-portal"><i class="fas fa-users" aria-hidden="true"></i>Alumni Portal</a></li>
                 <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
                 <li class="black-bar-menu__list-item"><a class="button button--gold button--bold button--small" id="black-bar-join" href="https://www.purduealumni.org/membership/membership-plans">Join Now</a></li>
             </ul>
