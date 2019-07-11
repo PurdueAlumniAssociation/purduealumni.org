@@ -25,7 +25,6 @@
             <li>Purdue Alumni Association. All Rights Reserved</li>
         </ul>
 </footer>
-<?php get_template_part( 'template-parts/login-lightbox' ); ?>
 <?php wp_footer(); ?>
 </body>
 </html>
