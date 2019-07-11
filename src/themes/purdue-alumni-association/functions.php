@@ -146,7 +146,8 @@ function add_search_box_to_menu( $items, $args ) {
                 </li>
                 <li class='primary-menu__list-item'>
                     <a class='primary-menu__link' href='https\://www.purduealumni.org/login'>Log In</a>
-                </li>" . $items;
+                </li>
+                <li class='black-bar-menu__list-item'><a href='https\://www.purduealumni.org/alumni-portal'><i class='fas fa-users' aria-hidden='true'></i>Alumni Portal</a></li>" . $items;
     }
 
     return $items;
