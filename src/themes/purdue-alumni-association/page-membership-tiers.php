@@ -5,10 +5,11 @@
 ?>
 <?php get_header(); ?>
 <main id="main" tabindex="-1">
-            <?php //<p>Purdue graduates are a diverse group of individuals with different goals, interests, stages of career, and resources. That’s why we are saying “goodbye” to the current one-size-fits-all membership and “Boiler Up!” to a new four-tier offering that allows you to choose the membership that’s right for you.</p>?>
     <section class="row">
-      <h1 class="text-center">Membership Plans</h1>
-      <h3 class="text-center">Find out which plan is right for you</h3>
+        <h1 class="membership-plans__title text-center">Membership Plans</h1>
+        <p class="membership-plans__subtitle text-center">Find out which plan is right for you</p>
+    </section>
+    <section class="row row--slim">
         <div class="pricing-table">
             <div class="pricing-table__plan plan plan--basic">
                 <h2 class="plan__title">Basic</h2>
@@ -68,27 +69,31 @@
           <div class="bootstrap-row">
           <div class="col-xs-12 col-sm-4">
             <h3>Do I have to be an alumnus of Purdue University?</h3>
-            <p>No! Our membership plans and benefits are geared towards Purdue grads, but membership is not limited to graduates of the university.</p>
+            <p>No! Our membership plans and benefits are geared towards Purdue grads, but membership is not only limited to graduates of the university.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
-            <h3>Why are you discontinuing life membership?</h3>
-            <p>With the need to deliver relevant membership offerings at different stages of life, combined with the need to maintain flexibility in programs and services offered, the life membership business model is simply no longer feasible. However, for those looking for longer-term membership, we now offer 3- and 10-year memberships at discounted rates.</p>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <h3>How can I cancel my membership?</h3>
-            <p>If you ever want to cancel your membership for any reason, please call us at 800-414-1541 and ask to speak with our membership team. We promise not to pester you about why you’re leaving.</p>
-          </div>
-          <div class="col-xs-12 col-sm-4">
-            <h3>Which payment methods do you accept?</h3>
-            <p>We accept all major credit cards.</p>
+            <h3>Which plan is right for me?</h3>
+            <p>Check out our <a href="https://www/purduealumni.org/membership/membership-plans/detailed-plan-comparison">detailed plan comparison</a> to compare the benefits each plan.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
             <h3>Is it possible to switch to another plan after signing up?</h3>
             <p>Yes! Our plans are designed to fit your needs and goals. If your situation changes, please call us at 800-414-1541 and ask to speak with our membership team.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
+            <h3>Which payment methods do you accept?</h3>
+            <p>We accept all major credit cards.</p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
             <h3>How can I redeem a coupon code?</h3>
             <p>You’ll be able to add your coupon code during the checkout process. The corresponding discount will be applied to your order.</p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <h3>How do I access my benefits?</h3>
+            <p>Log in to your account and click on the link to </p>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+            <h3>How can I cancel my membership?</h3>
+            <p>If you ever want to cancel your membership for any reason, please call us at 800-414-1541 and ask to speak with our membership team. We promise not to pester you about why you’re leaving.</p>
           </div>
         </div>
       <p class= "text-center"><a href="https://www.purduealumni.org/membership/membership-plans/frequently-asked-questions/">View all FAQs</a></p>
