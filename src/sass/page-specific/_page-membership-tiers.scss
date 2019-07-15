@@ -35,6 +35,18 @@ body {
     }
 }
 
+.membership-plans {
+    &__title {
+
+    }
+
+    &__subtitle {
+        @extend h3;
+        margin-top: .5em;
+        font-weight: 400;
+    }
+}
+
 .plan__join {
     white-space: nowrap;
 }
