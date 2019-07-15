@@ -88,10 +88,6 @@
             <p>You’ll be able to add your coupon code during the checkout process. The corresponding discount will be applied to your order.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
-            <h3>How do I access my benefits?</h3>
-            <p>Log in to your account and click on the link to </p>
-          </div>
-          <div class="col-xs-12 col-sm-4">
             <h3>How can I cancel my membership?</h3>
             <p>If you ever want to cancel your membership for any reason, please call us at 800-414-1541 and ask to speak with our membership team. We promise not to pester you about why you’re leaving.</p>
           </div>
