@@ -4,6 +4,11 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 add_image_size( 'Medium-Large size', 500, 500 );
 
+function paa_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'paa_add_woocommerce_support' );
+
 // Add common styles
 function paa_scripts_and_styles() {
     // load custom template styles or default to basic common styles
