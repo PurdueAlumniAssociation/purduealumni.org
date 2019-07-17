@@ -60,6 +60,7 @@ gulp.task('connect', function() {
 gulp.task('wordpress', function () {
     gulp.src(['src/themes/purdue-alumni-association/**/*.php', 'src/themes/purdue-alumni-association/**/*.js'])
     .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/'))
+    .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/wc/wp-content/themes/purdue-alumni-association/'))
 });
 
 // sass
