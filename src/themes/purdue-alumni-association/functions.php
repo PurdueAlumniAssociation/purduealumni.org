@@ -431,6 +431,7 @@ include 'function-includes/custom-query-vars.php';
 
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
+include 'function-includes/woocommerce-customizations.php';
 
 // 150 Objects Filters
 function paa_create_temp_column($fields) {
