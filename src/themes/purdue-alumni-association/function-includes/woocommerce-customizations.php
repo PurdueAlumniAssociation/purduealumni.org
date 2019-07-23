@@ -78,3 +78,26 @@ function paa_my_account_menu_order()
     return $items;
 }
 add_filter('woocommerce_account_menu_items', 'paa_my_account_menu_order');
+
+function add_custom_endpoints_to_title( $post_title )
+{
+    if ( ! is_account_page() ) {
+        return $post_title;
+    }
+
+    global $wp;
+
+    if ( isset( $wp->query_vars['my-benefits'] ) ) {
+        $post_title = 'My Benefits';
+    } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
+        $post_title = 'My Profile';
+    } elseif ( isset( $wp->query_vars['orders'] ) ) {
+        $post_title = 'Purchase History';
+    } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
+        $post_title = 'My Membership';
+    }
+
+    return $post_title;
+}
+
+add_filter( 'the_title', 'add_custom_endpoints_to_title');
