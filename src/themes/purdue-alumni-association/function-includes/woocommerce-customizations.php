@@ -2,6 +2,7 @@
 
 function paa_remove_tabs_my_account($items)
 {
+    unset($items['dashboard']);
     unset($items['downloads']);
     unset($items['edit-address']);
     //unset($items['customer-logout']);
