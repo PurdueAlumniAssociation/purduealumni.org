@@ -6,6 +6,7 @@ function paa_remove_tabs_my_account($items)
     unset($items['downloads']);
     unset($items['edit-address']);
     unset($items['members-area']);
+    unset($items['orders']);
 
     return $items;
 }
@@ -15,7 +16,6 @@ function paa_rename_tabs_my_account($items)
 {
     $items['subscriptions'] = 'My Membership';
     $items['edit-account'] = 'My Profile';
-    $items['orders'] = 'Purchase History';
     $items['payment-methods'] = 'Payment Methods';
 
     return $items;
