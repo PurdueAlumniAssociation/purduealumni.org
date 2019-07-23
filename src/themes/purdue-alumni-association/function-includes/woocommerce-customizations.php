@@ -6,6 +6,7 @@ function paa_remove_tabs_my_account($items)
     unset($items['downloads']);
     unset($items['edit-address']);
     unset($items['members-area']);
+    unset($items['orders']);
 
     return $items;
 }
@@ -15,7 +16,6 @@ function paa_rename_tabs_my_account($items)
 {
     $items['subscriptions'] = 'My Membership';
     $items['edit-account'] = 'My Profile';
-    $items['orders'] = 'Purchase History';
     $items['payment-methods'] = 'Payment Methods';
 
     return $items;
@@ -70,7 +70,6 @@ function paa_my_account_menu_order()
         'my-benefits'            => __( 'My Benefits', 'woocommerce' ),
         'subscriptions'          => __( 'My Membership', 'woocommerce'),
         'edit-account'           => __( 'My Profile', 'woocommerce' ),
-        'orders'                 => __( 'Purchase History', 'woocommerce' ),
         'payment-methods'        => __( 'Payment Methods', 'woocommerce' ),
         'customer-logout'        => __( 'Logout', 'woocommerce' )
     );
@@ -91,8 +90,6 @@ function add_custom_endpoints_to_title( $post_title )
         $post_title = 'My Benefits';
     } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
         $post_title = 'My Profile';
-    } elseif ( isset( $wp->query_vars['orders'] ) ) {
-        $post_title = 'Purchase History';
     } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
         $post_title = 'My Membership';
     }
