@@ -78,7 +78,7 @@ function paa_my_account_menu_order()
 }
 add_filter('woocommerce_account_menu_items', 'paa_my_account_menu_order');
 
-function add_custom_endpoints_to_title( $post_title )
+function add_custom_titles_for_endpoints( $post_title )
 {
     if ( ! is_account_page() ) {
         return $post_title;
@@ -90,11 +90,12 @@ function add_custom_endpoints_to_title( $post_title )
         $post_title = 'My Benefits';
     } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
         $post_title = 'My Profile';
-    } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
+    } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
         $post_title = 'My Membership';
+    } elseif ( isset( $wp->query_vars['payment-methods'] ) ) {
+        $post_title = 'Payment Methods';
     }
 
     return $post_title;
 }
-
-add_filter( 'the_title', 'add_custom_endpoints_to_title');
+add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
