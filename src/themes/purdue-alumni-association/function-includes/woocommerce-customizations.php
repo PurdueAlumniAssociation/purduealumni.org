@@ -2,10 +2,10 @@
 
 function paa_remove_tabs_my_account($items)
 {
-    // unset($items['dashboard']);
-    // unset($items['downloads']);
-    // unset($items['edit-address']);
-    // unset($items['members-area']);
+    unset($items['dashboard']);
+    unset($items['downloads']);
+    unset($items['edit-address']);
+    unset($items['members-area']);
 
     return $items;
 }
@@ -13,10 +13,10 @@ add_filter('woocommerce_account_menu_items', 'paa_remove_tabs_my_account', 999);
 
 function paa_rename_tabs_my_account($items)
 {
-    // $items['subscriptions'] = 'My Membership';
-    // $items['edit-account'] = 'My Profile';
-    // $items['orders'] = 'Purchase History';
-    // $items['payment-methods'] = 'Payment Methods';
+    $items['subscriptions'] = 'My Membership';
+    $items['edit-account'] = 'My Profile';
+    $items['orders'] = 'Purchase History';
+    $items['payment-methods'] = 'Payment Methods';
 
     return $items;
 }
@@ -33,15 +33,15 @@ add_filter( 'woocommerce_account_menu_items', 'paa_add_my_account_links', 999 );
 // show addresses in My Profile page
 add_action( 'woocommerce_account_edit-account_endpoint', 'woocommerce_account_edit_address' );
 
-// function paa_rename_shipping_address_text( $translated, $text, $domain )
-// {
-//     if ( $text === 'Shipping address' ) {
-//         $translated = __('Mailing address', $domain );
-//     }
-//
-//     return $translated;
-// }
-// add_filter( 'gettext', 'paa_rename_shipping_address_text', 10, 3 );
+function paa_rename_shipping_address_text( $translated, $text, $domain )
+{
+    if ( $text === 'Shipping address' ) {
+        $translated = __('Mailing address', $domain );
+    }
+
+    return $translated;
+}
+add_filter( 'gettext', 'paa_rename_shipping_address_text', 10, 3 );
 
 // add My Benefits section
 function paa_add_my_account_endpoints()
