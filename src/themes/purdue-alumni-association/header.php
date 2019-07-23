@@ -46,15 +46,15 @@
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main" class="skip-to">Skip to Main Content</a>
     <header class="black-bar">
-        <?php if ( has_nav_menu( 'black-bar' ) ) : ?>
+        <?php if (has_nav_menu('black-bar-menu')) : ?>
             <?php
-                wp_nav_menu( array(
-                    'theme_location'    => 'black-bar',
+                wp_nav_menu(array(
+                    'theme_location'    => 'black-bar-menu',
                     'container'         => 'nav',
-                    'container_class'   => 'black-bar-menu'
+                    'container_class'   => 'black-bar-menu',
                     'menu_class'        => 'black-bar-menu__list',
                     'menu_id'           => 'menu-black-bar-links'
-                 ) );
+                 ));
             ?>
         <?php endif; ?>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
