@@ -55,13 +55,24 @@
                 // } else {
                 // 	// no posts found
                 // }
-
+function output_benefit_tile($name, $image, $dsc, $url, $size) {
+echo "<div class=\"col-xs-12 col-sm-{$size}\">
+    <div class=\"benefit-tile\">
+    <img class=\"benefit-tile__image\" src=\"{$image[0]['full_url']}\" alt=\"benefit image\" />
+    <h3 class=\"benefit-tile__title\">{$name}</h3>
+    <p class=\"benefit-tile__description\">{$dsc}</p>";
+    if ( $url != '' ) {
+          echo " <a class=\"button benefit-tile__button\" href=\"{$url}\" rel=\"noopener\">Access Benefit</a>";
+    }
+    echo " </div>";
+    echo " </div>";
+  }
                 // get the benefit cpt ids
                 $benefit_args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_benefits' );
 
                 //$benefit_ids = rwmb_meta( 'benefit_selection', $benefit_args );
                 $benefit_ids = rwmb_meta( 'benefit_selection' );
-
+                $counter = 0;
                 foreach ( $benefit_ids as $benefit_id ) {
                     // reset vars for the next loop
                     $benefit__plans = "";
@@ -77,24 +88,42 @@
                     $benefit__member_description = rwmb_meta( 'benefit__member_description', $benefit_args, $benefit_id );
                     $benefit__public_url = rwmb_meta( 'benefit__public_url', $benefit_args, $benefit_id );
                     $benefit__member_url = rwmb_meta( 'benefit__member_url', $benefit_args, $benefit_id );
+                    $benefit__image = rwmb_meta( 'benefit__image', array_merge($benefit_args, array( 'limit' => 1)), $benefit_id );
 
                     $desc = $benefit__member_description;
                     if ( $desc == '' ) {
                         $desc = $benefit__public_description;
                     }
 
-                    $anchor = '';
-                    if ( $benefit__member_url != '' ) {
-                        $anchor = " <a href=\"{$benefit__member_url}\" rel=\"noopener\">Access Benefit</a>";
-                    }
+                    // $anchor = '';
+                    // if ( $benefit__member_url != '' ) {
+                    //     $anchor = " <a href=\"{$benefit__member_url}\" rel=\"noopener\">Access Benefit</a>";
+                    // }
+
 
                     if ( ! is_null( $benefit__plans ) ) { // bugfix - custom table has blank rows
                         if ( in_array( $plan, $benefit__plans ) ) {
-                            echo "<h2>{$benefit__name}</h2>\n";
-                            echo "<p>", $desc, $anchor, "</p>\n";
+                          if ($counter == 0) {
+                            echo " <div class=\"row bootstrap-row\">";
+                          }
+                          $counter++;
+
+                          if ($counter == 1 || $counter == 2) {
+                            output_benefit_tile ($benefit__name, $benefit__image, $benefit__member_description, $benefit__member_url, "6");
+                                if ( $counter == 2) {
+                                  echo "</div>";
+                                }
+                          }
+                          else {
+                            if ($counter == 3) {
+                              echo " <div class=\"row bootstrap-row\">";
+                            }
+                            output_benefit_tile ($benefit__name, $benefit__image, $benefit__member_description, $benefit__member_url, "3");
+                          }
                         }
                     }
                 }
+                echo " </div>";
                 ?>
             </main>
         </section>
