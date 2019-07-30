@@ -46,6 +46,9 @@ function paa_scripts_and_styles() {
             wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship.js', array('jquery'), '1.0.0', true );
             wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             break;
+        // case "page-dynamic-benefits.php":
+        //     wp_enqueue_style( 'benefit-tile', get_template_directory_uri() . '/css/benefit-tile.css' );
+        //     break;
         default:
             if ( is_front_page() ) {
                 wp_enqueue_style( 'front-page', get_template_directory_uri() . '/css/front-page.css' );
