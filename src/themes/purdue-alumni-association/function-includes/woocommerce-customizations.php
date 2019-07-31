@@ -1,4 +1,10 @@
 <?php
+function paa_alter_woocommerce_checkout_fields( $fields ) {
+     unset($fields['order']['order_comments']);
+     return $fields;
+}
+add_filter( 'woocommerce_checkout_fields' , 'paa_alter_woocommerce_checkout_fields' );
+add_filter( 'woocommerce_enable_order_notes_field', '__return_false', 9999 );
 
 function paa_remove_tabs_my_account($items)
 {
