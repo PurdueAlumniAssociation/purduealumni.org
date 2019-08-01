@@ -1,4 +1,17 @@
 <?php
+function paa_add_subscription_name_to_table($subscription)
+{
+    foreach ( $subscription->get_items() as $item_id => $item ) {
+        $_product = apply_filters('woocommerce_subscriptions_order_item_product', $subscription->get_product_from_item($item), $item);
+
+        if (apply_filters('woocommerce_order_item_visible', true, $item)) {
+            echo wp_kses_post(
+                apply_filters('woocommerce_order_item_name', $item['name'], $item));
+        }
+    }
+}
+add_action( 'woocommerce_my_subscriptions_after_subscription_id', 'paa_add_subscription_name_to_table', 35 );
+
 function paa_alter_woocommerce_checkout_fields( $fields ) {
      unset($fields['order']['order_comments']);
      return $fields;
@@ -96,8 +109,10 @@ function add_custom_titles_for_endpoints( $post_title )
         $post_title = 'My Benefits';
     } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
         $post_title = 'My Profile';
-    } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
+    } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
         $post_title = 'My Membership';
+    } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
+        $post_title = 'My Membership Details';
     } elseif ( isset( $wp->query_vars['payment-methods'] ) ) {
         $post_title = 'Payment Methods';
     }
