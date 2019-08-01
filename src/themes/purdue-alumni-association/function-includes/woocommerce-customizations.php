@@ -1,4 +1,34 @@
 <?php
+function paa_add_css_to_all_woocommerce_emails($css, $email)
+{
+    $css .= '
+       a { color: blue !important; }
+    ';
+    return $css;
+}
+add_filter( 'woocommerce_email_styles', 'paa_add_css_to_all_woocommerce_emails', 9999, 2 );
+
+function paa_add_css_to_specific_emails($css, $email)
+{
+    // if ($email->id == 'new_order') {
+    //    $css .= '
+    //       h2 { color: red }
+    //       h3 { font-size: 30px }
+    //    ';
+    // }
+    // if ( $email->id == 'cancelled_order' ) {}
+    // if ( $email->id == 'customer_completed_order' ) {}
+    // if ( $email->id == 'customer_invoice' ) {}
+    // if ( $email->id == 'customer_new_account' ) {}
+    // if ( $email->id == 'customer_note' ) {}
+    // if ( $email->id == 'customer_on_hold_order' ) {}
+    // if ( $email->id == 'customer_refunded_order' ) {}
+    // if ( $email->id == 'customer_reset_password' ) {}
+    // if ( $email->id == 'failed_order' ) {}
+    return $css;
+}
+add_filter( 'woocommerce_email_styles', 'paa_add_css_to_specific_emails', 9999, 2 );
+
 function paa_add_subscription_name_to_table($subscription)
 {
     foreach ( $subscription->get_items() as $item_id => $item ) {
