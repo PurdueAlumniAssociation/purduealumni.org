@@ -135,19 +135,23 @@ function add_custom_titles_for_endpoints( $post_title )
         return $post_title;
     }
 
-    global $wp;
+    if( is_admin() || in_the_loop() ) {
+        global $wp;
 
-    if ( isset( $wp->query_vars['my-benefits'] ) ) {
-        $post_title = 'My Benefits';
-    } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
-        $post_title = 'My Profile';
-    } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
-        $post_title = 'My Membership';
-    } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
-        $post_title = 'My Membership Details';
-    } elseif ( isset( $wp->query_vars['payment-methods'] ) ) {
-        $post_title = 'Payment Methods';
+        if ( isset( $wp->query_vars['my-benefits'] ) ) {
+            $post_title = 'My Benefits';
+        } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
+            $post_title = 'My Profile';
+        } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
+            $post_title = 'My Membership';
+        } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
+            $post_title = 'My Membership';
+        } elseif ( isset( $wp->query_vars['payment-methods'] ) ) {
+            $post_title = 'Payment Methods';
+        }
     }
+
+
 
     return $post_title;
 }
