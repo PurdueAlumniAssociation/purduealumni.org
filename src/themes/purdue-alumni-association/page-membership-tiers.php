@@ -73,7 +73,7 @@
           </div>
           <div class="col-xs-12 col-sm-4">
             <h3>Which plan is right for me?</h3>
-            <p>Check out our <a href="https://www/purduealumni.org/membership/membership-plans/detailed-plan-comparison">detailed plan comparison</a> to compare the benefits each plan.</p>
+            <p>Check out our <a href="https://www.purduealumni.org/membership/membership-plans/detailed-plan-comparison">detailed plan comparison</a> to compare the benefits each plan.</p>
           </div>
           <div class="col-xs-12 col-sm-4">
             <h3>Is it possible to switch to another plan after signing up?</h3>
