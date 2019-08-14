@@ -90,7 +90,7 @@
         </div>
         <div class="alumnus-credit-box">
             <p style="text-align:center;"><i>Purdue Alumnus</i> is made possible through the generous support of Alumni Association members. Join today to help sustain the future of the Purdue Alumnus magazine and other alumni programs. <strong>Visit
-                </strong><a href="https://www.purduealumni.org/membership/membership-plans/">purduealumni.org/membership.</a></p>
+                </strong><a href="https://www.purduealumni.org/membership/">purduealumni.org/membership.</a></p>
         </div>
     </section>
 </main>
