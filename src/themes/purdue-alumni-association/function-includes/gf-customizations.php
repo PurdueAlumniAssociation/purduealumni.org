@@ -68,4 +68,4 @@ function paa_autobill( $form )
 
     return $form;
 }
-add_filter( 'gform_pre_render_35', 'paa_autobill' ); // dev 35, prod 112
+add_filter( 'gform_pre_render_112', 'paa_autobill' ); // dev 35, prod 112
