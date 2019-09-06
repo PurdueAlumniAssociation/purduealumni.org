@@ -151,8 +151,6 @@ function add_custom_titles_for_endpoints( $post_title )
         }
     }
 
-
-
     return $post_title;
 }
 add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
