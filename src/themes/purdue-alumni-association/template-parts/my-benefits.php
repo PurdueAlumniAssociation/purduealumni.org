@@ -65,7 +65,7 @@ class Benefit
 
 $benefits = array();
 
-echo "<h2>My {$effective_membership_level} Benefits</h2>";
+echo "<h2>My Benefits</h2>";
 
 $args = array(
     'post_type' => 'benefit',
