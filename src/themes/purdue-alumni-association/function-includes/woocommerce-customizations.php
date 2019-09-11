@@ -154,3 +154,9 @@ function add_custom_titles_for_endpoints( $post_title )
     return $post_title;
 }
 add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
+
+// must test in dev
+// function paa_profile_update_notification( $user_id, $old_user_data ) {
+//     wp_mail("bholaday@purdue.edu", "update", "works");
+// }
+// add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
