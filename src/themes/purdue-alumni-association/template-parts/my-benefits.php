@@ -1,27 +1,6 @@
 <?php
 require_once( get_template_directory() . '/classes/Benefit.class.php' );
 
-// $memberships = wc_memberships_get_user_active_memberships();
-//
-// if (!empty($memberships)) {
-//     $membership_levels = array();
-//     foreach($memberships as $membership) {
-//         $membership_levels[] = $membership->plan->slug;
-//     }
-// }
-//
-// if (in_array("career-max", $membership_levels)) {
-//     $effective_membership_level = "Career Max";
-// } elseif (in_array("professional", $membership_levels)) {
-//     $effective_membership_level = "Professional";
-// } elseif (in_array("plus", $membership_levels)) {
-//     $effective_membership_level = "Plus";
-// } elseif (in_array("basic", $membership_levels)) {
-//     $effective_membership_level = "Basic";
-// } elseif (in_array("pase", $membership_levels)) {
-//     $effective_membership_level = "PASE";
-// }
-
 $benefits = array();
 
 echo "<h2>My Benefits</h2>";

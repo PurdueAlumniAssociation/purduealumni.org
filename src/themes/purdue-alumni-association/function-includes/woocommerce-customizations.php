@@ -76,6 +76,7 @@ add_filter('woocommerce_account_menu_items', 'paa_rename_tabs_my_account', 999);
 function paa_add_my_account_links($items)
 {
     $items['my-benefits'] = 'My Benefits';
+    $items['membership-card'] = 'Membership Card';
 
     return $items;
 }
@@ -98,6 +99,7 @@ add_filter( 'gettext', 'paa_rename_shipping_address_text', 10, 3 );
 function paa_add_my_account_endpoints()
 {
     add_rewrite_endpoint('my-benefits', EP_ROOT | EP_PAGES);
+    add_rewrite_endpoint('membership-card', EP_ROOT | EP_PAGES);
 }
 add_action('init', 'paa_add_my_account_endpoints');
 
@@ -115,12 +117,19 @@ function paa_my_benefits_content()
 }
 add_action('woocommerce_account_my-benefits_endpoint', 'paa_my_benefits_content');
 
+function paa_membership_card_content()
+{
+    get_template_part('template-parts/membership-card');
+}
+add_action('woocommerce_account_membership-card_endpoint', 'paa_membership_card_content');
+
 function paa_my_account_menu_order()
 {
     $items = array(
         'my-benefits'            => __( 'My Benefits', 'woocommerce' ),
         'subscriptions'          => __( 'My Membership', 'woocommerce'),
         'edit-account'           => __( 'My Profile', 'woocommerce' ),
+        'membership-card'        => __( 'Membership Card', 'woocommerce' ),
         'payment-methods'        => __( 'Payment Methods', 'woocommerce' ),
         'customer-logout'        => __( 'Logout', 'woocommerce' )
     );
