@@ -76,7 +76,7 @@ add_filter('woocommerce_account_menu_items', 'paa_rename_tabs_my_account', 999);
 function paa_add_my_account_links($items)
 {
     $items['my-benefits'] = 'My Benefits';
-    $items['membership-card'] = 'Membership Card';
+    $items['membership-card'] = 'My Membership Card';
 
     return $items;
 }
@@ -106,6 +106,7 @@ add_action('init', 'paa_add_my_account_endpoints');
 function paa_my_account_add_query_vars($vars)
 {
     $vars[] = 'my-benefits';
+    $vars[] = 'membership-card';
 
     return $vars;
 }
@@ -129,7 +130,7 @@ function paa_my_account_menu_order()
         'my-benefits'            => __( 'My Benefits', 'woocommerce' ),
         'subscriptions'          => __( 'My Membership', 'woocommerce'),
         'edit-account'           => __( 'My Profile', 'woocommerce' ),
-        'membership-card'        => __( 'Membership Card', 'woocommerce' ),
+        'membership-card'        => __( 'My Membership Card', 'woocommerce' ),
         'payment-methods'        => __( 'Payment Methods', 'woocommerce' ),
         'customer-logout'        => __( 'Logout', 'woocommerce' )
     );
@@ -151,6 +152,8 @@ function add_custom_titles_for_endpoints( $post_title )
             $post_title = 'My Benefits';
         } elseif ( isset( $wp->query_vars['edit-account'] ) ) {
             $post_title = 'My Profile';
+        } elseif ( isset( $wp->query_vars['membership-card'] ) ) {
+            $post_title = 'My Membership Card';
         } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
             $post_title = 'My Membership';
         } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
