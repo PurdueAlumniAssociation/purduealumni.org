@@ -2,6 +2,8 @@
 .woocommerce .col-1, .woocommerce .col-2 {
     max-width:none;
     flex: none;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 // fix odd alignment on address listings
