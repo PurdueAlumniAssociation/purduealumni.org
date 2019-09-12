@@ -1,0 +1,27 @@
+//fix conflict with bootstrap grid
+.woocommerce .col-1, .woocommerce .col-2 {
+    max-width:none;
+    flex: none;
+}
+
+// fix odd alignment on address listings
+.woocommerce-account .addresses .title h3,
+.woocommerce-account .addresses .title .edit {
+    float: none;
+}
+
+.woocommerce-Address-title.title h4 {
+    margin-top: .5em;
+}
+
+.woocommerce-Address {
+    & address {
+        font-style: normal;
+        line-height: 1.25;
+    }
+
+    & .edit {
+        display: block;
+        margin-top: .25em;
+    }
+}
