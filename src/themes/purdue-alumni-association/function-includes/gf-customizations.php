@@ -43,3 +43,12 @@ function paa_include_paypal_comment1( $args, $form_id ) {
     return $args;
 }
 add_filter( 'gform_paypalpaymentspro_args_before_payment', 'paa_include_paypal_comment1', 10, 2 );
+
+function paa_change_message( $message, $id ){
+    $link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS']
+            === 'on' ? "https" : "http") . "://" .
+            $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF'];
+
+    return "Oops! We could not find the form. <a href=\"mailto:alumnidigital@purdue.edu?subject=Form Not Found&body=There is a broken form here: {$link}\">Please let us know</a>.";
+}
+add_filter( 'gform_form_not_found_message', 'paa_change_message', 10, 2 );
