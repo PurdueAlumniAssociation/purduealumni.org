@@ -11,11 +11,16 @@
             <section class="row row--no-padding">
                 <img class="banner" src="<?php the_post_thumbnail_url(); ?>" alt="<?= $image_alt ?>" />
             </section>
-<?php } ?>
+<?php }
+        else { ?>
+          <section class="row row--no-padding">
+            <img class="banner" src="https://via.placeholder.com/1440x250"/>
+          </section>
+    <?php   }?>
         <section class="row">
             <main id="main" tabindex="-1">
                 <h1><?php the_title(); ?></h1>
-                <?php the_content();
+                <?php
             $country_codes = array("Afghanistan" => "AF",
                                   "Aland Islands" => "AX",
                                   "Albania" => "AL",
@@ -276,12 +281,12 @@
             $community__phone = rwmb_meta( 'community__phone' );
             $community__email = rwmb_meta( 'community__email' );
             $community__staff = rwmb_meta( 'community__staff' );
-            $social__channel = rwmb_meta( 'social__channel' );
-            $social__url = rwmb_meta( 'social__url' );
             $group__sm = rwmb_meta( 'group__sm' );
             $community__other = rwmb_meta( 'community__other' );
             $community__scholarship = rwmb_meta( 'community__scholarship' );
             $community__name = rwmb_meta( 'community__name' );
+            $widget__id = rwmb_meta( 'widget__id' );
+            $calendar__id = rwmb_meta( 'calendar__id' );
 
             ?>
     </main>
@@ -295,101 +300,101 @@
 
     <!-- Output location based on type of community -->
     <?php if($community__type == 'International') { ?>
-      <h3><?php echo $community__city . ", " . $community__country; ?></h3>
+      <h3><?= $community__city . ", " . $community__country; ?></h3>
     <?php }
     else { ?>
-      <h3><?php echo $community__city . ", " . $community__state; ?></h3>
+      <h3><?= $community__city . ", " . $community__state; ?></h3>
     <?php } ?>
 
     <!-- Output community description -->
-    <h4><?php echo $community__desc; ?></h4>
+    <h4><?= $community__desc; ?></h4>
 
     <!-- Output community contact with heading, contact name, phone number -->
     <h5>Community contact</h5>
 
-    <p><strong><?php echo $community__name; ?></strong></p>
+    <p><strong><?= $community__name; ?></strong></p>
 
-    <?php if($community__phone != "" ){ ?>
-      <p><strong><?php echo $community__phone; ?></strong></p>
+    <?php if(isset($community__phone)){ ?>
+      <p><strong><?= $community__phone; ?></strong></p>
     <?php } ?>
 
-    <?php if($community__email != "" ){ ?>
-      <p><a href="mailto:<?php echo $community__email?>"><?php echo $community__email; ?></a></p>
+    <?php if(isset($community__email)){ ?>
+      <p><a href="mailto:<?= $community__email?>"><?= $community__email; ?></a></p>
     <?php } ?>
 
     <!-- Output Purdue alumni staff contact -->
-    <?php if($community__staff != "" ){ ?>
-      <h5>Staff contact</h5><p><strong><?php echo $community__staff; ?></strong></p>
-    <?php } ?>
-
-    <?php if($community__staff == "Trevor Foley") { ?>
-      <p><strong><a href="mailto:trevorfoley@purdue.edu">trevorfoley@purdue.edu</a></strong></p>
-      <strong>765-494-5189</strong>
-      </br>
-    <?php  } ?>
-
-    <?php if($community__staff == "Courtney Magnuson") { ?>
-      <p><strong><a href="mailto:magnusc@purdue.edu">magnusc@purdue.edu</a></strong></p>
-      <strong>765-494-0430</strong>
-      </br>
-    <?php  } ?>
-
-    <?php if($community__staff == "Natalie Evans") { ?>
-      <p><strong><a href="mailto:evans352@purdue.edu">evans352@purdue.edu</a></strong></p>
-      <strong>765-496-6279</strong>
-      </br>
-    <?php  } ?>
-
-    <?php if($community__staff == "Maria Whipple") { ?>
-      <p><strong><a href="mailto:whipple@purdue.edu">whipple@purdue.edu</a></strong></p>
-      <strong>765-496-6281</strong>
-      </br>
-    <?php  } ?>
-
-    <?php if($community__staff == "Sharetha Marshall") { ?>
-      <p><strong><a href="mailto:srmarsha@purdue.edu">srmarsha@purdue.edu</a></strong></p>
-      </br>
-    <?php  } ?>
+    <?php if(isset($community__staff)){ ?>
+      <h5>Staff contact</h5><p><strong><?= $community__staff; ?></strong></p>
+      <?php switch ($community__staff) {
+        case 'Trevor Foley':
+          echo "<p><strong><a href=\"mailto:srmarsha@purdue.edu\">trevorfoley@purdue.edu</a></strong></p>";
+          echo "<strong>765-494-5189</strong>";
+          break;
+        case 'Courtney Magnuson':
+          echo "<p><strong><a href=\"mailto:srmarsha@purdue.edu\">magnusc@purdue.edu</a></strong></p>";
+          echo "<strong>765-494-0430</strong>";
+          break;
+        case 'Natalie Evans':
+          echo "<p><strong><a href=\"mailto:srmarsha@purdue.edu\">evans352@purdue.edu</a></strong></p>";
+          echo "<strong>765-496-6279</strong>";
+          break;
+        case 'Maria Whipple':
+          echo "<p><strong><a href=\"mailto:srmarsha@purdue.edu\">whipple@purdue.edu</a></strong></p>";
+          echo "<strong>765-496-6281</strong>";
+          break;
+        case 'Sharetha Marshall':
+          echo "<p><strong><a href=\"mailto:srmarsha@purdue.edu\">srmarsha@purdue.edu</a></strong></p>";
+          break;
+      }
+    } ?>
 
     </br>
 
     <!-- Output linked svg of selected social channel -->
-    <?php if($social__url != "" ){ ?>
-      <?php echo "<strong><p>Social Links</strong></p>"; ?>
-    <?php } ?>
+    <?php if(!empty($group__sm)){
+      echo "<h5>Connect with Us</h5>";
+       foreach ($group__sm as $social) {
+        if ($social['social__channel'] == 'Instagram') {
+          $fa_social_class = "fab fa-instagram";
+        }
 
-    <?php foreach ($group__sm as $social) {
-      if ($social['social__channel'] == 'Instagram') {
-        $social__type = "fab fa-instagram";
+        if ($social['social__channel'] == 'Facebook') {
+          $fa_social_class = "fab fa-facebook-square";
+        }
+
+        if ($social['social__channel'] == 'Twitter') {
+          $fa_social_class = "fab fa-twitter-square";
+        }
+
+        if ($social['social__channel'] == 'Youtube') {
+          $fa_social_class = "fab fa-youtube-square";
+        }
+
+        if ($social['social__channel'] == 'Graduway') {
+          $fa_social_class = "fas fa-graduation-cap";
+        }
+
+        echo "<a href=\"{$social['social__url']}\"><i style=\"padding-right: .25em\" class=\"{$fa_social_class} fa-5x\"></i></a>";
+
       }
-
-      if ($social['social__channel'] == 'Facebook') {
-        $social__type = "fab fa-facebook-square";
-      }
-
-      if ($social['social__channel'] == 'Twitter') {
-        $social__type = "fab fa-twitter-square";
-      }
-
-      if ($social['social__channel'] == 'Youtube') {
-        $social__type = "fab fa-youtube-square";
-      }
-
-      if ($social['social__channel'] == 'Graduway') {
-        $social__type = "fas fa-graduation-cap";
-      }
-
-      echo "<a href=\"{$social['social__url']}\"><i style=\"padding-right: .25em\" class=\"{$social__type} fa-5x\"></i></a>";
     } ?>
 
+
     <!-- Output other text outputs -->
-    <?php if($community__other != "" ){ ?>
-      <p><?php echo $community__other; ?></p>
+    <?php if(isset($community__other)){ ?>
+      <p><?= $community__other; ?></p>
     <?php } ?>
 
-    <?php if($community__scholarship != "" ){ ?>
-      <p><?php echo $community__scholarship; ?></p>
+    <?php if(isset($community__scholarship)){ ?>
+      <h2>Scholarship</h2>
+      <p><?= $community__scholarship; ?></p>
     <?php } ?>
+
+    <?php if(isset($widget__id)){
+      echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget__id}\" data-calendar-id=\"{$calendar__id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"  >   <script type=\"text/javascript\"> window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours; document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
+    } ?>
+  </br>
+    <p><a class="button" href="https://github.com/PurdueAlumniAssociation/purduealumni.org/pull/148">Request Changes</a></p>
 
   </div>
 </section>
