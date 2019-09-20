@@ -256,56 +256,76 @@ $country_codes = array("Afghanistan" => "AF",
 
 ?>
 <?php get_header(); ?>
-<?php if ( have_posts() ) : while ( have_posts() ) : the_post();
-        if ( has_post_thumbnail() ) {
-            $image_alt = get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true);
-            ?>
-            <section class="row row--no-padding">
-                <img class="banner" src="<?php the_post_thumbnail_url(); ?>" alt="<?= $image_alt ?>" />
-            </section>
-<?php }
-        else { ?>
-          <section class="row row--no-padding">
-            <img class="banner" src="https://via.placeholder.com/1440x250"/>
-          </section>
-    <?php   }?>
-        <section class="row">
-            <main id="main" tabindex="-1">
-                <h1><?php the_title(); ?></h1>
+<?php
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+    // use custom banner or default if none selected
+    if ( has_post_thumbnail() ) {
+        $banner_src = the_post_thumbnail_url();
+    } else {
+        $banner_src = "https://via.placeholder.com/1440x250";
+    } ?>
+    <section class="row row--no-padding">
+        <img class="banner" src="<?= $banner_src ?>" alt="" />
+    </section>
+    <section class="row">
+        <div class="bootstrap-row">
+            <div class="col-xs-12 col-sm-9">
+                <main class="" id="main" tabindex="-1">
+                    <h1><?php the_title(); ?></h1>
+                    <?php
+                    $community_type = rwmb_meta( 'community__type' );
+                    $community_city = rwmb_meta( 'community__city' );
+                    $community_state = rwmb_meta( 'community__state' );
+                    $community_country = rwmb_meta( 'community__country' );
+                    $community_desc = rwmb_meta( 'community__desc' );
+                    $community_contact_name = rwmb_meta( 'community__name' );
+                    $community_contact_phone = rwmb_meta( 'community__phone' );
+                    $community_contact_email = rwmb_meta( 'community__email' );
+                    $community_staff_name = rwmb_meta( 'community__staff' );
+                    $group_sm = rwmb_meta( 'group__sm' );
+                    $community_other = rwmb_meta( 'community__other' );
+                    $community_scholarship = rwmb_meta( 'community__scholarship' );
+                    $widget_id = rwmb_meta( 'widget__id' );
+                    $calendar_id = rwmb_meta( 'calendar__id' );
+
+                    // output International flag
+                    if ($community_type == 'International') {
+                        echo "<img src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\" alt=\"{$community_country} flag\">";
+                        //echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
+                    }
+
+                    // output community description
+                    if (!empty($community_desc)) {
+                        echo do_shortcode($community_desc);
+                    }
+
+                    // output other text
+                    if (isset($community_other)) {
+                        echo do_shortcode($community_other);
+                    }
+
+                    if (isset($community_scholarship)) {
+                        echo "<h2>Scholarship</h2>";
+                        echo do_shortcode($community_scholarship);
+                    }
+
+                    if (isset($widget_id) && isset($calendar_id)) {
+                        echo "<h2>Events</h2>";
+                        echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget_id}\" data-calendar-id=\"{$calendar_id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"><script type=\"text/javascript\">window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours;document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
+                    }
+                    ?>
+                </main>
+            </div>
+            <aside class="col-xs-12 col-sm-3">
                 <?php
-                $community_type = rwmb_meta( 'community__type' );
-                $community_city = rwmb_meta( 'community__city' );
-                $community_state = rwmb_meta( 'community__state' );
-                $community_country = rwmb_meta( 'community__country' );
-                $community_desc = rwmb_meta( 'community__desc' );
-                $community_contact_name = rwmb_meta( 'community__name' );
-                $community_contact_phone = rwmb_meta( 'community__phone' );
-                $community_contact_email = rwmb_meta( 'community__email' );
-                $community_staff_name = rwmb_meta( 'community__staff' );
-                $group_sm = rwmb_meta( 'group__sm' );
-                $community_other = rwmb_meta( 'community__other' );
-                $community_scholarship = rwmb_meta( 'community__scholarship' );
-                $widget_id = rwmb_meta( 'widget__id' );
-                $calendar_id = rwmb_meta( 'calendar__id' );
-
-                // output International flag
-                if ($community_type == 'International') {
-                    echo "<img src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
-                    //echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
-                }
-
                 // output location based on type of community
                 if ($community_type == 'International') {
                     $location = "{$community_city}, {$community_country}";
                 } else {
                     $location = "{$community_city}, {$community_state}";
                 }
-                echo "<p>{$location}</p>";
-
-                // output community description
-                if (!empty($community_desc)) {
-                    echo $community_desc;
-                }
+                echo "<h2>Location</h2>
+                    <p>{$location}</p>";
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contacts</h2>";
@@ -349,6 +369,10 @@ $country_codes = array("Afghanistan" => "AF",
                         case 'Sharetha Marshall':
                             $staff_email = 'sharetha@purdue.edu';
                             $staff_phone = '765-494-5180';
+                            break;
+                        case 'Jimmy Cox':
+                            $staff_email = 'jimmycox@purdue.edu';
+                            $staff_phone = '765-496-6549';
                             break;
                     }
 
@@ -394,35 +418,23 @@ $country_codes = array("Afghanistan" => "AF",
                         }
 
                         echo "<a class=\"community_social__link\" href=\"{$social['social__url']}\">
-                            <i class=\"{$fa_social_class} fa-5x community_social__icon\"></i>
+                            <i class=\"{$fa_social_class} fa-3x community_social__icon\"></i>
                             </a>";
                     }
 
                     echo "</div>";
                 }
-
-            // output other text
-            if (isset($community_other)) {
-                echo $community_other;
-            }
-
-            if (isset($community_scholarship)) {
-                echo "<h2>Scholarship</h2>";
-                echo $community_scholarship;
-            }
-
-            if (isset($widget_id) && isset($calendar_id)) {
-              echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget_id}\" data-calendar-id=\"{$calendar_id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"><script type=\"text/javascript\">window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours;document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
-            } ?>
-        <a href="#">Request Changes</a>
+                ?>
+                <p><a href="#">Request Changes</a></p>
+            </aside>
+        </div>
+    </section>
+<?php endwhile; else : ?>
+<section class="row">
+    <main id="main" tabindex="-1">
+        <h1>Oh no!</h1>
+        <p>Sorry, something went wrong.</p>
     </main>
 </section>
-<?php endwhile; else : ?>
-  <section class="row">
-      <main id="main" tabindex="-1">
-          <h1>Oh no!</h1>
-          <p>Sorry, something went wrong.</p>
-      </main>
-  </section>
 <?php endif; ?>
 <?php get_footer(); ?>
