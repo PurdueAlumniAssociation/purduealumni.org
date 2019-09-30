@@ -198,3 +198,37 @@ function paa_before_single_product() {
     }
 }
 add_action('woocommerce_before_single_product', 'paa_before_single_product', 10);
+
+function userMetaConstituentId( $user ) {
+?>
+<h2>Constituent ID</h2>
+    <table class="form-table">
+        <tr>
+            <th><label for="user_birthday">Constituent ID</label></th>
+            <td>
+                <input
+                    type="text"
+                    value="<?php echo esc_attr(get_user_meta($user->ID, 'user_constituentId', true)); ?>"
+                    name="user_constituentId"
+                    id="user_constituentId"
+                >
+                <p class="description">The Constituent ID assigned by Purdue University.</p>
+            </td>
+        </tr>
+    </table>
+<?php
+}
+//add_action('show_user_profile', 'userMetaConstituentId'); // editing your own profile
+add_action('edit_user_profile', 'userMetaConstituentId'); // editing another user
+add_action('user_new_form', 'userMetaConstituentId'); // creating a new user
+
+function userMetaConstituentIdSave( $userId ) {
+    if (!current_user_can('edit_user', $userId)) {
+        return;
+    }
+
+    update_user_meta($userId, 'user_constituentId', $_REQUEST['user_constituentId']);
+}
+//add_action('personal_options_update', 'userMetaConstituentIdSave');
+add_action('edit_user_profile_update', 'userMetaConstituentIdSave');
+add_action('user_register', 'userMetaConstituentIdSave');
