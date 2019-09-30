@@ -172,3 +172,29 @@ add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
 //     wp_mail("bholaday@purdue.edu", "update", "works");
 // }
 // add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
+
+
+
+// echo "type: ", get_post_type();
+
+function paa_before_single_product() {
+    $categories = wc_get_product_category_list($id);
+
+    // only apply to membership products
+    if (strstr($categories, 'membership')) {
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_title', 5 );
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_price', 10 );
+        remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40 );
+        remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
+        remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
+        remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
+
+
+        add_action( 'woocommerce_single_product_summary', 'woocommerce_product_description_tab', 40 );
+
+        // Remove the product description title
+        add_filter( 'woocommerce_product_description_heading', function() {return '';} );
+
+    }
+}
+add_action('woocommerce_before_single_product', 'paa_before_single_product', 10);
