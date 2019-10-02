@@ -20,12 +20,7 @@ add_filter( 'woocommerce_email_styles', 'paa_add_css_to_all_woocommerce_emails',
 
 function paa_add_css_to_specific_emails($css, $email)
 {
-    // if ($email->id == 'new_order') {
-    //    $css .= '
-    //       h2 { color: red }
-    //       h3 { font-size: 30px }
-    //    ';
-    // }
+    // if ($email->id == 'new_order') {}
     // if ( $email->id == 'cancelled_order' ) {}
     // if ( $email->id == 'customer_completed_order' ) {}
     // if ( $email->id == 'customer_invoice' ) {}
@@ -181,10 +176,6 @@ add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
 // }
 // add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
 
-
-
-// echo "type: ", get_post_type();
-
 function paa_before_single_product() {
     $categories = wc_get_product_category_list($id);
 
@@ -196,13 +187,10 @@ function paa_before_single_product() {
         remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15 );
         remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 20 );
         remove_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10 );
-
-
         add_action( 'woocommerce_single_product_summary', 'woocommerce_product_description_tab', 40 );
 
         // Remove the product description title
-        add_filter( 'woocommerce_product_description_heading', function() {return '';} );
-
+        add_filter( 'woocommerce_product_description_heading', function() { return ''; } );
     }
 }
 add_action('woocommerce_before_single_product', 'paa_before_single_product', 10);
