@@ -20,12 +20,7 @@ add_filter( 'woocommerce_email_styles', 'paa_add_css_to_all_woocommerce_emails',
 
 function paa_add_css_to_specific_emails($css, $email)
 {
-    // if ($email->id == 'new_order') {
-    //    $css .= '
-    //       h2 { color: red }
-    //       h3 { font-size: 30px }
-    //    ';
-    // }
+    // if ($email->id == 'new_order') {}
     // if ( $email->id == 'cancelled_order' ) {}
     // if ( $email->id == 'customer_completed_order' ) {}
     // if ( $email->id == 'customer_invoice' ) {}
