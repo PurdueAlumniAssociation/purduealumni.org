@@ -240,3 +240,17 @@ function paa_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $orde
     return $fields;
 }
 add_filter( 'woocommerce_email_order_meta_fields', 'paa_woocommerce_email_order_meta_fields', 10, 3 );
+
+/**
+ * Auto Complete all WooCommerce orders.
+ */
+function paa_woocommerce_auto_complete_order( $order_id ) {
+    if ( ! $order_id ) {
+        return;
+    }
+
+    $order = wc_get_order( $order_id );
+    $order->update_status( 'completed' );
+}
+add_action( 'woocommerce_thankyou', 'paa_woocommerce_auto_complete_order' );
+
