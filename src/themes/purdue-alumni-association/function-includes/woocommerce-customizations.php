@@ -11,7 +11,7 @@ function paa_add_css_to_all_woocommerce_emails($css, $email)
 
     $css .= '
         a { color: blue !important; }
-        h1 { font-size: 1.5em; }
+        h1 { font-size: 1.5em; line-height: 1.5; }
         #template_header_image img { max-width: 550px; }
     ';
     return $css;
