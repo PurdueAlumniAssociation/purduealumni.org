@@ -228,3 +228,15 @@ function userMetaConstituentIdSave( $userId ) {
 //add_action('personal_options_update', 'userMetaConstituentIdSave');
 add_action('edit_user_profile_update', 'userMetaConstituentIdSave');
 add_action('user_register', 'userMetaConstituentIdSave');
+
+/**
+ * Add a custom field (in an order) to the emails
+ */
+function paa_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
+    $fields['meta_key'] = array(
+        'label' => __( 'Graduation Year' ),
+        'value' => get_post_meta( $order->id, 'graduation_year', true ),
+    );
+    return $fields;
+}
+add_filter( 'woocommerce_email_order_meta_fields', 'paa_woocommerce_email_order_meta_fields', 10, 3 );
