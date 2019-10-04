@@ -232,25 +232,30 @@ add_action('user_register', 'userMetaConstituentIdSave');
 /**
  * Add a custom field (in an order) to the emails
  */
-function paa_woocommerce_email_order_meta_fields( $fields, $sent_to_admin, $order ) {
-    $fields['meta_key'] = array(
-        'label' => __( 'Graduation Year' ),
-        'value' => get_post_meta( $order->id, 'graduation_year', true ),
-    );
-    return $fields;
-}
-add_filter( 'woocommerce_email_order_meta_fields', 'paa_woocommerce_email_order_meta_fields', 10, 3 );
+// function paa_woocommerce_email_customer_details( $order, $sent_to_admin, $plain_text, $email ) {
+//     //echo "<pre>",print_r($fields),"</pre>";
+//     // $fields['meta_key'] = array(
+//     //     'label' => __( 'Graduation Year' ),
+//     //     'value' => get_post_meta( $order->id, 'graduation_year', true ),
+//     // );
+//     $fields['something'] = "something";
+//     return $fields;
+// }
+// add_filter( 'woocommerce_email_order_meta_fields', 'paa_woocommerce_email_customer_details', 10, 3 );
 
 /**
  * Auto Complete all WooCommerce orders.
  */
-function paa_woocommerce_auto_complete_order( $order_id ) {
-    if ( ! $order_id ) {
-        return;
-    }
-
-    $order = wc_get_order( $order_id );
-    $order->update_status( 'completed' );
+// function paa_woocommerce_auto_complete_order( $order_id ) {
+//     if ( ! $order_id ) {
+//         return;
+//     }
+//
+//     $order = wc_get_order( $order_id );
+//     $order->update_status( 'completed' );
+// }
+// add_action( 'woocommerce_thankyou', 'paa_woocommerce_auto_complete_order' );
+function paa_custom_refund_message( $subscription ) {
+    wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership cpmpletely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
 }
-add_action( 'woocommerce_thankyou', 'paa_woocommerce_auto_complete_order' );
-
+add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom_refund_message');
