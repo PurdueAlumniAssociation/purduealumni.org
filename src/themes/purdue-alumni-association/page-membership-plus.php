@@ -6,13 +6,13 @@
     $price1 = '59';
     $price3 = '149';
     $price10 = '469';
-    $back_link = 'membership/membership-plans';
+    $back_link = 'membership';
 
     if ( isset( $_GET['recent-grad'] ) ) {
         $title = 'Recent Grad Membership';
         $price1 = '35';
         $price3 = '75';
-        $back_link = 'membership/membership-plans/recent-grads';
+        $back_link = 'membership/recent-grads';
     }
 ?>
 <?php get_header(); ?>
@@ -21,8 +21,8 @@
         <p><a href="<?php echo esc_url( home_url( $back_link ) ); ?>"  style="text-decoration: none;"><i class="fas fa-chevron-left" aria-hidden></i> Back to Plans</a>
         </p>
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" >FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions' ) ); ?>" >FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions' ) ); ?>" >Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">

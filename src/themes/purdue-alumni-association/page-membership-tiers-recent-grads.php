@@ -13,12 +13,12 @@
     </div>
     <section class="row row--slim flex flex--space-between">
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section2' ) ); ?>">Current Members</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions#section2' ) ); ?>">Current Members - Click here for upgrade info</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions#section2' ) ); ?>">Current Members</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions#section2' ) ); ?>">Current Members - Click here for upgrade info</a>
         </p>
         <p>
-            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">FAQ</a>
-            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/membership-plans/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold mobile-only" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions' ) ); ?>">FAQ</a>
+            <a class="button button--light-gray button--dark-text button--bold not-mobile" href="<?php echo esc_url( home_url( 'membership/frequently-asked-questions' ) ); ?>">Membership Options FAQ</a>
         </p>
     </section>
     <section class="row">
@@ -30,7 +30,7 @@
                     <p class="plan__cost">$25<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The no-frills gateway to Purdue Alumni. Discounted member pricing at events, Purdue gear discounts, online directory and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/basic?recent-grad' ) ); ?>">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/basic?recent-grad' ) ); ?>">Learn More</a>
                     <a class="plan__join button button--blue button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=B1YR">Join Now</a>
                 </div>
             </div>
@@ -42,7 +42,7 @@
                     <p class="plan__cost">$35<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The ‘traditional’ membership &mdash; the perfect way to stay connected and save. Nationwide savings program, clubs and alumni networks, magazine, newsletters, and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/plus?recent-grad' ) ); ?>">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/plus?recent-grad' ) ); ?>">Learn More</a>
                     <a class="plan__join button button--green button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=P1YR">Join Now</a>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                     <p class="plan__cost">$79<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The membership to jump-start your career. Purdue online course discounts, job search tools, research database, career development webinars, and more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/professional?recent-grad' ) ); ?>">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/professional?recent-grad' ) ); ?>">Learn More</a>
                     <a class="plan__join button button--gold button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=PR1YR">Join Now</a>
                 </div>
             </div>
@@ -64,13 +64,13 @@
                     <p class="plan__cost">$169<span class="plan__cost-year"> / year</span>
                     </p>
                     <p class="plan__description">The ultimate way to take your career to new heights. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
-                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/membership-plans/career-max?recent-grad' ) ); ?>">Learn More</a>
+                    <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/career-max?recent-grad' ) ); ?>">Learn More</a>
                     <a class="plan__join button button--orange button--bold" href="https://secure.ud.purdue.edu/s/1461/alumni/index.aspx?sid=1461&gid=1001&pgid=8945&cid=23100&pc=C1YR">Join Now</a>
                 </div>
             </div>
         </div>
         <p class="text-center">Multi-year discounts available for PLUS, PROFESSIONAL, and CAREER MAX memberships.<br />
-            <a href="<?php echo esc_url( home_url( 'membership/membership-plans/detailed-plan-comparison?recent-grad' ) ); ?>">View the detailed comparison</a>
+            <a href="<?php echo esc_url( home_url( 'membership/detailed-plan-comparison?recent-grad' ) ); ?>">View the detailed comparison</a>
         </p>
     </section>
 </main>

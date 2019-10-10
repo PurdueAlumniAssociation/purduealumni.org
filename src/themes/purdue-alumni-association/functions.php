@@ -150,10 +150,10 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https\://www.purduealumni.org/login'>Log In</a>
+                    <a class='primary-menu__link' href='https://www.purduealumni.org/login'>Log In</a>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https\://www.purduealumni.org/alumni-portal'>Alumni Portal</a>
+                    <a class='primary-menu__link' href='https://www.purduealumni.org/alumni-portal'>Alumni Portal</a>
                 </li>" . $items;
     }
 
