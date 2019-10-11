@@ -449,4 +449,6 @@ function paa_sort_by_temp_column ($orderby) {
   return $orderby;
 }
 
+include 'function-includes/club-dashboard.php';
+
 ?>
