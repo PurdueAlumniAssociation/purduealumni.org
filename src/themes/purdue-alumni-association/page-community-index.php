@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: Club Index
+    Template Name: Community Index
 */
 ?>
 <?php get_header(); ?>
@@ -17,7 +17,7 @@
             <div class="layout">
                 <div class="layout__main">
                     <main class="" id="main" tabindex="-1">
-                        <?php get_template_part('template-parts/club-index'); ?>
+                        <?php get_template_part('template-parts/community-index'); ?>
                     </main>
                 </div>
                 <aside class="layout__sidebar">
@@ -28,7 +28,7 @@
     <?php else : ?>
         <section class="row">
             <main id="main" tabindex="-1">
-                <?php get_template_part('template-parts/club-index'); ?>
+                <?php get_template_part('template-parts/community-index'); ?>
             </main>
         </section>
     <?php endif; ?>

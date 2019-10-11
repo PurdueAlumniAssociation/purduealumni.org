@@ -1,7 +1,8 @@
 <?php
 
 // set type
-$type = 'club';
+$type = get_post_meta( get_the_ID(), 'community_index_type', true );
+
 
 // get all communities
 $args = array(
