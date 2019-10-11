@@ -3,7 +3,9 @@
 <?php
 
 if (is_user_logged_in()) {
-    $volunteer = get_user_meta( get_current_user_id(), 'community_volunteer', TRUE );
+    $volunteer = get_user_meta( get_current_user_id(), 'club_volunteer', TRUE );
+
+    echo "vounteer: ", $volunteer;
 
     if ( ! empty($volunteer) ) {
         the_content(); ?>
