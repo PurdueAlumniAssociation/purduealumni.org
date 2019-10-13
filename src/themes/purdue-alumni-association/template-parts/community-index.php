@@ -3,63 +3,52 @@
 // set type
 $type = get_post_meta( get_the_ID(), 'community_index_type', true );
 
+$args = array(
+    'post_type' => 'community',
+    'post_status' => 'publish',
+    'posts_per_page' => -1,
+    'nopaging' => true,
+);
 
 if ($type == "club") {
-    $args = array(
-        'post_type' => 'community',
-        'post_status' => 'any',
-        'posts_per_page' => -1,
-        'nopaging' => true,
-        'meta_query' => array(
-            'relation' => 'AND',
-            'query_community_type' => array(
-                'key' => 'community__type',
-                'value' => $type, // Optional
-            ),
-            'query_community_state' => array(
-                'key' => 'community__state',
-                'compare' => 'EXISTS', // Optional
-            ),
+    $args['meta_query'] = array(
+        'relation' => 'AND',
+        'query_community_type' => array(
+            'key' => 'community__type',
+            'value' => $type, // Optional
         ),
-        'orderby' => array(
-            'query_community_state' => 'ASC',
-            'post_title' => 'ASC',
+        'query_community_state' => array(
+            'key' => 'community__state',
+            'compare' => 'EXISTS', // Optional
         ),
+    );
+    $args['orderby'] = array(
+        'query_community_state' => 'ASC',
+        'post_title' => 'ASC',
     );
 } elseif ($type == "international") {
-    $args = array(
-        'post_type' => 'community',
-        'post_status' => 'any',
-        'posts_per_page' => -1,
-        'nopaging' => true,
-        'meta_query' => array(
-            'relation' => 'AND',
-            'query_community_type' => array(
-                'key' => 'community__type',
-                'value' => $type, // Optional
-            ),
-            'query_community_country' => array(
-                'key' => 'community__country',
-                'compare' => 'EXISTS', // Optional
-            ),
+    $args['meta_query'] = array(
+        'relation' => 'AND',
+        'query_community_type' => array(
+            'key' => 'community__type',
+            'value' => $type, // Optional
         ),
-        'orderby' => array(
-            'query_community_country' => 'ASC',
-            'post_title' => 'ASC',
+        'query_community_country' => array(
+            'key' => 'community__country',
+            'compare' => 'EXISTS', // Optional
         ),
+    );
+    $args['orderby'] = array(
+        'query_community_country' => 'ASC',
+        'post_title' => 'ASC',
     );
 } elseif ($type == "affinity") {
-    $args = array(
-        'post_type' => 'community',
-        'post_status' => 'any',
-        'posts_per_page' => -1,
-        'nopaging' => true,
-        'meta_key' => 'community__type',
-        'meta_value' => 'affinity',
-        'orderby' => 'post_title',
-        'order' => 'ASC',
-    );
+    $args['meta_key'] = 'community__type';
+    $args['meta_value'] = 'affinity';
+    $args['orderby'] = 'post_title';
+    $args['order'] = 'ASC';
 }
+
 
 $the_query = new WP_Query( $args );
 $old_location = "";
@@ -95,6 +84,7 @@ if ( $the_query->have_posts() ) {
     echo '</ul>';
 } else {
     // no posts found
+    echo "no communities";
 }
 
 wp_reset_postdata();
