@@ -28,7 +28,7 @@ $the_query = new WP_Query( $args );
 $old_state = "";
 // The Loop
 if ( $the_query->have_posts() ) {
-    echo '<div class="club-table-wrapper"><table class="club-table" cellspacing="5" cellpadding="5"><caption class="sr-only">Purdue Alumni Association Clubs by State</caption>';
+    echo '<ul>';
     while ( $the_query->have_posts() ) {
 
         $the_query->the_post();
@@ -38,13 +38,16 @@ if ( $the_query->have_posts() ) {
 
         //check for new state
         if ($old_state != $state) {
-            echo "<tr><th id=\"{$state}\" class=\"club-state\" colspan=\"0\" scope=\"colgroup\">{$state}</th></tr>";
+            if ($old_state != "" ) {
+                echo "</ul></li>";
+            }
+            echo "<li>${state}<ul>";
             $old_state = $state;
         }
 
-        echo "<tr><th id=\"{$city}\" headers=\"{$state}\"><a href=\"", get_the_permalink(), "\">{$city}</a></th></tr>";
+        echo "<li><a href=\"", get_the_permalink(), "\">{$city}</a></li>";
     }
-    echo '</table></div>';
+    echo '</ul>';
 } else {
     // no posts found
 }
