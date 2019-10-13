@@ -19,9 +19,14 @@ $args = array(
             'key' => 'community__state',
             'compare' => 'EXISTS', // Optional
         ),
+        'query_community_city' => array(
+            'key' => 'community__city',
+            'compare' => 'EXISTS', // Optional
+        ),
     ),
     'orderby' => array(
-        'query_community_state' => 'ASC'
+        'query_community_state' => 'ASC',
+        'query_community_city' => 'ASC'
     )
 );
 $the_query = new WP_Query( $args );
