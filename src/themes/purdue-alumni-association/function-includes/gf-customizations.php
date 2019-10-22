@@ -48,7 +48,7 @@ function paa_autobill( $form )
 {
     $full_amount = filter_var($_GET['fa'], FILTER_SANITIZE_STRING);
     $payments_remaining = filter_var($_GET['pr'], FILTER_SANITIZE_STRING);
-    $payment_amount = filter_var($_GET['pa'], FILTER_SANITIZE_STRING);
+    $payment_amount = filter_var($_GET['pp'], FILTER_SANITIZE_STRING);
     $years = "years";
 
     if (!empty($full_amount) && !empty($payments_remaining) && !empty($payment_amount)) {
@@ -61,11 +61,11 @@ function paa_autobill( $form )
         foreach( $form['fields'] as &$field ) {
           if ( $field->id == 1 ) { // dev 3, prod 1
             $field->choices[0]['text'] = $field->choices[0]['text'] . " (\${$full_amount})";
-            $field->choices[1]['text'] = $field->choices[1]['text'] . " of \${$payment_amount} for {$payments_remaining} more {$years}";
+            $field->choices[1]['text'] = $field->choices[1]['text'] . " (\${$payment_amount} for {$payments_remaining} more {$years})";
           }
         }
     }
 
     return $form;
 }
-add_filter( 'gform_pre_render_112', 'paa_autobill' ); // dev 35, prod 112
+add_filter( 'gform_pre_render_182', 'paa_autobill' ); // dev 35, prod 182
