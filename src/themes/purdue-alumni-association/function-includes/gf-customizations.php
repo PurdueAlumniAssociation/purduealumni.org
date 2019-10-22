@@ -68,7 +68,15 @@ function paa_autobill( $form )
         return $form;
     } else {
         // dont return the form
-        // TO DO: add custom error message
+        add_filter( 'gform_form_not_found_message', function() {
+            return "Oops! We are missing some required information. Please contact our <a href=\"mailto:alumnidigital@purdue.edu?subject=Problem with the Recurring Payments Page\">digital team</a> to get it all straightened out.";
+        });
+
+        wp_mail(
+            "alumnidigital@purdue.edu",
+            "Problem with the Recurring Payment Page",
+            "Request URI: {$_SERVER['REQUEST_URI']}"
+        );
     }
 }
 add_filter( 'gform_pre_render_182', 'paa_autobill' ); // dev 35, prod 182
