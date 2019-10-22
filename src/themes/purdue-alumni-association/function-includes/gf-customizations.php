@@ -64,8 +64,11 @@ function paa_autobill( $form )
             $field->choices[1]['text'] = $field->choices[1]['text'] . " (\${$payment_amount} for {$payments_remaining} more {$years})";
           }
         }
-    }
 
-    return $form;
+        return $form;
+    } else {
+        // dont return the form
+        // TO DO: add custom error message
+    }
 }
 add_filter( 'gform_pre_render_182', 'paa_autobill' ); // dev 35, prod 182
