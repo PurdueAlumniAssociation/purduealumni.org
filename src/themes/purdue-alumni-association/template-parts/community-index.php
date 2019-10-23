@@ -8,7 +8,7 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'nopaging' => true,
-);
+); 
 
 if ($type == "club") {
     $args['meta_query'] = array(

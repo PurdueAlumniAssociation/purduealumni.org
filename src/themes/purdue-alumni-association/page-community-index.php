@@ -3,7 +3,7 @@
     Template Name: Community Index
 */
 ?>
-<?php get_header(); ?>
+<?php get_header(); ?> 
 <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
         if ( has_post_thumbnail() ) {
             $image_alt = get_post_meta( get_post_thumbnail_id( $post_id ), '_wp_attachment_image_alt', true);
