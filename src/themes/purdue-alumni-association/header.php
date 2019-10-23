@@ -46,14 +46,17 @@
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main" class="skip-to">Skip to Main Content</a>
     <header class="black-bar">
-        <nav class="black-bar-menu">
-            <ul id="menu-black-bar-links" class="black-bar-menu__list">
-                <li class="black-bar-menu__list-item"><a href="https://www.purduealumni.org/login"><i class="fa fa-key" aria-hidden="true"></i>Log In</a></li>
-                <li class="black-bar-menu__list-item"><a href="https://www.purduealumni.org/alumni-portal"><i class="fas fa-users" aria-hidden="true"></i>Alumni Portal</a></li>
-                <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
-                <li class="black-bar-menu__list-item"><a class="button button--gold button--bold button--small" id="black-bar-join" href="https://www.purduealumni.org/membership/">Join Now</a></li>
-            </ul>
-        </nav>
+        <?php if (has_nav_menu('black-bar-menu')) : ?>
+            <?php
+                wp_nav_menu(array(
+                    'theme_location'    => 'black-bar-menu',
+                    'container'         => 'nav',
+                    'container_class'   => 'black-bar-menu',
+                    'menu_class'        => 'black-bar-menu__list',
+                    'menu_id'           => 'menu-black-bar-links'
+                 ));
+            ?>
+        <?php endif; ?>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <label for="black-bar-search">
                 <span class="sr-only">Search for:</span>
