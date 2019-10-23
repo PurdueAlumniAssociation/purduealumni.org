@@ -4765,7 +4765,7 @@ CATEGORIES: <span class="p150-item-detail__category">Athletics</span><span class
 <div class="p150-item-detail__description">
 <p>Join the Purdue Alumni Association today and get the next issue delivered straight to your door.</p>
 <p>We have two more special sesquicentennial issues coming up.</p>
-<p>Don’t miss out. <a href="https://www.purduealumni.org/membership/membership-plans" id="alumnus-150-join">Join today</a>.</p>
+<p>Don’t miss out. <a href="https://www.purduealumni.org/membership/" id="alumnus-150-join">Join today</a>.</p>
 </div>
 </div>
 </div>
