@@ -6,7 +6,7 @@ class Benefit
     private $public_description;
     private $member_description;
     private $public_url;
-    private $member_url;
+    private $member_url = "#";
     private $member_url_link_text = "Access Benefit";
 
     public function __construct($title, $plans, $member_url)
