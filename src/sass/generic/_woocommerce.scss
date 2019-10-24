@@ -27,3 +27,9 @@
         margin-top: .25em;
     }
 }
+
+.woocommerce-account {
+    & form.login {
+        max-width: 300px;
+    }
+}
