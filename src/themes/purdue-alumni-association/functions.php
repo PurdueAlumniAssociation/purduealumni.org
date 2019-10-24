@@ -457,4 +457,12 @@ function paa_sort_by_temp_column ($orderby) {
 
 include 'function-includes/club-dashboard.php';
 
+function paa_custom_mime_types( $mimes ) {
+    // new allowed mime types
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['csv'] = 'text/csv';
+
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'paa_custom_mime_types' );
 ?>
