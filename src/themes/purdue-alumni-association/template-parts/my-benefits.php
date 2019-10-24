@@ -19,8 +19,8 @@ if ( $the_query->have_posts() ) {
 
         $benefits[] = new Benefit(
             get_post()->post_title,
-            rwmb_meta('benefit_plans'),
-            rwmb_meta('benefit_url')
+            rwmb_meta('benefit__plans'),
+            rwmb_meta('benefit__member_url')
         );
     } // end while
 } // endif
