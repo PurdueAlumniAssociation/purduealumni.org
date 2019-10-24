@@ -14,13 +14,15 @@ $args = array(
 $the_query = new WP_Query( $args );
 
 if ( $the_query->have_posts() ) {
+    $args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_benefits' );
+
     while ( $the_query->have_posts() ) {
         $the_query->the_post();
 
         $benefits[] = new Benefit(
             get_post()->post_title,
-            rwmb_meta('benefit__plans'),
-            rwmb_meta('benefit__member_url')
+            rwmb_meta('benefit__plans', $args ),
+            rwmb_meta('benefit__member_url', $args )
         );
     } // end while
 } // endif
