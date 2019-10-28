@@ -288,13 +288,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     $widget_id = rwmb_meta( 'widget__id' );
                     $calendar_id = rwmb_meta( 'calendar__id' );
 
-                    // output International flag
-                    if ($community_type == 'International') {
-                        $lower_community = strtolower($country_codes[$community_country]);
-                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
-                        //echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
-                    }
-
                     // output community description
                     if (!empty($community_desc)) {
                         echo do_shortcode($community_desc);
@@ -326,8 +319,17 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 } else {
                     $location = "{$community_city}, {$community_state}";
                 }
-                echo "<h2>Location</h2>
-                    <p>{$location}</p>";
+
+                echo "<h2>Location</h2>";
+
+                // output International flag
+                if ($community_type == 'International') {
+                    $lower_community = strtolower($country_codes[$community_country]);
+
+                    echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                }
+
+                echo "<p>{$location}</p>";
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contacts</h2>";
