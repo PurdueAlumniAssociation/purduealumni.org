@@ -20,8 +20,11 @@ defined( 'ABSPATH' ) || exit;
 do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 
 <?php /* translators: %1$s: Site title, %2$s: Username, %3$s: My account link */ ?>
-<!--<p><?php //printf( esc_html__( 'Thanks for creating an account on %1$s. Your username is %2$s. You can access your account area to view your benefits, change your password, and more at: %3$s', 'woocommerce' ), esc_html( $blogname ), '<strong>' . esc_html( $user_login ) . '</strong>', make_clickable( esc_url( wc_get_page_permalink( 'myaccount' ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>-->
-<p><?php printf( esc_html__( 'We are always striving to improve your online experience. Today we launched a new My Account section that aims to simplify online management of your membership and access to your benefits. Your username is your email. You can access your account area to view your benefits, change your password, and more at: %3$s', 'woocommerce' ), esc_html( $blogname ), '<strong>' . esc_html( $user_login ) . '</strong>', make_clickable( esc_url( wc_get_page_permalink( 'myaccount' ) ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+<p><?php printf(
+    esc_html__( 'Your account is all set up! Log in with your username (%1$s) or email. You can access your account area to view your benefits, change your password, and more at: %2$s', 'woocommerce' ),
+    esc_html( $user_login ), 
+    make_clickable( esc_url( wc_get_page_permalink( 'myaccount' ) ) )
+); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
 <?php if ( 'yes' === get_option( 'woocommerce_registration_generate_password' ) && $password_generated ) : ?>
 	<?php /* translators: %s Auto generated password */ ?>
 	<p><?php printf( esc_html__( 'Your password has been automatically generated: %s', 'woocommerce' ), '<strong>' . esc_html( $user_pass ) . '</strong>' ); ?></p>
