@@ -376,7 +376,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $staff_email = 'jimmycox@purdue.edu';
                             $staff_phone = '765-496-6549';
                             break;
-                        case 'Kelli Cornelius'
+                        case 'Kelli Cornelius':
                           $staff_email = 'kcornelius@purdue.edu';
                           $staff_phone = '765-496-1136';
                           break;
@@ -442,8 +442,19 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                     echo "</div>";
                 }
+                if (is_user_logged_in()) {
+                    $volunteer = get_user_meta( get_current_user_id(), 'club_volunteer', TRUE );
+
+                    $user = wp_get_current_user();
+                    $roles = (array) $user->roles;
+                    $is_admin = in_array('administrator', $roles);
+
+                    if ( ! empty($volunteer) || $is_admin ) { ?>
+                        <p><a href="https://www.purduealumni.org/communities/change-request/">Request Changes</a></p>
+                    <?php }
+                }
                 ?>
-                <p><a href="#">Request Changes</a></p>
+
             </aside>
         </div>
     </section>
