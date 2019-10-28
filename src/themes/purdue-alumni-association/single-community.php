@@ -262,7 +262,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     if ( has_post_thumbnail() ) {
         $banner_src = the_post_thumbnail_url();
     } else {
-        $banner_src = "https://via.placeholder.com/1440x250";
+        $banner_src = "https://www.purduealumni.org/wp-content/uploads/web-banner_community-default.jpg";
     } ?>
     <section class="row row--no-padding">
         <img class="banner" src="<?= $banner_src ?>" alt="" />
@@ -290,7 +290,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                     // output International flag
                     if ($community_type == 'International') {
-                        echo "<img src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\" alt=\"{$community_country} flag\">";
+                        $lower_community = strtolower($country_codes[$community_country]);
+                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
                         //echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
                     }
 
@@ -304,8 +305,9 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         echo do_shortcode($community_other);
                     }
 
-                    if (isset($community_scholarship)) {
+                    if (!empty($community_scholarship)) {
                         echo "<h2>Scholarship</h2>";
+                        print_r($community_scholarship);
                         echo do_shortcode($community_scholarship);
                     }
 
@@ -374,6 +376,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $staff_email = 'jimmycox@purdue.edu';
                             $staff_phone = '765-496-6549';
                             break;
+                        case 'Kelli Cornelius'
+                          $staff_email = 'kcornelius@purdue.edu';
+                          $staff_phone = '765-496-1136';
+                          break;
                     }
 
                     echo "<div class=\"community_contact community_contact--staff\">
@@ -415,6 +421,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                         if ($social['social__channel'] == 'Graduway') {
                             $fa_social_class = "fas fa-graduation-cap";
+                        }
+
+                        if ($social['social__channel'] == 'Website') {
+                            $fa_social_class = "fas fa-link";
+                        }
+
+                        if ($social['social__channel'] == 'LinkedIn') {
+                            $fa_social_class = "fab fa-linkedin";
+                        }
+
+                        if ($social['social__channel'] == 'Whatsapp') {
+                            $fa_social_class = "fab fa-whatsapp";
                         }
 
                         echo "<a class=\"community_social__link\" href=\"{$social['social__url']}\">
