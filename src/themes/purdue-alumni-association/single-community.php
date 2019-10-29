@@ -362,7 +362,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $staff_phone = '765-494-0430';
                             break;
                         case 'Natalie Evans':
-                            $staff_email = 'evans352@purdue.edu';
+                            $staff_email = 'ngevans@purdue.edu';
                             $staff_phone = '765-496-6279';
                             break;
                         case 'Maria Whipple':
