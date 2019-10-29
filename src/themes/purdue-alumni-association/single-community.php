@@ -300,7 +300,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                     if (!empty($community_scholarship)) {
                         echo "<h2>Scholarship</h2>";
-                        print_r($community_scholarship);
                         echo do_shortcode($community_scholarship);
                     }
 
