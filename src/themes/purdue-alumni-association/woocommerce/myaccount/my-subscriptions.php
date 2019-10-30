@@ -16,14 +16,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php if ( ! empty( $subscriptions ) ) : ?>
 	<table class="my_account_subscriptions my_account_orders woocommerce-orders-table woocommerce-MyAccount-subscriptions shop_table shop_table_responsive woocommerce-orders-table--subscriptions">
 
-	<thead>
-		<tr>
-			<th class="subscription-status order-status woocommerce-orders-table__header woocommerce-orders-table__header-order-status woocommerce-orders-table__header-subscription-status"><span class="nobr"><?php esc_html_e( 'Membership', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="subscription-next-payment order-date woocommerce-orders-table__header woocommerce-orders-table__header-order-date woocommerce-orders-table__header-subscription-next-payment"><span class="nobr"><?php echo esc_html_x( 'Next payment', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="subscription-total order-total woocommerce-orders-table__header woocommerce-orders-table__header-order-total woocommerce-orders-table__header-subscription-total"><span class="nobr"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
-			<th class="subscription-actions order-actions woocommerce-orders-table__header woocommerce-orders-table__header-order-actions woocommerce-orders-table__header-subscription-actions">&nbsp;</th>
-		</tr>
-	</thead>
+        <thead>
+        		<tr>
+        			<th class="subscription-id order-number woocommerce-orders-table__header woocommerce-orders-table__header-order-number woocommerce-orders-table__header-subscription-id"><span class="nobr"><?php esc_html_e( 'Membership', 'woocommerce-subscriptions' ); ?></span></th>
+        			<th class="subscription-status order-status woocommerce-orders-table__header woocommerce-orders-table__header-order-status woocommerce-orders-table__header-subscription-status"><span class="nobr"><?php esc_html_e( 'Status', 'woocommerce-subscriptions' ); ?></span></th>
+        			<th class="subscription-next-payment order-date woocommerce-orders-table__header woocommerce-orders-table__header-order-date woocommerce-orders-table__header-subscription-next-payment"><span class="nobr"><?php echo esc_html_x( 'Next payment', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
+        			<th class="subscription-total order-total woocommerce-orders-table__header woocommerce-orders-table__header-order-total woocommerce-orders-table__header-subscription-total"><span class="nobr"><?php echo esc_html_x( 'Total', 'table heading', 'woocommerce-subscriptions' ); ?></span></th>
+        			<th class="subscription-actions order-actions woocommerce-orders-table__header woocommerce-orders-table__header-order-actions woocommerce-orders-table__header-subscription-actions">&nbsp;</th>
+        		</tr>
+        	</thead>
 
 	<tbody>
 	<?php /** @var WC_Subscription $subscription */ ?>
@@ -64,20 +65,36 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<?php endif; ?>
 			</div>
 		<?php endif; ?>
-	<?php else : ?>
+	<?php else : // No active subscriptions ?>
         <?php
             if ( wc_memberships_is_user_active_member() ) {
                 $memberships = wc_memberships_get_user_active_memberships();
 
                 if ( ! empty( $memberships ) ) {
-                    //echo "<pre>", print_r($memberships), "</pre>";
-                    echo "<p>Your membership level is: ", $memberships[0]->plan->name, "</p>";
-                    ?>
-                    <p><a href="../my-benefits/">View your benefits.</a></p>
-                    <?php
+                    $membership_level = $memberships[0]->plan->name;
                 }
+                ?>
+                <table class="my_account_subscriptions my_account_orders woocommerce-orders-table woocommerce-MyAccount-subscriptions shop_table shop_table_responsive woocommerce-orders-table--subscriptions">
+                	<thead>
+                		<tr>
+                            <th class="subscription-status order-status woocommerce-orders-table__header woocommerce-orders-table__header-order-status woocommerce-orders-table__header-subscription-status"><span class="nobr">Membership</span></th>
+                            <th class="subscription-actions order-actions woocommerce-orders-table__header woocommerce-orders-table__header-order-actions woocommerce-orders-table__header-subscription-actions">Expires</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                		<tr class="order woocommerce-orders-table__row">
+                			<td class="subscription-id order-number woocommerce-orders-table__cell woocommerce-orders-table__cell-subscription-id woocommerce-orders-table__cell-order-number" data-title="<?php esc_attr_e( 'ID', 'woocommerce-subscriptions' ); ?>">
+                				<?php echo $membership_level ?>
+                			</td>
+                			<td class="subscription-actions order-actions woocommerce-orders-table__cell woocommerce-orders-table__cell-subscription-actions woocommerce-orders-table__cell-order-actions">
+                				<?php echo date("F j, Y", strtotime($memberships[0]->get_end_date())); ?>
+                			</td>
+                        </tr>
+                </table>
+                <?php
             }
-        ?>
+            ?>
+            <p><a href="../my-benefits/">View your benefits.</a></p>
 	<?php endif; ?>
 
 </div>
