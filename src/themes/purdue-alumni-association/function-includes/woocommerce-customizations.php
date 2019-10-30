@@ -241,6 +241,6 @@ function paa_woocommerce_auto_complete_order( $order_id ) {
 add_action( 'woocommerce_thankyou', 'paa_woocommerce_auto_complete_order' );
 
 function paa_custom_refund_message( $subscription ) {
-    wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership cpmpletely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
+    wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership completely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
 }
 add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom_refund_message');
