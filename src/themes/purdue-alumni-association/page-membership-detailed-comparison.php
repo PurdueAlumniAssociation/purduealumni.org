@@ -71,13 +71,13 @@
                 </tr>
                 <tr>
                     <td class="detailed-comparison-table__heading detailed-comparison-table__heading--benefit detailed-comparison-table__heading--tfoot" scope="row"></td>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--blue" href="<?php echo esc_url( home_url( 'member/basic' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--basic detailed-comparison-table__heading--tfoot"><a class="button button--small button--blue" href="<?php echo esc_url( home_url( 'membership/basic' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--green" href="<?php echo esc_url( home_url( 'member/plus' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--plus detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--green" href="<?php echo esc_url( home_url( 'membership/plus' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--gold" href="<?php echo esc_url( home_url( 'member/professional' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--professional detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--gold" href="<?php echo esc_url( home_url( 'membership/professional' ) ); ?>">View</a>
                     </th>
-                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--orange" href="<?php echo esc_url( home_url( 'member/career-max' ) ); ?>">View</a>
+                    <th class="detailed-comparison-table__heading detailed-comparison-table__heading--career-max detailed-comparison-table__heading--tfoot" scope="col"><a class="button button--small button--orange" href="<?php echo esc_url( home_url( 'membership/career-max' ) ); ?>">View</a>
                     </th>
                 </tr>
             </tfoot>
