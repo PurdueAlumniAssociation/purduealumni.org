@@ -244,3 +244,36 @@ function paa_custom_refund_message( $subscription ) {
     wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership completely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
 }
 add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom_refund_message');
+
+// function paa_custom_stripe_metadata( $metadata ) {
+//     $metadata['product'] = "custom";
+//
+//     return $metadata;
+// }
+// add_filter( 'wc_stripe_payment_metadata', 'paa_custom_stripe_metadata' );
+
+//add order details to Stripe payment metadata
+function paa_filter_wc_stripe_payment_metadata( $metadata, $order, $prepared_source ) {
+
+    $count = 1;
+    foreach( $order->get_items() as $item_id => $line_item ){
+
+        $product = $line_item->get_product();
+        $product_name = $product->get_name();
+        $atts = $product->get_attributes();
+
+        if (!empty($atts)) {
+            $product_name .= " - ";
+            foreach( $atts as $name => $value) {
+                $product_name .= "{$name}: {$value}, ";
+            }
+        }
+
+        $metadata['Line Item '.$count] = $product_name;
+
+        $count++;
+    }
+
+    return $metadata;
+}
+add_filter( 'wc_stripe_payment_metadata', 'paa_filter_wc_stripe_payment_metadata', 10, 3 );
