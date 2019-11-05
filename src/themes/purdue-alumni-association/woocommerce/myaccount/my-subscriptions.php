@@ -87,7 +87,15 @@ if ( ! defined( 'ABSPATH' ) ) {
                 				<?php echo $membership_level ?>
                 			</td>
                 			<td class="subscription-actions order-actions woocommerce-orders-table__cell woocommerce-orders-table__cell-subscription-actions woocommerce-orders-table__cell-order-actions">
-                				<?php echo date("F j, Y", strtotime($memberships[0]->get_end_date())); ?>
+                				<?php
+                                    $end_date = $memberships[0]->get_end_date();
+
+                                    if ( empty($end_date) ) {
+                                        echo "Never";
+                                    } else {
+                                        echo date("F j, Y", strtotime($end_date));
+                                    }
+                                ?>
                 			</td>
                         </tr>
                 </table>
