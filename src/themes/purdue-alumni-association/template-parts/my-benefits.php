@@ -44,6 +44,9 @@ foreach($benefits as $benefit) {
 
         $benefit_levels = implode(",", $benefit->get_the_plans());
 
+        // life members get the same benefits as the plus level
+        $benefit_levels = str_replace("plus", "plus,life", $benefit_levels);
+
         echo do_shortcode("[wcm_restrict plans=\"{$benefit_levels}\"]{$content}[/wcm_restrict]");
 }
 
