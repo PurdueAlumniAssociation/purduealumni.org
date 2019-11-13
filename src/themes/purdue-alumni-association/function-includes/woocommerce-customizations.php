@@ -244,3 +244,35 @@ function paa_custom_refund_message( $subscription ) {
     wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership completely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
 }
 add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom_refund_message');
+
+
+/////////////////////////////
+function paa_subscriptions_custom_price_string( $pricestring ) {
+    global $product;
+
+    $products_to_change = array( 4523, 171877 );
+
+    if ( in_array( $product->id, $products_to_change ) ) {
+        $pricestring = str_replace( '$0.00', '', $pricestring );
+        $pricestring = str_replace( 'for 1 year and a', '', $pricestring );
+        $pricestring = str_replace( 'sign-up fee', '', $pricestring );
+    }
+    return $pricestring;
+}
+add_filter( 'woocommerce_subscriptions_product_price_string', 'paa_subscriptions_custom_price_string' );
+add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_price_string' );
+
+function paa_change_product_html( $price_html, $product ) {
+    $products_to_change = array( 4523, 171877 );
+
+    if ( in_array( $product->id, $products_to_change ) ) {
+        $price_html = str_replace( "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\
+        ">$</span></span>", '', $price_html );
+        $price_html = str_replace( '0.00', '', $price_html );
+    }
+
+    echo "<pre>{$price_html}</pre>";
+
+    return $price_html;
+}
+add_filter( 'woocommerce_get_price_html', 'paa_change_product_html', 10, 2 );
