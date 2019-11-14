@@ -277,6 +277,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     $community_city = rwmb_meta( 'community__city' );
                     $community_state = rwmb_meta( 'community__state' );
                     $community_country = rwmb_meta( 'community__country' );
+                    $community_address = rwmb_meta( 'community__address' );
                     $community_desc = rwmb_meta( 'community__desc' );
                     $community_contact_name = rwmb_meta( 'community__name' );
                     $community_contact_phone = rwmb_meta( 'community__phone' );
@@ -350,7 +351,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 }
 
                 // output Purdue alumni staff contact
-                 if (isset($community_staff_name)) {
+                if (isset($community_staff_name)) {
 
                     switch ($community_staff_name) {
                         case 'Trevor Foley':
@@ -387,15 +388,22 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         <h3>Staff Contact</h3>
                         <p class=\"community_contact__name\">{$community_staff_name}</p>";
 
-                    if (isset($staff_email)) {
-                        echo "<p class=\"community_contact__email\"><a href=\"mailto:{$staff_email}\">{$staff_email}</a></p>";
-                    }
-
                     if (isset($staff_phone)) {
                         echo "<p class=\"community_contact__phone\">{$staff_phone}</p>";
                     }
 
+                    if (isset($staff_email)) {
+                        echo "<p class=\"community_contact__email\"><a href=\"mailto:{$staff_email}\">{$staff_email}</a></p>";
+                    }
+
                     echo "</div>";
+                }
+
+                if ( !empty($community_address) ) {
+                    echo "<div>
+                        <h3>Address</h3>
+                        <p>{$community_address}</p>
+                        </div>";
                 }
 
                 // output linked svg of selected social channel
