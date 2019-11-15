@@ -465,4 +465,15 @@ function paa_custom_mime_types( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'paa_custom_mime_types' );
+
+
+function paa_sender_email( $original_email_address ) {
+    return 'no-reply@purduealumni.org';
+}
+add_filter( 'wp_mail_from', 'paa_sender_email' );
+
+function paa_sender_name( $original_email_from ) {
+    return 'Purdue Alumni Association';
+}
+add_filter( 'wp_mail_from_name', 'paa_sender_name' );
 ?>
