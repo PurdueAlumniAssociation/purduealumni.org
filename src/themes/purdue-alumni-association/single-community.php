@@ -436,7 +436,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         }
 
                         echo "<a class=\"community_social__link\" href=\"{$social['social__url']}\">
-                            <i style=\"padding: .25em .25em .25em .25em\" class=\"{$fa_social_class} fa-3x community_social__icon\"></i>
+                            <i class=\"{$fa_social_class} fa-3x community_social__icon\"></i>
                             </a>";
                     }
 
