@@ -5,6 +5,24 @@ $benefits = array();
 
 echo "<h2>My Benefits</h2>";
 
+//$memberships = wc_memberships_get_user_memberships( get_current_user_id(), array( 'status' => 'wcm-delayed' ) );
+$memberships = wc_memberships_get_user_memberships();
+
+if ( !empty($memberships) ) {
+
+    if ( count($memberships) == 1 ) {
+        $membership_status = $memberships[0]->status;
+        echo $membership_status;
+    }
+    //$membership_levels = array();
+    foreach($memberships as $membership) {
+        //$membership_levels[] = $membership->plan->slug;
+        //echo "<pre>",print_r($membership),"</pre>";
+    }
+} else {
+    echo "You don't have an active membership. <a href=\"https://www.purduealumni.org/membership\">Please purchase a membership</a>.";
+}
+
 $args = array(
     'post_type' => 'benefit',
     'posts_per_page' => -1,
