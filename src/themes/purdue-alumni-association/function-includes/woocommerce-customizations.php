@@ -171,7 +171,7 @@ function add_custom_titles_for_endpoints( $post_title )
 add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
 
 function paa_profile_update_notification( $user_id, $old_user_data ) {
-    $body = "The following user updated their profile.\r\n\r\n";
+    $body = "This is the most recent data for the member.\r\n\r\n";
 
     $meta_keys = array(
         'constituent_id',
@@ -216,7 +216,7 @@ function paa_profile_update_notification( $user_id, $old_user_data ) {
         unset($value);
     }
 
-    wp_mail("bholaday@purdue.edu", "User Profile Updated", $body);
+    wp_mail("alumnimembership@purdue.edu", "User Profile Updated", $body);
 }
 add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
 
