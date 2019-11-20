@@ -170,11 +170,57 @@ function add_custom_titles_for_endpoints( $post_title )
 }
 add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
 
-// must test in dev
-// function paa_profile_update_notification( $user_id, $old_user_data ) {
-//     wp_mail("bholaday@purdue.edu", "update", "works");
-// }
-// add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
+function paa_profile_update_notification( $user_id, $old_user_data ) {
+    $body = "The following user updated their profile.\r\n\r\n";
+
+    $meta_keys = array(
+        'constituent_id',
+        'first_name',
+        'last_name',
+        'email',
+        'billing_first_name',
+        'billing_last_name',
+        'billing_company',
+        'billing_address_1',
+        'billing_address_2',
+        'billing_city',
+        'billing_state',
+        'billing_postcode',
+        'billing_country',
+        'billing_phone',
+        'billing_email',
+        'shipping_first_name',
+        'shipping_last_name',
+        'shipping_company',
+        'shipping_address_1',
+        'shipping_address_2',
+        'shipping_city',
+        'shipping_state',
+        'shipping_postcode',
+        'shipping_country',
+        'gender',
+        'birthday',
+        'graduation_year',
+        'purdue_connection',
+        'purdue_global',
+        'user_constituentId'
+    );
+
+    foreach( $meta_keys as $key ) {
+        $value = get_user_meta($user_id, $key, true);
+
+        if ( ! empty($value) ) {
+            $body .= "{$key}: {$value}\r\n";
+        }
+
+        unset($value);
+    }
+
+    $body .= "</body></html>";
+
+    wp_mail("bholaday@purdue.edu", "User Profile Updated", $body);
+}
+add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
 
 function paa_before_single_product() {
     $categories = wc_get_product_category_list($id);
