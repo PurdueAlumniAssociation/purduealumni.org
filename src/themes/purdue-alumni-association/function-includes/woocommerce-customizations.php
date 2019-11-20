@@ -216,8 +216,6 @@ function paa_profile_update_notification( $user_id, $old_user_data ) {
         unset($value);
     }
 
-    $body .= "</body></html>";
-
     wp_mail("bholaday@purdue.edu", "User Profile Updated", $body);
 }
 add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
