@@ -244,7 +244,7 @@ function userMetaConstituentId( $user ) {
 <h2>Constituent ID</h2>
     <table class="form-table">
         <tr>
-            <th><label for="user_birthday">Constituent ID</label></th>
+            <th><label for="user_constituentId">Constituent ID</label></th>
             <td>
                 <input
                     type="text"
