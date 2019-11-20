@@ -8,7 +8,7 @@ $args = array(
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'nopaging' => true,
-); 
+);
 
 if ($type == "club") {
     $args['meta_query'] = array(
@@ -81,7 +81,7 @@ if ( $the_query->have_posts() ) {
             echo "<li><a href=\"", get_the_permalink(), "\">", get_the_title(), "</a></li>";
         }
     }
-    echo '</ul>';
+    echo '</ul>'; 
 } else {
     // no posts found
     echo "no communities";
