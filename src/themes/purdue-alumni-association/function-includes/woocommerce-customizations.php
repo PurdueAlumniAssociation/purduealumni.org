@@ -252,8 +252,6 @@ function paa_subscriptions_custom_price_string( $pricestring ) {
 
     $products_to_change = array( 4523, 11149, 171877 );
 
-    //echo $pricestring;
-
     if ( in_array( $product->id, $products_to_change ) ) {
         $pricestring = str_replace( 'for 1 year', '', $pricestring );
     }
@@ -262,17 +260,13 @@ function paa_subscriptions_custom_price_string( $pricestring ) {
 add_filter( 'woocommerce_subscriptions_product_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
 add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
 
-// function paa_change_product_html( $price_html, $product ) {
-//     $products_to_change = array( 4523, 11149, 171877 );
-//
-//     if ( in_array( $product->id, $products_to_change ) ) {
-//         $price_html = str_replace( "<span class=\"woocommerce-Price-amount amount\"><span class=\"woocommerce-Price-currencySymbol\">$</span></span>", '', $price_html );
-//         $price_html = str_replace( '0.00', '', $price_html );
-//         $price_html = str_replace( 'sign-up fee', '', $price_html );
-//     }
-//
-//     echo "<pre>{$price_html}</pre>";
-//
-//     return $price_html;
-// }
-// add_filter( 'woocommerce_get_price_html', 'paa_change_product_html', 10, 2 );
+function paa_life_custom_cart_button_text() {
+    global $product;
+
+    $products_to_change = array( 4523, 11149, 171877 );
+
+    if ( in_array( $product->id, $products_to_change ) ) {
+        return __('Join Now', 'woocommerce');
+    }
+}
+add_filter('woocommerce_product_single_add_to_cart_text', 'paa_life_custom_cart_button_text');
