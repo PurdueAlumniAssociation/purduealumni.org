@@ -70,7 +70,7 @@ function output_community_list($atts){
               //check for new location
               if ($old_location != $location) {
                   if ($old_location != "" ) {
-                      echo "</ul></li>";
+                      echo "</ul></li>"; 
 
                   }
                   echo "<li>${location}<ul>";
