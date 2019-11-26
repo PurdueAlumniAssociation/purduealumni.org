@@ -304,7 +304,7 @@ function paa_subscriptions_custom_price_string( $pricestring ) {
 add_filter( 'woocommerce_subscriptions_product_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
 add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
 
-function paa_life_custom_cart_button_text() {
+function paa_life_custom_cart_button_text( $button_text ) {
     global $product;
 
     $products_to_change = array( 4523, 11149, 175186 );
@@ -312,5 +312,7 @@ function paa_life_custom_cart_button_text() {
     if ( in_array( $product->id, $products_to_change ) ) {
         return __('Join Now', 'woocommerce');
     }
+
+    return $button_text;
 }
 add_filter('woocommerce_product_single_add_to_cart_text', 'paa_life_custom_cart_button_text');
