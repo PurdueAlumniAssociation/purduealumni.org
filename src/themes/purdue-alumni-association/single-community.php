@@ -262,7 +262,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
     if ( has_post_thumbnail() ) {
         $banner_src = the_post_thumbnail_url();
     } else {
-        $banner_src = "https://via.placeholder.com/1440x250";
+        $banner_src = "https://www.purduealumni.org/wp-content/uploads/web-banner_community-default.jpg";
     } ?>
     <section class="row row--no-padding">
         <img class="banner" src="<?= $banner_src ?>" alt="" />
@@ -288,12 +288,6 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     $widget_id = rwmb_meta( 'widget__id' );
                     $calendar_id = rwmb_meta( 'calendar__id' );
 
-                    // output International flag
-                    if ($community_type == 'International') {
-                        echo "<img src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\" alt=\"{$community_country} flag\">";
-                        //echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000; float: right;\" src=\"https://www.purduealumni.org/flags/4x3/{$country_codes[$community_country]}.svg\">";
-                    }
-
                     // output community description
                     if (!empty($community_desc)) {
                         echo do_shortcode($community_desc);
@@ -304,13 +298,13 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         echo do_shortcode($community_other);
                     }
 
-                    if (isset($community_scholarship)) {
+                    if (!empty($community_scholarship)) {
                         echo "<h2>Scholarship</h2>";
                         echo do_shortcode($community_scholarship);
                     }
 
                     if (isset($widget_id) && isset($calendar_id)) {
-                        echo "<h2>Events</h2>";
+                        echo "<h2 id=\"community-events\">Events</h2>";
                         echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget_id}\" data-calendar-id=\"{$calendar_id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"><script type=\"text/javascript\">window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours;document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
                     }
                     ?>
@@ -324,8 +318,17 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 } else {
                     $location = "{$community_city}, {$community_state}";
                 }
-                echo "<h2>Location</h2>
-                    <p>{$location}</p>";
+
+                echo "<h2>Location</h2>";
+
+                // output International flag
+                if ($community_type == 'International') {
+                    $lower_community = strtolower($country_codes[$community_country]);
+
+                    echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                }
+
+                echo "<p>{$location}</p>";
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contacts</h2>";
@@ -359,7 +362,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $staff_phone = '765-494-0430';
                             break;
                         case 'Natalie Evans':
-                            $staff_email = 'evans352@purdue.edu';
+                            $staff_email = 'ngevans@purdue.edu';
                             $staff_phone = '765-496-6279';
                             break;
                         case 'Maria Whipple':
@@ -374,6 +377,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $staff_email = 'jimmycox@purdue.edu';
                             $staff_phone = '765-496-6549';
                             break;
+                        case 'Kelli Cornelius':
+                          $staff_email = 'kcornelius@purdue.edu';
+                          $staff_phone = '765-496-1136';
+                          break;
                     }
 
                     echo "<div class=\"community_contact community_contact--staff\">
@@ -417,6 +424,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                             $fa_social_class = "fas fa-graduation-cap";
                         }
 
+                        if ($social['social__channel'] == 'Website') {
+                            $fa_social_class = "fas fa-link";
+                        }
+
+                        if ($social['social__channel'] == 'LinkedIn') {
+                            $fa_social_class = "fab fa-linkedin";
+                        }
+
+                        if ($social['social__channel'] == 'Whatsapp') {
+                            $fa_social_class = "fab fa-whatsapp";
+                        }
+
                         echo "<a class=\"community_social__link\" href=\"{$social['social__url']}\">
                             <i class=\"{$fa_social_class} fa-3x community_social__icon\"></i>
                             </a>";
@@ -424,8 +443,19 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                     echo "</div>";
                 }
+                if (is_user_logged_in()) {
+                    $volunteer = get_user_meta( get_current_user_id(), 'club_volunteer', TRUE );
+
+                    $user = wp_get_current_user();
+                    $roles = (array) $user->roles;
+                    $is_admin = in_array('administrator', $roles);
+
+                    if ( ! empty($volunteer) || $is_admin ) { ?>
+                        <p><a href="https://www.purduealumni.org/communities/change-request/">Request Changes</a></p>
+                    <?php }
+                }
                 ?>
-                <p><a href="#">Request Changes</a></p>
+
             </aside>
         </div>
     </section>

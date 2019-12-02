@@ -11,7 +11,7 @@
         }
     }
 
-    &__list-item {
+    & li {
         display: inline-block;
         position: relative;
 
@@ -31,7 +31,7 @@
         }
     }
 
-    &__link, & a {
+    & a {
         color: $white;
         font-weight: 400;
 

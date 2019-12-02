@@ -50,13 +50,13 @@ if ($type == "club") {
 }
 
 
+
 $the_query = new WP_Query( $args );
 $old_location = "";
 // The Loop
 if ( $the_query->have_posts() ) {
     echo '<ul>';
     while ( $the_query->have_posts() ) {
-
         $the_query->the_post();
         $community_id = get_the_ID();
 
