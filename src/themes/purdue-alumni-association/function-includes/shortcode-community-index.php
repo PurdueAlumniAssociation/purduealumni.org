@@ -55,7 +55,8 @@ function output_community_list($atts){
 
   $old_location = "";
   if ( $the_query->have_posts() ) {
-      echo '<ul style= "list-style-type:none;">';
+      $output = "";
+      $output .= '<ul style= "list-style-type:none; padding-left:0">';
       while ( $the_query->have_posts() ) {
           $the_query->the_post();
           $community_id = get_the_ID();
@@ -70,27 +71,27 @@ function output_community_list($atts){
               //check for new location
               if ($old_location != $location) {
                   if ($old_location != "" ) {
-                      echo "</ul></li>"; 
+                      $output .= "</ul></li>";
 
                   }
-                  echo "<li>${location}<ul>";
+                  $output .= "<li>${location}<ul>";
 
 
                   $old_location = $location;
               }
 
-              echo "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
+              $output .= "<li type='disc'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
 
           } elseif ($type['type'] == "affinity") {
-              echo "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
-
-
+              $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
           }
       }
-      echo '</ul>';
+      $output .= '</ul>';
+      return $output;
   } else {
       // no posts found
-      echo "no communities";
+      $no_community = "no communities";
+      return $no_community;
   }
   wp_reset_postdata();
 }
