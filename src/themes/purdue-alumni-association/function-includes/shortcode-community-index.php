@@ -56,7 +56,7 @@ function output_community_list($atts){
   $old_location = "";
   if ( $the_query->have_posts() ) {
       $output = "";
-      $output .= '<ul style= "list-style-type:none; padding-left:0">';
+      $output .= '<ul class="community-list__ul">';
       while ( $the_query->have_posts() ) {
           $the_query->the_post();
           $community_id = get_the_ID();
@@ -80,7 +80,7 @@ function output_community_list($atts){
                   $old_location = $location;
               }
 
-              $output .= "<li type='disc'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
+              $output .= "<li type=disc><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
 
           } elseif ($type['type'] == "affinity") {
               $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
