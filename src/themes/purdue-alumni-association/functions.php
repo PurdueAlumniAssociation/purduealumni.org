@@ -248,6 +248,10 @@ function paa_login_logo() { ?>
 }
 add_action( 'login_enqueue_scripts', 'paa_login_logo' );
 
+function paa_login_header_url($url) {
+     return home_url();
+}
+add_filter( 'login_headerurl', 'paa_login_header_url' );
 /*
     Show styles in the backend and add a custom format dropdown to the editor
     to easily add style to content.
