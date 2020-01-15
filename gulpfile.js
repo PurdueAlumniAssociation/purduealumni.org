@@ -3,6 +3,7 @@ const del = require('del');
 const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const sourcemaps = require('gulp-sourcemaps');
 
 //const babel= require('gulp-babel');
 
@@ -28,15 +29,15 @@ function php(cb) {
 
 function css(cb) {
   src(`${origin}/sass/style.scss`)
+  .pipe(sourcemaps.init())
   .pipe(autoprefixer({
     cascade: false
   }))
   .pipe(sass({
     outputStyle: 'compressed'
   }))
-
+  .pipe(sourcemaps.write('.'))
   .pipe(dest(`${destination}/css`));
-
   cb();
 }
 
