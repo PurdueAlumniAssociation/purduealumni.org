@@ -97,7 +97,13 @@ async function wpcss(cb) {
 }
 
 function wpphp(cb) {
-  src(`${origin}/themes/purdue-alumni-association`)
+  src(`${origin}/themes/purdue-alumni-association/**/*.php`)
+  .pipe(dest(devPath));
+  cb();
+}
+
+function wpjs(cb) {
+  src(`${origin}/themes/purdue-alumni-association/**/*.js`)
   .pipe(dest(devPath));
   cb();
 }
@@ -105,4 +111,4 @@ function wpphp(cb) {
 
 exports.default = series(clean, parallel(html, css, php));
 exports.server = series(clean, parallel(html, css, php), server, watcher);
-exports.wpdev = parallel(wpcss, wpphp);
+exports.wpdev = parallel(wpcss, wpphp, wpjs);
