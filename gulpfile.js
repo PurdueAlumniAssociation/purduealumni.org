@@ -10,6 +10,7 @@ const fileinclude = require('gulp-file-include');
 
 const origin = 'src';
 const destination = 'build';
+const devPath = '../../../../../Applications/MAMP/htdocs/wc/wp-content/themes/purdue-alumni-association/';
 
 sass.compiler = require('node-sass');
 
@@ -29,20 +30,19 @@ function html(cb) {
 }
 
 function php(cb) {
-  src(`${origin}/**/*.php`, { ignore: `${origin}/ignore/*.*` }).pipe(dest(destination));
+  src(`${origin}/**/*.php`, { ignore: `${origin}/ignore/*.*` })
+  .pipe(dest(destination));
   cb();
 }
 
 function css(cb) {
   src(`${origin}/sass/style.scss`)
-  .pipe(sourcemaps.init())
   .pipe(autoprefixer({
     cascade: false
   }))
   .pipe(sass({
     outputStyle: 'compressed'
   }))
-  .pipe(sourcemaps.write('.'))
   .pipe(dest(`${destination}/css`));
   cb();
 }
@@ -77,5 +77,32 @@ function server(cb) {
   cb();
 }
 
+async function wpcss(cb) {
+    await del([`${devPath}style.css`, `${devPath}style.css.map`, `${devPath}css/*.*`, `${devPath}css/*.*.map` ], { force: true });
+
+    src(`${origin}/sass/style.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('./'))
+        .pipe(dest(devPath))
+
+    src(`${origin}/sass/pages/*.scss`)
+        .pipe(sourcemaps.init())
+        .pipe(sass())
+        .pipe(autoprefixer())
+        .pipe(sourcemaps.write('./'))
+        .pipe(dest(`${devPath}css`))
+    cb();
+}
+
+function wpphp(cb) {
+  src(`${origin}/themes/purdue-alumni-association`)
+  .pipe(dest(devPath));
+  cb();
+}
+
+
 exports.default = series(clean, parallel(html, css, php));
 exports.server = series(clean, parallel(html, css, php), server, watcher);
+exports.wpdev = parallel(wpcss, wpphp);
