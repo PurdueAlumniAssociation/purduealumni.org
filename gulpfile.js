@@ -4,6 +4,7 @@ const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
+const fileinclude = require('gulp-file-include');
 
 //const babel= require('gulp-babel');
 
@@ -18,7 +19,12 @@ async function clean(cb) {
 }
 
 function html(cb) {
-  src(`${origin}/**/*.html`).pipe(dest(destination));
+  src(`${origin}/**/*.html`, { ignore: `${origin}/html/partials/*.*` })
+  .pipe(fileinclude({
+        prefix: '@@',
+        basepath: '@file'
+  }))
+  .pipe(dest(destination));
   cb();
 }
 
