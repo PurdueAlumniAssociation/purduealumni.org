@@ -2,7 +2,6 @@
     border-top: 1px solid $almost-black;
     padding: 0 $section-padding-xs 1.5em $section-padding-xs;
     margin-top: 60px;
-    clear: both;
 
     @include breakpoint(sm) {
         padding: 0 $section-padding-sm 3em $section-padding-sm;

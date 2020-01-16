@@ -1,97 +1,114 @@
-'use strict';
-
-const gulp = require('gulp');
-
-// sass
+const {src, dest, series, parallel, watch} = require('gulp');
+const del = require('del');
+const browserSync = require('browser-sync').create();
 const sass = require('gulp-sass');
-const cssnano = require('gulp-cssnano');
-const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
-const merge = require('merge-stream');
-
-// html
+const sourcemaps = require('gulp-sourcemaps');
 const fileinclude = require('gulp-file-include');
-const htmlPrettify = require('gulp-html-prettify');
 
-// enable live reload
-const connect = require('gulp-connect');
+//const babel= require('gulp-babel');
 
-// const del = require('del');
+const origin = 'src';
+const destination = 'build';
+const devPath = '../../../../../Applications/MAMP/htdocs/wc/wp-content/themes/purdue-alumni-association/';
 
-// sass
-gulp.task('sass', function () {
-  gulp.src('src/sass/**/*.scss')
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(autoprefixer({
-      browsers: ['last 2 versions'],
-      cascade: false
-    }))
-    .pipe(cssnano())
-    .pipe(gulp.dest('dist/prod/css/')) // build css without sourcemaps
-    .pipe(sourcemaps.write('./'))
-    .pipe(gulp.dest('dist/css/')) // build css with sourcemaps
-  .pipe(connect.reload());
-});
+sass.compiler = require('node-sass');
 
-// html
-gulp.task('html', function () {
-  gulp.src(['src/html/**/*.html', '!src/html/partials/'])
-  // include module files
+async function clean(cb) {
+  await del(destination);
+  cb();
+}
+
+function html(cb) {
+  src(`${origin}/**/*.html`, { ignore: `${origin}/html/partials/*.*` })
   .pipe(fileinclude({
-    prefix: '@@',
-    basepath: '@file'
+        prefix: '@@',
+        basepath: '@file'
   }))
-  // clean up html
-  .pipe(htmlPrettify({indent_char:' ',indent_size:4}))
-  .pipe(gulp.dest('dist/html/'))
-  .pipe(connect.reload());
-});
+  .pipe(dest(destination));
+  cb();
+}
 
-// live reload
-gulp.task('connect', function() {
-    connect.server({
-        root: "dist",
-        livereload: true
-    });
-});
+function php(cb) {
+  src(`${origin}/**/*.php`, { ignore: `${origin}/ignore/*.*` })
+  .pipe(dest(destination));
+  cb();
+}
 
-// wordpress php
-gulp.task('wordpress', function () {
-    gulp.src(['src/themes/purdue-alumni-association/**/*.php', 'src/themes/purdue-alumni-association/**/*.js'])
-    .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/'))
-});
+function css(cb) {
+  src(`${origin}/sass/style.scss`)
+  .pipe(autoprefixer({
+    cascade: false
+  }))
+  .pipe(sass({
+    outputStyle: 'compressed'
+  }))
+  .pipe(dest(`${destination}/css`));
+  cb();
+}
 
-// sass
-gulp.task('wordpressStyles', function () {
-    // main style
-    var mainStyle = gulp.src('src/sass/style.scss')
+// function js(cb) {
+//   src(`${origin}/js/lib/**/*.js`).pipe(dest(`${destination}/js/lib`));
+//
+//   src(`${origin}/js/script.js`)
+//   .pipe(babel({
+//     presets: ['@babel/env']
+//   }))
+//   .pipe(dest(`${destination}/js`));
+//   cb();
+// }
+
+function watcher(cb) {
+  watch(`${origin}/**/*.html`).on('change', series(html, browserSync.reload))
+  watch(`${origin}/**/*.scss`).on('change', series(css, browserSync.reload))
+  watch(`${origin}/**/*.php`).on('change', series(php, browserSync.reload))
+  //watch(`${origin}/**/*.js`).on('change', series(js, browserSync.reload))
+  cb();
+}
+
+function server(cb) {
+  browserSync.init({
+    notify: false,
+    open: true,
+    server: {
+      baseDir: `${destination}/html`
+    }
+  })
+  cb();
+}
+
+async function wpcss(cb) {
+    await del([`${devPath}style.css`, `${devPath}style.css.map`, `${devPath}css/*.*`, `${devPath}css/*.*.map` ], { force: true });
+
+    src(`${origin}/sass/style.scss`)
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-          browsers: ['last 2 versions'],
-          cascade: false
-        }))
+        .pipe(sass())
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/'))
-        // page specific styles
-    var pageStyles = gulp.src('src/sass/pages/*.scss')
+        .pipe(dest(devPath))
+
+    src(`${origin}/sass/pages/*.scss`)
         .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(autoprefixer({
-          browsers: ['last 2 versions'],
-          cascade: false
-        }))
+        .pipe(sass())
+        .pipe(autoprefixer())
         .pipe(sourcemaps.write('./'))
-        .pipe(gulp.dest('../../../../../Applications/MAMP/htdocs/paa/wp-content/themes/purdue-alumni-association/css/'))
-    .pipe(connect.reload());
-    return merge(mainStyle, pageStyles);
-});
+        .pipe(dest(`${devPath}css`))
+    cb();
+}
 
-gulp.task('watch', function () {
-  gulp.watch('src/sass/**/*.scss', ['sass', 'wordpressStyles']);
-  gulp.watch('src/html/**/*.html', ['html']);
-  gulp.watch(['src/themes/purdue-alumni-association/**/*.php', 'src/themes/purdue-alumni-association/**/*.js'], ['wordpress']);
-});
+function wpphp(cb) {
+  src(`${origin}/themes/purdue-alumni-association/**/*.php`)
+  .pipe(dest(devPath));
+  cb();
+}
 
-gulp.task('default', ['html', 'sass', 'wordpress', 'wordpressStyles', 'connect', 'watch']);
+function wpjs(cb) {
+  src(`${origin}/themes/purdue-alumni-association/**/*.js`)
+  .pipe(dest(devPath));
+  cb();
+}
+
+
+exports.default = series(clean, parallel(html, css, php));
+exports.server = series(clean, parallel(html, css, php), server, watcher);
+exports.wpdev = parallel(wpcss, wpphp, wpjs);

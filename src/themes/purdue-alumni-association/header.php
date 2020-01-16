@@ -3,7 +3,11 @@
 <head>
     <?php get_template_part( 'template-parts/ascii-art' ); ?>
     <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-KTNT5LJ');</script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KR83M96');</script>
     <!-- End Google Tag Manager -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,19 +39,24 @@
         }());
     </script>
 </head>
-<body>
+<body <?php body_class(); ?>>
     <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KTNT5LJ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KR83M96"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <a href="#main" class="skip-to">Skip to Main Content</a>
     <header class="black-bar">
-        <nav class="black-bar-menu">
-            <ul id="menu-black-bar-links" class="black-bar-menu__list">
-                <li class="black-bar-menu__list-item"><a href="#" data-featherlight="#login-box"><i class="fa fa-key" aria-hidden="true"></i>Log In</a></li>
-                <li class="black-bar-menu__link--search black-bar-menu__list-item"><a href="#" onclick="return false;"><i class="fa fa-search" aria-hidden="true"></i>Search</a></li>
-                <li class="black-bar-menu__list-item"><a class="button button--gold button--bold button--small" id="black-bar-join" href="https://www.purduealumni.org/membership/membership-plans">Join Now</a></li>
-            </ul>
-        </nav>
+        <?php if (has_nav_menu('black-bar-menu')) : ?>
+            <?php
+                wp_nav_menu(array(
+                    'theme_location'    => 'black-bar-menu',
+                    'container'         => 'nav',
+                    'container_class'   => 'black-bar-menu',
+                    'menu_class'        => 'black-bar-menu__list',
+                    'menu_id'           => 'menu-black-bar-links'
+                 ));
+            ?>
+        <?php endif; ?>
         <form class="form search-form black-bar-menu__search-form" role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>">
             <label for="black-bar-search">
                 <span class="sr-only">Search for:</span>
@@ -58,8 +67,8 @@
     </header>
     <header class="row row--full-width header">
         <a class="header__logo-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-            <img class="header__logo not-mobile not-tablet" src="<?= get_template_directory_uri() ?>/svg/alumni-association-mark-with-150-desktop-optimized.svg" alt="Purdue Alumni Association" />
-            <img class="header__logo mobile-only tablet-only" src="<?= get_template_directory_uri() ?>/svg/alumni-association-mark-with-150-mobile-optimized.svg" alt="Purdue Alumni Association" />
+            <img class="header__logo not-mobile not-tablet" src="<?= get_template_directory_uri() ?>/svg/logo-optimized.svg" alt="Purdue Alumni Association" />
+            <img class="header__logo mobile-only tablet-only" src="<?= get_template_directory_uri() ?>/svg/logo-optimized.svg" alt="Purdue Alumni Association" />
         </a>
         <div class="header__right-content">
             <a class="button button--small button--almost-black primary-menu__mobile-menu-button" id="mobile-menu-toggle" href="#" onclick="return false;"><i class="fas fa-bars primary-menu__mobile-menu-button-icon" rel="js-mobile-menu-button-icon"></i> Menu</a>

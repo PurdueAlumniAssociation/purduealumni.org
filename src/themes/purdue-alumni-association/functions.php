@@ -4,6 +4,11 @@ add_theme_support( 'post-thumbnails' );
 add_theme_support( 'title-tag' );
 add_image_size( 'Medium-Large size', 500, 500 );
 
+function paa_add_woocommerce_support() {
+	add_theme_support( 'woocommerce' );
+}
+add_action( 'after_setup_theme', 'paa_add_woocommerce_support' );
+
 // Add common styles
 function paa_scripts_and_styles() {
     // load custom template styles or default to basic common styles
@@ -30,11 +35,21 @@ function paa_scripts_and_styles() {
         case "page-small-steps.php":
             wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
-        case "page-150-objects.php":
+        case "page-object-permanence.php":
             wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
-            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the
+            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+            wp_enqueue_script( '150-objects-sharing', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cab956bbac2fc69', true ); // true adds it to the footer
+            break;
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
+            break;
+        case "page-150-innovations-section.php":
+        case "page-150-innovations.php":
+            wp_enqueue_style( '150-innovations', get_template_directory_uri() . '/css/150-innovations.css' );
+            break;
+        case "page-pase-scholarship.php":
+            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship.js', array('jquery'), '1.0.0', true );
+            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             break;
         default:
             if ( is_front_page() ) {
@@ -46,6 +61,9 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
+            } elseif ( wp_get_post_parent_id( $post->ID ) == 1072 ) {
+                wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
+                wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
@@ -132,7 +150,10 @@ function add_search_box_to_menu( $items, $args ) {
                     </form>
                 </li>
                 <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='#' data-featherlight='#login-box'>Log In</a>
+                    <a class='primary-menu__link' href='https://www.purduealumni.org/login'>Log In</a>
+                </li>
+                <li class='primary-menu__list-item'>
+                    <a class='primary-menu__link' href='https://www.purduealumni.org/alumni-portal'>Alumni Portal</a>
                 </li>" . $items;
     }
 
@@ -227,6 +248,10 @@ function paa_login_logo() { ?>
 }
 add_action( 'login_enqueue_scripts', 'paa_login_logo' );
 
+function paa_login_header_url($url) {
+     return home_url();
+}
+add_filter( 'login_headerurl', 'paa_login_header_url' );
 /*
     Show styles in the backend and add a custom format dropdown to the editor
     to easily add style to content.
@@ -410,6 +435,49 @@ include 'function-includes/custom-query-vars.php';
 
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
-include 'function-includes/150-items-ajax.php';
+include 'function-includes/woocommerce-customizations.php';
 
+// 150 Objects Filters
+function paa_create_temp_column($fields) {
+  global $wpdb;
+  $has_the = " CASE
+      WHEN $wpdb->posts.post_title regexp '^(The)[[:space:]]'
+        THEN trim(substr($wpdb->posts.post_title from 4))
+      ELSE $wpdb->posts.post_title
+        END AS title2";
+  if ($has_the) {
+    $fields .= ( preg_match( '/^(\s+)?,/', $has_the ) ) ? $has_the : ", $has_the";
+  }
+  return $fields;
+}
+
+function paa_sort_by_temp_column ($orderby) {
+  $custom_orderby = " TRIM( LEADING '\‘' FROM TRIM( LEADING '''' FROM UPPER(title2) ) )";
+  if ($custom_orderby) {
+    $orderby = $custom_orderby;
+  }
+  return $orderby;
+}
+
+include 'function-includes/club-dashboard.php';
+
+function paa_custom_mime_types( $mimes ) {
+    // new allowed mime types
+    $mimes['svg'] = 'image/svg+xml';
+    $mimes['csv'] = 'text/csv';
+
+    return $mimes;
+}
+add_filter( 'upload_mimes', 'paa_custom_mime_types' );
+
+
+function paa_sender_email( $original_email_address ) {
+    return 'no-reply@purduealumni.org';
+}
+add_filter( 'wp_mail_from', 'paa_sender_email' );
+
+function paa_sender_name( $original_email_from ) {
+    return 'Purdue Alumni Association';
+}
+add_filter( 'wp_mail_from_name', 'paa_sender_name' );
 ?>
