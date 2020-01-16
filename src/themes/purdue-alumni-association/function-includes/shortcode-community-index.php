@@ -80,7 +80,7 @@ function output_community_list($atts){
                   $old_location = $location;
               }
 
-              $output .= "<li class='community-list__li'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
+              $output .= "<li class='community-list-item'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
 
           } elseif ($type['type'] == "affinity") {
               $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
