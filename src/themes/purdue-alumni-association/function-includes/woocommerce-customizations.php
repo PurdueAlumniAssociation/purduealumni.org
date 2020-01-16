@@ -170,11 +170,55 @@ function add_custom_titles_for_endpoints( $post_title )
 }
 add_filter( 'the_title', 'add_custom_titles_for_endpoints', 20);
 
-// must test in dev
-// function paa_profile_update_notification( $user_id, $old_user_data ) {
-//     wp_mail("bholaday@purdue.edu", "update", "works");
-// }
-// add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
+function paa_profile_update_notification( $user_id, $old_user_data ) {
+    $body = "This is the most recent data for the member.\r\n\r\n";
+
+    $meta_keys = array(
+        'constituent_id',
+        'first_name',
+        'last_name',
+        'email',
+        'billing_first_name',
+        'billing_last_name',
+        'billing_company',
+        'billing_address_1',
+        'billing_address_2',
+        'billing_city',
+        'billing_state',
+        'billing_postcode',
+        'billing_country',
+        'billing_phone',
+        'billing_email',
+        'shipping_first_name',
+        'shipping_last_name',
+        'shipping_company',
+        'shipping_address_1',
+        'shipping_address_2',
+        'shipping_city',
+        'shipping_state',
+        'shipping_postcode',
+        'shipping_country',
+        'gender',
+        'birthday',
+        'graduation_year',
+        'purdue_connection',
+        'purdue_global',
+        'user_constituentId'
+    );
+
+    foreach( $meta_keys as $key ) {
+        $value = get_user_meta($user_id, $key, true);
+
+        if ( ! empty($value) ) {
+            $body .= "{$key}: {$value}\r\n";
+        }
+
+        unset($value);
+    }
+
+    wp_mail("alumnimembership@purdue.edu", "User Profile Updated", $body);
+}
+add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
 
 function paa_before_single_product() {
     $categories = wc_get_product_category_list($id);
@@ -200,7 +244,7 @@ function userMetaConstituentId( $user ) {
 <h2>Constituent ID</h2>
     <table class="form-table">
         <tr>
-            <th><label for="user_birthday">Constituent ID</label></th>
+            <th><label for="user_constituentId">Constituent ID</label></th>
             <td>
                 <input
                     type="text"
@@ -244,3 +288,31 @@ function paa_custom_refund_message( $subscription ) {
     wc_add_notice( _x( 'Your account will remain active until the membership end date. If you would instead prefer to stop your membership completely and request a refund, please contact our <a href="mailto:alumnimembership@purdue.edu">membership team</a>.', 'Notice displayed to user confirming their action.', 'woocommerce-subscriptions' ), 'notice' );
 }
 add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom_refund_message');
+
+
+/////////////////////////////
+function paa_subscriptions_custom_price_string( $pricestring ) {
+    global $product;
+
+    $products_to_change = array( 4523, 11149, 175186 );
+
+    if ( in_array( $product->id, $products_to_change ) ) {
+        $pricestring = str_replace( 'for 1 year', '', $pricestring );
+    }
+    return $pricestring;
+}
+add_filter( 'woocommerce_subscriptions_product_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
+add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_price_string', 100, 1 );
+
+function paa_life_custom_cart_button_text( $button_text ) {
+    global $product;
+
+    $products_to_change = array( 4523, 11149, 175186 );
+
+    if ( in_array( $product->id, $products_to_change ) ) {
+        return __('Join Now', 'woocommerce');
+    }
+
+    return $button_text;
+}
+add_filter('woocommerce_product_single_add_to_cart_text', 'paa_life_custom_cart_button_text');
