@@ -303,7 +303,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         echo do_shortcode($community_scholarship);
                     }
 
-                    if (isset($widget_id) && isset($calendar_id)) {
+                    if (!empty($widget_id) && !empty($calendar_id)) {
                         echo "<h2 id=\"community-events\">Events</h2>";
                         echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget_id}\" data-calendar-id=\"{$calendar_id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"><script type=\"text/javascript\">window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours;document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
                     }
