@@ -53,7 +53,7 @@ function output_community_list($atts){
   }
   $the_query = new WP_Query( $args );
 
-  $prev_location = "";
+  $prev_state_country = "";
   if ( $the_query->have_posts() ) {
       $output = "";
 
@@ -76,9 +76,9 @@ function output_community_list($atts){
 
               // check for new state/country
               // if the previous state/country is different than the current state/country
-              if ($prev_location != $state_country) {
+              if ($prev_state_country != $state_country) {
                   // if the previous state/country is not empty, close the nested list
-                  if ($prev_location != "" ) {
+                  if ($prev_state_country != "" ) {
                       $output .= "</ul></li>";
                   }
 
@@ -86,7 +86,7 @@ function output_community_list($atts){
                   $output .= "<li class='community-list-item community-list-item--state-country'>${state_country}<ul>";
 
                   // update the previous state/country with the current state/country for the next loop
-                  $prev_location = $state_country;
+                  $prev_state_country = $state_country;
               }
 
               // add the current location to the nested list
