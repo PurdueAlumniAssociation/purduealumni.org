@@ -333,17 +333,18 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contacts</h2>";
 
-                if (isset($community_contact_name)) {
+                // don't output local contact for international network (they will be listed in the content body)
+                if (isset($community_contact_name) && $community_type != 'International') {
                     echo "<div class=\"community_contact\">
                         <h3>Community Contact</h3>
                         <p class=\"community_contact__name\">{$community_contact_name}</p>";
 
-                    if (isset($community_contact_phone)) {
-                        echo "<p class=\"community_contact__phone\">{$community_contact_phone}</p>";
-                    }
-
                     if (isset($community_contact_email)) {
                         echo "<p class=\"community_contact__email\"><a href=\"mailto:{$community_contact_email}\">{$community_contact_email}</a></p>";
+                    }
+
+                    if (isset($community_contact_phone)) {
+                        echo "<p class=\"community_contact__phone\">{$community_contact_phone}</p>";
                     }
 
                     echo "</div>";
@@ -398,8 +399,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     echo "</div>";
                 }
 
-                // output linked svg of selected social channel
-                if(!empty($group_sm)) {
+                // output social network icons, exclude international networks
+                if(!empty($group_sm && $community_type != 'International') )) {
                     echo "<h2>Connect with Us</h2>
                         <div class=\"community_social\">";
 
