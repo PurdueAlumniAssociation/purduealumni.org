@@ -74,6 +74,10 @@ function output_community_list($atts){
               } elseif ($type['type'] == "international") {
                   $state_country = rwmb_meta( 'community__country' );
                   $name = rwmb_meta( 'community__city' );
+                  // fallback, use the post title as name if no city is listed
+                  if (empty($name)) {
+                      $name = get_the_title();
+                  }
               }
 
               // check for new state/country
