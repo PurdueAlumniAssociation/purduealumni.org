@@ -73,6 +73,7 @@ function output_community_list($atts){
                   $name = get_the_title();
               } elseif ($type['type'] == "international") {
                   $state_country = rwmb_meta( 'community__country' );
+                  $state_country_dashes = str_replace(" ", "-", $state_country);
                   $name = rwmb_meta( 'community__city' );
                   // fallback, use the post title as name if no city is listed
                   if (empty($name)) {
@@ -89,7 +90,7 @@ function output_community_list($atts){
                   }
 
                   // add the state/country to the list and open a nested list for any locations inside
-                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_country}\">{$state_country}<ul>";
+                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_country_dashes}\">{$state_country}<ul>";
 
                   // update the previous state/country with the current state/country for the next loop
                   $prev_state_country = $state_country;
