@@ -314,7 +314,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 <?php
                 // output location based on type of community
                 if ($community_type == 'International') {
-                    $location = "{$community_city}, {$community_country}";
+                    $location = "{$community_country}";
                 } else {
                     $location = "{$community_city}, {$community_state}";
                 }
@@ -331,7 +331,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 echo "<p>{$location}</p>";
 
                 // output community contact with heading, contact name, phone number
-                echo "<h2>Contacts</h2>";
+                echo "<h2>Contact Us</h2>";
 
                 // don't output local contact for international network (they will be listed in the content body)
                 if (isset($community_contact_name) && $community_type != 'International') {
@@ -400,7 +400,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 }
 
                 // output social network icons, exclude international networks
-                if(!empty($group_sm && $community_type != 'International') )) {
+                if(!empty($group_sm) && $community_type != 'International' ) {
                     echo "<h2>Connect with Us</h2>
                         <div class=\"community_social\">";
 
