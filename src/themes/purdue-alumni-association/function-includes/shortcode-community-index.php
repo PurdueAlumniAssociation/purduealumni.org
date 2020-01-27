@@ -76,10 +76,7 @@ function output_community_list($atts){
                   }
                   $output .= "<li class='community-list-item community-list-item--state-country'>${location}<ul>";
 
-
                   $old_location = $location;
-              } else {
-                  $ouput .= "</li></ul>";
               }
 
               $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
