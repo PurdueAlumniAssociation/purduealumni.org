@@ -85,7 +85,7 @@ function output_community_list($atts){
                   }
 
                   // add the state/country to the list and open a nested list for any locations inside
-                  $output .= "<li class='community-list-item community-list-item--state-country'>${state_country}<ul>";
+                  $output .= "<li class='community-list-item community-list-item--state-country'>{$state_country}<ul>";
 
                   // update the previous state/country with the current state/country for the next loop
                   $prev_state_country = $state_country;
