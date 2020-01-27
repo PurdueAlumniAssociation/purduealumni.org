@@ -70,8 +70,10 @@ function output_community_list($atts){
               // select data source based on type of community
               if ($type['type'] == "club") {
                   $state_country = rwmb_meta( 'community__state' );
+                  $name = get_the_title();
               } elseif ($type['type'] == "international") {
                   $state_country = rwmb_meta( 'community__country' );
+                  $name = get_the_title();
               }
 
               // check for new state/country
@@ -90,7 +92,7 @@ function output_community_list($atts){
               }
 
               // add the current location to the nested list
-              $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
+              $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">{$name}}</a></li>";
 
           } elseif ($type['type'] == "affinity") {
               // add the current location to the list
