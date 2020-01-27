@@ -294,12 +294,12 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     }
 
                     // output other text
-                    if (isset($community_other)) {
+                    if (!empty($community_other)) {
                         echo do_shortcode($community_other);
                     }
 
+                    // output scholarship content
                     if (!empty($community_scholarship)) {
-                        echo "<h2>Scholarship</h2>";
                         echo do_shortcode($community_scholarship);
                     }
 
