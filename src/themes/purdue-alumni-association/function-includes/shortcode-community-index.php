@@ -1,10 +1,11 @@
 <?php
 
 function output_community_list($atts){
-  $type = shortcode_atts( array(
-    'type' => 'club'
+  $atts = shortcode_atts( array(
+    'type' => 'club',
+    'ul_class' => 'community-list'
   ), $atts );
-  // echo $type['type'];
+  // echo $atts['type'];
 
   $args = array(
       'post_type' => 'community',
@@ -13,12 +14,12 @@ function output_community_list($atts){
       'nopaging' => true,
   );
 
-  if ($type['type'] == "club") {
+  if ($atts['type'] == "club") {
       $args['meta_query'] = array(
           'relation' => 'AND',
           'query_community_type' => array(
               'key' => 'community__type',
-              'value' => $type['type'], // Optional
+              'value' => $atts['type'], // Optional
           ),
           'query_community_state' => array(
               'key' => 'community__state',
@@ -29,12 +30,12 @@ function output_community_list($atts){
           'query_community_state' => 'ASC',
           'post_title' => 'ASC',
       );
-  } elseif ($type['type'] == "international") {
+  } elseif ($atts['type'] == "international") {
       $args['meta_query'] = array(
           'relation' => 'AND',
           'query_community_type' => array(
               'key' => 'community__type',
-              'value' => $type['type'], // Optional
+              'value' => $atts['type'], // Optional
           ),
           'query_community_country' => array(
               'key' => 'community__country',
@@ -45,7 +46,7 @@ function output_community_list($atts){
           'query_community_country' => 'ASC',
           'post_title' => 'ASC',
       );
-  } elseif ($type['type'] == "affinity") {
+  } elseif ($atts['type'] == "affinity") {
       $args['meta_key'] = 'community__type';
       $args['meta_value'] = 'affinity';
       $args['orderby'] = 'post_title';
@@ -58,7 +59,7 @@ function output_community_list($atts){
       $output = "";
 
       // start the unordered list for the communities
-      $output .= '<ul class="community-list">';
+      $output .= "<ul class=\"{$atts['ul_class']}\">";
 
       // loop through the results of the query
       while ( $the_query->have_posts() ) {
@@ -66,12 +67,12 @@ function output_community_list($atts){
           $community_id = get_the_ID();
 
           // run this logic for clubs and interantional networks
-          if ($type['type'] == "club" || $type['type'] == "international") {
+          if ($atts['type'] == "club" || $atts['type'] == "international") {
               // select data source based on type of community
-              if ($type['type'] == "club") {
+              if ($atts['type'] == "club") {
                   $state_country = rwmb_meta( 'community__state' );
                   $name = get_the_title();
-              } elseif ($type['type'] == "international") {
+              } elseif ($atts['type'] == "international") {
                   $state_country = rwmb_meta( 'community__country' );
                   $state_country_dashes = strtolower(str_replace(" ", "-", $state_country));
                   $name = rwmb_meta( 'community__city' );
@@ -99,7 +100,7 @@ function output_community_list($atts){
               // add the current location to the nested list
               $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">{$name}</a></li>";
 
-          } elseif ($type['type'] == "affinity") {
+          } elseif ($atts['type'] == "affinity") {
               // add the current location to the list
               $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
           }
