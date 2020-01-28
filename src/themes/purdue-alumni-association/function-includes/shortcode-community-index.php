@@ -54,9 +54,10 @@ function output_community_list($atts){
   }
   $the_query = new WP_Query( $args );
 
-  $prev_state_country = "";
+  $prev_state = "";
+  $output = "";
+
   if ( $the_query->have_posts() ) {
-      $output = "";
 
       // start the unordered list for the communities
       $output .= "<ul class=\"{$atts['ul_class']}\">";
@@ -66,48 +67,54 @@ function output_community_list($atts){
           $the_query->the_post();
           $community_id = get_the_ID();
 
-          // run this logic for clubs and interantional networks
-          if ($atts['type'] == "club" || $atts['type'] == "international") {
-              // select data source based on type of community
-              if ($atts['type'] == "club") {
-                  $state_country = rwmb_meta( 'community__state' );
-                  $name = get_the_title();
-              } elseif ($atts['type'] == "international") {
-                  $state_country = rwmb_meta( 'community__country' );
-                  $state_country_dashes = strtolower(str_replace(" ", "-", $state_country));
-                  $name = rwmb_meta( 'community__city' );
-                  // fallback, use the post title as name if no city is listed
-                  if (empty($name)) {
-                      $name = get_the_title();
-                  }
-              }
+          // run this logic for clubs
+          if ( $atts['type'] == "club" ) {
 
-              // check for new state/country
-              // if the previous state/country is different than the current state/country
-              if ($prev_state_country != $state_country) {
-                  // if the previous state/country is not empty, close the nested list
-                  if ($prev_state_country != "" ) {
+              $state = rwmb_meta( 'community__state' );
+              $state_dashes = strtolower(str_replace(" ", "-", $state));
+              $name = get_the_title();
+
+              // check for new state
+              // if the previous state is different than the current state
+              if ($prev_state != $state) {
+                  // if the previous state is not empty, close the nested list
+                  if ($prev_state != "" ) {
                       $output .= "</ul></li>";
                   }
 
-                  // add the state/country to the list and open a nested list for any locations inside
-                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_country_dashes}\">{$state_country}<ul>";
+                  // add the state to the list and open a nested list for any locations inside
+                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_dashes}\">{$state}<ul>";
 
-                  // update the previous state/country with the current state/country for the next loop
-                  $prev_state_country = $state_country;
+                  // update the previous state with the current state for the next loop
+                  $prev_state = $state;
               }
 
               // add the current location to the nested list
               $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">{$name}</a></li>";
 
-          } elseif ($atts['type'] == "affinity") {
+          } elseif ( $atts['type'] == "international" ) {
+
+              $country = rwmb_meta( 'community__country' );
+              $country_dashes = strtolower(str_replace(" ", "-", $country));
+              $name = get_the_title();
+
+              // add the current location to the list
+              $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">{$name}</a></li>";
+
+          } elseif ( $atts['type'] == "affinity" ) {
+
               // add the current location to the list
               $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
           }
       }
 
-      // close out the last nested list, list item, and unordered list
-      $output .= '</ul></li></ul>';
+      // close out the last nested list and list item
+      if ( $atts['type'] == "club" ) {
+          $output .= '</ul></li></ul>';
+      }
+
+      // close out the unordered list
+      $output .= '</ul>';
 
       return $output;
   } else {
