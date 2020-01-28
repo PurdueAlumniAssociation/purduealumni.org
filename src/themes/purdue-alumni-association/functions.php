@@ -150,12 +150,6 @@ function add_search_box_to_menu( $items, $args ) {
                         <input class='form__input form__input--text' type='search' value='" . get_search_query() . "' name='s' id='mobile-menu-search'>
                         <button class='form__button form__button--submit search-form__button mobile-menu__search-form-button' type='submit'><i class='fas fa-search'></i><span class='sr-only'>submit button</span></button>
                     </form>
-                </li>
-                <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://www.purduealumni.org/login'>Log In</a>
-                </li>
-                <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://www.purduealumni.org/alumni-portal'>Alumni Portal</a>
                 </li>" . $items;
     }
 
@@ -250,6 +244,10 @@ function paa_login_logo() { ?>
 }
 add_action( 'login_enqueue_scripts', 'paa_login_logo' );
 
+function paa_login_header_url($url) {
+     return home_url();
+}
+add_filter( 'login_headerurl', 'paa_login_header_url' );
 /*
     Show styles in the backend and add a custom format dropdown to the editor
     to easily add style to content.
@@ -467,4 +465,15 @@ function paa_custom_mime_types( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'paa_custom_mime_types' );
+
+
+function paa_sender_email( $original_email_address ) {
+    return 'no-reply@purduealumni.org';
+}
+add_filter( 'wp_mail_from', 'paa_sender_email' );
+
+function paa_sender_name( $original_email_from ) {
+    return 'Purdue Alumni Association';
+}
+add_filter( 'wp_mail_from_name', 'paa_sender_name' );
 ?>
