@@ -5,7 +5,6 @@ function output_community_list($atts){
     'type' => 'club',
     'ul_class' => 'community-list'
   ), $atts );
-  // echo $atts['type'];
 
   $args = array(
       'post_type' => 'community',
