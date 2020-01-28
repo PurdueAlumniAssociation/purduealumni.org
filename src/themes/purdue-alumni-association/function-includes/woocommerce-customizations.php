@@ -30,6 +30,10 @@ function paa_add_css_to_specific_emails($css, $email)
     // if ( $email->id == 'customer_refunded_order' ) {}
     // if ( $email->id == 'customer_reset_password' ) {}
     // if ( $email->id == 'failed_order' ) {}
+    if ( $email->id == 'admin-new-order' ) {
+        $css .= '#template_header_image, #template_header, #template_footer { display: none !important; }';
+    }
+
     return $css;
 }
 add_filter( 'woocommerce_email_styles', 'paa_add_css_to_specific_emails', 9999, 2 );
