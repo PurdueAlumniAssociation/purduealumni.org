@@ -59,7 +59,7 @@ function output_community_list($atts){
   if ( $the_query->have_posts() ) {
 
       // start the unordered list for the communities
-      $output .= "<ul class=\"{$atts['ul_class']}\">";
+      $output .= "<ul class=\"community-list {$atts['ul_class']}\">";
 
       // loop through the results of the query
       while ( $the_query->have_posts() ) {
