@@ -294,16 +294,16 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     }
 
                     // output other text
-                    if (isset($community_other)) {
+                    if (!empty($community_other)) {
                         echo do_shortcode($community_other);
                     }
 
+                    // output scholarship content
                     if (!empty($community_scholarship)) {
-                        echo "<h2>Scholarship</h2>";
                         echo do_shortcode($community_scholarship);
                     }
 
-                    if (isset($widget_id) && isset($calendar_id)) {
+                    if (!empty($widget_id) && !empty($calendar_id)) {
                         echo "<h2 id=\"community-events\">Events</h2>";
                         echo "<div id=\"calendar-widget-container\" data-widget-id=\"{$widget_id}\" data-calendar-id=\"{$calendar_id}\" data-height=\"\" data-width=\"\" data-show-icons=\"true\"><script type=\"text/javascript\">window.cvtDomain = \"www.cvent.com\";var cventWidgetRenderScript = document.createElement(\"script\");var versionInHours = new Date().getTime()/(3600 * 1000);cventWidgetRenderScript.src = \"//www.cvent.com/g/mobile/javascript/calendar-widget-loader.js?version=\"+ versionInHours;document.getElementsByTagName(\"head\")[0].appendChild(cventWidgetRenderScript);</script></div>";
                     }
@@ -314,7 +314,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 <?php
                 // output location based on type of community
                 if ($community_type == 'International') {
-                    $location = "{$community_city}, {$community_country}";
+                    $location = "{$community_country}";
                 } else {
                     $location = "{$community_city}, {$community_state}";
                 }
@@ -331,19 +331,20 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 echo "<p>{$location}</p>";
 
                 // output community contact with heading, contact name, phone number
-                echo "<h2>Contacts</h2>";
+                echo "<h2>Contact Us</h2>";
 
-                if (isset($community_contact_name)) {
+                // don't output local contact for international network (they will be listed in the content body)
+                if (isset($community_contact_name) && $community_type != 'International') {
                     echo "<div class=\"community_contact\">
                         <h3>Community Contact</h3>
                         <p class=\"community_contact__name\">{$community_contact_name}</p>";
 
-                    if (isset($community_contact_phone)) {
-                        echo "<p class=\"community_contact__phone\">{$community_contact_phone}</p>";
-                    }
-
                     if (isset($community_contact_email)) {
                         echo "<p class=\"community_contact__email\"><a href=\"mailto:{$community_contact_email}\">{$community_contact_email}</a></p>";
+                    }
+
+                    if (isset($community_contact_phone)) {
+                        echo "<p class=\"community_contact__phone\">{$community_contact_phone}</p>";
                     }
 
                     echo "</div>";
@@ -398,8 +399,8 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     echo "</div>";
                 }
 
-                // output linked svg of selected social channel
-                if(!empty($group_sm)) {
+                // output social network icons, exclude international networks
+                if(!empty($group_sm) && $community_type != 'International' ) {
                     echo "<h2>Connect with Us</h2>
                         <div class=\"community_social\">";
 
