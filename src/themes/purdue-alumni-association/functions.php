@@ -61,6 +61,12 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
+			} elseif ( is_singular( 'community' ) ) {
+                wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
+                wp_enqueue_style( 'single-community-styles', get_template_directory_uri() . '/css/single-community.css' );
+            } elseif ( wp_get_post_parent_id( $post->ID ) == 1072 ) {
+                wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
+                wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
