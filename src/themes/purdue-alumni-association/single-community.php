@@ -271,6 +271,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
         <div class="bootstrap-row">
             <div class="col-xs-12 col-sm-9">
                 <main class="" id="main" tabindex="-1">
+                    <a href="https://www.purduealumni.org/communities/international-alumni">View other international networks</a>
                     <h1><?php the_title(); ?></h1>
                     <?php
                     $community_type = rwmb_meta( 'community__type' );
