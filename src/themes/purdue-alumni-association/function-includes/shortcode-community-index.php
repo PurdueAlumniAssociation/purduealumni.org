@@ -1,0 +1,120 @@
+<?php
+
+function output_community_list($atts){
+  $atts = shortcode_atts( array(
+    'type' => 'club',
+    'ul_class' => 'community-list'
+  ), $atts );
+  // echo $atts['type'];
+
+  $args = array(
+      'post_type' => 'community',
+      'post_status' => 'publish',
+      'posts_per_page' => -1,
+      'nopaging' => true,
+  );
+
+  if ($atts['type'] == "club") {
+      $args['meta_query'] = array(
+          'relation' => 'AND',
+          'query_community_type' => array(
+              'key' => 'community__type',
+              'value' => $atts['type'], // Optional
+          ),
+          'query_community_state' => array(
+              'key' => 'community__state',
+              'compare' => 'EXISTS', // Optional
+          ),
+      );
+      $args['orderby'] = array(
+          'query_community_state' => 'ASC',
+          'post_title' => 'ASC',
+      );
+  } elseif ($atts['type'] == "international") {
+      $args['meta_query'] = array(
+          'relation' => 'AND',
+          'query_community_type' => array(
+              'key' => 'community__type',
+              'value' => $atts['type'], // Optional
+          ),
+          'query_community_country' => array(
+              'key' => 'community__country',
+              'compare' => 'EXISTS', // Optional
+          ),
+      );
+      $args['orderby'] = array(
+          'query_community_country' => 'ASC',
+          'post_title' => 'ASC',
+      );
+  } elseif ($atts['type'] == "affinity") {
+      $args['meta_key'] = 'community__type';
+      $args['meta_value'] = 'affinity';
+      $args['orderby'] = 'post_title';
+      $args['order'] = 'ASC';
+  }
+  $the_query = new WP_Query( $args );
+
+  $prev_state_country = "";
+  if ( $the_query->have_posts() ) {
+      $output = "";
+
+      // start the unordered list for the communities
+      $output .= "<ul class=\"{$atts['ul_class']}\">";
+
+      // loop through the results of the query
+      while ( $the_query->have_posts() ) {
+          $the_query->the_post();
+          $community_id = get_the_ID();
+
+          // run this logic for clubs and interantional networks
+          if ($atts['type'] == "club" || $atts['type'] == "international") {
+              // select data source based on type of community
+              if ($atts['type'] == "club") {
+                  $state_country = rwmb_meta( 'community__state' );
+                  $name = get_the_title();
+              } elseif ($atts['type'] == "international") {
+                  $state_country = rwmb_meta( 'community__country' );
+                  $state_country_dashes = strtolower(str_replace(" ", "-", $state_country));
+                  $name = rwmb_meta( 'community__city' );
+                  // fallback, use the post title as name if no city is listed
+                  if (empty($name)) {
+                      $name = get_the_title();
+                  }
+              }
+
+              // check for new state/country
+              // if the previous state/country is different than the current state/country
+              if ($prev_state_country != $state_country) {
+                  // if the previous state/country is not empty, close the nested list
+                  if ($prev_state_country != "" ) {
+                      $output .= "</ul></li>";
+                  }
+
+                  // add the state/country to the list and open a nested list for any locations inside
+                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_country_dashes}\">{$state_country}<ul>";
+
+                  // update the previous state/country with the current state/country for the next loop
+                  $prev_state_country = $state_country;
+              }
+
+              // add the current location to the nested list
+              $output .= "<li class='community-list-item community-list-item--location'><a href=\"". get_the_permalink(). "\">{$name}</a></li>";
+
+          } elseif ($atts['type'] == "affinity") {
+              // add the current location to the list
+              $output .= "<li><a href=\"". get_the_permalink(). "\">". get_the_title(). "</a></li>";
+          }
+      }
+
+      // close out the last nested list, list item, and unordered list
+      $output .= '</ul></li></ul>';
+
+      return $output;
+  } else {
+      // no communities found
+      $no_community = "no communities";
+      return $no_community;
+  }
+  wp_reset_postdata();
+}
+add_shortcode( 'community_list', 'output_community_list');
