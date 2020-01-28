@@ -323,9 +323,11 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
 
                 // output International flag
                 if ($community_type == 'International') {
-                    $lower_community = strtolower($country_codes[$community_country]);
+                    if ( $location != "Hong Kong" ) {
+                        $lower_community = strtolower($country_codes[$community_country]);
 
-                    echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                    }
                 }
 
                 echo "<p>{$location}</p>";
