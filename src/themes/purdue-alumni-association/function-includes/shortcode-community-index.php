@@ -83,7 +83,7 @@ function output_community_list($atts){
                   }
 
                   // add the state to the list and open a nested list for any locations inside
-                  $output .= "<li class='community-list-item community-list-item--state-country' id=\"{$state_dashes}\">{$state}<ul>";
+                  $output .= "<li class='community-list-item community-list-item--state' id=\"{$state_dashes}\">{$state}<ul>";
 
                   // update the previous state with the current state for the next loop
                   $prev_state = $state;
@@ -94,8 +94,6 @@ function output_community_list($atts){
 
           } elseif ( $atts['type'] == "international" ) {
 
-              $country = rwmb_meta( 'community__country' );
-              $country_dashes = strtolower(str_replace(" ", "-", $country));
               $name = get_the_title();
 
               // add the current location to the list
