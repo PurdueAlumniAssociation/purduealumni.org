@@ -1,5 +1,14 @@
 @import "../settings/all";
 
 .community_social_link {
-  padding: .50em;
+  margin-right: .5em;
+  text-decoration: none;
+}
+
+.community_contact {
+    margin: 1em 0;
+
+    &__name, &__email, &__phone {
+        margin: 0;
+    }
 }
