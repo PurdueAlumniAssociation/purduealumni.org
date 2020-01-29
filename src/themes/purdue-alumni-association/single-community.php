@@ -282,6 +282,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     $community_contact_phone = rwmb_meta( 'community__phone' );
                     $community_contact_email = rwmb_meta( 'community__email' );
                     $community_staff_name = rwmb_meta( 'community__staff' );
+                    $community_mailing_address = rwmb_meta( 'community__mailing_address' );
                     $group_sm = rwmb_meta( 'group__sm' );
                     $community_other = rwmb_meta( 'community__other' );
                     $community_scholarship = rwmb_meta( 'community__scholarship' );
@@ -397,6 +398,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     }
 
                     echo "</div>";
+                }
+
+                if (!empty($community_mailing_address)) {
+                    echo $community_mailing_address;
                 }
 
                 // output social network icons, exclude international networks
