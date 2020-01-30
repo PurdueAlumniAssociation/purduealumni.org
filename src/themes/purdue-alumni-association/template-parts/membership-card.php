@@ -12,6 +12,9 @@ if (!empty($memberships)) {
     $membership_levels = array();
     foreach($memberships as $membership) {
         $membership_levels[] = $membership->plan->slug;
+        //echo "<pre>" . print_r($membership) . "</pre>";
+
+        $expiration_date = $membership->get_end_date();
     }
 }
 
@@ -30,6 +33,7 @@ if( !empty($membership_levels) ) {
     ?>
     <div class="membership-card">
         <span class="membership-card__type"><?= $effective_membership_level ?> Member</span>
+        <span class="membership-card__expiration">Expires 01/01/2020<?= $expiration_date ?></span>
         <span class="membership-card__name"><?= $user_full_name ?></span>
         <img class="membership-card__image" src="<?= $image_path ?>" />
     </div>
@@ -46,6 +50,13 @@ if( !empty($membership_levels) ) {
         position: absolute;
         top: 23px;
         left: 23px;
+    }
+
+    .membership-card__expiration {
+        font-size: 1em;
+        position: absolute;
+        top: 64px;
+        left: 25px;
     }
 
     .membership-card__name {
