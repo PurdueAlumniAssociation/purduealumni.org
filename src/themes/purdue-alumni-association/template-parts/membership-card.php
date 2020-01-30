@@ -59,68 +59,6 @@ if( !empty($membership_levels) ) {
         <img class="membership-card__image" src="<?= $image_path ?>" />
     </div>
     <p class="print-hide"><a href="javascript:window.print()"><i class="fas fa-print" aria-hidden style="margin-right: 5px;"></i>Print</a></p>
-
-    <style>
-    .membership-card {
-        position: relative;
-        max-width: 500px;
-    }
-
-    .membership-card__type {
-        font-size: 2em;
-        position: absolute;
-        top: 23px;
-        left: 23px;
-    }
-
-    .membership-card__expiration {
-        font-size: 1em;
-        position: absolute;
-        top: 64px;
-        left: 25px;
-    }
-
-    .membership-card__name {
-        font-size: 1.2em;
-        position: absolute;
-        bottom: 23px;
-        left: 23px;
-        background: rgba(0,0,0,.5);
-        padding: 5px 8px;;
-        color: white;
-        max-width: 394px;
-        line-height: 1.5;
-        border-radius: 6px;
-    }
-
-    @media print
-    {
-    .header, .black-bar, .primary-footer, .secondary-footer, .contact-footer, h1, .woocommerce-MyAccount-navigation, .print-hide {
-        display: none;
-    }
-    .woocommerce-MyAccount-content {
-        float: none !important;
-    }
-    .membership-card {
-    max-width: 320px;
-    }
-    .membership-card__type {
-        font-size: 1.2em;
-        top: 15px;
-        left: 15px;
-    }
-    .membership-card__expiration {
-        font-size: .8em;
-        top: 35px;
-        left: 16px;
-    }
-    .membership-card__name {
-        font-size: .7em;
-        bottom: 15px;
-        left: 15px;
-    }
-    }
-    </style>
     <?php
 } else {
 ?>
