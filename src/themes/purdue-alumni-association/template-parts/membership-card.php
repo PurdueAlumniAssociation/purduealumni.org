@@ -81,6 +81,13 @@ if ( ! empty($memberships) ) {
         left: 23px;
     }
 
+    .membership-card__expiration {
+        font-size: 1em;
+        position: absolute;
+        top: 64px;
+        left: 25px;
+    }
+
     .membership-card__name {
         font-size: 1.2em;
         position: absolute;
@@ -109,6 +116,11 @@ if ( ! empty($memberships) ) {
         font-size: 1.2em;
         top: 15px;
         left: 15px;
+    }
+    .membership-card__expiration {
+        font-size: 0.8em;
+        top: 35px;
+        left: 16px;
     }
     .membership-card__name {
         font-size: .7em;
