@@ -35,15 +35,28 @@ function php(cb) {
   cb();
 }
 
-function css(cb) {
-  src(`${origin}/sass/style.scss`)
-  .pipe(autoprefixer({
-    cascade: false
-  }))
-  .pipe(sass({
-    outputStyle: 'compressed'
-  }))
-  .pipe(dest(`${destination}/css`));
+async function css(cb) {
+    await del([`${devPath}css`], { force: true });
+
+    src(`${origin}/sass/style.scss`)
+    .pipe(autoprefixer({
+        cascade: false
+    }))
+    .pipe(sass({
+        outputStyle: 'compressed'
+    }))
+    .pipe(dest(`${destination}/css`));
+
+
+    src(`${origin}/sass/pages/*.scss`)
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }))
+    .pipe(dest(`${destination}/css`));
+
   cb();
 }
 
@@ -59,9 +72,17 @@ function css(cb) {
 // }
 
 function watcher(cb) {
-  watch(`${origin}/**/*.html`).on('change', series(html, browserSync.reload))
-  watch(`${origin}/**/*.scss`).on('change', series(css, browserSync.reload))
-  watch(`${origin}/**/*.php`).on('change', series(php, browserSync.reload))
+  watch(`${origin}/**/*.html`).on('change', series(clean, html))
+  watch(`${origin}/**/*.scss`).on('change', series(clean, css))
+  watch(`${origin}/**/*.php`).on('change', series(clean, php))
+  //watch(`${origin}/**/*.js`).on('change', series(js, browserSync.reload))
+  cb();
+}
+
+function watcher_with_browsersync(cb) {
+  watch(`${origin}/**/*.html`).on('change', series(clean, html, browserSync.reload))
+  watch(`${origin}/**/*.scss`).on('change', series(clean, css, browserSync.reload))
+  watch(`${origin}/**/*.php`).on('change', series(clean, php, browserSync.reload))
   //watch(`${origin}/**/*.js`).on('change', series(js, browserSync.reload))
   cb();
 }
@@ -109,6 +130,6 @@ function wpjs(cb) {
 }
 
 
-exports.default = series(clean, parallel(html, css, php));
-exports.server = series(clean, parallel(html, css, php), server, watcher);
+exports.default = series(clean, parallel(html, css, php), watcher);
+exports.server = series(clean, parallel(html, css, php), server, watcher_with_browsersync);
 exports.wpdev = parallel(wpcss, wpphp, wpjs);
