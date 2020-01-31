@@ -35,15 +35,28 @@ function php(cb) {
   cb();
 }
 
-function css(cb) {
-  src(`${origin}/sass/style.scss`)
-  .pipe(autoprefixer({
-    cascade: false
-  }))
-  .pipe(sass({
-    outputStyle: 'compressed'
-  }))
-  .pipe(dest(`${destination}/css`));
+async function css(cb) {
+    await del([`${devPath}css`], { force: true });
+
+    src(`${origin}/sass/style.scss`)
+    .pipe(autoprefixer({
+        cascade: false
+    }))
+    .pipe(sass({
+        outputStyle: 'compressed'
+    }))
+    .pipe(dest(`${destination}/css`));
+
+
+    src(`${origin}/sass/pages/*.scss`)
+    .pipe(autoprefixer({
+      cascade: false
+    }))
+    .pipe(sass({
+      outputStyle: 'compressed'
+    }))
+    .pipe(dest(`${destination}/css`));
+
   cb();
 }
 
