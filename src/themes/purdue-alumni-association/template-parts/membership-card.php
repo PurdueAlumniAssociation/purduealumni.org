@@ -66,7 +66,7 @@ if ( ! empty($memberships) ) {
         <img class="membership-card__image" src="<?= $image_path ?>" />
     </div>
     <p class="print-hide"><a href="javascript:window.print()"><i class="fas fa-print" aria-hidden style="margin-right: 5px;"></i>Print</a></p>
-    <p>If you have issues with your membership card, please <a href="mailto:alumnidigital@purdue.edu?Subject=There's a problem with my membership card">contact us</a>.</p>
+    <p class="print-hide">If you have issues with your membership card, please <a href="mailto:alumnidigital@purdue.edu?Subject=There's a problem with my membership card">contact us</a>.</p>
     <?php
 } else {
 ?>
