@@ -34,25 +34,25 @@ if ( ! empty($memberships) ) {
 
         if ( $membership_slug == "career-max" ) {
             $membership_name = "Career Max";
-            $output_membership_expiration_date = "Expires " . $membership_expiration_date;
+            $expiration_date = "Expires " . $membership_expiration_date;
             break;
         } elseif ( $membership_slug == "professional" ) {
             $membership_name = "Professional";
-            $output_membership_expiration_date = "Expires " . $membership_expiration_date;
+            $expiration_date = "Expires " . $membership_expiration_date;
             break;
         } elseif ( $membership_slug == "life" ) {
             $membership_name = "Life";
-            $output_membership_expiration_date = "Never Expires";
+            $expiration_date = "Never Expires";
             break;
         } elseif ( $membership_slug == "plus" ) {
             $membership_name = "Plus";
-            $output_membership_expiration_date = "Expires " . $membership_expiration_date;
+            $expiration_date = "Expires " . $membership_expiration_date;
             break;
         } elseif ( $membership_slug == "basic" ) {
             $membership_name = "Basic";
-            $output_membership_expiration_date = "Expires " . $membership_expiration_date;
+            $expiration_date = "Expires " . $membership_expiration_date;
         } else {
-            $output_membership_expiration_date = "";
+            $expiration_date = "";
         }
     }
 
@@ -61,7 +61,7 @@ if ( ! empty($memberships) ) {
     ?>
     <div class="membership-card">
         <span class="membership-card__type"><?= $membership_name ?> Member</span>
-        <span class="membership-card__expiration"><?= $output_membership_expiration_date ?></span>
+        <span class="membership-card__expiration"><?php if ( ! empty($expiration_date) ) { echo $expiration_date; }  ?></span>
         <span class="membership-card__name"><?= $user_full_name ?></span>
         <img class="membership-card__image" src="<?= $image_path ?>" />
     </div>
