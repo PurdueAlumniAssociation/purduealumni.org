@@ -13,27 +13,8 @@ add_action( 'after_setup_theme', 'paa_add_woocommerce_support' );
 function paa_scripts_and_styles() {
     // load custom template styles or default to basic common styles
     switch ( basename( get_page_template() ) ) {
-        case "page-membership-basic.php":
-            wp_enqueue_style( 'page-membership-basic', get_template_directory_uri() . '/css/page-membership-basic.css' );
-            break;
-        case "page-membership-plus.php":
-            wp_enqueue_style( 'page-membership-plus', get_template_directory_uri() . '/css/page-membership-plus.css' );
-            break;
-        case "page-membership-professional.php":
-            wp_enqueue_style( 'page-membership-professional', get_template_directory_uri() . '/css/page-membership-professional.css' );
-            break;
-        case "page-membership-career-max.php":
-            wp_enqueue_style( 'page-membership-career-max', get_template_directory_uri() . '/css/page-membership-career-max.css' );
-            break;
         case "page-membership-tiers.php":
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
-            break;
-        case "page-purchase-membership.php":
-            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
-            wp_enqueue_script( 'purchase-scripts', get_template_directory_uri() . '/js/purchase.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
-            break;
-        case "page-small-steps.php":
-            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
         case "page-object-permanence.php":
             wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
@@ -64,9 +45,6 @@ function paa_scripts_and_styles() {
 			} elseif ( is_singular( 'community' ) ) {
                 wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
                 wp_enqueue_style( 'single-community-styles', get_template_directory_uri() . '/css/single-community.css' );
-            } elseif ( wp_get_post_parent_id( $post->ID ) == 1072 ) {
-                wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
-                wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
@@ -75,7 +53,6 @@ function paa_scripts_and_styles() {
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
-    wp_enqueue_script( 'js-cookie', 'https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js', array(), '2.2.0', false );
     wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
@@ -86,11 +63,6 @@ function paa_register_menus() {
         'black-bar-menu' => 'Black Bar Menu',
         'primary-menu' => 'Primary Menu',
         'primary-menu-mobile' => 'Primary Mobile Menu',
-        'primary-footer-1' => 'Primary Footer Column 1',
-        'primary-footer-2' => 'Primary Footer Column 2',
-        'primary-footer-3' => 'Primary Footer Column 3',
-        'primary-footer-4' => 'Primary Footer Column 4',
-        'primary-footer-5' => 'Primary Footer Column 5',
         'side-menu' => 'Side Menu'
     ) );
 }
@@ -108,13 +80,6 @@ function paa_widgets_init() {
         'after_title'   => '</h2>',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>'
-    ) );
-
-    register_sidebar( array(
-        'name'          => 'Footer Social Media',
-        'id'            => 'footer-social-media-box',
-        'before_widget' => '<aside class="social-media-box primary-footer__social-media-box">',
-        'after_widget'  => '</aside>'
     ) );
 
     register_sidebar( array(
@@ -406,10 +371,10 @@ add_action( 'init', 'paa_create_tables' );
 
 // remove yoast on certain post types
 function my_remove_wp_seo_meta_box() {
-remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
-remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
-remove_meta_box('wpseo_meta', 'news-event', 'normal');
-remove_meta_box('wpseo_meta', 'feature-box', 'normal');
+    remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+    remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
+    remove_meta_box('wpseo_meta', 'news-event', 'normal');
+    remove_meta_box('wpseo_meta', 'feature-box', 'normal');
 }
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 
