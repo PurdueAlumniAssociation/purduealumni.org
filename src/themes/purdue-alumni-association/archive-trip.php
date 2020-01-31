@@ -173,7 +173,7 @@ shuffle($random_trips);
                                 <img class="card__image" src="<?php if ( $trip->thumbnail['full_url'] ) {
                                     echo $trip->thumbnail['full_url'];
                                 } else {
-                                    echo "https://via.placeholder.com/300x200";
+                                    echo "https://www.purduealumni.org/wp-content/uploads/trip-placeholder.jpg";
                                 } ?>" alt="<?php echo $trip->thumbnail['alt']; ?>">
                                 <div class="card__content">
                                     <h3 class="trip-card__title"><?php echo $trip->title; ?></h3>
