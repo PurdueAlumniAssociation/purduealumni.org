@@ -1,7 +1,7 @@
-<footer class="primary-footer">
+<footer class="sponsors-footer">
     <?php get_template_part( 'template-parts/sponsors' ); ?>
 </footer>
-<footer class="secondary-footer">
+<footer class="primary-footer">
     <?php if ( is_active_sidebar( 'secondary-footer-col-1' ) ) : ?>
         <?php dynamic_sidebar( 'secondary-footer--col-1' ); ?>
     <?php endif; ?>
