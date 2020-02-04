@@ -81,25 +81,36 @@ function paa_widgets_init() {
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
         'after_widget'  => '</div>'
     ) );
-
-    register_sidebar( array(
-        'name'          => 'Secondary Footer - Left',
-        'id'            => 'secondary-footer-left',
-        'before_widget' => '<div class="secondary-footer__left-content">',
-        'after_widget'  => '</div>'
-    ) );
-    register_sidebar( array(
-        'name'          => 'Secondary Footer - Right',
-        'id'            => 'secondary-footer-right',
-        'before_widget' => '<div class="secondary-footer__right-content">',
-        'after_widget'  => '</div>'
-    ) );
     register_sidebar( array(
         'name'          => 'Travel Sidebar',
         'id'            => 'travel-sidebar',
         'before_title'  => '<h2 class="sr-only">',
         'after_title'   => '</h2>',
         'before_widget' => '<div id="%1$s" class="widget %2$s">',
+        'after_widget'  => '</div>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'Secondary Footer - Column 1',
+        'id'            => 'secondary-footer-col-1',
+        'before_widget' => '<div class="secondary-footer__column">',
+        'after_widget'  => '</div>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'Secondary Footer - Column 2',
+        'id'            => 'secondary-footer-col-2',
+        'before_widget' => '<div class="secondary-footer__column">',
+        'after_widget'  => '</div>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'Secondary Footer - Column 3',
+        'id'            => 'secondary-footer-col-3',
+        'before_widget' => '<div class="secondary-footer__column">',
+        'after_widget'  => '</div>'
+    ) );
+    register_sidebar( array(
+        'name'          => 'Secondary Footer - Column 4',
+        'id'            => 'secondary-footer-col-4',
+        'before_widget' => '<div class="secondary-footer__column">',
         'after_widget'  => '</div>'
     ) );
 
