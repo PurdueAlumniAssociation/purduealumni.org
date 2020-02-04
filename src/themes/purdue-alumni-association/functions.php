@@ -90,27 +90,27 @@ function paa_widgets_init() {
         'after_widget'  => '</div>'
     ) );
     register_sidebar( array(
-        'name'          => 'Secondary Footer - Column 1',
-        'id'            => 'secondary-footer-col-1',
-        'before_widget' => '<div class="secondary-footer__column">',
+        'name'          => 'Primary Footer - Column 1',
+        'id'            => 'primary-footer-col-1',
+        'before_widget' => '<div class="primary-footer__column">',
         'after_widget'  => '</div>'
     ) );
     register_sidebar( array(
-        'name'          => 'Secondary Footer - Column 2',
-        'id'            => 'secondary-footer-col-2',
-        'before_widget' => '<div class="secondary-footer__column">',
+        'name'          => 'Primary Footer - Column 2',
+        'id'            => 'primary-footer-col-2',
+        'before_widget' => '<div class="primary-footer__column">',
         'after_widget'  => '</div>'
     ) );
     register_sidebar( array(
-        'name'          => 'Secondary Footer - Column 3',
-        'id'            => 'secondary-footer-col-3',
-        'before_widget' => '<div class="secondary-footer__column">',
+        'name'          => 'Primary Footer - Column 3',
+        'id'            => 'primary-footer-col-3',
+        'before_widget' => '<div class="primary-footer__column">',
         'after_widget'  => '</div>'
     ) );
     register_sidebar( array(
-        'name'          => 'Secondary Footer - Column 4',
-        'id'            => 'secondary-footer-col-4',
-        'before_widget' => '<div class="secondary-footer__column">',
+        'name'          => 'Primary Footer - Column 4',
+        'id'            => 'primary-footer-col-4',
+        'before_widget' => '<div class="primary-footer__column">',
         'after_widget'  => '</div>'
     ) );
 
