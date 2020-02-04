@@ -1,0 +1,90 @@
+.sponsor-footer {
+    border-top: 1px solid $almost-black;
+    padding: 0 $section-padding-xs 1.5em $section-padding-xs;
+    margin-top: 60px;
+
+    @include breakpoint(sm) {
+        padding: 0 $section-padding-sm 3em $section-padding-sm;
+        margin-top: 30px;
+    }
+    @include breakpoint(md) {
+        padding: 0 $section-padding-md 3em $section-padding-md;
+    }
+
+    &__social-media-box {
+        position: relative;
+        transform: translateY(-50%);
+    }
+
+    &__columns-container {
+        margin-top: 1em;
+        @include breakpoint(sm) {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__column {
+        margin-top: 2em;
+
+        @include breakpoint(xs) {
+            &:first-child {
+                margin-top: 0;
+            }
+        }
+
+        @include breakpoint(sm) {
+            margin-top: 0;
+            margin-right: 2em;
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__column-title {
+        font-size: 1.25em;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: block;
+        // styles for accordion
+        // cursor: pointer;
+        //
+        // @include breakpoint(sm) {
+        //     cursor: default;
+        // }
+
+        &-icon {
+            float: right;
+            color: $digital-gold;
+
+            @include breakpoint(sm) {
+                display: none !important;
+            }
+        }
+    }
+
+    &__column-list {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    &__column-list-item {
+        margin-top: .7em;
+
+        &:first-child {
+            margin-top: 1em;
+        }
+    }
+
+    &__column-link, & a {
+        text-decoration: none;
+        font-weight: 400;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
