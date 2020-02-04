@@ -44,6 +44,12 @@ function paa_widgets_init() {
         'before_widget' => '<div class="col-xs-12 col-sm-3 primary-footer__column">',
         'after_widget'  => '</div>'
     ) );
+    register_sidebar( array(
+        'name'          => 'Sponsors',
+        'id'            => 'sponsors',
+        'before_widget' => '<div class="sponsors">',
+        'after_widget'  => '</div>'
+    ) );
 
 }
 add_action( 'widgets_init', 'paa_widgets_init' );
