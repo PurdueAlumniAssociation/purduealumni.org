@@ -47,6 +47,8 @@ function paa_widgets_init() {
     register_sidebar( array(
         'name'          => 'Sponsors',
         'id'            => 'sponsors',
+        'before_title'  => '<h2 class="sponsors__title">',
+        'after_title'   => '</h2>',
         'before_widget' => '<div class="sponsors">',
         'after_widget'  => '</div>'
     ) );
