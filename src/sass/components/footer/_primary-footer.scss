@@ -1,37 +1,45 @@
 .primary-footer {
     background-color: $black;
-    display: flex;
-    justify-content: space-between;
     color: $white;
     padding: 1em $section-padding-xs;
-    flex-direction: column;
+    margin: 0;
 
     @include breakpoint(sm) {
-        flex-direction: row;
         padding: 2em $section-padding-sm;
     }
     @include breakpoint(md) {
         padding: 2em $section-padding-md;
     }
 
-    &__list {
-        list-style-type: none;
-        text-align: center;
-        padding: 0;
-
-        @include breakpoint(sm){
-            &--right {
-                text-align: right;
-            }
-
-            &--left {
-                text-align: left;
-            }
-        }
-    }
-
     & a {
         color: $white;
         font-weight: 400;
+    }
+
+    &__column {
+        margin-bottom: 2em;
+
+        & .widgettitle {
+            color: $white;
+            font-family: $barlow;
+            font-size: 1em;
+            font-style: normal;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        & ul {
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            list-style-type: none;
+        }
+    }
+
+    &__social-media {
+        & li {
+            display: inline;
+        }
     }
 }
