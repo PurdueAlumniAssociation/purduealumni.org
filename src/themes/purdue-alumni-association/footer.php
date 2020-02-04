@@ -2,17 +2,17 @@
     <?php get_template_part( 'template-parts/sponsors' ); ?>
 </footer>
 <footer class="primary-footer">
-    <?php if ( is_active_sidebar( 'secondary-footer-col-1' ) ) : ?>
-        <?php dynamic_sidebar( 'secondary-footer--col-1' ); ?>
+    <?php if ( is_active_sidebar( 'primary-footer-col-1' ) ) : ?>
+        <?php dynamic_sidebar( 'primary-footer--col-1' ); ?>
     <?php endif; ?>
-    <?php if ( is_active_sidebar( 'secondary-footer-col-2' ) ) : ?>
-        <?php dynamic_sidebar( 'secondary-footer--col-2' ); ?>
+    <?php if ( is_active_sidebar( 'primary-footer-col-2' ) ) : ?>
+        <?php dynamic_sidebar( 'primary-footer--col-2' ); ?>
     <?php endif; ?>
-    <?php if ( is_active_sidebar( 'secondary-footer-col-3' ) ) : ?>
-        <?php dynamic_sidebar( 'secondary-footer--col-3' ); ?>
+    <?php if ( is_active_sidebar( 'primary-footer-col-3' ) ) : ?>
+        <?php dynamic_sidebar( 'primary-footer--col-3' ); ?>
     <?php endif; ?>
-    <?php if ( is_active_sidebar( 'secondary-footer-col-4' ) ) : ?>
-        <?php dynamic_sidebar( 'secondary-footer--col-4' ); ?>
+    <?php if ( is_active_sidebar( 'primary-footer-col-4' ) ) : ?>
+        <?php dynamic_sidebar( 'primary-footer--col-4' ); ?>
     <?php endif; ?>
 </footer>
 <footer class="contact-footer">
