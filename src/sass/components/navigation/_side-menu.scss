@@ -13,15 +13,25 @@
             margin-top: 1em;
             line-height: 1.25em;
             list-style-type: none;
+            font-weight: 400;
+
+            &.current-menu-item {
+                font-weight: 700;
+            }
 
             & a {
                 text-decoration: none;
+                font-weight: inherit;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            & ul {
+                padding-left: 1.5em;
             }
         }
-    }
-
-    & .current-menu-item {
-        color: $digital-gold;
     }
 
     // future styles to add
@@ -45,6 +55,4 @@
     //
     // // Class for the home Link
     // & .menu-item-home{}
-
 }
-
