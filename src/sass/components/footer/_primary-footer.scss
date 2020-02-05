@@ -1,90 +1,45 @@
 .primary-footer {
-    border-top: 1px solid $almost-black;
-    padding: 0 $section-padding-xs 1.5em $section-padding-xs;
-    margin-top: 60px;
+    background-color: $black;
+    color: $white;
+    padding: 1em $section-padding-xs;
+    margin: 0;
 
     @include breakpoint(sm) {
-        padding: 0 $section-padding-sm 3em $section-padding-sm;
-        margin-top: 30px;
+        padding: 2em $section-padding-sm;
     }
     @include breakpoint(md) {
-        padding: 0 $section-padding-md 3em $section-padding-md;
+        padding: 2em $section-padding-md;
     }
 
-    &__social-media-box {
-        position: relative;
-        transform: translateY(-50%);
-    }
-
-    &__columns-container {
-        margin-top: 1em;
-        @include breakpoint(sm) {
-            display: flex;
-            justify-content: space-between;
-        }
+    & a {
+        color: $white;
+        font-weight: 400;
     }
 
     &__column {
-        margin-top: 2em;
+        margin-bottom: 2em;
 
-        @include breakpoint(xs) {
-            &:first-child {
-                margin-top: 0;
-            }
-        }
-
-        @include breakpoint(sm) {
+        & .widgettitle {
+            color: $white;
+            font-family: $barlow;
+            font-size: 1em;
+            font-style: normal;
+            font-weight: 700;
+            text-transform: uppercase;
             margin-top: 0;
-            margin-right: 2em;
+        }
 
-            &:last-child {
-                margin-right: 0;
-            }
+        & ul {
+            padding-left: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+            list-style-type: none;
         }
     }
 
-    &__column-title {
-        font-size: 1.25em;
-        font-weight: 700;
-        text-transform: uppercase;
-        display: block;
-        // styles for accordion
-        // cursor: pointer;
-        //
-        // @include breakpoint(sm) {
-        //     cursor: default;
-        // }
-
-        &-icon {
-            float: right;
-            color: $digital-gold;
-
-            @include breakpoint(sm) {
-                display: none !important;
-            }
-        }
-    }
-
-    &__column-list {
-        margin: 0;
-        padding: 0;
-        list-style-type: none;
-    }
-
-    &__column-list-item {
-        margin-top: .7em;
-
-        &:first-child {
-            margin-top: 1em;
-        }
-    }
-
-    &__column-link, & a {
-        text-decoration: none;
-        font-weight: 400;
-
-        &:hover {
-            text-decoration: underline;
+    &__social-media {
+        & li {
+            display: inline;
         }
     }
 }

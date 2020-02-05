@@ -1,0 +1,11 @@
+.sponsors-footer {
+    background-color: #eee;
+    padding: 1em $section-padding-xs;
+
+    @include breakpoint(sm) {
+        padding: 2em $section-padding-sm;
+    }
+    @include breakpoint(md) {
+        padding: 2em $section-padding-md;
+    }
+}
