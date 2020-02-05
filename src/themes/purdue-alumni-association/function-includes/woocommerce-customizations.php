@@ -30,6 +30,10 @@ function paa_add_css_to_specific_emails($css, $email)
     // if ( $email->id == 'customer_refunded_order' ) {}
     // if ( $email->id == 'customer_reset_password' ) {}
     // if ( $email->id == 'failed_order' ) {}
+    if ( $email->id == 'admin-new-order' ) {
+        $css .= '#template_header_image, #template_header, #template_footer { display: none !important; }';
+    }
+
     return $css;
 }
 add_filter( 'woocommerce_email_styles', 'paa_add_css_to_specific_emails', 9999, 2 );
@@ -294,7 +298,7 @@ add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom
 function paa_subscriptions_custom_price_string( $pricestring ) {
     global $product;
 
-    $products_to_change = array( 4523, 11149, 175186 );
+    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430 );
 
     if ( in_array( $product->id, $products_to_change ) ) {
         $pricestring = str_replace( 'for 1 year', '', $pricestring );
@@ -307,7 +311,7 @@ add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_p
 function paa_life_custom_cart_button_text( $button_text ) {
     global $product;
 
-    $products_to_change = array( 4523, 11149, 175186 );
+    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430 );
 
     if ( in_array( $product->id, $products_to_change ) ) {
         return __('Join Now', 'woocommerce');

@@ -13,27 +13,8 @@ add_action( 'after_setup_theme', 'paa_add_woocommerce_support' );
 function paa_scripts_and_styles() {
     // load custom template styles or default to basic common styles
     switch ( basename( get_page_template() ) ) {
-        case "page-membership-basic.php":
-            wp_enqueue_style( 'page-membership-basic', get_template_directory_uri() . '/css/page-membership-basic.css' );
-            break;
-        case "page-membership-plus.php":
-            wp_enqueue_style( 'page-membership-plus', get_template_directory_uri() . '/css/page-membership-plus.css' );
-            break;
-        case "page-membership-professional.php":
-            wp_enqueue_style( 'page-membership-professional', get_template_directory_uri() . '/css/page-membership-professional.css' );
-            break;
-        case "page-membership-career-max.php":
-            wp_enqueue_style( 'page-membership-career-max', get_template_directory_uri() . '/css/page-membership-career-max.css' );
-            break;
         case "page-membership-tiers.php":
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
-            break;
-        case "page-purchase-membership.php":
-            wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
-            wp_enqueue_script( 'purchase-scripts', get_template_directory_uri() . '/js/purchase.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
-            break;
-        case "page-small-steps.php":
-            wp_enqueue_style( 'page-small-steps', get_template_directory_uri() . '/css/page-small-steps.css' );
             break;
         case "page-object-permanence.php":
             wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
@@ -61,9 +42,9 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
-            } elseif ( wp_get_post_parent_id( $post->ID ) == 1072 ) {
+			} elseif ( is_singular( 'community' ) ) {
                 wp_enqueue_style( 'flag-icon-styles', get_template_directory_uri() . '/css/flag-icon.css');
-                wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
+                wp_enqueue_style( 'single-community-styles', get_template_directory_uri() . '/css/single-community.css' );
             } else {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
@@ -72,7 +53,6 @@ function paa_scripts_and_styles() {
     wp_deregister_script( 'jquery' );
     wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
-    wp_enqueue_script( 'js-cookie', 'https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js', array(), '2.2.0', false );
     wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
@@ -83,60 +63,12 @@ function paa_register_menus() {
         'black-bar-menu' => 'Black Bar Menu',
         'primary-menu' => 'Primary Menu',
         'primary-menu-mobile' => 'Primary Mobile Menu',
-        'primary-footer-1' => 'Primary Footer Column 1',
-        'primary-footer-2' => 'Primary Footer Column 2',
-        'primary-footer-3' => 'Primary Footer Column 3',
-        'primary-footer-4' => 'Primary Footer Column 4',
-        'primary-footer-5' => 'Primary Footer Column 5',
         'side-menu' => 'Side Menu'
     ) );
 }
 add_action( 'init', "paa_register_menus" );
 
-/**
- * Register our sidebars and widgetized areas.
- *
- */
-function paa_widgets_init() {
-    register_sidebar( array(
-        'name'          => 'Left Sidebar',
-        'id'            => 'left-sidebar',
-        'before_title'  => '<h2 class="sr-only">',
-        'after_title'   => '</h2>',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>'
-    ) );
-
-    register_sidebar( array(
-        'name'          => 'Footer Social Media',
-        'id'            => 'footer-social-media-box',
-        'before_widget' => '<aside class="social-media-box primary-footer__social-media-box">',
-        'after_widget'  => '</aside>'
-    ) );
-
-    register_sidebar( array(
-        'name'          => 'Secondary Footer - Left',
-        'id'            => 'secondary-footer-left',
-        'before_widget' => '<div class="secondary-footer__left-content">',
-        'after_widget'  => '</div>'
-    ) );
-    register_sidebar( array(
-        'name'          => 'Secondary Footer - Right',
-        'id'            => 'secondary-footer-right',
-        'before_widget' => '<div class="secondary-footer__right-content">',
-        'after_widget'  => '</div>'
-    ) );
-    register_sidebar( array(
-        'name'          => 'Travel Sidebar',
-        'id'            => 'travel-sidebar',
-        'before_title'  => '<h2 class="sr-only">',
-        'after_title'   => '</h2>',
-        'before_widget' => '<div id="%1$s" class="widget %2$s">',
-        'after_widget'  => '</div>'
-    ) );
-
-}
-add_action( 'widgets_init', 'paa_widgets_init' );
+include 'function-includes/widgets.php';
 
 function add_search_box_to_menu( $items, $args ) {
     if( $args->theme_location == 'primary-menu-mobile' ) {
@@ -148,12 +80,6 @@ function add_search_box_to_menu( $items, $args ) {
                         <input class='form__input form__input--text' type='search' value='" . get_search_query() . "' name='s' id='mobile-menu-search'>
                         <button class='form__button form__button--submit search-form__button mobile-menu__search-form-button' type='submit'><i class='fas fa-search'></i><span class='sr-only'>submit button</span></button>
                     </form>
-                </li>
-                <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://www.purduealumni.org/login'>Log In</a>
-                </li>
-                <li class='primary-menu__list-item'>
-                    <a class='primary-menu__link' href='https://www.purduealumni.org/alumni-portal'>Alumni Portal</a>
                 </li>" . $items;
     }
 
@@ -409,10 +335,10 @@ add_action( 'init', 'paa_create_tables' );
 
 // remove yoast on certain post types
 function my_remove_wp_seo_meta_box() {
-remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
-remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
-remove_meta_box('wpseo_meta', 'news-event', 'normal');
-remove_meta_box('wpseo_meta', 'feature-box', 'normal');
+    remove_meta_box('wpseo_meta', 'graphic-box', 'normal');
+    remove_meta_box('wpseo_meta', 'hero-banner', 'normal');
+    remove_meta_box('wpseo_meta', 'news-event', 'normal');
+    remove_meta_box('wpseo_meta', 'feature-box', 'normal');
 }
 add_action('add_meta_boxes', 'my_remove_wp_seo_meta_box', 100);
 
@@ -460,6 +386,7 @@ function paa_sort_by_temp_column ($orderby) {
 }
 
 include 'function-includes/club-dashboard.php';
+include 'function-includes/shortcode-community-index.php';
 
 function paa_custom_mime_types( $mimes ) {
     // new allowed mime types
@@ -469,15 +396,4 @@ function paa_custom_mime_types( $mimes ) {
     return $mimes;
 }
 add_filter( 'upload_mimes', 'paa_custom_mime_types' );
-
-
-function paa_sender_email( $original_email_address ) {
-    return 'no-reply@purduealumni.org';
-}
-add_filter( 'wp_mail_from', 'paa_sender_email' );
-
-function paa_sender_name( $original_email_from ) {
-    return 'Purdue Alumni Association';
-}
-add_filter( 'wp_mail_from_name', 'paa_sender_name' );
 ?>

@@ -75,7 +75,7 @@ function paa_autobill( $form )
         wp_mail(
             "alumnidigital@purdue.edu",
             "Problem with the Recurring Payment Page",
-            "Request URI: {$_SERVER['REQUEST_URI']}"
+            "IP: {$_SERVER['REMOTE_ADDR']}   Request URI: {$_SERVER['REQUEST_URI']}"
         );
     }
 }

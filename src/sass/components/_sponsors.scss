@@ -1,27 +1,33 @@
 .sponsors {
-    @include breakpoint(sm) {
-        justify-content: center;
-        align-items: center;
+    &__title {
+        text-align: center;
+        font-family: $barlow;
+        font-style: normal;
+        font-size: 1.5em;
+        font-weight: 700;
+        margin-top: 0;
+        text-transform: uppercase;
     }
 
-    &__link {
-        display: block;
-        margin-bottom: 2em;
+    & ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        flex-wrap: wrap;
 
-        &:last-child {
-            margin-bottom: 0;
+        & li {
+            margin: 2em;
+
+            & img {
+                max-width: 100px;
+
+                @include breakpoint(md) {
+                    max-width: 100%;
+                }
+            }
         }
-
-        @include breakpoint(sm) {
-            margin-bottom: 0;
-        }
-    }
-
-    &__image {
-        display: block;
-        margin: auto;
-        min-width: 100px;
-        width: 80%;
-        max-width: 275px;
     }
 }

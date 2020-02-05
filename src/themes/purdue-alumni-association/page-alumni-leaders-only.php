@@ -1,6 +1,6 @@
 <?php
 /*
-    Template Name: eCommerce Confirmation
+    Template Name: Alumni Leaders Only
 */
 ?>
 <?php get_header(); ?>
@@ -17,9 +17,7 @@
             <div class="layout">
                 <div class="layout__main">
                     <main class="" id="main" tabindex="-1">
-                        <h1><?php the_title(); ?></h1>
-                        <?php the_content(); ?>
-                        <?php get_template_part( 'template-parts/ecommerce-message' ); ?>
+                        <?php get_template_part('template-parts/alumni-leaders-only'); ?>
                     </main>
                 </div>
                 <aside class="layout__sidebar">
@@ -30,9 +28,7 @@
     <?php else : ?>
         <section class="row">
             <main id="main" tabindex="-1">
-                <h1><?php the_title(); ?></h1>
-                <?php the_content(); ?>
-                <?php get_template_part( 'template-parts/ecommerce-message' ); ?>
+                <?php get_template_part('template-parts/alumni-leaders-only'); ?>
             </main>
         </section>
     <?php endif; ?>
