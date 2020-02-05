@@ -12,15 +12,47 @@
         & li {
             margin-top: 1em;
             line-height: 1.25em;
+            list-style-type: none;
+            font-weight: 400;
+
+            &.current-menu-item {
+                font-weight: 700;
+            }
 
             & a {
                 text-decoration: none;
+                font-weight: inherit;
 
                 &:hover {
                     text-decoration: underline;
-                    color: $almost-black;
                 }
+            }
+
+            & ul {
+                padding-left: 1.5em;
             }
         }
     }
+
+    // future styles to add
+    // // Class for Current Page
+    // & .current_page_item{}
+    //
+    // // Class for Current Category
+    // & .current-cat{}
+    //
+    // // Class for any other current Menu Item
+    // & .current-menu-item{}
+    //
+    // // Class for a Category
+    // & .menu-item-type-taxonomy{}
+    //
+    // // Class for Post types
+    // & .menu-item-type-post_type{}
+    //
+    // // Class for any custom links
+    // & .menu-item-type-custom{}
+    //
+    // // Class for the home Link
+    // & .menu-item-home{}
 }
