@@ -103,6 +103,15 @@ if ( ! defined( 'ABSPATH' ) ) {
             }
             ?>
             <p><a href="../my-benefits/">View your benefits.</a></p>
-	<?php endif; ?>
+	<?php endif;
+
+    if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
+        echo "active";
+        echo "<pre>", print_r(wc_memberships_get_user_active_memberships()), "</pre>";
+    } else {
+        echo "not active";
+    }
+
+    ?>
 
 </div>
