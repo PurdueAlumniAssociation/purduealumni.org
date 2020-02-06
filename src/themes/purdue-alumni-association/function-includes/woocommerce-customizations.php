@@ -84,6 +84,7 @@ function paa_add_my_account_links($items)
 {
     $items['my-benefits'] = 'My Benefits';
     $items['membership-card'] = 'My Membership Card';
+    $items['my-membership'] = 'My Membership 2';
 
     return $items;
 }
@@ -107,6 +108,7 @@ function paa_add_my_account_endpoints()
 {
     add_rewrite_endpoint('my-benefits', EP_ROOT | EP_PAGES);
     add_rewrite_endpoint('membership-card', EP_ROOT | EP_PAGES);
+    add_rewrite_endpoint('my-membership', EP_ROOT | EP_PAGES);
 }
 add_action('init', 'paa_add_my_account_endpoints');
 
@@ -114,6 +116,7 @@ function paa_my_account_add_query_vars($vars)
 {
     $vars[] = 'my-benefits';
     $vars[] = 'membership-card';
+    $vars[] = 'my-membership';
 
     return $vars;
 }
@@ -121,21 +124,28 @@ add_filter('query_vars', 'paa_my_account_add_query_vars', 0);
 
 function paa_my_benefits_content()
 {
-    get_template_part('template-parts/my-benefits');
+    get_template_part('template-parts/my-account/my-benefits');
 }
 add_action('woocommerce_account_my-benefits_endpoint', 'paa_my_benefits_content');
 
 function paa_membership_card_content()
 {
-    get_template_part('template-parts/membership-card');
+    get_template_part('template-parts/my-account/membership-card');
 }
 add_action('woocommerce_account_membership-card_endpoint', 'paa_membership_card_content');
+
+function paa_my_membership_content()
+{
+    get_template_part('template-parts/my-account/my-membership');
+}
+add_action('woocommerce_account_my-membership_endpoint', 'paa_my_membership_content');
 
 function paa_my_account_menu_order()
 {
     $items = array(
         'my-benefits'            => __( 'My Benefits', 'woocommerce' ),
         'subscriptions'          => __( 'My Membership', 'woocommerce'),
+        'my-membership'             => __( 'My Membership 2', 'woocommerce'),
         'edit-account'           => __( 'My Profile', 'woocommerce' ),
         'membership-card'        => __( 'My Membership Card', 'woocommerce' ),
         'payment-methods'        => __( 'Payment Methods', 'woocommerce' ),
@@ -161,6 +171,8 @@ function add_custom_titles_for_endpoints( $post_title )
             $post_title = 'My Profile';
         } elseif ( isset( $wp->query_vars['membership-card'] ) ) {
             $post_title = 'My Membership Card';
+        } elseif ( isset( $wp->query_vars['my-membership'] ) ) {
+            $post_title = 'My Membership 2';
         } elseif ( isset( $wp->query_vars['subscriptions'] ) ) {
             $post_title = 'My Membership';
         } elseif ( isset( $wp->query_vars['view-subscription'] ) ) {
@@ -220,7 +232,7 @@ function paa_profile_update_notification( $user_id, $old_user_data ) {
         unset($value);
     }
 
-    wp_mail("alumnimembership@purdue.edu", "User Profile Updated", $body);
+    //wp_mail("alumnimembership@purdue.edu", "User Profile Updated", $body);
 }
 add_action( 'profile_update', 'paa_profile_update_notification', 10, 2 );
 
