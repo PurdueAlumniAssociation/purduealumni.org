@@ -313,23 +313,28 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <aside class="col-xs-12 col-sm-3">
                 <?php
-                // output location based on type of community
+                // set $location based on type of community
                 if ($community_type == 'International') {
                     $location = "{$community_country}";
-                } else {
+                } elseif ($community_type == 'Club') {
                     $location = "{$community_city}, {$community_state}";
                 }
 
-                echo "<h2>Location</h2>";
+                // only output the location if the data is present
+                if ( isset($location) ) {
+                    echo "<h2>Location</h2>";
 
-                // output International flag
-                if ($community_type == 'International') {
-                    $lower_community = strtolower($country_codes[$community_country]);
+                    // output international flag
+                    if ($community_type == 'International') {
+                        $lower_community = strtolower($country_codes[$community_country]);
 
-                    echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                    }
+
+                    echo "<p>{$location}</p>";
                 }
 
-                echo "<p>{$location}</p>";
+
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contact Us</h2>";
