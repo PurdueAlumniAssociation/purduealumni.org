@@ -318,6 +318,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                     $location = "{$community_country}";
                 } elseif ($community_type == 'Club') {
                     $location = "{$community_city}, {$community_state}";
+                } elseif ($community_type == 'Affinity') {
+                    if ( ! empty($community_city) && ! empty($community_state) && ! empty($community_country)  ) {
+                        $location = "{$community_city}, {$community_state}, {$community_country}";
+                    }
                 }
 
                 // only output the location if the data is present
