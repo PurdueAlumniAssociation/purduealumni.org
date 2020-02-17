@@ -383,6 +383,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                           $staff_email = 'kcornelius@purdue.edu';
                           $staff_phone = '765-496-1136';
                           break;
+                        case 'Haley Atwell':
+                          $staff_email = 'hatwell@purdue.edu';
+                          $staff_phone = '765-496-6550';
+                          break;
                     }
 
                     echo "<div class=\"community_contact community_contact--staff\">
