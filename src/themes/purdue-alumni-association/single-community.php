@@ -313,38 +313,47 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <aside class="col-xs-12 col-sm-3">
                 <?php
-                // output location based on type of community
+                // set $location based on type of community
                 if ($community_type == 'International') {
                     $location = "{$community_country}";
-                } else {
+                } elseif ($community_type == 'Club') {
                     $location = "{$community_city}, {$community_state}";
+                } elseif ($community_type == 'Affinity') {
+                    if ( ! empty($community_city) && ! empty($community_state) && ! empty($community_country)  ) {
+                        $location = "{$community_city}, {$community_state}, {$community_country}";
+                    }
                 }
 
-                echo "<h2>Location</h2>";
+                // only output the location if the data is present
+                if ( isset($location) ) {
+                    echo "<h2>Location</h2>";
 
-                // output International flag
-                if ($community_type == 'International') {
-                    $lower_community = strtolower($country_codes[$community_country]);
+                    // output international flag
+                    if ($community_type == 'International') {
+                        $lower_community = strtolower($country_codes[$community_country]);
 
-                    echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
+                    }
+
+                    echo "<p>{$location}</p>";
                 }
 
-                echo "<p>{$location}</p>";
+
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contact Us</h2>";
 
                 // don't output local contact for international network (they will be listed in the content body)
-                if (isset($community_contact_name) && $community_type != 'International') {
+                if ( ! empty($community_contact_name) && $community_type != 'International') {
                     echo "<div class=\"community_contact\">
                         <h3>Community Contact</h3>
                         <p class=\"community_contact__name\">{$community_contact_name}</p>";
 
-                    if (isset($community_contact_email)) {
+                    if ( ! empty($community_contact_email) ) {
                         echo "<p class=\"community_contact__email\"><a href=\"mailto:{$community_contact_email}\">{$community_contact_email}</a></p>";
                     }
 
-                    if (isset($community_contact_phone)) {
+                    if ( ! empty($community_contact_phone) ) {
                         echo "<p class=\"community_contact__phone\">{$community_contact_phone}</p>";
                     }
 
@@ -352,7 +361,7 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                 }
 
                 // output Purdue alumni staff contact
-                 if (isset($community_staff_name)) {
+                 if ( ! empty($community_staff_name)) {
 
                     switch ($community_staff_name) {
                         case 'Trevor Foley':
@@ -382,6 +391,10 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
                         case 'Kelli Cornelius':
                           $staff_email = 'kcornelius@purdue.edu';
                           $staff_phone = '765-496-1136';
+                          break;
+                        case 'Haley Atwell':
+                          $staff_email = 'hatwell@purdue.edu';
+                          $staff_phone = '765-496-6550';
                           break;
                     }
 
