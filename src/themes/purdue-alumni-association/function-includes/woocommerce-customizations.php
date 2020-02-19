@@ -121,7 +121,7 @@ add_filter('query_vars', 'paa_my_account_add_query_vars', 0);
 
 function paa_my_benefits_content()
 {
-    get_template_part('template-parts/my-benefits');
+    get_template_part('template-parts/woocommerce/my-account/my-benefits');
 }
 add_action('woocommerce_account_my-benefits_endpoint', 'paa_my_benefits_content');
 
