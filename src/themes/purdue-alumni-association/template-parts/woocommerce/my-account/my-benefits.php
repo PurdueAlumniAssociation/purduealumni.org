@@ -1,54 +1,56 @@
 <?php
-require_once( get_template_directory() . '/classes/Benefit.class.php' );
-
-$benefits = array();
 
 echo "<h2>My Benefits</h2>";
 
-$args = array(
-    'post_type' => 'benefit',
-    'posts_per_page' => -1,
-    'nopaging' => true
-);
+if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
+    require_once( get_template_directory() . '/classes/Benefit.class.php' );
 
-$the_query = new WP_Query( $args );
+    $benefits = array();
 
-if ( $the_query->have_posts() ) {
-    $benefit_args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_benefits' );
+    $args = array(
+        'post_type' => 'benefit',
+        'posts_per_page' => -1,
+        'nopaging' => true
+    );
 
-    while ( $the_query->have_posts() ) {
-        $the_query->the_post();
+    $the_query = new WP_Query( $args );
 
-        $benefit_title = get_post()->post_title;
-        $benefit_plans = rwmb_meta( 'benefit__plans', $benefit_args );
-        $benefit_description = rwmb_meta( 'benefit__member_description', $benefit_args );
-        $benefit_member_url = rwmb_meta( 'benefit__member_url', $benefit_args );
+    if ( $the_query->have_posts() ) {
+        $benefit_args = array( 'storage_type' => 'custom_table', 'table' => 'wp_metabox_benefits' );
 
-        $benefits[] = new Benefit(
-            $benefit_title,
-            $benefit_plans,
-            $benefit_description,
-            $benefit_member_url
-        );
-    } // end while
-} // endif
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
 
-wp_reset_postdata();
+            $benefit_title = get_post()->post_title;
+            $benefit_plans = rwmb_meta( 'benefit__plans', $benefit_args );
+            $benefit_description = rwmb_meta( 'benefit__member_description', $benefit_args );
+            $benefit_member_url = rwmb_meta( 'benefit__member_url', $benefit_args );
 
-foreach($benefits as $benefit) {
-        $content = "<h3>{$benefit->get_the_title()}</h3><p>{$benefit->get_the_member_description()}</p>";
+            $benefits[] = new Benefit(
+                $benefit_title,
+                $benefit_plans,
+                $benefit_description,
+                $benefit_member_url
+            );
+        } // end while
+    } // endif
 
-        if ( !empty($benefit->get_the_member_link()) ) {
-            $content .= "<p>{$benefit->output_the_member_link()}</p>";
-        }
+    wp_reset_postdata();
 
-        $benefit_levels = implode(",", $benefit->get_the_plans());
+    foreach($benefits as $benefit) {
+            $content = "<h3>{$benefit->get_the_title()}</h3><p>{$benefit->get_the_member_description()}</p>";
 
-        // life members get the same benefits as the plus level
-        $benefit_levels = str_replace("plus", "plus,life", $benefit_levels);
+            if ( !empty($benefit->get_the_member_link()) ) {
+                $content .= "<p>{$benefit->output_the_member_link()}</p>";
+            }
 
-        echo do_shortcode("[wcm_restrict plans=\"{$benefit_levels}\"]{$content}[/wcm_restrict]");
+            $benefit_levels = implode(",", $benefit->get_the_plans());
+
+            // life members get the same benefits as the plus level
+            $benefit_levels = str_replace("plus", "plus,life", $benefit_levels);
+
+            echo do_shortcode("[wcm_restrict plans=\"{$benefit_levels}\"]{$content}[/wcm_restrict]");
+    }
+} else {
+    get_template_part( 'template-parts/woocommerce/my-account/inactive-membership-message' );
 }
-
-
-
