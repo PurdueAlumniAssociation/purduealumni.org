@@ -3,7 +3,7 @@
 echo "<h2>My Benefits</h2>";
 
     get_template_part( 'template-parts/woocommerce/my-account/inactive-membership-message' );
-    
+
 if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
     require_once( get_template_directory() . '/classes/Benefit.class.php' );
 
@@ -45,7 +45,7 @@ if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
             if ( !empty($benefit->get_the_member_link()) ) {
                 $content .= "<p>{$benefit->output_the_member_link()}</p>";
             }
-
+            
             $benefit_levels = implode(",", $benefit->get_the_plans());
 
             // life members get the same benefits as the plus level

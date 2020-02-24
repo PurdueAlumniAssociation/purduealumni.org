@@ -6,7 +6,7 @@ $memberships = wc_memberships_get_user_memberships();
 $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a new mebership</a>.</p>";
 
 foreach ( $memberships as $membership ) {
-    echo "<pre>", print_r(get_class_methods($membership)), "</pre>";
+    //echo "<pre>", print_r(get_class_methods($membership)), "</pre>";
 
     if ( $membership->status == "wcm-delayed" ) {
         $start_date = date("F j, Y", strtotime($membership->get_start_date()));
