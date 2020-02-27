@@ -40,8 +40,6 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
     }
-    wp_enqueue_script( 'intersection-observer', '//cdn.jsdelivr.net/npm/intersection-observer@0.5.1/intersection-observer.js', array(), '0.5.1' );
-    wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
     wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common-min.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
