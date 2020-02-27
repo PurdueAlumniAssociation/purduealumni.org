@@ -28,18 +28,4 @@ jQuery(document).ready( function($) {
             }
         });
     });
-
-    // check for a campaign cookie
-    if ( Cookies.get('paa_campaign') !== undefined ) {
-        // change links to ecommerce forms
-        $('[rel~=ecommerce]').each(function() {
-            var href = $( this ).attr("href");
-            // check to see if the URL already has some query params or not
-            if ( href.indexOf("?") == -1 ) {
-                $( this ).attr("href", href + "?campaign=" + Cookies.get('campaign'))
-            } else {
-                $( this ).attr("href", href + "&campaign=" + Cookies.get('campaign'))
-            }
-        });
-    }
 });
