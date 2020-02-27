@@ -1,4 +1,4 @@
-$(document).ready( function($) {
+jQuery(document).ready( function($) {
     //black bar search toggle
     $('.black-bar-menu__link--search').click( function() {
         $('.black-bar-menu__search-form').slideToggle( {
