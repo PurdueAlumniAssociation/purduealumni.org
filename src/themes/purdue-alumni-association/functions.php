@@ -16,20 +16,11 @@ function paa_scripts_and_styles() {
         case "page-membership-tiers.php":
             wp_enqueue_style( 'page-membership-tiers', get_template_directory_uri() . '/css/page-membership-tiers.css' );
             break;
-        case "page-object-permanence.php":
-            wp_enqueue_style( '150-objects-styles', get_template_directory_uri() . '/css/150-objects.css' );
-            wp_enqueue_script( '150-objects-scripts', get_template_directory_uri() . '/js/150-objects.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
-            wp_enqueue_script( '150-objects-sharing', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5cab956bbac2fc69', true ); // true adds it to the footer
-            break;
         case "page-business-directory.php":
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
-        case "page-150-innovations-section.php":
-        case "page-150-innovations.php":
-            wp_enqueue_style( '150-innovations', get_template_directory_uri() . '/css/150-innovations.css' );
-            break;
         case "page-pase-scholarship.php":
-            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship.js', array('jquery'), '1.0.0', true );
+            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship-min.js', array('jquery'), '1.0.0', true );
             wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             break;
         default:
@@ -38,7 +29,7 @@ function paa_scripts_and_styles() {
 
             // add some checks for custom post types
             } elseif ( is_post_type_archive( 'trip' ) ) {
-                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips-min.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
@@ -49,11 +40,7 @@ function paa_scripts_and_styles() {
                 wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             }
     }
-    wp_enqueue_script( 'intersection-observer', '//cdn.jsdelivr.net/npm/intersection-observer@0.5.1/intersection-observer.js', array(), '0.5.1' );
-    wp_deregister_script( 'jquery' );
-    wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-3.3.1.min.js', array(), '3.3.1' );
-    wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
-    wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+    wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common-min.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
 
