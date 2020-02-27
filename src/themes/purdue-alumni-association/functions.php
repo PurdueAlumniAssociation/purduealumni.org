@@ -20,7 +20,7 @@ function paa_scripts_and_styles() {
             wp_enqueue_style( 'page-biz-dir', get_template_directory_uri() . '/css/page-business-directory.css' );
             break;
         case "page-pase-scholarship.php":
-            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship.js', array('jquery'), '1.0.0', true );
+            wp_enqueue_script( 'pase-scholarship-scripts', get_template_directory_uri() . '/js/pase-scholarship-min.js', array('jquery'), '1.0.0', true );
             wp_enqueue_style( 'common-styles', get_template_directory_uri() . '/style.css' );
             break;
         default:
@@ -29,7 +29,7 @@ function paa_scripts_and_styles() {
 
             // add some checks for custom post types
             } elseif ( is_post_type_archive( 'trip' ) ) {
-                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+                wp_enqueue_script( 'archive-trip-scripts', get_template_directory_uri() . '/js/trips-min.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
                 wp_enqueue_style( 'archive-trip-styles', get_template_directory_uri() . '/css/archive-trip.css' );
             } elseif ( is_singular( 'trip' ) ) {
                 wp_enqueue_style( 'single-trip-styles', get_template_directory_uri() . '/css/single-trip.css' );
@@ -42,7 +42,7 @@ function paa_scripts_and_styles() {
     }
     wp_enqueue_script( 'intersection-observer', '//cdn.jsdelivr.net/npm/intersection-observer@0.5.1/intersection-observer.js', array(), '0.5.1' );
     wp_enqueue_script( 'featherlight', '//cdn.rawgit.com/noelboss/featherlight/1.7.13/release/featherlight.min.js', array('jquery'), '1.0.0', true );
-    wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
+    wp_enqueue_script( 'common-scripts', get_template_directory_uri() . '/js/common-min.js', array('jquery'), '1.0.0', true ); // true adds it to the footer
 }
 add_action( 'wp_enqueue_scripts', 'paa_scripts_and_styles' );
 
