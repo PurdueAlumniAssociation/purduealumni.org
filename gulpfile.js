@@ -6,7 +6,8 @@ const autoprefixer = require('gulp-autoprefixer');
 const sourcemaps = require('gulp-sourcemaps');
 const fileinclude = require('gulp-file-include');
 
-//const babel= require('gulp-babel');
+const babel= require('gulp-babel');
+const minify = require('gulp-minify');
 
 const origin = 'src';
 const destination = 'build';
@@ -60,22 +61,23 @@ async function css(cb) {
   cb();
 }
 
-// function js(cb) {
-//   src(`${origin}/js/lib/**/*.js`).pipe(dest(`${destination}/js/lib`));
-//
-//   src(`${origin}/js/script.js`)
-//   .pipe(babel({
-//     presets: ['@babel/env']
-//   }))
-//   .pipe(dest(`${destination}/js`));
-//   cb();
-// }
+function js(cb) {
+  //src(`${origin}/**/*.js`).pipe(dest(`${destination}`));
+
+  src(`${origin}/**/*.js`)
+  .pipe(babel({
+    presets: ['@babel/env']
+  }))
+  .pipe(minify())
+  .pipe(dest(`${destination}/js`));
+  cb();
+}
 
 function watcher(cb) {
   watch(`${origin}/**/*.html`).on('change', series(clean, html))
   watch(`${origin}/**/*.scss`).on('change', series(clean, css))
   watch(`${origin}/**/*.php`).on('change', series(clean, php))
-  //watch(`${origin}/**/*.js`).on('change', series(js, browserSync.reload))
+  watch(`${origin}/**/*.js`).on('change', series(clean, js))
   cb();
 }
 
@@ -83,7 +85,7 @@ function watcher_with_browsersync(cb) {
   watch(`${origin}/**/*.html`).on('change', series(clean, html, browserSync.reload))
   watch(`${origin}/**/*.scss`).on('change', series(clean, css, browserSync.reload))
   watch(`${origin}/**/*.php`).on('change', series(clean, php, browserSync.reload))
-  //watch(`${origin}/**/*.js`).on('change', series(js, browserSync.reload))
+  watch(`${origin}/**/*.js`).on('change', series(clean, js, browserSync.reload))
   cb();
 }
 
@@ -130,6 +132,6 @@ function wpjs(cb) {
 }
 
 
-exports.default = series(clean, parallel(html, css, php), watcher);
-exports.server = series(clean, parallel(html, css, php), server, watcher_with_browsersync);
+exports.default = series(clean, parallel(html, css, js, php), watcher);
+exports.server = series(clean, parallel(html, css, js, php), server, watcher_with_browsersync);
 exports.wpdev = parallel(wpcss, wpphp, wpjs);
