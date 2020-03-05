@@ -59,7 +59,7 @@ if ( ! empty($memberships) ) {
             $message = "<p>Your membership is expired! <a href=\"https://www.purduealumni.org/membership/\">Renew by purchasing a new membership</a>. Because you are already logged in, any information saved in your profile will be automatically filled out during checkout.</p>";
             break;
         case "wcm-cancelled":
-            $message = "<p>Your membership is cancelled! <a href=\"https://www.purduealumni.org/membership/\">Purchase a new membership to regain access to member benefits</a>. Because you are already logged in, any information saved in your profile will be automatically filled out during checkout.</p>";
+            $message = "<p>Your membership was cancelled! <a href=\"https://www.purduealumni.org/membership/\">Purchase a new membership to regain access to member benefits</a>. Because you are already logged in, any information saved in your profile will be automatically filled out during checkout.</p>";
             break;
         case "wcm-paused":
             $message = "<p>Your membership is paused.</p>";
