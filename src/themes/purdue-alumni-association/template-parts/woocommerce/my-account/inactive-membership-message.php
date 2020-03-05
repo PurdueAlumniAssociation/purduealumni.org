@@ -27,16 +27,13 @@ $memberships = wc_memberships_get_user_memberships();
 if ( ! empty($memberships) ) {
     // get the effective membership from the array of active memberships
     if ( count($memberships) == 1 ) {
-        $effective_membership = $membership;
+        $effective_membership = $memberships[0];
     } elseif ( count($memberships) > 1 ) {
         //$active_and_pending_memberships = array();
         $delayed_memberships = array();
         $expired_and_cancelled_memberships = array();
 
         foreach ( $memberships as $membership ) {
-            // if ( $membership->status == "wcm-active" || $membership->status == "wcm-pending" ) {
-            //     $active_and_pending[] = $membership;
-            //} elseif ( $membership->status == "wcm-delayed" ) {
             if ( $membership->status == "wcm-delayed" ) {
                 $delayed_memberships[] = $membership;
             } elseif ( $membership->status == "wcm-expired" || $membership->status == "wcm-cancelled" ) {
@@ -44,10 +41,6 @@ if ( ! empty($memberships) ) {
             }
         }
 
-        // if ( ! empty($active_and_pending_memberships) ) {
-        //     usort($active_and_pending_memberships, "sort_by_membership_level");
-        //     $effective_membership = $active_and_pending_memberships[0];
-        // } elseif ( ! empty($delayed_memberships) ) {
         if ( ! empty($delayed_memberships) ) {
             usort($delayed_memberships, "sort_by_membership_level");
             $effective_membership = $delayed_memberships[0];
@@ -58,10 +51,6 @@ if ( ! empty($memberships) ) {
     }
 
     switch ($effective_membership->status) {
-        // case "wcm-active":
-        // case "wcm-pending":
-        //     // do nothing
-        //     break;
         case "wcm-delayed":
             $start_date = date("F j, Y", strtotime($effective_membership->get_start_date()));
             $message = "<p>Your membership is not active yet. Check back on or after {$start_date}.</p>";
@@ -72,7 +61,7 @@ if ( ! empty($memberships) ) {
             break;
     }
 } else { // $memberships is empty
-    $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a new mebership</a>.</p>";
+    $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a mebership</a>.</p>";
 }
 
 echo $message;
