@@ -52,5 +52,6 @@ if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
             echo do_shortcode("[wcm_restrict plans=\"{$benefit_levels}\"]{$content}[/wcm_restrict]");
     }
 } else {
+    // no active memberships
     get_template_part( 'template-parts/woocommerce/my-account/inactive-membership-message' );
 }
