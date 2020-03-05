@@ -59,6 +59,9 @@ if ( ! empty($memberships) ) {
         case "wcm-cancelled":
             $message = "<p>Your membership is expired! <a href=\"https://www.purduealumni.org/membership/\">Renew by purchasing a new membership</a>. Because you are already logged in, any information saved in your profile will be automatically filled out during checkout.</p>";
             break;
+        case "wcm-paused":
+            $message = "<p>Your membership is paused.</p>";
+            break;
     }
 } else { // $memberships is empty
     $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a mebership</a>.</p>";
@@ -66,6 +69,5 @@ if ( ! empty($memberships) ) {
 
 echo $message;
 
-echo "<pre>", print_r($effective_membership) ,"</pre>";
 ?>
 <p>If this is an error, please let us know by emailing <a href="mailto:alumnidigital@purdue.edu">alumnidigital@purdue.edu</a></p>
