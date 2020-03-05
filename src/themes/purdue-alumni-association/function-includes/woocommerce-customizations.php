@@ -127,7 +127,7 @@ add_action('woocommerce_account_my-benefits_endpoint', 'paa_my_benefits_content'
 
 function paa_membership_card_content()
 {
-    get_template_part('template-parts/membership-card');
+    get_template_part('template-parts/woocommerce/my-account/membership-card');
 }
 add_action('woocommerce_account_membership-card_endpoint', 'paa_membership_card_content');
 
