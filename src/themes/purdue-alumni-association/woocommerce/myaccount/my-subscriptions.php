@@ -10,6 +10,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+if ( ! empty(wc_memberships_get_user_active_memberships()) ) {
 ?>
 <div class="woocommerce_account_subscriptions">
 
@@ -106,3 +107,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<?php endif; ?>
 
 </div>
+<?php
+} else {
+    // no active memberships
+    get_template_part( 'template-parts/woocommerce/my-account/inactive-membership-message' );
+}
+?>

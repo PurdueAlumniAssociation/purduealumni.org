@@ -121,13 +121,13 @@ add_filter('query_vars', 'paa_my_account_add_query_vars', 0);
 
 function paa_my_benefits_content()
 {
-    get_template_part('template-parts/my-benefits');
+    get_template_part('template-parts/woocommerce/my-account/my-benefits');
 }
 add_action('woocommerce_account_my-benefits_endpoint', 'paa_my_benefits_content');
 
 function paa_membership_card_content()
 {
-    get_template_part('template-parts/membership-card');
+    get_template_part('template-parts/woocommerce/my-account/membership-card');
 }
 add_action('woocommerce_account_membership-card_endpoint', 'paa_membership_card_content');
 
