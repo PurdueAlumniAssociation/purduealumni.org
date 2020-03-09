@@ -313,32 +313,37 @@ if ( have_posts() ) : while ( have_posts() ) : the_post();
             </div>
             <aside class="col-xs-12 col-sm-3">
                 <?php
-                // set $location based on type of community
+                // output international flag
                 if ($community_type == 'International') {
-                    $location = "{$community_country}";
-                } elseif ($community_type == 'Club') {
-                    $location = "{$community_city}, {$community_state}";
-                } elseif ($community_type == 'Affinity') {
-                    if ( ! empty($community_city) && ! empty($community_state) && ! empty($community_country)  ) {
-                        $location = "{$community_city}, {$community_state}, {$community_country}";
-                    }
-                }
+                  $lower_community = strtolower($country_codes[$community_country]);
 
-                // only output the location if the data is present
-                if ( isset($location) ) {
-                    echo "<h2>Location</h2>";
-
-                    // output international flag
-                    if ($community_type == 'International') {
-                        $lower_community = strtolower($country_codes[$community_country]);
-
-                        echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
-                    }
-
-                    echo "<p>{$location}</p>";
+                  echo "<img style=\"display:block; max-width: 300px; height: 10em; border: 1px solid #000;\" class=\"international-flag\" src=\"https://www.purduealumni.org/flags/4x3/{$lower_community}.svg\" alt=\"{$community_country} flag\">";
                 }
 
 
+                if ( ! empty($community_city) && ! empty ($community_state)) {
+                  echo "<h2>Location</h2>";
+                  echo "<p>$community_city, $community_state</p>";
+                }
+                elseif ( ! empty($community_city) && ! empty ($community_country)) {
+                  echo "<h2>Location</h2>";
+                  echo "<p>$community_city, $community_country</p>";
+                }
+                elseif ( ! empty($community_country)) {
+                  echo "<h2>Location</h2>";
+                  echo "<p>$community_country</p>";
+                }
+                elseif ( ! empty($community_city)) {
+                  echo "<h2>Location</h2>";
+                  echo "<p>$community_city</p>";
+                }
+                elseif ( ! empty($community_state)) {
+                  echo "<h2>Location</h2>";
+                  echo "<p>$community_state</p>";
+                }
+                else {
+                  echo '';
+                }
 
                 // output community contact with heading, contact name, phone number
                 echo "<h2>Contact Us</h2>";
