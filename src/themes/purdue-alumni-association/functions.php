@@ -373,7 +373,8 @@ function paa_sort_by_temp_column ($orderby) {
 }
 
 include 'function-includes/club-dashboard.php';
-include 'function-includes/shortcode-community-index.php';
+include 'function-includes/shortcodes/community-index.php';
+include 'function-includes/shortcodes/last-modified.php';
 
 function paa_custom_mime_types( $mimes ) {
     // new allowed mime types
