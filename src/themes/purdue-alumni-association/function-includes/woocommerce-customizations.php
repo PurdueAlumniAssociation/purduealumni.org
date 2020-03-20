@@ -298,7 +298,7 @@ add_action('woocommerce_customer_changed_subscription_to_cancelled', 'paa_custom
 function paa_subscriptions_custom_price_string( $pricestring ) {
     global $product;
 
-    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430 );
+    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430, 197101 );
 
     if ( in_array( $product->id, $products_to_change ) ) {
         $pricestring = str_replace( 'for 1 year', '', $pricestring );
@@ -311,7 +311,7 @@ add_filter( 'woocommerce_subscription_price_string', 'paa_subscriptions_custom_p
 function paa_life_custom_cart_button_text( $button_text ) {
     global $product;
 
-    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430 );
+    $products_to_change = array( 4523, 11149, 175186, 191584, 191734, 190430, 197101 );
 
     if ( in_array( $product->id, $products_to_change ) ) {
         return __('Join Now', 'woocommerce');
