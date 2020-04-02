@@ -349,29 +349,6 @@ include 'function-includes/custom-query-vars.php';
 require_once 'classes/GWEmailDomainControl.class.php';
 include 'function-includes/gf-customizations.php';
 include 'function-includes/woocommerce-customizations.php';
-
-// 150 Objects Filters
-function paa_create_temp_column($fields) {
-  global $wpdb;
-  $has_the = " CASE
-      WHEN $wpdb->posts.post_title regexp '^(The)[[:space:]]'
-        THEN trim(substr($wpdb->posts.post_title from 4))
-      ELSE $wpdb->posts.post_title
-        END AS title2";
-  if ($has_the) {
-    $fields .= ( preg_match( '/^(\s+)?,/', $has_the ) ) ? $has_the : ", $has_the";
-  }
-  return $fields;
-}
-
-function paa_sort_by_temp_column ($orderby) {
-  $custom_orderby = " TRIM( LEADING '\‘' FROM TRIM( LEADING '''' FROM UPPER(title2) ) )";
-  if ($custom_orderby) {
-    $orderby = $custom_orderby;
-  }
-  return $orderby;
-}
-
 include 'function-includes/club-dashboard.php';
 include 'function-includes/shortcodes/community-index.php';
 
