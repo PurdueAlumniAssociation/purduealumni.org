@@ -113,12 +113,16 @@ function output_community_list($atts){
       // close out the unordered list
       $output .= '</ul>';
 
+      wp_reset_postdata();
+
       return $output;
   } else {
       // no communities found
       $no_community = "no communities";
+
+      wp_reset_postdata();
+      
       return $no_community;
   }
-  wp_reset_postdata();
 }
 add_shortcode( 'community_list', 'output_community_list');
