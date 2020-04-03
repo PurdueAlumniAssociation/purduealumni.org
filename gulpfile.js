@@ -11,7 +11,7 @@ const minify = require('gulp-minify');
 
 const origin = 'src';
 const destination = 'build';
-const devPath = '../../../../../Applications/MAMP/htdocs/wc/wp-content/themes/purdue-alumni-association/';
+const devPath = '../../../../../Applications/MAMP/htdocs/wc/wp-content/';
 
 sass.compiler = require('node-sass');
 
@@ -101,7 +101,7 @@ function server(cb) {
 }
 
 async function wpcss(cb) {
-    await del([`${devPath}style.css`, `${devPath}style.css.map`, `${devPath}css/*.*`, `${devPath}css/*.*.map` ], { force: true });
+    await del([`${devPath}themes/purdue-alumni-association/style.css`, `${devPath}themes/purdue-alumni-association/style.css.map`, `${devPath}themes/purdue-alumni-association/css/*.*`, `${devPath}themes/purdue-alumni-association/css/*.*.map` ], { force: true });
 
     src(`${origin}/sass/style.scss`)
         .pipe(sourcemaps.init())
@@ -121,13 +121,15 @@ async function wpcss(cb) {
 
 function wpphp(cb) {
   src(`${origin}/themes/purdue-alumni-association/**/*.php`)
-  .pipe(dest(devPath));
+  .pipe(dest(`${devPath}themes/purdue-alumni-association/`));
+  src(`${origin}/plugins/**/*.php`)
+  .pipe(dest(`${devPath}plugins/`));
   cb();
 }
 
 function wpjs(cb) {
   src(`${origin}/themes/purdue-alumni-association/**/*.js`)
-  .pipe(dest(devPath));
+  .pipe(dest(`${devPath}themes/purdue-alumni-association/`));
   cb();
 }
 
