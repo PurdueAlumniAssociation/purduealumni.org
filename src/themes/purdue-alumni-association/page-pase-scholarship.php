@@ -12,10 +12,7 @@
         <section class="row">
             <div class="layout">
                 <div class="layout__main">
-                    <main class="" id="main" tabindex="-1">
-                        <h1><?php the_title(); ?></h1>
-                        <?php the_content(); ?>
-                    </main>
+                    <?php get_template_part( 'template-parts/page-content'); ?>
                 </div>
                 <aside class="layout__sidebar">
                     <?php dynamic_sidebar( 'left-sidebar' ); ?>
@@ -24,10 +21,7 @@
         </section>
     <?php else : ?>
         <section class="row">
-            <main id="main" tabindex="-1">
-                <h1><?php the_title(); ?></h1>
-                <?php the_content(); ?>
-            </main>
+            <?php get_template_part( 'template-parts/page-content'); ?>
         </section>
     <?php endif; ?>
 <?php endwhile; else : ?>
