@@ -28,4 +28,19 @@ jQuery(document).ready( function($) {
             }
         });
     });
+
+    $('#paau_close').click( function() {
+        $("#paau_modal").css("display", "none");
+    });
+
+    $('#paau_underwriter').click( function() {
+        $("#paau_modal").css("display", "block");
+    });
+
+    // When the user clicks anywhere outside of the modal, close it
+    $(window).click( function(event) {
+        if ( event.target.id === "paau_modal" ) {
+            $("#paau_modal").css("display", "none");
+        }
+    });
 });
