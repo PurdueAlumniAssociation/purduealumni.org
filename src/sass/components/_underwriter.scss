@@ -1,0 +1,76 @@
+#paau {
+    &_underwriter {
+        padding: 2em;
+        background-color: #eee;
+        margin-bottom: 2em;
+    }
+
+    &_modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 1;
+        /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0,0,0);
+        /* Fallback color */
+        background-color: rgba(0,0,0,0.4);
+        /* Black w/ opacity */
+        text-align: center;
+    }
+
+    /* Modal Content/Box */
+    &_modal-content {
+        background-color: white;
+        margin: 15% auto;
+        /* 15% from the top and centered */
+        display: inline-block;
+        position: relative;
+        box-shadow: 10px 10px 5px grey;
+        max-width: 80%;
+
+        @include breakpoint(sm) {
+            //max-width: 50%;
+            display: flex;
+            flex-direction: row;
+        }
+    }
+
+    /* The Close Button */
+    &_close {
+        color: gray;
+        font-size: 2em;
+        position: absolute;
+        top: 0;
+        right: 0;
+        line-height: 0;
+        padding: .5em;
+
+        &:focus, &:hover {
+            color: silver;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    }
+
+    &_image-container {
+        min-width: 300px;
+
+        & img {
+            display: block;
+        }
+    }
+
+    &_text-container {
+        padding: 2em;
+        min-width: 300px;
+    }
+}
