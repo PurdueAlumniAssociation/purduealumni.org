@@ -66,7 +66,7 @@ if ( ! empty($memberships) ) {
             break;
     }
 } else { // $memberships is empty
-    $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a mebership</a>.</p>";
+    $message = "<p>You don't have an active membership! <a href=\"https://www.purduealumni.org/membership/\">Purchase a membership</a>.</p>";
 }
 
 echo $message;
