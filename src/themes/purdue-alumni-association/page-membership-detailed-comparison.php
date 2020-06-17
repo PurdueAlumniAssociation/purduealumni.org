@@ -383,22 +383,6 @@
                     <td class="detailed-comparison-table__data detailed-comparison-table__data--career-max detailed-comparison-table__data--included">50% Off</td>
                 </tr>
                 <tr>
-                    <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">LinkedIn Learning on-demand courses
-                        <span class="tooltip detailed-comparison-table__tooltip" role="tooltip">
-                            <i class="far fa-question-circle detailed-comparison-table__tooltip-icon"></i>
-                            <span class="tooltip__content">Unlimited access to thousands of on-demand courses to broaden your professional skills.</span>
-                        </span>
-                    </th>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--basic detailed-comparison-table__data--excluded"><i class="fas fa-times sr-only" title="Not Included in Basic"></i>
-                    </td>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--plus detailed-comparison-table__data--excluded"><i class="fas fa-times sr-only" title="Not Included in Plus"></i>
-                    </td>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--professional detailed-comparison-table__data--excluded"><i class="fas fa-times sr-only" title="Not Included in Professional"></i>
-                    </td>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--career-max detailed-comparison-table__data--included"><i class="fas fa-check" title="Included in Career Max"></i>
-                    </td>
-                </tr>
-                <tr>
                     <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">Resume review
                         <span class="tooltip detailed-comparison-table__tooltip" role="tooltip">
                             <i class="far fa-question-circle detailed-comparison-table__tooltip-icon"></i>
