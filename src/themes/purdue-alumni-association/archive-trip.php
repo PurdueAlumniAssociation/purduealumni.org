@@ -150,6 +150,7 @@ shuffle($random_trips);
             <div class="layout__main">
                 <main class="" id="main" tabindex="-1">
                     <h1><?php echo $page_title; ?></h1>
+                    <p>Our desire to explore the world is resilient, and we look forward to a time when we will once again share extraordinary experiences. Please take a moment to check out our <?= $filter_year ?> trips and contact <a href="mailto:alumnitravel@purdue.edu">alumnitravel@purdue.edu</a> with any questions.</p>
                     <?php
                     $current_month = "";
                     $first = true;
