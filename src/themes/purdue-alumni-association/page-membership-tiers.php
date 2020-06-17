@@ -51,7 +51,7 @@
                 <div class="plan__details">
                     <p class="plan__cost">$199<span class="plan__cost-year"> / year</span>
                     </p>
-                    <p class="plan__description">The ultimate way to take your career to new heights. 1-1 career counseling, unlimited LinkedIn Learning on-demand courses, CliftonStrengths Leadership Assessment, and so much more.</p>
+                    <p class="plan__description">The ultimate way to take your career to new heights. 1-1 career counseling, CliftonStrengths Leadership Assessment, and so much more.</p>
                     <a class="plan__learn-more" href="<?php echo esc_url( home_url( 'membership/career-max' ) ); ?>">Learn More</a>
                     <a class="plan__join button button--orange button--bold" href="https://www.purduealumni.org/membership/career-max">Join Now or Renew</a>
                 </div>
