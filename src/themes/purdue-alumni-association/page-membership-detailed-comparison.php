@@ -379,8 +379,8 @@
                     </td>
                     <td class="detailed-comparison-table__data detailed-comparison-table__data--plus detailed-comparison-table__data--excluded"><i class="fas fa-times sr-only" title="Not Included in Plus"></i>
                     </td>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--professional detailed-comparison-table__data--included">25% Off</td>
-                    <td class="detailed-comparison-table__data detailed-comparison-table__data--career-max detailed-comparison-table__data--included">50% Off</td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--professional detailed-comparison-table__data--included">10% Off</td>
+                    <td class="detailed-comparison-table__data detailed-comparison-table__data--career-max detailed-comparison-table__data--included">10% Off</td>
                 </tr>
                 <tr>
                     <th class="detailed-comparison-table__data detailed-comparison-table__data--benefit" scope="row">Resume review
