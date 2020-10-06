@@ -1,6 +1,6 @@
 <?php
 function output_graphic_boxes( $ids ) {
-    $colors = array( "boilermaker-gold", "rush-gold", "dark-gray" );
+    $colors = array( "", "gold", "dark-gray" );
     $color_index = 0;
     $output = '';
 
