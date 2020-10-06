@@ -1,0 +1,15 @@
+.search-results {
+    & .entry-title {
+        font-style: normal;
+        font-family: 'Barlow',sans-serif;
+        font-size: 1.5em;
+    }
+
+    & .entry-title > a {
+        text-decoration: none;
+    }
+
+    & .entry-title > a:hover {
+        text-decoration: underline;
+    }
+}
