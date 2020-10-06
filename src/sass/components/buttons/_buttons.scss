@@ -1,9 +1,9 @@
 .button {
     display: inline-block;
-    background-color: transparent;
+    background-color: $boilermaker-gold;
     border-radius: 5em;
     color: $almost-black;
-    border: 2px solid $almost-black;
+    border: 2px solid $boilermaker-gold;
     cursor: pointer;
     font-family: $barlow;
     font-size: 1em;
@@ -17,9 +17,7 @@
     }
 
     &:hover {
-        background-color: $almost-black;
         border-color: $almost-black;
-        color: $white;
     }
 
     // button generator
