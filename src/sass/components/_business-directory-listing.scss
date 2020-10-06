@@ -26,7 +26,7 @@
     }
 
     &--premium {
-        box-shadow: 0 -10px 0 0 $campus-gold;
+        box-shadow: 0 -10px 0 0 $boilermaker-gold;
         flex: 0 0 100%;
         display: flex;
     }
@@ -80,7 +80,7 @@
     }
 
     &__line {
-        border-color: $campus-gold;
+        border-color: $boilermaker-gold;
         position: relative;
         width: 3em;
     }

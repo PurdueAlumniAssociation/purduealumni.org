@@ -1,5 +1,5 @@
 .graphic-box {
-    border-bottom: 15px solid $campus-gold;
+    border-bottom: 15px solid $boilermaker-gold;
     position: relative;
     background-color: $gray;
     background-position: center;
@@ -8,12 +8,12 @@
     min-height: 225px;
     min-width: 200px;
 
-    &--green {
-        border-color: $ross-ade-green;
+    &--brown {
+        border-color: $aged-gold;
     }
 
-    &--orange {
-        border-color: $bell-tower-brick;
+    &--gold {
+        border-color: $rush-gold;
     }
 
     &--dark-gray {
@@ -50,7 +50,7 @@
     }
 
     &__category {
-        background-color: $campus-gold;
+        background-color: $boilermaker-gold;
         color: $white;
         font-size: 1.2em;
         text-transform: uppercase;
@@ -58,12 +58,12 @@
         display: inline-block;
         margin-bottom: 10px;
 
-        &--green {
-            background-color: $ross-ade-green;
+        &--brown {
+            background-color: $aged-gold;
         }
 
-        &--orange {
-            background-color: $bell-tower-brick;
+        &--gold {
+            background-color: $rush-gold;
         }
 
         &--dark-gray {

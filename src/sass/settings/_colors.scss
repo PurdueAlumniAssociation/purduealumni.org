@@ -18,22 +18,23 @@
   @return mix(black, $color, $percentage);
 }
 
-$digital-gold: #98700d;
-$campus-gold: #c28e0e;
-$bell-tower-brick: #b46012;
-$ross-ade-green: #849e2a;
-$fountain-run-teal: #29a592;
-$slayter-sky-blue: #6e99b4;
+//$digital-gold: #98700d;
+//$boilermaker-gold: #c28e0e;
+
 $light-gray: #eee;
 $gray: #bababa;
-$dark-gray: #5e5e5e;
 $almost-black: #383838;
 $red: #e04826;
 $black: #000;
 $white: #fff;
 
+$dark-gray: #555960;
+$rush-gold: #daaa00;
+$boilermaker-gold: #c5a463;
+$aged-gold: #8e6f3e;
+
 // plans
-$basic: #555960;
-$plus: #daaa00;
-$professional: #c5a463;
-$career-max: #8e6f3e;
+$basic: $dark-gray;
+$plus: $rush-gold;
+$professional: $boilermaker-gold;
+$career-max: $aged-gold;

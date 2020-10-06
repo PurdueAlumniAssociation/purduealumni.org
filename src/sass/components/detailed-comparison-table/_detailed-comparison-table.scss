@@ -115,7 +115,7 @@
     // end highlighted column
 
     &__heading {
-        border-top: 10px solid $campus-gold;
+        border-top: 10px solid $boilermaker-gold;
         @extend %gray-background;
 
         &--benefit {
@@ -160,7 +160,7 @@
         }
 
         &--included {
-            color: $ross-ade-green;
+            color: green;
         }
 
         &--excluded {

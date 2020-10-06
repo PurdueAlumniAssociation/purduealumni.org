@@ -12,7 +12,7 @@
 
         @include breakpoint(xs) {
             order: 2;
-            border-left: 8px solid $campus-gold;
+            border-left: 8px solid $boilermaker-gold;
         }
 
         @include breakpoint(sm) {
@@ -46,7 +46,7 @@
             &:after {
                 content: "";
                 position: absolute;
-                background-color: $campus-gold;
+                background-color: $boilermaker-gold;
                 width: 30%;
                 height: 8px;
                 width: 90px;
@@ -63,7 +63,7 @@
         //     content: "";
         //     position: absolute;
         //     height: 8px;
-        //     background-color: $campus-gold;
+        //     background-color: $boilermaker-gold;
         //     width: 90px;
         //     bottom: -19px;
         //     left: 0;

@@ -24,12 +24,11 @@
 
     // button generator
                  // name         background-color      text-color        border-color          hover-bg-color    hover-text-color    hover-border-color
-    $button-colors: teal         $fountain-run-teal    $white            $fountain-run-teal    transparent       $fountain-run-teal  $fountain-run-teal,
-                    orange       $bell-tower-brick     $white            $bell-tower-brick     transparent       $bell-tower-brick   $bell-tower-brick,
-                    gold         $campus-gold          $almost-black     $campus-gold          transparent       $almost-black       $campus-gold,
-                    blue         $slayter-sky-blue     $white            $slayter-sky-blue     transparent       $slayter-sky-blue   $slayter-sky-blue,
-                    green        $ross-ade-green       $white            $ross-ade-green       transparent       $ross-ade-green     $ross-ade-green,
-                    light-gray   $light-gray           $almost-black     $light-gray           transparent       $almost-black       $light-gray,
+    $button-colors: aged-gold    $aged-gold            $almost-black     $aged-gold            transparent       $almost-black       $almost-black,
+                    rush-gold    $rush-gold            $almost-black     $rush-gold            transparent       $almost-black       $almost-black,
+             boilermaker-gold    $boilermaker-gold     $almost-black     $boilermaker-gold     transparent       $almost-black       $almost-black,
+                    light-gray   $light-gray           $almost-black     $light-gray           transparent       $almost-black       $almost-black,
+                    dark-gray    $dark-gray            $white            $dark-gray            transparent       $almost-black       $almost-black,
                     almost-black $almost-black         $white            $almost-black         transparent       $almost-black       $almost-black,
                     white        $white                $almost-black     $white                transparent       $white              $white;
 
@@ -96,18 +95,18 @@
     }
 
     &--invert-gold {
-        color: $campus-gold;
-        border-color: $campus-gold;
+        color: $boilermaker-gold;
+        border-color: $boilermaker-gold;
         background-color: $black;
 
         &:visited {
-            color: $campus-gold;
+            color: $boilermaker-gold;
         }
 
         &:hover {
-            background-color: $campus-gold;
+            background-color: $boilermaker-gold;
             color: $almost-black;
-            border-color: $campus-gold;
+            border-color: $boilermaker-gold;
         }
     }
     // end special button cases
