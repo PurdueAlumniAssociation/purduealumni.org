@@ -23,7 +23,7 @@
 
     // button generator
                  // name         background-color      text-color        border-color          hover-bg-color    hover-text-color    hover-border-color
-    $button-colors: aged-gold    $aged-gold            $almost-black     $aged-gold            transparent       $almost-black       $almost-black,
+    $button-colors: aged-gold    $aged-gold            $white            $aged-gold            transparent       $almost-black       $almost-black,
                     rush-gold    $rush-gold            $almost-black     $rush-gold            transparent       $almost-black       $almost-black,
              boilermaker-gold    $boilermaker-gold     $almost-black     $boilermaker-gold     transparent       $almost-black       $almost-black,
                     light-gray   $light-gray           $almost-black     $light-gray           transparent       $almost-black       $almost-black,
@@ -54,24 +54,6 @@
                 background-color: $hover-bg-color;
                 border-color: $hover-border-color;
                 color: $hover-text-color;
-            }
-        }
-
-        @if ($color-name != "light-gray" and $color-name != "almost-black" and $color-name != "gold") {
-            &--invert-#{$color-name} { // i.e.  &--invert-teal
-                color: $bg-color;
-                border-color: $bg-color;
-                background-color: $text-color;
-
-                &:visited {
-                    color: $bg-color;
-                }
-
-                &:hover {
-                    background-color: $hover-text-color;
-                    color: $text-color;
-                    border-color: $hover-bg-color;
-                }
             }
         }
     } // end button generator
