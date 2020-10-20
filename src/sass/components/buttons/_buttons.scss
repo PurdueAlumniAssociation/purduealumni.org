@@ -7,10 +7,11 @@
     cursor: pointer;
     font-family: $barlow;
     font-size: 1em;
-    font-weight: 400;
+    font-weight: bold;
     line-height: 1.5;
     padding: .4em 1.5em;
     text-decoration: none;
+    text-shadow: none;
 
     &:visited {
         color: $almost-black;
@@ -74,50 +75,6 @@
             }
         }
     } // end button generator
-
-    // special button cases
-    &--invert-light-gray {
-        color: $white;
-        border-color: $light-gray;
-        background-color: transparent;
-
-        &:visited {
-            color: $white;
-        }
-
-        &:hover {
-            background-color: $light-gray;
-            color: $almost-black;
-            border-color: $light-gray;
-        }
-    }
-
-    &--invert-gold {
-        color: $boilermaker-gold;
-        border-color: $boilermaker-gold;
-        background-color: $black;
-
-        &:visited {
-            color: $boilermaker-gold;
-        }
-
-        &:hover {
-            background-color: $boilermaker-gold;
-            color: $almost-black;
-            border-color: $boilermaker-gold;
-        }
-    }
-    // end special button cases
-
-    &--small {
-        font-size: 1em;
-        line-height: 1.5;
-        padding: .2em .75em;
-    }
-
-    &--bold {
-        font-weight: 700;
-    }
 
     &:focus {
         outline: none;
